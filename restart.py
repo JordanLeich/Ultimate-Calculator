@@ -24,3 +24,7 @@ def restart():
         print(colors.red+"Invalid input... Restarting input...\n"+colors.reset)
         time.sleep(2)
         restart()
+
+
+if __name__ == '__main__':
+    restart()

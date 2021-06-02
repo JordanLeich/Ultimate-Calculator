@@ -42,7 +42,10 @@ Which calculator would you like to use: '''))
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...', colors.reset)
+        import time
+        time.sleep(2)
         start()
 
 
-start()
+if __name__ == '__main__':
+    start()
