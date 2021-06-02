@@ -10,6 +10,7 @@ import restart
 import end
 import colors
 import stocks
+import time
 
 
 def start():
@@ -19,8 +20,9 @@ All Calculators and Converters!
 (2) Algebra (Find Slope)
 (3) All Converters (Temperature, Mass, Length, Volume, Youtube Video & Audio)
 (4) Stock Market Shares Calculator
-(5) Restart
-(6) Exit
+(5) Time Converter (Hours to Days, Days in Years, * More)
+(6) Restart
+(7) Exit
 Which calculator would you like to use: '''))
     print()
 
@@ -33,8 +35,10 @@ Which calculator would you like to use: '''))
     elif choice == 4:
         stocks.start()
     elif choice == 5:
-        restart.restart()
+        time.start()
     elif choice == 6:
+        restart.restart()
+    elif choice == 7:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
