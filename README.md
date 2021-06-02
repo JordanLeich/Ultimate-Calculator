@@ -12,6 +12,6 @@
 This is an incredibly powerful calculator that is capable of many useful day-to-day functions.
 
 # TODO List ❗
-- Check out the issues page for this project [here](https://github.com/JordanLeich/Ulitmate-Calculator/issues)
+- Check out the issues page for this project [here](https://github.com/JordanLeich/Ultimate-Calculator/issues/1)
 
 ![Calculator](images/gif.gif "Calculator")
