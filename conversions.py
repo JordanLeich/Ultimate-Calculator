@@ -1,7 +1,7 @@
 import colors
 import end
 import restart
-
+from . import currency_api
 
 def currency_converter():
     user_choice = int(
