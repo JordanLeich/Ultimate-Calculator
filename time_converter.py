@@ -1,0 +1,2 @@
+def start():
+    print('test')

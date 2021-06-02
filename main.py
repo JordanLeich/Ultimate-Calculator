@@ -10,7 +10,7 @@ import restart
 import end
 import colors
 import stocks
-import time
+import time_converter
 
 
 def start():
@@ -35,13 +35,13 @@ Which calculator would you like to use: '''))
     elif choice == 4:
         stocks.start()
     elif choice == 5:
-        time.start()
+        time_converter.start()
     elif choice == 6:
         restart.restart()
     elif choice == 7:
         end.end()
     else:
-        print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
+        print(colors.red + 'User input error found... Restarting user input choice...', colors.reset)
         start()
 
 
