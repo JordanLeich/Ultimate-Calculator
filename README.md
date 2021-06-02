@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/github/stars/JordanLeich/Ultimate-Calculator.svg?style=flat-square" alt="Stars" />
   </a>
 
-# Description ✏️
+# Description 💻
 This is an incredibly powerful calculator that is capable of many useful day-to-day functions. Such functions include solving basic arithmetic , algebraic, chemistry conversions, and much more.
 
 # Requirements ⚡
