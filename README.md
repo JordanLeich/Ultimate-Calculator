@@ -11,7 +11,7 @@
 # Description ✏️
 This is an incredibly powerful calculator that is capable of many useful day-to-day functions. Such functions include solving basic arithmetic , algebraic, chemistry conversions, and much more.
 
-# Requirements
+# Requirements ⚡
 1. colored (pip install colored)
 
 # TODO List ❗
