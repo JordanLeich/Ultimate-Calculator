@@ -18,7 +18,7 @@ def start():
 All Calculators and Converters!
 (1) Basic Arithmetic Math (Add, Subtract, Multiply, Divide, & More)
 (2) Algebra (Find Slope)
-(3) All Converters (Temperature, Mass, Length, Volume, Youtube Video & Audio)
+(3) All Converters (Temperature, Mass, Length, Volume)
 (4) Stock Market Shares Calculator
 (5) Time Converter (Hours to Days, Days in Years, * More)
 (6) Restart

@@ -1,6 +1,3 @@
-import os
-import pytube
-from pytube import YouTube
 import colors
 import end
 import restart
@@ -8,11 +5,11 @@ import restart
 
 def currency_converter():
     user_choice = int(
-        input("""US Dollar to ALL (1)
-            Euro to ALL (2)
-            Canadian to ALL (3)
-            Japanese Yen (4)
-            Select a currency conversion:    """))
+        input("""(1) US Dollar to ALL 
+(2) Euro to ALL 
+(3) Canadian to ALL 
+(4) Japanese Yen to ALL
+Select a currency conversion:    """))
     print()
     if user_choice == 1:
         user_dollar = float(input("Dollar Amount: "))
@@ -57,24 +54,6 @@ def currency_converter():
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         currency_converter()
-
-
-def youtube_converter():
-    video_url = input('Enter YouTube video URL: ')
-    print()
-    print(colors.green + 'Video is downloaded, please check your current directory to find the file when this program '
-                         'ends running!\n', colors.reset)
-
-    if os.name == 'nt':
-        path = os.getcwd() + '\\'
-    else:
-        path = os.getcwd() + '/'
-
-    name = pytube.extract.video_id(video_url)
-    YouTube(video_url).streams.filter(only_audio=True).first().download(filename=name)
-    location = path + name + '.mp4'
-    renametomp3 = path + name + '.mp3'
-    restart.restart()
 
 
 def temp_converter():
@@ -309,9 +288,8 @@ def start():
 (3) Length Converter
 (4) Volume Converter
 (5) Currency Converter
-(6) YouTube to MP3 Converter
-(7) Restart
-(8) Quit
+(6) Restart
+(7) Quit
 What converter would you like to perform: '''))
     print()
 
@@ -326,10 +304,8 @@ What converter would you like to perform: '''))
     elif choice == 5:
         currency_converter()
     elif choice == 6:
-        youtube_converter()
-    elif choice == 7:
         restart.restart()
-    elif choice == 8:
+    elif choice == 7:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
