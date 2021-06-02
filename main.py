@@ -15,8 +15,8 @@ import stocks
 def start():
     choice = int(input('''
 All Calculators and Converters!
-(1) Basic Arithmetic Math (Add, Subtract, Multiply, Divide)
-(2) Algebra (Slope)
+(1) Basic Arithmetic Math (Add, Subtract, Multiply, Divide, & More)
+(2) Algebra (Find Slope)
 (3) All Converters (Temperature, Mass, Length, Volume, Youtube Video & Audio)
 (4) Stock Market Shares Calculator
 (5) Restart
