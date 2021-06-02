@@ -56,7 +56,7 @@ def currency_converter():
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-        start()
+        currency_converter()
 
 
 def youtube_converter():
@@ -139,7 +139,6 @@ Select a mass conversion: """))
         print(colors.green, user_kilo, "in Kilograms equals", kg_to_p, "in Pounds.", colors.reset)
         print(colors.green, user_kilo, "in Kilograms equals", kg_to_o, "in Ounces.\n", colors.reset)
         restart.restart()
-
     elif user_choice == 2:
         user_gram = float(input("Grams: "))
         print()
@@ -150,7 +149,6 @@ Select a mass conversion: """))
         print(colors.green, user_gram, "in Grams equals", g_to_p, "in Pounds.", colors.reset)
         print(colors.green, user_gram, "in Grams equals", g_to_o, "in Ounces.\n", colors.reset)
         restart.restart()
-
     elif user_choice == 3:
         user_pound = float(input("Pounds: "))
         print()
@@ -161,7 +159,6 @@ Select a mass conversion: """))
         print(colors.green, user_pound, "in Pounds equals", p_to_g, "in Grams.", colors.reset)
         print(colors.green, user_pound, "in Pounds equals", p_to_o, "in Ounces.\n", colors.reset)
         restart.restart()
-
     elif user_choice == 4:
         user_ounce = float(input("Ounces: "))
         print()
@@ -172,20 +169,149 @@ Select a mass conversion: """))
         print(colors.green, user_ounce, "in Ounces equals", o_to_g, "in Grams.", colors.reset)
         print(colors.green, user_ounce, "in Ounces equals", o_to_p, "in Pounds.\n", colors.reset)
         restart.restart()
-
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         mass_converter()
+
+
+def length_converter():
+    """
+Handles all length conversions
+    """
+    user_choice = int(
+        input("""(1) Feet to ALL
+(2) Inch to ALL 
+(3) Yard to ALL 
+(4) Mile to ALL 
+Select a length conversion: """))
+    print()
+
+    if user_choice == 1:
+        ft = float(input("Feet: "))
+        print()
+        ft_to_inch = ft * 12
+        ft_to_yard = ft / 3
+        ft_to_mile = ft / 5280
+        print(colors.green, ft, "in Feet equals", ft_to_inch, "in Inches.", colors.reset)
+        print(colors.green, ft, "in Feet equals", ft_to_yard, "in Yards.", colors.reset)
+        print(colors.green, ft, "in Feet equals", ft_to_mile, "in Miles.\n", colors.reset)
+        restart.restart()
+    elif user_choice == 2:
+        inch = float(input("Inches: "))
+        print()
+        inch_to_ft = inch / 12
+        inch_to_yard = inch / 36
+        inch_to_mile = inch / 63360
+        print(colors.green, inch, "in Inches equals", inch_to_ft, "in Feet.", colors.reset)
+        print(colors.green, inch, "in Inches equals", inch_to_yard, "in Yards.", colors.reset)
+        print(colors.green, inch, "in Inches equals", inch_to_mile, "in Miles.\n", colors.reset)
+        restart.restart()
+    elif user_choice == 3:
+        yard = float(input("Yards: "))
+        print()
+        yard_to_inch = yard * 36
+        yard_to_foot = yard * 3
+        yard_to_mile = yard / 1760
+        print(colors.green, yard, "in Yards equals", yard_to_inch, "in Inches.", colors.reset)
+        print(colors.green, yard, "in Yards equals", yard_to_foot, "in Feet.", colors.reset)
+        print(colors.green, yard, "in Yards equals", yard_to_mile, "in Miles.\n", colors.reset)
+        restart.restart()
+    elif user_choice == 4:
+        mile = float(input("Miles: "))
+        print()
+        mile_to_inch = mile * 63360
+        mile_to_foot = mile * 5280
+        mile_to_yard = mile * 1760
+        print(colors.green, mile, "in Miles equals", mile_to_inch, "in Inches.", colors.reset)
+        print(colors.green, mile, "in Miles equals", mile_to_foot, "in Feet.", colors.reset)
+        print(colors.green, mile, "in Miles equals", mile_to_yard, "in Yards.\n", colors.reset)
+        restart.restart()
+    else:
+        print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        length_converter()
+
+
+def volume_converter():
+    """
+Handles all volume conversions
+    """
+    user_choice = int(
+        input("""(1) Milliliters to Liters 
+(2) Liters to Milliliters
+(3) Gallons to ALL 
+(4) Quarts to ALL 
+(5) Pints to ALL 
+(6) Ounces to ALL 
+Select a volume conversion: """))
+    print()
+
+    if user_choice == 1:
+        ml = float(input("Milliliters: "))
+        print()
+        ml_to_l = ml * (1 / 1000)
+        print(colors.green, ml, "in Milliliters equals", ml_to_l, "in Liters.\n", colors.reset)
+        restart.restart()
+    elif user_choice == 2:
+        l = float(input("Liters: "))
+        print()
+        l_to_ml = l * (1000 / 1)
+        print(colors.green, l, "in Liters equals", l_to_ml, "in Milliliters.\n", colors.reset)
+        restart.restart()
+    elif user_choice == 3:
+        gallon = float(input("Gallons: "))
+        print()
+        gallon_to_quart = gallon * 4
+        gallon_to_pint = gallon * 8
+        gallon_to_ounce = gallon * 128
+        print(colors.green, gallon, "in Gallons equals", gallon_to_quart, "in Quart.", colors.reset)
+        print(colors.green, gallon, "in Gallons equals", gallon_to_pint, "in Pint.", colors.reset)
+        print(colors.green, gallon, "in Gallons equals", gallon_to_ounce, "in Ounces.\n", colors.reset)
+        restart.restart()
+    elif user_choice == 4:
+        quart = float(input("Quarts: "))
+        print()
+        quart_to_gallon = quart / 4
+        quart_to_pint = quart * 2
+        quart_to_ounce = quart * 32
+        print(colors.green, quart, "in Ounces equals", quart_to_gallon, "in Gallons.", colors.reset)
+        print(colors.green, quart, "in Ounces equals", quart_to_pint, "in Pints.", colors.reset)
+        print(colors.green, quart, "in Ounces equals", quart_to_ounce, "in Ounces.\n", colors.reset)
+        restart.restart()
+    elif user_choice == 5:
+        pint = float(input("Pints: "))
+        print()
+        pint_to_gallon = pint / 8
+        pint_to_quart = pint / 2
+        pint_to_ounce = pint * 16
+        print(colors.green, pint, "in Pints equals", pint_to_gallon, "in Gallons.", colors.reset)
+        print(colors.green, pint, "in Pints equals", pint_to_quart, "in Quarts.", colors.reset)
+        print(colors.green, pint, "in Pints equals", pint_to_ounce, "in Ounces.\n", colors.reset)
+        restart.restart()
+    elif user_choice == 6:
+        ounce = float(input("Ounces: "))
+        print()
+        ounce_to_quart = ounce / 32
+        ounce_to_gallon = ounce / 128
+        ounce_to_pint = ounce / 16
+        print(colors.green, ounce, "in Ounces equals", ounce_to_quart, "in Quarts.", colors.reset)
+        print(colors.green, ounce, "in Ounces equals", ounce_to_gallon, "in Gallons.", colors.reset)
+        print(colors.green, ounce, "in Ounces equals", ounce_to_pint, "in Pints.\n", colors.reset)
+        restart.restart()
+    else:
+        print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        volume_converter()
 
 
 def start():
     choice = int(input('''
 (1) Temperature Converter
 (2) Mass Converter
-(3) Currency Converter
-(4) YouTube to MP3 Converter
-(5) Restart
-(6) Quit
+(3) Length Converter
+(4) Volume Converter
+(5) Currency Converter
+(6) YouTube to MP3 Converter
+(7) Restart
+(8) Quit
 What converter would you like to perform: '''))
     print()
 
@@ -194,12 +320,16 @@ What converter would you like to perform: '''))
     elif choice == 2:
         mass_converter()
     elif choice == 3:
-        currency_converter()
+        length_converter()
     elif choice == 4:
-        youtube_converter()
+        volume_converter()
     elif choice == 5:
-        restart.restart()
+        currency_converter()
     elif choice == 6:
+        youtube_converter()
+    elif choice == 7:
+        restart.restart()
+    elif choice == 8:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
