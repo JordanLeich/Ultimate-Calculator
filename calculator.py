@@ -35,7 +35,8 @@ def start():
     print()
     number2 = float(input("What is your second number: "))
     print()
-    operator1 = str(input('Choose an operator (+, -, *, /, or ** to multiply by a power) '))
+    operator1 = str(
+        input('Choose an operator (+, -, *, /, or ** to multiply by a power) '))
     print()
 
     if operator1.lower() == "+" or operator1.lower() == "add":
@@ -66,3 +67,7 @@ def start():
     else:
         print(colors.red + 'Operation error found!\n', colors.reset)
         restart.restart()
+
+
+if __name__ == '__main__':
+    start()
