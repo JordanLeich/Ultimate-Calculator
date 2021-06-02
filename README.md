@@ -9,4 +9,9 @@
   </a>
 
 # Description ✏️
-Add description here
+This is an incredibly powerful calculator that is capable of many useful day-to-day functions.
+
+# TODO List ❗
+- Check out the issues page for this project [here](https://github.com/JordanLeich/Ulitmate-Calculator/issues)
+
+![Calculator](images/gif.gif "Calculator")
