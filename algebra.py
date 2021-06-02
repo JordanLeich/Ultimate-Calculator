@@ -25,7 +25,7 @@ What calculation would you like to perform: '''))
         m = float(input('What is your M value: '))
         x = float(input('What is your X value (if x doesnt have a value, please type 1): '))
         b = float(input('What is your B value: '))
-        y = m(x)+b
+        y = m*(x)+b
         print()
         print(colors.green + 'Result:', y, '\n', colors.reset)
         restart.restart()
