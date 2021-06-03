@@ -1,15 +1,11 @@
 '''
 Using freeforexapi.com API to get some basic 
-currency-conversion pairings in real-time.
+currency-conversion pairings in real-time. 
+MAX 100 requests/hr. 
 '''
 
 from urllib.request import urlopen
 import json
-
-'''
-List of all possible currency pairings
-available on this API.
-'''
 
 def get_api_key():
     with open('keys.json','r') as keys:
@@ -19,6 +15,9 @@ def get_api_key():
 
 def get_currency_pairs():
     '''
+    List of all possible currency pairings
+    available on this API.
+
     THIS STILL NEEDS WORK TO PUT TOGETHER
     EVERY POSSIBLE CURRENCY COMBINATION.
     '''
@@ -39,7 +38,7 @@ def get_currency_pairs():
     return pairs
 
 
-
+# TEMP LIST OF PAIRS
 pairs = [
         "EUR_USD",
         "EUR_GBP",
@@ -54,19 +53,19 @@ pairs = [
 
 
 def get_currency(req_pair):
-
     api_key = get_api_key()
     url = (
             'https://free.currconv.com/api/v7/convert'
             f'?q={req_pair}'
             '&compact=ultra'
             f'&apiKey={api_key}'
-            )
+          )
 
     with urlopen(url) as response:
         source = response.read()
     data = json.loads(source)
-    print(data)
+    print(data) # CAN BE REMOVED, USEFUL FOR DEBUGGING
+    return data
 
 
 def tests():
@@ -79,6 +78,3 @@ def tests():
     get_currency(pairs[6])
     get_currency(pairs[7])
     get_currency(pairs[8])
-
-# tests()
-get_currency_pairs()
