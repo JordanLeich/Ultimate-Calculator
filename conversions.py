@@ -3,6 +3,7 @@ import end
 import restart
 import currency_api
 
+
 def currency_converter():
     user_choice = int(
         input("""(1) US Dollar to ALL 
@@ -389,7 +390,7 @@ Select a crypto conversion:    """))
         print(colors.green, btc, "in Bitcoin equals",
               btc_to_dc, "in DogeCoin.", colors.reset)
         print(colors.green, btc, "in Bitcoin equals",
-              btc_to_sh, "B in SHIB INU.\n", colors.reset)
+              btc_to_sh, "B in SHIBA INU.\n", colors.reset)
         restart.restart()
     elif user_choice == 2:
         eth = float(input("Ethereum Amount: "))
@@ -434,22 +435,23 @@ Select a crypto conversion:    """))
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         crypto_converter()
 
+
 def wrong_option():
-      print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
-      start()
+    print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
+    start()
+
 
 INPUT_CHOICES = {
-      1:temp_converter,
-      2: mass_converter,
-      3:length_converter,
-      4:volume_converter,
-      5:currency_converter,
-      6:crypto_converter,
-      7:restart.restart,
-      8:end.end,
-      9: wrong_option
+    1: temp_converter,
+    2: mass_converter,
+    3: length_converter,
+    4: volume_converter,
+    5: currency_converter,
+    6: crypto_converter,
+    7: restart.restart,
+    8: end.end,
+    9: wrong_option
 }
-
 
 
 def start():
@@ -465,10 +467,9 @@ def start():
 What converter would you like to perform: '''))
     print()
 
-    #get function from dict and execute
-    #if option not found then execute wrong option function 
+    # get function from dict and execute
+    # if option not found then execute wrong option function
     INPUT_CHOICES.get(choice, 9)()
-        
 
 
 if __name__ == '__main__':

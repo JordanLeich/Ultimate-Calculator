@@ -10,6 +10,7 @@ def start():
 (3) Restart
 (4) Quit
 What calculation would you like to perform: '''))
+    print()
 
     if choice == 1:
         y2 = float(input('What is your Y2 value: '))
@@ -21,7 +22,6 @@ What calculation would you like to perform: '''))
         print(colors.green + 'Slope:', slope, '\n', colors.reset)
         restart.restart()
     elif choice == 2:
-        y = float(input('What is your Y value: '))
         m = float(input('What is your M value: '))
         x = float(input('What is your X value (if x doesnt have a value, please type 1): '))
         b = float(input('What is your B value: '))
