@@ -1,6 +1,6 @@
 '''
-Using freeforexapi.com API to get some basic 
-currency-conversion pairings in real-time. 
+Using currencyconverterapi.com API to get some 
+basic currency-conversion pairings in real-time. 
 MAX 100 requests/hr. 
 '''
 
