@@ -7,5 +7,3 @@ def start():
     webbrowser.open_new("https://github.com/JordanLeich/Ultimate-Calculator/graphs/contributors")
     time.sleep(2)
     quit()
-
-start()
