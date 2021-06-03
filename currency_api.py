@@ -74,5 +74,6 @@ def tests():
         get_currency(pair)
 
 
-# tests()
-get_currency_pairs()
+if __name__ == '__main__':
+    # tests()
+    get_currency_pairs()
