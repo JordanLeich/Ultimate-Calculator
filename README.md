@@ -42,7 +42,7 @@ This is an incredibly powerful calculator that is capable of many useful day-to-
       pip install -r requirements.txt
       ```<br/><br/>
      *Step 6*:
-      Run the project using<br/><br/>
+      Run the project using<br/>
       ```
       python3 main.py
       ```
