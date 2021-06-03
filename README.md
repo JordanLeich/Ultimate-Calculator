@@ -14,7 +14,10 @@ This is an incredibly powerful calculator that is capable of many useful day-to-
 # Requirements ⚡
 - Check out the requirements.txt file [here](requirements/requirements.txt)
 
-# TODO List ❗
+# TODO List ❗ 
 - Check out the issues page for this project [here](https://github.com/JordanLeich/Ultimate-Calculator/issues/1)
+
+# Bug Reporting 🐞
+- Check out the issues page for this project [here](https://github.com/JordanLeich/Ultimate-Calculator/issues/7)
 
 ![Calculator](images/gif.gif "Calculator")
