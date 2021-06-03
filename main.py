@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-# Made by Jordan Leich on 6/1/2021
+# Made by Jordan Leich on 6/1/2021, all contributors via GitHub can be found at
+# https://github.com/JordanLeich/Ultimate-Calculator/graphs/contributors
 
 # Imports
 import algebra
