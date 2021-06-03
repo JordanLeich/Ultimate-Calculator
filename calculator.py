@@ -32,7 +32,7 @@ def divide(number1, number2):
 def start():
     global operator1, result
 
-    # Keep ssking the user untill they enter a valid input
+    # Keep asking the user untill they enter a valid input
     while True:
       try:
         number1 = float(input("What is your first number: "))
@@ -59,8 +59,7 @@ def start():
     print()
 
     # Keep asking the user until they enter a valid operator
-    # Uncomment the operator_options if you're going to add the word equivalent
-    while operator1 not in ["+", "-", "*", "/", "**"]: 
+    while operator1 not in opoperator_options: 
       print("Invalid Operator, Please Choose Again.")
       operator1 = input('Choose an operator (+, -, *, /, or ** to multiply by a power) ')
     print()
