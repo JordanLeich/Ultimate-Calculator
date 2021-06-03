@@ -11,38 +11,38 @@
 # Description 💻
 This is an incredibly powerful calculator that is capable of many useful day-to-day functions. Such functions include solving basic arithmetic, algebraic, chemistry conversions, and much more.
 
-# How To Use
+# How To Use ⚡
   *Step 1*:
-    Make sure you have pip installed on your OS, you can do it by writing the following command on your terminal.
+    Make sure you have pip installed on your OS, you can do it by writing the following command on your terminal.<br/>
     ```
     pip help
     ```<br/><br/>
    *Step 2*:
-    If you don't have pip installed , you can install it using the following command.
+    If you don't have pip installed , you can install it using the following command.<br/>
     ```
     python get-pip.py
     ```
-    or
+    or <br/>
     ```
     python3 get-pip.py
     ```<br/><br/>
    *Step 3*:
-    Check the pip version using
+    Check the pip version using :<br/>
     ```
     pip -V
     ```<br/><br/>
     *Step 4*:
-      Clone the repository by using 
+      Clone the repository by using <br/>
       ```
       git clone https://github.com/JordanLeich/Ultimate-Calculator.git
       ```<br/><br/>
      *Step 5*:
-      Install the requirements
+      Install the requirements<br/>
       ```
       pip install -r requirements.txt
       ```<br/><br/>
      *Step 6*:
-      Run the project using
+      Run the project using<br/>
       ```
       python3 main.py
       ```
