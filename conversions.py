@@ -1,7 +1,7 @@
 import colors
 import end
 import restart
-from . import currency_api
+import currency_api
 
 def currency_converter():
     user_choice = int(
@@ -434,6 +434,23 @@ Select a crypto conversion:    """))
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         crypto_converter()
 
+def wrong_option():
+      print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
+      start()
+
+INPUT_CHOICES = {
+      1:temp_converter,
+      2: mass_converter,
+      3:length_converter,
+      4:volume_converter,
+      5:currency_converter,
+      6:crypto_converter,
+      7:restart.restart,
+      8:end.end,
+      9: wrong_option
+}
+
+
 
 def start():
     choice = int(input('''
@@ -448,25 +465,10 @@ def start():
 What converter would you like to perform: '''))
     print()
 
-    if choice == 1:
-        temp_converter()
-    elif choice == 2:
-        mass_converter()
-    elif choice == 3:
-        length_converter()
-    elif choice == 4:
-        volume_converter()
-    elif choice == 5:
-        currency_converter()
-    elif choice == 6:
-        crypto_converter()
-    elif choice == 7:
-        restart.restart()
-    elif choice == 8:
-        end.end()
-    else:
-        print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
-        start()
+    #get function from dict and execute
+    #if option not found then execute wrong option function 
+    INPUT_CHOICES.get(choice, 9)()
+        
 
 
 if __name__ == '__main__':

@@ -12,8 +12,26 @@ import colors
 import stocks
 import time_converter
 
+def wrong_option():
+    print(colors.red + 'User input error found... Restarting user input choice...', colors.reset)
+    import time
+    time.sleep(2)
+    start()
+
+
+INPUT_CHOICES = {
+    1: calculator.start,
+    2: algebra.start,
+    3: conversions.start,
+    4: stocks.start,
+    5: time_converter.start,
+    6: restart.restart,
+    7: end.end,
+    8: wrong_option
+}
 
 def start():
+
     choice = int(input('''
 All Calculators and Converters!
 (1) Basic Arithmetic Math (Add, Subtract, Multiply, Divide, & More)
@@ -26,25 +44,10 @@ All Calculators and Converters!
 Which calculator would you like to use: '''))
     print()
 
-    if choice == 1:
-        calculator.start()
-    elif choice == 2:
-        algebra.start()
-    elif choice == 3:
-        conversions.start()
-    elif choice == 4:
-        stocks.start()
-    elif choice == 5:
-        time_converter.start()
-    elif choice == 6:
-        restart.restart()
-    elif choice == 7:
-        end.end()
-    else:
-        print(colors.red + 'User input error found... Restarting user input choice...', colors.reset)
-        import time
-        time.sleep(2)
-        start()
+    #get function from dict and execute
+    #if option not found then execute wrong option function
+    INPUT_CHOICES.get(choice, 8)() 
+
 
 
 if __name__ == '__main__':

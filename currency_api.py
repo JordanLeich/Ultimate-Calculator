@@ -70,15 +70,8 @@ def get_currency(req_pair):
 
 
 def tests():
-    get_currency(pairs[0])
-    get_currency(pairs[1])
-    get_currency(pairs[2])
-    get_currency(pairs[3])
-    get_currency(pairs[4])
-    get_currency(pairs[5])
-    get_currency(pairs[6])
-    get_currency(pairs[7])
-    get_currency(pairs[8])
+    for pair in pairs:
+        get_currency(pair)
 
 # tests()
 get_currency_pairs()
