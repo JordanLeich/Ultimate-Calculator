@@ -27,9 +27,10 @@ INPUT_CHOICES = {
     3: conversions.start,
     4: stocks.start,
     5: time_converter.start,
-    6: restart.restart,
-    7: end.end,
-    8: wrong_option
+    6: contribution.start,
+    7: restart.restart,
+    8: end.end,
+    9: wrong_option
 }
 
 
@@ -41,14 +42,15 @@ All Calculators and Converters!
 (3) All Converters (Temperature, Mass, Length, Volume)
 (4) Stock Market Shares Calculator
 (5) Time Converter (Hours to Days, Days in Years, * More)
-(6) Restart
-(7) Exit
+(6) All Contributors For This Project 
+(7) Restart
+(8) Exit
 Which calculator would you like to use: '''))
     print()
 
     # get function from dict and execute
     # if option not found then execute wrong option function
-    INPUT_CHOICES.get(choice, 8)()
+    INPUT_CHOICES.get(choice, 9)()
 
 
 if __name__ == '__main__':
