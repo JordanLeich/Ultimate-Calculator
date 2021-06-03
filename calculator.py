@@ -59,7 +59,7 @@ def start():
     print()
 
     # Keep asking the user until they enter a valid operator
-    while operator1 not in opoperator_options: 
+    while operator1 not in operator_options: 
       print("Invalid Operator, Please Choose Again.")
       operator1 = input('Choose an operator (+, -, *, /, or ** to multiply by a power) ')
     print()
