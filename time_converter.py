@@ -1,19 +1,17 @@
 import restart
+import colors
+import time
 
-def start():
-    timeconvert()
-    restart.restart()
 
-def timeconvert():
-    print("""
-    Input what you would like to convert FROM
-    (Where X is a number, format:
-    XY XD XH XM XS
-    You don't have to fill in everything""")
+def time_convert():
+    print("Input what you would like to convert from")
+    print("Please stick to this format")
+    print(colors.red, "XY XD XH XM XS (X is your number)\t ie: 10Y", colors.reset)
+
     response = input().split()
     totalseconds = 0
     for date in response:
-        print
+
         if date.endswith("d") or date.endswith("D"):
             date = date[:-1]
             date = float(date)
@@ -38,22 +36,29 @@ def timeconvert():
             date = float(date)
             date = date * 31536000
             totalseconds += date
-        else:
-            pass
-    convertto = input("""
+
+    convert_to = input("""
     What do you want to convert TO?
     (1) Years
     (2) Days
     (3) Minutes
     (4) Seconds
-
     """)
-    convertto = int(convertto)
-    if convertto == 1:
-        print(f"{totalseconds / 31536000} years")
-    elif convertto == 2:
-        print(f"{totalseconds / 86400} days")
-    elif convertto == 3:
-        print(f"{totalseconds / 60} minutes")
-    elif convertto == 4:
-        print(f"{totalseconds} seconds")
+    convert_to = int(convert_to)
+    if convert_to == 1:
+        print(colors.green, f"{totalseconds / 31536000} years", colors.reset)
+    elif convert_to == 2:
+        print(colors.green, f"{totalseconds / 86400} days", colors.reset)
+    elif convert_to == 3:
+        print(colors.green, f"{totalseconds / 60} minutes", colors.reset)
+    elif convert_to == 4:
+        print(colors.green, f"{totalseconds} seconds", colors.reset)
+    else:
+        print(colors.red+"Invalid input... Restarting input...\n"+colors.reset)
+        time.sleep(2)
+        time_convert()
+
+
+def start():
+    time_convert()
+    restart.restart()
