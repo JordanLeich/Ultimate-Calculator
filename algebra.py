@@ -1,14 +1,16 @@
 import colors
 import end
 import restart
+from math import *
 
 
 def start():
     choice = int(input('''
 (1) Find Slope (Rise Over Run)
 (2) Find Slope Intercept (y=mx+b)
-(3) Restart
-(4) Quit
+(3) Find Pythagorean Theorem
+(4) Restart
+(5) Quit
 What calculation would you like to perform: '''))
     print()
 
@@ -30,8 +32,34 @@ What calculation would you like to perform: '''))
         print(colors.green + 'Result:', y, '\n', colors.reset)
         restart.restart()
     elif choice == 3:
-        restart.restart()
+        formula = input('Which side (a, b, c) do you wish to calculate: ')
+
+        if formula == 'c':
+            side_a = int(input('Input the length of side a: '))
+            side_b = int(input('Input the length of side b: '))
+            side_c = sqrt(side_a * side_a + side_b * side_b)
+            print()
+            print(colors.green + 'The length of side c is:', side_c, '\n', colors.reset)
+            restart.restart()
+        elif formula == 'a':
+            side_b = int(input('Input the length of side b: '))
+            side_c = int(input('Input the length of side c: '))
+            side_a = sqrt((side_c * side_c) - (side_b * side_b))
+            print()
+            print(colors.green + 'The length of side a is', side_a, '\n', colors.reset)
+            restart.restart()
+        elif formula == 'b':
+            side_a = int(input('Input the length of side a: '))
+            side_c = int(input('Input the length of side c: '))
+            side_b = sqrt(side_c * side_c - side_a * side_a)
+            print(colors.green + 'The length of side b is', side_b, '\n', colors.reset)
+            restart.restart()
+        else:
+            print('Select a side between either a, b, or c.\n')
+            restart.restart()
     elif choice == 4:
+        restart.restart()
+    elif choice == 5:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)

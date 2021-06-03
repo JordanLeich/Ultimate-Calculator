@@ -36,7 +36,7 @@ def start():
     choice = int(input('''
 All Calculators and Converters!
 (1) Basic Arithmetic Math (Add, Subtract, Multiply, Divide, & More)
-(2) Algebra (Find Slope)
+(2) Algebra (Find Slope, Pythagorean Theorem)
 (3) All Converters (Temperature, Mass, Length, Volume)
 (4) Stock Market Shares Calculator
 (5) Time Converter (Hours to Days, Days in Years, * More)
