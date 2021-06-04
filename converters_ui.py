@@ -62,7 +62,7 @@ class Ui_ConvertionWindow(object):
                                       "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:16pt; font-weight:400; font-style:normal;\">\n"
                                       "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#ff007f;\"> Conversions menu</span></p>\n"
                                       "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#ff007f;\"><br /></p></body></html>"))
-        self.temp_btn.setText(_translate("MainWindow", "Temperatur Converter"))
+        self.temp_btn.setText(_translate("MainWindow", "Temperature Converter"))
         self.mass_btn.setText(_translate("MainWindow", "Mass Converter"))
         self.len_btn.setText(_translate("MainWindow", "Length Converter"))
         self.vol_btn.setText(_translate("MainWindow", "Volume Converter"))

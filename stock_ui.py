@@ -15,7 +15,7 @@ class Ui_StockWindow(object):
                 (user_purchase_price * user_shares) + user_buy_commission)
             self.lineEdit_6.setText(str(user_gain_loss)+' Dollars')
         except:
-            user_gain_loss = ((user_sell_price * user_shares)) - (
+            user_gain_loss = (user_sell_price * user_shares) - (
                 (user_purchase_price * user_shares))
             self.lineEdit_6.setText(str(user_gain_loss)+' Dollars')
 
@@ -80,8 +80,8 @@ class Ui_StockWindow(object):
         self.label.setText(_translate("MainWindow", "Number of Shares"))
         self.label_2.setText(_translate("MainWindow", "Purchase Price"))
         self.label_3.setText(_translate("MainWindow", "Sell Price"))
-        self.label_4.setText(_translate("MainWindow", "Buy Comission"))
-        self.label_5.setText(_translate("MainWindow", "Sell Comission"))
+        self.label_4.setText(_translate("MainWindow", "Buy Commission"))
+        self.label_5.setText(_translate("MainWindow", "Sell Commission"))
         self.label_6.setText(_translate("MainWindow", "Profit Gain/Loss"))
 
 

@@ -1,4 +1,3 @@
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -26,7 +25,7 @@ class Ui_MathWindow(object):
             if operation == 'Add':
                 add = self.addition(first_number, second_number)
                 self.out_line.setText(str(add))
-            elif operation == 'Substract':
+            elif operation == 'Subtract':
                 sub = self.subtract(first_number, second_number)
                 self.out_line.setText(str(sub))
             elif operation == 'Multiply':
@@ -92,7 +91,7 @@ class Ui_MathWindow(object):
         MainWindow.setWindowTitle(_translate(
             "MainWindow", "Basic Arithmetics"))
         self.opert_box.setItemText(0, _translate("MainWindow", "Add"))
-        self.opert_box.setItemText(1, _translate("MainWindow", "Substract"))
+        self.opert_box.setItemText(1, _translate("MainWindow", "Subtract"))
         self.opert_box.setItemText(2, _translate("MainWindow", "Multiply"))
         self.opert_box.setItemText(3, _translate("MainWindow", "Divide"))
         self.opert_box.setItemText(4, _translate("MainWindow", "Power"))
