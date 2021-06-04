@@ -4,16 +4,11 @@
 # https://github.com/JordanLeich/Ultimate-Calculator/graphs/contributors
 
 # Imports
-import algebra
-import calculator
-import conversions
+from calculators import algebra, time_converter, conversions, stocks, financial, calculator
 import restart
 import end
 import colors
-import stocks
-import time_converter
-import contribution 
-import financial
+import contribution
 
 
 def wrong_option():

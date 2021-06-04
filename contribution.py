@@ -1,6 +1,7 @@
 import webbrowser
 import time
 
+
 def start():
     print("Opening all current contributors of this project...")
     time.sleep(1.5)

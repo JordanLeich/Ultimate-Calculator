@@ -32,36 +32,36 @@ def divide(number1, number2):
 def start():
     global operator1, result
 
-    # Keep asking the user untill they enter a valid input
+    # Keep asking the user until they enter a valid input
     while True:
-      try:
-        number1 = float(input("What is your first number: "))
-        print()
-        break
-      except ValueError:
-        print("Invalid Input.")
-        continue
-    
+        try:
+            number1 = float(input("What is your first number: "))
+            print()
+            break
+        except ValueError:
+            print("Invalid Input.")
+            continue
+
     while True:
-      try:
-        number2 = float(input("What is your second number: "))
-        print()
-        break
-      except ValueError:
-        print("Invalid Input.")
-        continue
+        try:
+            number2 = float(input("What is your second number: "))
+            print()
+            break
+        except ValueError:
+            print("Invalid Input.")
+            continue
 
     operator_options = ["+", "-", "*", "/", "**",
                         "add", "subtract", "multiply",
-                        "times", "divide", "division", "power"] 
+                        "times", "divide", "division", "power"]
     # input() is already a str by default
     operator1 = input('Choose an operator (+, -, *, /, or ** to multiply by a power) ')
     print()
 
     # Keep asking the user until they enter a valid operator
-    while operator1 not in operator_options: 
-      print("Invalid Operator, Please Choose Again.")
-      operator1 = input('Choose an operator (+, -, *, /, or ** to multiply by a power) ')
+    while operator1 not in operator_options:
+        print("Invalid Operator, Please Choose Again.")
+        operator1 = input('Choose an operator (+, -, *, /, or ** to multiply by a power) ')
     print()
 
     # "in []" is better with multiple choices
@@ -76,9 +76,9 @@ def start():
 
     elif operator1.lower() in ["/", "divide", "division"]:
         if 0 in [number1, number2]:
-          print(colors.red + "You cannot divide by zero!\n", colors.reset)
+            print(colors.red + "You cannot divide by zero!\n", colors.reset)
         else:
-          print(colors.green, divide(number1, number2), colors.reset, '\n')
+            print(colors.green, divide(number1, number2), colors.reset, '\n')
 
     elif operator1.lower() in ["**", "power"]:
         print(colors.green, power(number1, number2), colors.reset, '\n')
@@ -87,12 +87,13 @@ def start():
     # change the variable names because I'm not really good with naming variables
     input_1 = input("Would you like to continue? Yes | No: ")
     while input_1.lower() not in ["yes", "no"]:
-      input_1 = input("Would you like to continue? Yes | No: ")
-    
+        input_1 = input("Would you like to continue? Yes | No: ")
+
     if input_1.lower() == "yes":
-      start()
+        start()
     else:
-      restart.restart()
+        restart.restart()
+
 
 if __name__ == '__main__':
     start()

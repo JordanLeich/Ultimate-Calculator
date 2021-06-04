@@ -9,33 +9,33 @@ def time_convert():
     print(colors.red, "XY XD XH XM XS (X is your number)\t ie: 10Y", colors.reset)
 
     response = input().split()
-    totalseconds = 0
+    total_seconds = 0
     for date in response:
 
         if date.endswith("d") or date.endswith("D"):
             date = date[:-1]
             date = float(date)
-            date = date * 86400
-            totalseconds += date
+            date *= 86400
+            total_seconds += date
         elif date.endswith("h") or date.endswith("H"):
             date = date[:-1]
             date = float(date)
-            date = date * 3600
-            totalseconds += date
+            date *= 3600
+            total_seconds += date
         elif date.endswith("m") or date.endswith("M"):
             date = date[:-1]
             date = float(date)
-            date = date * 60
-            totalseconds += date
+            date *= 60
+            total_seconds += date
         elif date.endswith("s") or date.endswith("S"):
             date = date[:-1]
             date = float(date)
-            totalseconds += date
+            total_seconds += date
         elif date.endswith("y") or date.endswith("Y"):
             date = date[:-1]
             date = float(date)
-            date = date * 31536000
-            totalseconds += date
+            date *= 31536000
+            total_seconds += date
 
     convert_to = input("""
     What do you want to convert TO?
@@ -46,13 +46,13 @@ def time_convert():
     """)
     convert_to = int(convert_to)
     if convert_to == 1:
-        print(colors.green, f"{totalseconds / 31536000} years", colors.reset)
+        print(colors.green, f"{total_seconds / 31536000} years", colors.reset)
     elif convert_to == 2:
-        print(colors.green, f"{totalseconds / 86400} days", colors.reset)
+        print(colors.green, f"{total_seconds / 86400} days", colors.reset)
     elif convert_to == 3:
-        print(colors.green, f"{totalseconds / 60} minutes", colors.reset)
+        print(colors.green, f"{total_seconds / 60} minutes", colors.reset)
     elif convert_to == 4:
-        print(colors.green, f"{totalseconds} seconds", colors.reset)
+        print(colors.green, f"{total_seconds} seconds", colors.reset)
     else:
         print(colors.red+"Invalid input... Restarting input...\n"+colors.reset)
         time.sleep(2)
