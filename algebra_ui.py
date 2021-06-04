@@ -1,6 +1,6 @@
-from slope1 import *
-from slope2 import *
-from pytha import *
+from slope1_ui import *
+from slope2_ui import *
+from pythagore_ui import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -50,10 +50,6 @@ class Ui_AlgebraWindow(object):
         self.exit_btn.setGeometry(QtCore.QRect(410, 250, 201, 51))
         self.exit_btn.setObjectName("exit_btn")
         self.exit_btn.clicked.connect(MainWindow.hide)
-        # MainWindow.setCentralWidget(self.centralwidget)
-        # self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        # self.statusbar.setObjectName("statusbar")
-        # MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)

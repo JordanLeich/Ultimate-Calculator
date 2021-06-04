@@ -10,6 +10,8 @@ import colors
 import contribution
 import end
 import time
+from gui import *
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 def wrong_option():
@@ -32,14 +34,13 @@ INPUT_CHOICES = {
 
 
 def start():
-    choice1 = str(input('Want to run the GUI version of this project (yes / no): '))
+    choice1 = str(
+        input('Want to run the GUI version of this project (yes / no): '))
     print()
 
-    if choice1.lower() == 'y' or choice1.lower() == 'yes':
-        print('finish code here... add a way for this if statement to run the gui application\n')
-        time.sleep(5)
-        quit()
-    elif choice1.lower() == 'n' or choice1.lower() == 'no':
+    if choice1.lower() in ['y', 'yes']:
+        start_gui()
+    elif choice1.lower() in ['n', 'no']:
         print('Proceeding to normal calculator...\n')
     else:
         print(colors.red+'User input error found... Restarting input choice...\n')
@@ -59,8 +60,7 @@ def start():
 Which option would you like to pick: '''))
     print()
 
-    if choice2 != 1 and choice2 != 2 and choice2 != 3 and choice2 != 4 and choice2 != 5 and choice2 != 6 and choice2 \
-            != 7 and choice2 != 8 and choice2 != 9:
+    if choice2 not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
         wrong_option()
 
     else:
