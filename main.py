@@ -11,7 +11,6 @@ import contribution
 import end
 import time
 from gui import *
-from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 def wrong_option():
