@@ -11,7 +11,7 @@ def start():
 (2) Find Slope Intercept (y=mx+b)
 (3) Find Pythagorean Theorem
 (4) Find The Distance Between Two Points
-(5) Find The Midpoint
+(5) Find The Midpoint of a Line
 (6) Restart
 (7) Quit
 What calculation would you like to perform: '''))
