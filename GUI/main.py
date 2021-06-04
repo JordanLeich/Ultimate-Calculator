@@ -1,5 +1,5 @@
 from converters import *
-from arith import *
+from arithmetics import *
 from time_convert import *
 from algebra import *
 from stock import *
@@ -117,7 +117,8 @@ class Ui_MainWindow(object):
         self.exit_btn.setText(_translate("MainWindow", "Exit"))
 
 
-if __name__ == "__main__":
+def start():
+    import webbrowser
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
@@ -125,3 +126,14 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
+
+if __name__ == "__main__":
+    # import sys
+    # app = QtWidgets.QApplication(sys.argv)
+    # MainWindow = QtWidgets.QMainWindow()
+    # ui = Ui_MainWindow()
+    # ui.setupUi(MainWindow)
+    # MainWindow.show()
+    # sys.exit(app.exec_())
+    start()

@@ -1,6 +1,6 @@
 from slope1 import *
 from slope2 import *
-from pytha import *
+from pythagore import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
