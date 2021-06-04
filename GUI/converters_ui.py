@@ -1,4 +1,4 @@
-from currency import *
+from currency_ui import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 

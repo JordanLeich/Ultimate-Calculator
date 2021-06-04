@@ -10,7 +10,7 @@ import colors
 import contribution
 import end
 import time
-from GUI import main
+from GUI import main, converters_ui, algebra_ui, arithmetics_ui, stock_ui
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 

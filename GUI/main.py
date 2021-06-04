@@ -1,8 +1,8 @@
-from converters import *
-from arithmetics import *
-from time_convert import *
-from algebra import *
-from stock import *
+from converters_ui import *
+from arithmetics_ui import *
+from time_convert_ui import *
+from algebra_ui import *
+from stock_ui import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 import webbrowser
 
