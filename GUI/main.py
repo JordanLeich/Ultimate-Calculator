@@ -3,7 +3,6 @@ from arith import *
 from time_convert import *
 from algebra import *
 from stock import *
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 import webbrowser
 
@@ -101,14 +100,14 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate(
-            "MainWindow", "The Ultimate Calculator"))
+            "MainWindow", "Ultimate Calculator"))
         self.label.setToolTip(_translate(
-            "MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Welcome to the Ultimate Calculator</span></p><p align=\"center\"><br/></p></body></html>"))
+            "MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Ultimate Calculator</span></p><p align=\"center\"><br/></p></body></html>"))
         self.label.setText(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                       "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                       "p, li { white-space: pre-wrap; }\n"
                                       "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:16pt; font-weight:400; font-style:normal;\">\n"
-                                      "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#ff007f;\">Welcome to the Ultimate Calculator by <i>Jordan Leich<i/></span></p></body></html>"))
+                                      "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#ff007f;\">Ultimate Calculator by <i>Jordan Leich<i/></span></p></body></html>"))
         self.Math_btn.setText(_translate("MainWindow", "Basic Arithmetics"))
         self.stock_btn.setText(_translate("MainWindow", "Stock Market"))
         self.conv_btn.setText(_translate("MainWindow", "Converters"))

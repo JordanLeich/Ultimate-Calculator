@@ -32,8 +32,22 @@ INPUT_CHOICES = {
 
 
 def start():
+    choice1 = str(input('Want to run the GUI version of this project (yes / no): '))
+    print()
+
+    if choice1.lower() == 'y' or choice1.lower() == 'yes':
+        print('finish code here... add a way for this if statement to run the gui application\n')
+        time.sleep(5)
+        quit()
+    elif choice1.lower() == 'n' or choice1.lower() == 'no':
+        print('Proceeding to normal calculator...\n')
+    else:
+        print(colors.red+'User input error found... Restarting input choice...\n')
+        time.sleep(2)
+        start()
+
     print(colors.green + 'All Calculators and Converters!', colors.reset)
-    choice = int(input('''(1) Basic Arithmetic Math (Add, Subtract, Multiply, Divide, & More)
+    choice2 = int(input('''(1) Basic Arithmetic Math (Add, Subtract, Multiply, Divide, & More)
 (2) Algebra (Find Slope, Pythagorean Theorem)
 (3) All Converters (Temperature, Mass, Length, Volume)
 (4) Stock Market Shares Calculator (Gain/Loss of a stock)
@@ -45,14 +59,14 @@ def start():
 Which option would you like to pick: '''))
     print()
 
-    if choice != 1 and choice != 2 and choice != 3 and choice != 4 and choice != 5 and choice != 6 and choice != 7 and \
-            choice != 8 and choice != 9:
+    if choice2 != 1 and choice2 != 2 and choice2 != 3 and choice2 != 4 and choice2 != 5 and choice2 != 6 and choice2 \
+            != 7 and choice2 != 8 and choice2 != 9:
         wrong_option()
 
     else:
         # get function from dict and execute
         # if option not found then execute wrong option function
-        INPUT_CHOICES.get(choice, 9)()
+        INPUT_CHOICES.get(choice2, 9)()
 
 
 if __name__ == '__main__':
