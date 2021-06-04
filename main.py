@@ -27,8 +27,7 @@ INPUT_CHOICES = {
     6: financial.start,
     7: contribution.start,
     8: restart.restart,
-    9: end.end,
-    10: wrong_option
+    9: end.end
 }
 
 
@@ -47,9 +46,14 @@ All Calculators and Converters!
 Which calculator would you like to use: '''))
     print()
 
-    # get function from dict and execute
-    # if option not found then execute wrong option function
-    INPUT_CHOICES.get(choice, 10)()
+    if choice != 1 and choice != 2 and choice != 3 and choice != 4 and choice != 5 and choice != 6 and choice != 7 and \
+            choice != 8 and choice != 9:
+        wrong_option()
+
+    else:
+        # get function from dict and execute
+        # if option not found then execute wrong option function
+        INPUT_CHOICES.get(choice, 9)()
 
 
 if __name__ == '__main__':
