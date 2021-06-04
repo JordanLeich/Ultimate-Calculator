@@ -6,9 +6,9 @@
 # Imports
 from calculators import algebra, time_converter, conversions, stocks, financial, calculator
 import restart
-import end
 import colors
 import contribution
+import end
 
 
 def wrong_option():

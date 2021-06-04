@@ -1,7 +1,6 @@
 import colors
 import end
 import restart
-from math import *
 
 
 def start():

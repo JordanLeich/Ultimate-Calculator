@@ -1,8 +1,6 @@
 import colors
 import end
 import restart
-import currency_api
-import time
 
 
 def currency_converter():

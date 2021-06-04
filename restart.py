@@ -21,7 +21,7 @@ def restart():
         end.end()
 
     else:
-        print(colors.red+"Invalid input... Restarting input...\n"+colors.reset)
+        print(colors.red + "Invalid input... Restarting input...\n" + colors.reset)
         time.sleep(2)
         restart()
 

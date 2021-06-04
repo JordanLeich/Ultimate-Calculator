@@ -1,8 +1,8 @@
 # Financial code still in progress
 
 import time
-import restart
 import colors
+import restart
 
 
 def payroll():

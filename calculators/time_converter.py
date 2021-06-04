@@ -1,6 +1,6 @@
-import restart
-import colors
 import time
+import colors
+import restart
 
 
 def time_convert():
@@ -54,7 +54,7 @@ def time_convert():
     elif convert_to == 4:
         print(colors.green, f"{total_seconds} seconds", colors.reset)
     else:
-        print(colors.red+"Invalid input... Restarting input...\n"+colors.reset)
+        print(colors.red + "Invalid input... Restarting input...\n" + colors.reset)
         time.sleep(2)
         time_convert()
 
