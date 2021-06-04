@@ -46,6 +46,9 @@ This is an incredibly powerful calculator that is capable of many useful day-to-
       ```
       python3 main.py
       ```
+
+# Preview 💻
+![Preview](images/textbaseddemo.gif "Preview")
       
 # TODO List ❗ 
 - Check out the issues page for this project [here](https://github.com/JordanLeich/Ultimate-Calculator/issues/1)
