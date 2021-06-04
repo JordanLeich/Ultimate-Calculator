@@ -9,11 +9,11 @@ import restart
 import colors
 import contribution
 import end
+import time
 
 
 def wrong_option():
     print(colors.red + 'User input error found... Restarting user input choice...', colors.reset)
-    import time
     time.sleep(2)
     start()
 
@@ -32,18 +32,17 @@ INPUT_CHOICES = {
 
 
 def start():
-    choice = int(input('''
-All Calculators and Converters!
-(1) Basic Arithmetic Math (Add, Subtract, Multiply, Divide, & More)
+    print(colors.green + 'All Calculators and Converters!', colors.reset)
+    choice = int(input('''(1) Basic Arithmetic Math (Add, Subtract, Multiply, Divide, & More)
 (2) Algebra (Find Slope, Pythagorean Theorem)
 (3) All Converters (Temperature, Mass, Length, Volume)
-(4) Stock Market Shares Calculator
+(4) Stock Market Shares Calculator (Gain/Loss of a stock)
 (5) Time Converter (Hours to Days, Days in Years, * More)
-(6) Financial Calculator (Payroll, Salary, Restaurant Tipping)
-(7) All Contributors For This Project 
-(8) Restart
-(9) Exit
-Which calculator would you like to use: '''))
+(6) Financial Calculator (Payroll, Restaurant Tipping)
+(7) All Project Contributors
+(8) Restart Program
+(9) Exit Program
+Which option would you like to pick: '''))
     print()
 
     if choice != 1 and choice != 2 and choice != 3 and choice != 4 and choice != 5 and choice != 6 and choice != 7 and \
