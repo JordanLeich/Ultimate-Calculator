@@ -470,4 +470,5 @@ What converter would you like to perform: '''))
 
 
 if __name__ == '__main__':
-    start()
+#     start()
+      currency_converter()
