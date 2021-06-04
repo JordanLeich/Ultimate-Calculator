@@ -1,6 +1,8 @@
+import math
 import colors
 import end
 import restart
+from math import sqrt
 
 
 def start():
@@ -8,8 +10,10 @@ def start():
 (1) Find Slope (Rise Over Run)
 (2) Find Slope Intercept (y=mx+b)
 (3) Find Pythagorean Theorem
-(4) Restart
-(5) Quit
+(4) Find The Distance Between Two Points
+(5) Find The Midpoint
+(6) Restart
+(7) Quit
 What calculation would you like to perform: '''))
     print()
 
@@ -57,8 +61,28 @@ What calculation would you like to perform: '''))
             print('Select a side between either a, b, or c.\n')
             restart.restart()
     elif choice == 4:
+        x1 = float(input('x1 Value: '))
+        y1 = float(input('y1 Value: '))
+        x2 = float(input('x2 Value: '))
+        y2 = float(input('y2 Value: '))
+        print()
+        distance = math.sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2))
+        print(colors.green + "The distance between the two points is", distance, '\n', colors.reset)
         restart.restart()
     elif choice == 5:
+        x1 = float(input('The value of x1: '))
+        y1 = float(input('The value of y1: '))
+        x2 = float(input('The value of x2: '))
+        y2 = float(input('The value of y2: '))
+        print()
+        x_m_point = (x1 + x2) / 2
+        y_m_point = (y1 + y2) / 2
+        print(colors.green+"The midpoint's x value is: ", x_m_point)
+        print("The midpoint's y value is: ", y_m_point, '\n', colors.reset)
+        restart.restart()
+    elif choice == 6:
+        restart.restart()
+    elif choice == 7:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
