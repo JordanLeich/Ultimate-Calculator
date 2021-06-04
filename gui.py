@@ -117,7 +117,7 @@ class Ui_MainWindow(object):
         self.exit_btn.setText(_translate("MainWindow", "Exit"))
 
 
-def start():
+def start_gui():
     import webbrowser
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -136,4 +136,4 @@ if __name__ == "__main__":
     # ui.setupUi(MainWindow)
     # MainWindow.show()
     # sys.exit(app.exec_())
-    start()
+    start_gui()

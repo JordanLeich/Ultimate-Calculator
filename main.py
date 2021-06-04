@@ -10,7 +10,7 @@ import colors
 import contribution
 import end
 import time
-from GUI import main, converters_ui, algebra_ui, arithmetics_ui, stock_ui
+from gui import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -39,10 +39,7 @@ def start():
     print()
 
     if choice1.lower() in ['y', 'yes']:
-        main.start()
-        # print('finish code here... add a way for this if statement to run the gui application\n')
-        # time.sleep(5)
-        # quit()
+        start_gui()
     elif choice1.lower() in ['n', 'no']:
         print('Proceeding to normal calculator...\n')
     else:
@@ -63,8 +60,7 @@ def start():
 Which option would you like to pick: '''))
     print()
 
-    if choice2 != 1 and choice2 != 2 and choice2 != 3 and choice2 != 4 and choice2 != 5 and choice2 != 6 and choice2 \
-            != 7 and choice2 != 8 and choice2 != 9:
+    if choice2 not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
         wrong_option()
 
     else:
