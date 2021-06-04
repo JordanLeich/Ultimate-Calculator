@@ -38,43 +38,15 @@ def get_currency_pairs():
     return pairs
 
 
-# TEMP LIST OF PAIRS
-pairs = [
-        "EUR_USD",
-        "EUR_GBP",
-        "GBP_USD",
-        "USD_JPY",
-        "AUD_USD",
-        "USD_CHF",
-        "NZD_USD",
-        "USD_CAD",
-        "USD_ZAR"
-        ]
-
-
 def get_currency(req_pair):
-    api_key = get_api_key()
     url = (
             'https://free.currconv.com/api/v7/convert'
             f'?q={req_pair}'
             '&compact=ultra'
-            f'&apiKey={api_key}'
+            f'&apiKey={get_api_key()}'
           )
 
     with urlopen(url) as response:
         source = response.read()
     data = json.loads(source)
-    print(data) # CAN BE REMOVED, USEFUL FOR DEBUGGING
-    return data
-
-
-def tests():
-    get_currency(pairs[0])
-    get_currency(pairs[1])
-    get_currency(pairs[2])
-    get_currency(pairs[3])
-    get_currency(pairs[4])
-    get_currency(pairs[5])
-    get_currency(pairs[6])
-    get_currency(pairs[7])
-    get_currency(pairs[8])
+    return data[req_pair]
