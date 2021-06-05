@@ -140,7 +140,8 @@ class Ui_CurrencyWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate(
+            "MainWindow", "Currency Converter"))
         self.label.setText(_translate("MainWindow", "Amount of Money"))
         self.comboBox.setItemText(0, _translate(
             "MainWindow", "American Dollars USD"))

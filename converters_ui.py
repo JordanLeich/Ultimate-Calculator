@@ -1,6 +1,9 @@
 from currency_ui import *
 from temp_ui import *
-
+from mass_ui import *
+from crypto_ui import *
+from length_ui import *
+from volume_ui import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -12,9 +15,37 @@ class Ui_ConvertionWindow(object):
         self.ui.setupUi(self.window)
         self.window.exec_()
 
+    def length_show(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_LengthWindow()
+        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.ui.setupUi(self.window)
+        self.window.exec_()
+
+    def volume_show(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_VolumeWindow()
+        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.ui.setupUi(self.window)
+        self.window.exec_()
+
     def temp_show(self):
         self.window = QtWidgets.QDialog()
         self.ui = Ui_TempWindow()
+        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.ui.setupUi(self.window)
+        self.window.exec_()
+
+    def mass_show(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_MassWindow()
+        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.ui.setupUi(self.window)
+        self.window.exec_()
+
+    def crypto_show(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_CryptoWindow()
         self.window.setWindowModality(QtCore.Qt.ApplicationModal)
         self.ui.setupUi(self.window)
         self.window.exec_()
@@ -36,12 +67,15 @@ class Ui_ConvertionWindow(object):
         self.mass_btn = QtWidgets.QPushButton(self.centralwidget)
         self.mass_btn.setGeometry(QtCore.QRect(420, 110, 151, 61))
         self.mass_btn.setObjectName("mass_btn")
+        self.mass_btn.clicked.connect(self.mass_show)
         self.len_btn = QtWidgets.QPushButton(self.centralwidget)
         self.len_btn.setGeometry(QtCore.QRect(90, 210, 151, 61))
         self.len_btn.setObjectName("len_btn")
+        self.len_btn.clicked.connect(self.length_show)
         self.vol_btn = QtWidgets.QPushButton(self.centralwidget)
         self.vol_btn.setGeometry(QtCore.QRect(420, 210, 151, 61))
         self.vol_btn.setObjectName("vol_btn")
+        self.vol_btn.clicked.connect(self.volume_show)
         self.curr_btn = QtWidgets.QPushButton(self.centralwidget)
         self.curr_btn.setGeometry(QtCore.QRect(90, 310, 151, 61))
         self.curr_btn.setObjectName("curr_btn")
@@ -49,6 +83,7 @@ class Ui_ConvertionWindow(object):
         self.cry_btn = QtWidgets.QPushButton(self.centralwidget)
         self.cry_btn.setGeometry(QtCore.QRect(420, 310, 151, 61))
         self.cry_btn.setObjectName("cry_btn")
+        self.cry_btn.clicked.connect(self.crypto_show)
         self.exit = QtWidgets.QPushButton(self.centralwidget)
         self.exit.setGeometry(QtCore.QRect(260, 390, 151, 61))
         self.exit.setObjectName("exit")

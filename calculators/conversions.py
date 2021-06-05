@@ -410,7 +410,7 @@ Select a crypto conversion:    """))
         print()
         dc_to_b = float(doge_c * 0.00001089)
         dc_to_e = float(doge_c * 0.000150)
-        dc_to_sh = float(doge_c * 43, 745)
+        dc_to_sh = float(doge_c * 43745)
         print(colors.green, doge_c, "in DogeCoin equals",
               dc_to_b, "in Bitcoin.", colors.reset)
         print(colors.green, doge_c, "in DogeCoin equals",
