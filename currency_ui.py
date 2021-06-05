@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from currency_api import get_currency
 
 
 class Ui_CurrencyWindow(object):
@@ -11,52 +12,80 @@ class Ui_CurrencyWindow(object):
                 output = amount
                 self.lineEdit_2.setText(str(output))
             elif to == 'Japanese YEN':
-                output = float(amount * 103.91)
+                output = float(amount * get_currency("USD_JPY"))
                 self.lineEdit_2.setText(str(output))
             elif to == 'Canadian Dollars CAD':
-                output = float(amount * 1.27)
+                output = float(amount * get_currency("USD_CAD"))
                 self.lineEdit_2.setText(str(output))
             elif to == 'Moroccan MAD':
-                output = float(amount * 8.82)
+                output = float(amount * get_currency("USD_MAD"))
+                self.lineEdit_2.setText(str(output))
+            elif to == 'Euro':
+                output = float(amount * get_currency("USD_EUR"))
                 self.lineEdit_2.setText(str(output))
         elif from_ == 'Japanese YEN':
             if to == 'Japanese YEN':
                 output = amount
                 self.lineEdit_2.setText(str(output))
             elif to == 'American Dollars USD':
-                output = float(amount * 0.0096)
+                output = float(amount * get_currency("JPY_USD"))
                 self.lineEdit_2.setText(str(output))
             elif to == 'Canadian Dollars CAD':
-                output = float(amount * 0.012)
+                output = float(amount * get_currency("JPY_CAD"))
                 self.lineEdit_2.setText(str(output))
             elif to == 'Moroccan MAD':
-                output = float(amount * 0.08)
+                output = float(amount * get_currency("JPY_MAD"))
+                self.lineEdit_2.setText(str(output))
+            elif to == 'Euro':
+                output = float(amount * get_currency("JPY_EUR"))
                 self.lineEdit_2.setText(str(output))
         elif from_ == 'Canadian Dollars CAD':
             if to == 'Canadian Dollars CAD':
                 output = amount
                 self.lineEdit_2.setText(str(output))
             elif to == 'American Dollars USD':
-                output = float(amount * 0.79)
+                output = float(amount * get_currency("CAD_USD"))
                 self.lineEdit_2.setText(str(output))
             elif to == 'Japanese YEN':
-                output = float(amount * 125.49)
+                output = float(amount * get_currency("CAD_JPY"))
                 self.lineEdit_2.setText(str(output))
             elif to == 'Moroccan MAD':
-                output = float(amount * 7.33)
+                output = float(amount * get_currency("CAD_MAD"))
+                self.lineEdit_2.setText(str(output))
+            elif to == 'Euro':
+                output = float(amount * get_currency("CAR_EUR"))
                 self.lineEdit_2.setText(str(output))
         elif from_ == 'Moroccan MAD':
             if to == 'Moroccan MAD':
                 output = amount
                 self.lineEdit_2.setText(str(output))
             elif to == 'American Dollars USD':
-                output = float(amount * 0.11)
+                output = float(amount * get_currency("MAD_USD"))
                 self.lineEdit_2.setText(str(output))
             elif to == 'Japanese YEN':
-                output = float(amount * 12.42)
+                output = float(amount * get_currency("MAD_JPY"))
                 self.lineEdit_2.setText(str(output))
             elif to == 'Canadian Dollars CAD':
-                output = float(amount * 0.14)
+                output = float(amount * get_currency("MAD_CAD"))
+                self.lineEdit_2.setText(str(output))
+            elif to == 'Euro':
+                output = float(amount * get_currency("MAD_EUR"))
+                self.lineEdit_2.setText(str(output))
+        elif from_ == 'Euro':
+            if to == 'Euro':
+                output = amount
+                self.lineEdit_2.setText(str(output))
+            elif to == 'American Dollars USD':
+                output = float(amount * get_currency("EUR_USD"))
+                self.lineEdit_2.setText(str(output))
+            elif to == 'Japanese YEN':
+                output = float(amount * get_currency("EUR_JPY"))
+                self.lineEdit_2.setText(str(output))
+            elif to == 'Canadian Dollars CAD':
+                output = float(amount * get_currency("EUR_CAD"))
+                self.lineEdit_2.setText(str(output))
+            elif to == 'Moroccan MAD':
+                output = float(amount * get_currency("EUR_MAD"))
                 self.lineEdit_2.setText(str(output))
 
     def setupUi(self, MainWindow):
@@ -111,7 +140,8 @@ class Ui_CurrencyWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate(
+            "MainWindow", "Currency Converter"))
         self.label.setText(_translate("MainWindow", "Amount of Money"))
         self.comboBox.setItemText(0, _translate(
             "MainWindow", "American Dollars USD"))
