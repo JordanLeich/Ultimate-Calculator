@@ -1,4 +1,6 @@
 from currency_ui import *
+from temp_ui import *
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -6,6 +8,13 @@ class Ui_ConvertionWindow(object):
     def currency_show(self):
         self.window = QtWidgets.QDialog()
         self.ui = Ui_CurrencyWindow()
+        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.ui.setupUi(self.window)
+        self.window.exec_()
+
+    def temp_show(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_TempWindow()
         self.window.setWindowModality(QtCore.Qt.ApplicationModal)
         self.ui.setupUi(self.window)
         self.window.exec_()
@@ -23,6 +32,7 @@ class Ui_ConvertionWindow(object):
         self.temp_btn = QtWidgets.QPushButton(self.centralwidget)
         self.temp_btn.setGeometry(QtCore.QRect(90, 112, 151, 61))
         self.temp_btn.setObjectName("temp_btn")
+        self.temp_btn.clicked.connect(self.temp_show)
         self.mass_btn = QtWidgets.QPushButton(self.centralwidget)
         self.mass_btn.setGeometry(QtCore.QRect(420, 110, 151, 61))
         self.mass_btn.setObjectName("mass_btn")
@@ -62,7 +72,8 @@ class Ui_ConvertionWindow(object):
                                       "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:16pt; font-weight:400; font-style:normal;\">\n"
                                       "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#ff007f;\"> Conversions menu</span></p>\n"
                                       "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#ff007f;\"><br /></p></body></html>"))
-        self.temp_btn.setText(_translate("MainWindow", "Temperature Converter"))
+        self.temp_btn.setText(_translate(
+            "MainWindow", "Temperature Converter"))
         self.mass_btn.setText(_translate("MainWindow", "Mass Converter"))
         self.len_btn.setText(_translate("MainWindow", "Length Converter"))
         self.vol_btn.setText(_translate("MainWindow", "Volume Converter"))

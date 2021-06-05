@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from currency_api import get_currency
 
 
 class Ui_CurrencyWindow(object):
