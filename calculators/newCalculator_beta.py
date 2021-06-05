@@ -8,7 +8,6 @@ result = float
 number1 = float
 number2 = float
 
-
 def calculator(data):
     total = 0
     for ind, dta in enumerate(data):
