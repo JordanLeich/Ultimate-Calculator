@@ -38,11 +38,12 @@ def start():
     print()
 
     if choice1.lower() in ['y', 'yes']:
+        print(colors.green, 'GUI Application is now running!\n', colors.reset)
         start_gui()
     elif choice1.lower() in ['n', 'no']:
         print('Proceeding to normal calculator...\n')
     else:
-        print(colors.red+'User input error found... Restarting input choice...\n')
+        print(colors.red + 'User input error found... Restarting input choice...\n')
         time.sleep(2)
         start()
 
