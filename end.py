@@ -7,3 +7,7 @@ def end():
     print("Reached end of the program... Ending program...\n")
     time.sleep(2)
     quit()
+
+
+if __name__ == '__main__':
+    end()
