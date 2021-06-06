@@ -3,6 +3,7 @@
 import time
 import colors
 import restart
+import math
 
 
 def payroll():
@@ -66,9 +67,39 @@ def tipping():
         restart.restart()
 
 
+def interest():
+    principal = float(input("How much money do you currently have in the bank: "))
+    rate = float(input("What is your interest rate: "))
+
+    if rate <= 0:
+        print(colors.red, 'You cannot have a rate less than or equal to 0!', colors.reset, '\n')
+        time.sleep(2)
+        interest()
+
+    else:
+        years = int(input("Over how many years is the interest compounded: "))
+
+        if years <= 0:
+            print(colors.red, 'You cannot have a yearly compound interest timeline that is less than or equal to 0!',
+                  colors.reset, '\n')
+            time.sleep(2)
+            interest()
+
+        else:
+            print()
+            actual_principal = float(principal)
+            actual_rate = float(rate)
+            actual_time = int(years)
+            A = math.pow((1 + actual_rate), actual_time)
+            B = actual_principal * A
+            print(colors.green, 'Your Balance After Compound Interest:', B, '\n', colors.reset)
+            restart.restart()
+
+
 def start():
     choice = int(input("""(1) Payroll Calculator
 (2) Restaurant Tip Calculator
+(3) Compound Interest Calculator
 Which calculation would you like to perform: """))
     print()
 
@@ -76,6 +107,8 @@ Which calculation would you like to perform: """))
         payroll()
     elif choice == 2:
         tipping()
+    elif choice == 3:
+        interest()
     else:
         print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
         time.sleep(1)

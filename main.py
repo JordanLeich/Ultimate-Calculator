@@ -53,7 +53,7 @@ def start():
 (3) All Converters (Temperature, Mass, Length, Volume)
 (4) Stock Market Shares Calculator (Gain/Loss of a stock)
 (5) Time Converter (Hours to Days, Days in Years, * More)
-(6) Financial Calculator (Payroll, Restaurant Tipping)
+(6) Financial Calculator (Payroll, Tipping Amount, Compound Interest)
 (7) All Project Contributors
 (8) Restart Program
 (9) Exit Program

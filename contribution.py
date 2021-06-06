@@ -5,7 +5,7 @@ import restart
 
 
 def start():
-    print(colors.green + "Opening all current contributors of this project...\n", colors.reset)
+    print(colors.green + "Opening all contributors of this project...\n", colors.reset)
     time.sleep(1)
     webbrowser.open_new("https://github.com/JordanLeich/Ultimate-Calculator/graphs/contributors")
     time.sleep(2)
