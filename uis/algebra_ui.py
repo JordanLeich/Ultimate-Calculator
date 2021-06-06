@@ -1,6 +1,6 @@
-from slope1_ui import *
-from slope2_ui import *
-from pythagore_ui import *
+from uis.slope1_ui import *
+from uis.slope2_ui import *
+from uis.pythagore_ui import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 

@@ -1,9 +1,9 @@
-from converters_ui import *
-from arithmetics_ui import *
-from time_convert_ui import *
-from algebra_ui import *
-from stock_ui import *
-from PyQt5 import QtCore, QtGui, QtWidgets
+from uis.converters_ui import *
+from uis.arithmetics_ui import *
+from uis.time_convert_ui import *
+from uis.algebra_ui import *
+from uis.stock_ui import *
+from PyQt5 import QtCore, QtWidgets
 import webbrowser
 
 
@@ -118,7 +118,6 @@ class Ui_MainWindow(object):
 
 
 def start_gui():
-    import webbrowser
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
