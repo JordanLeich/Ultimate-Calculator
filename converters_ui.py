@@ -1,4 +1,9 @@
 from currency_ui import *
+from temp_ui import *
+from mass_ui import *
+from crypto_ui import *
+from length_ui import *
+from volume_ui import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -6,6 +11,41 @@ class Ui_ConvertionWindow(object):
     def currency_show(self):
         self.window = QtWidgets.QDialog()
         self.ui = Ui_CurrencyWindow()
+        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.ui.setupUi(self.window)
+        self.window.exec_()
+
+    def length_show(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_LengthWindow()
+        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.ui.setupUi(self.window)
+        self.window.exec_()
+
+    def volume_show(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_VolumeWindow()
+        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.ui.setupUi(self.window)
+        self.window.exec_()
+
+    def temp_show(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_TempWindow()
+        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.ui.setupUi(self.window)
+        self.window.exec_()
+
+    def mass_show(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_MassWindow()
+        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.ui.setupUi(self.window)
+        self.window.exec_()
+
+    def crypto_show(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_CryptoWindow()
         self.window.setWindowModality(QtCore.Qt.ApplicationModal)
         self.ui.setupUi(self.window)
         self.window.exec_()
@@ -23,15 +63,19 @@ class Ui_ConvertionWindow(object):
         self.temp_btn = QtWidgets.QPushButton(self.centralwidget)
         self.temp_btn.setGeometry(QtCore.QRect(90, 112, 151, 61))
         self.temp_btn.setObjectName("temp_btn")
+        self.temp_btn.clicked.connect(self.temp_show)
         self.mass_btn = QtWidgets.QPushButton(self.centralwidget)
         self.mass_btn.setGeometry(QtCore.QRect(420, 110, 151, 61))
         self.mass_btn.setObjectName("mass_btn")
+        self.mass_btn.clicked.connect(self.mass_show)
         self.len_btn = QtWidgets.QPushButton(self.centralwidget)
         self.len_btn.setGeometry(QtCore.QRect(90, 210, 151, 61))
         self.len_btn.setObjectName("len_btn")
+        self.len_btn.clicked.connect(self.length_show)
         self.vol_btn = QtWidgets.QPushButton(self.centralwidget)
         self.vol_btn.setGeometry(QtCore.QRect(420, 210, 151, 61))
         self.vol_btn.setObjectName("vol_btn")
+        self.vol_btn.clicked.connect(self.volume_show)
         self.curr_btn = QtWidgets.QPushButton(self.centralwidget)
         self.curr_btn.setGeometry(QtCore.QRect(90, 310, 151, 61))
         self.curr_btn.setObjectName("curr_btn")
@@ -39,6 +83,7 @@ class Ui_ConvertionWindow(object):
         self.cry_btn = QtWidgets.QPushButton(self.centralwidget)
         self.cry_btn.setGeometry(QtCore.QRect(420, 310, 151, 61))
         self.cry_btn.setObjectName("cry_btn")
+        self.cry_btn.clicked.connect(self.crypto_show)
         self.exit = QtWidgets.QPushButton(self.centralwidget)
         self.exit.setGeometry(QtCore.QRect(260, 390, 151, 61))
         self.exit.setObjectName("exit")
@@ -62,7 +107,8 @@ class Ui_ConvertionWindow(object):
                                       "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:16pt; font-weight:400; font-style:normal;\">\n"
                                       "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#ff007f;\"> Conversions menu</span></p>\n"
                                       "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#ff007f;\"><br /></p></body></html>"))
-        self.temp_btn.setText(_translate("MainWindow", "Temperature Converter"))
+        self.temp_btn.setText(_translate(
+            "MainWindow", "Temperature Converter"))
         self.mass_btn.setText(_translate("MainWindow", "Mass Converter"))
         self.len_btn.setText(_translate("MainWindow", "Length Converter"))
         self.vol_btn.setText(_translate("MainWindow", "Volume Converter"))
