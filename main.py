@@ -4,7 +4,7 @@
 # https://github.com/JordanLeich/Ultimate-Calculator/graphs/contributors
 
 # Imports
-from calculators import algebra, time_converter, conversions, stocks, financial, calculator
+from calculators import algebra, time_converter, conversions, stocks, financial, calculator, randomization
 import restart
 import colors
 import contribution
@@ -26,9 +26,10 @@ INPUT_CHOICES = {
     4: stocks.start,
     5: time_converter.start,
     6: financial.start,
-    7: contribution.start,
-    8: restart.restart,
-    9: end.end
+    7: randomization.start,
+    8: contribution.start,
+    9: restart.restart,
+    10: end.end
 }
 
 
@@ -54,19 +55,20 @@ def start():
 (4) Stock Market Shares Calculator (Gain/Loss of a stock)
 (5) Time Converter (Hours to Days, Days in Years, * More)
 (6) Financial Calculator (Payroll, Tipping Amount, Compound Interest)
-(7) All Project Contributors
-(8) Restart Program
-(9) Exit Program
+(7) Randomization (Random Number Generator, Heads or Tails)
+(8) All Project Contributors
+(9) Restart Program
+(10) Exit Program
 Which option would you like to pick: '''))
     print()
 
-    if choice2 not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
+    if choice2 not in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
         wrong_option()
 
     else:
         # get function from dict and execute
         # if option not found then execute wrong option function
-        INPUT_CHOICES.get(choice2, 9)()
+        INPUT_CHOICES.get(choice2, 10)()
 
 
 if __name__ == '__main__':
