@@ -1,9 +1,9 @@
-from currency_ui import *
-from temp_ui import *
-from mass_ui import *
-from crypto_ui import *
-from length_ui import *
-from volume_ui import *
+from uis.currency_ui import *
+from uis.temp_ui import *
+from uis.mass_ui import *
+from uis.crypto_ui import *
+from uis.length_ui import *
+from uis.volume_ui import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
