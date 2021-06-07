@@ -19,21 +19,29 @@ class Window(QWidget):
         self.clear.clicked.connect(lambda: self.lineEdit.clear())
         self.exit.clicked.connect(lambda: self.hide())
 
+        self.point.clicked.connect(lambda: self.lineEdit.insert("."))
+        self.zero.clicked.connect(lambda: self.lineEdit.insert("0"))
+        self.one.clicked.connect(lambda: self.lineEdit.insert("1"))
+        self.two.clicked.connect(lambda: self.lineEdit.insert("2"))
+        self.three.clicked.connect(lambda: self.lineEdit.insert("3"))
+        self.four.clicked.connect(lambda: self.lineEdit.insert("4"))
+        self.five.clicked.connect(lambda: self.lineEdit.insert("5"))
+        self.six.clicked.connect(lambda: self.lineEdit.insert("6"))
+        self.seven.clicked.connect(lambda: self.lineEdit.insert("7"))
+        self.eight.clicked.connect(lambda: self.lineEdit.insert("8"))
+        self.nine.clicked.connect(lambda: self.lineEdit.insert("9"))
+
     def addition(self):
-        curr_text = self.lineEdit.text()
-        self.lineEdit.setText(f"{curr_text} + ")
+        self.lineEdit.insert(" + ")
 
     def subtraction(self):
-        curr_text = self.lineEdit.text()
-        self.lineEdit.setText(f"{curr_text} - ")
+        self.lineEdit.insert(" - ")
 
     def multiplication(self):
-        curr_text = self.lineEdit.text()
-        self.lineEdit.setText(f"{curr_text} * ")
+        self.lineEdit.insert(" * ")
 
     def division(self):
-        curr_text = self.lineEdit.text()
-        self.lineEdit.setText(f"{curr_text} / ")
+        self.lineEdit.insert(" / ")
 
     def equals(self):
         curr_text = self.lineEdit.text().split(" ")
@@ -47,7 +55,7 @@ class Window(QWidget):
     def keyPressEvent(self, event):
         key = event.text()
         if key in [str(i) for i in range(10)]:
-            self.lineEdit.setText(f"{self.lineEdit.text()}{key}")
+            self.lineEdit.insert(key)
         elif key == "+":
             self.addition()
         elif key == "-":
@@ -58,6 +66,8 @@ class Window(QWidget):
             self.division()
         elif key == "=":
             self.equals()
+        elif key == ".":
+            self.lineEdit.insert(".")
         elif event.key() == 16777219:
             if self.lineEdit.text()[-1] == " ":
                 self.lineEdit.backspace()
