@@ -106,7 +106,7 @@ class Ui_TempWindow(object):
 
 if __name__ == "__main__":
     import sys
-    app = QtWidgets.QDialog(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_TempWindow()
     ui.setupUi(MainWindow)

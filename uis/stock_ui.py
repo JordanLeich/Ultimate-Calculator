@@ -87,7 +87,7 @@ class Ui_StockWindow(object):
 
 if __name__ == "__main__":
     import sys
-    app = QtWidgets.QDialog(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_StockWindow()
     ui.setupUi(MainWindow)
