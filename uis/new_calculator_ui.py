@@ -16,6 +16,8 @@ class Window(QWidget):
         self.multiply.clicked.connect(self.multiplication)
         self.divide.clicked.connect(self.division)
         self.equal.clicked.connect(self.equals)
+        self.clear.clicked.connect(lambda: self.lineEdit.clear())
+        self.exit.clicked.connect(lambda: self.hide())
 
     def addition(self):
         curr_text = self.lineEdit.text()
@@ -35,6 +37,10 @@ class Window(QWidget):
 
     def equals(self):
         curr_text = self.lineEdit.text().split(" ")
+        for ind, text in enumerate(curr_text):
+            if text == "":
+                curr_text.pop(ind)
+        curr_text.append("=")
         calculated = str(calculator(curr_text))
         self.lineEdit.setText(calculated)
 
@@ -51,6 +57,12 @@ class Window(QWidget):
         elif key == "/":
             self.division()
         elif key == "=":
+            self.equals()
+        elif event.key() == 16777219:
+            if self.lineEdit.text()[-1] == " ":
+                self.lineEdit.backspace()
+            self.lineEdit.backspace()
+        elif event.key() == 16777220:
             self.equals()
 
 
