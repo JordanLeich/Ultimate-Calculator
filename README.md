@@ -9,7 +9,7 @@
   </a>
 
 # Description 💻
-This is an incredibly powerful calculator that is capable of many useful day-to-day functions. Such functions include solving basic arithmetic, algebraic, chemistry conversions, and much more.
+This is an incredibly powerful calculator that is capable of many useful day-to-day functions. Such functions include solving basic arithmetic, algebraic, chemistry conversions, and much more. This project also features a fully operational GUI application for those who are not down with the normal text based version.
 
 # How To Use ⚡
   *Step 1*:
