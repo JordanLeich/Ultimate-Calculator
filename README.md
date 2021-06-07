@@ -48,8 +48,11 @@ This is an incredibly powerful calculator that is capable of many useful day-to-
       ```
 
 # Preview 💻
-![Preview](images/textbaseddemo.gif "Preview")
-      
+![Text-Based-Preview](images/textbaseddemo.gif "Text Based Preview")
+
+# GUI Preview 💻
+![GUI-Preview](images/guibaseddemo.gif "GUI Preview")
+
 # TODO List ❗ 
 - Check out the issues page for this project [here](https://github.com/JordanLeich/Ultimate-Calculator/issues/1)
 
