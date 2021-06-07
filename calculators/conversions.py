@@ -1,6 +1,7 @@
 import colors
 import end
 import restart
+import time
 from currency_api import get_currency
 
 
@@ -436,6 +437,101 @@ Select a crypto conversion:    """))
         crypto_converter()
 
 
+def mph():
+    choice = float(input('How many Miles Per Hour: '))
+    print()
+    mph_fps = choice * 1.467
+    mph_mps = choice / 2.237
+    mph_kms = choice * 1.609
+    mph_knot = choice / 1.151
+    print(colors.green, choice, 'Miles Per Hour equals', mph_fps, 'in Foot Per Seconds.', colors.reset)
+    print(colors.green, choice, 'Miles Per Hour equals', mph_mps, 'in Meters Per Second.', colors.reset)
+    print(colors.green, choice, 'Miles Per Hour equals', mph_kms, 'in Kilometers Per Hour.', colors.reset)
+    print(colors.green, choice, 'Miles Per Hour equals', mph_knot, 'in Knot.\n', colors.reset)
+    restart.restart()
+
+
+def fps():
+    choice = float(input('How many Foot Per Seconds: '))
+    print()
+    fps_mph = choice / 1.467
+    fps_mps = choice / 3.281
+    fps_kph = choice * 1.097
+    fps_knot = choice / 1.688
+    print(colors.green, choice, 'Foot Per Seconds equals', fps_mph, 'in Miles Per Hour.', colors.reset)
+    print(colors.green, choice, 'Foot Per Seconds equals', fps_mps, 'in Meters Per Second.', colors.reset)
+    print(colors.green, choice, 'Foot Per Seconds equals', fps_kph, 'in Kilometers Per Hour.', colors.reset)
+    print(colors.green, choice, 'Foot Per Seconds equals', fps_knot, 'in Knot.\n', colors.reset)
+    restart.restart()
+
+
+def mps():
+    choice = float(input('How many Meters Per Second: '))
+    print()
+    mps_mph = choice * 2.237
+    mps_fps = choice * 3.281
+    mps_kph = choice * 3.6
+    mps_knot = choice * 1.944
+    print(colors.green, choice, 'Meters Per Second equals', mps_mph, 'in Miles Per Hour.', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals', mps_fps, 'in Foot Per Second.', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals', mps_kph, 'in Kilometers Per Hour.', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals', mps_knot, 'in Knot.\n', colors.reset)
+    restart.restart()
+
+
+def kph():
+    choice = float(input('How many Kilometers Per Hour: '))
+    print()
+    kph_mph = choice / 1.609
+    kph_fps = choice / 1.097
+    kph_mps = choice / 3.6
+    kph_knot = choice / 1.852
+    print(colors.green, choice, 'Meters Per Second equals', kph_mph, 'in Miles Per Hour.', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals', kph_fps, 'in Foot Per Second.', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals', kph_mps, 'in Meters Per Second.', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals', kph_knot, 'in Knot.\n', colors.reset)
+    restart.restart()
+
+
+def knot():
+    choice = float(input('How many Knots: '))
+    print()
+    knot_mph = choice * 1.151
+    knot_fps = choice * 1.688
+    knot_mps = choice / 1.944
+    knot_kph = choice * 1.852
+    print(colors.green, choice, 'Knots equals', knot_mph, 'in Miles Per Hour.', colors.reset)
+    print(colors.green, choice, 'Knots equals', knot_fps, 'in Foot Per Second.', colors.reset)
+    print(colors.green, choice, 'Knots equals', knot_mps, 'in Meters Per Second.', colors.reset)
+    print(colors.green, choice, 'Knots equals', knot_kph, 'in Kilometers Per Hour.\n', colors.reset)
+    restart.restart()
+
+
+def speed_converter():
+    choice = int(input("""(1) Miles Per Hour to All
+(2) Foot Per Second to ALL
+(3) Meter Per Second to ALL
+(4) Kilometer Per Hour to ALL
+(5) Knot to ALL
+Which calculation would you like to perform: """))
+    print()
+
+    if choice == 1:
+        mph()
+    elif choice == 2:
+        fps()
+    elif choice == 3:
+        mps()
+    elif choice == 4:
+        kph()
+    elif choice == 5:
+        knot()
+    else:
+        print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
+        time.sleep(1)
+        start()
+
+
 def start():
     choice = int(input('''
 (1) Temperature Converter
@@ -444,8 +540,9 @@ def start():
 (4) Volume Converter
 (5) Currency Converter
 (6) Crypto Converter
-(7) Restart
-(8) Quit
+(7) Speed Converter
+(8) Restart
+(9) Quit
 What converter would you like to perform: '''))
     print()
 
@@ -462,8 +559,10 @@ What converter would you like to perform: '''))
     elif choice == 6:
         crypto_converter()
     elif choice == 7:
-        restart.restart()
+        speed_converter()
     elif choice == 8:
+        restart.restart()
+    elif choice == 9:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
@@ -471,5 +570,4 @@ What converter would you like to perform: '''))
 
 
 if __name__ == '__main__':
-    #     start()
-    currency_converter()
+    start()
