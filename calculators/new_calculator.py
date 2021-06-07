@@ -40,6 +40,8 @@ def calculator(data):
 
 # Entire operation
 def start():
+    print(colors.yellow + 'When you are finishing making your arithmetic problem, please use = when asked for an '
+                          'operator!\n', colors.reset)
     calculation = []
     while True:
         while True:
@@ -73,12 +75,13 @@ def start():
 
     # Better Variable Names :)
     continue_opt = input("Would you like to make another arithmetic calculation (yes / no): ")
+    print()
     if continue_opt.lower() in ['y', 'yes']:
         start()
     elif continue_opt.lower() in ['n', 'no']:
         restart.restart()
     else:
-        print(colors.red + 'User input error found...')
+        print(colors.red + 'User input error found...\n', colors.reset)
         time.sleep(2)
         restart.restart()
 
