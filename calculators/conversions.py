@@ -532,6 +532,160 @@ Which calculation would you like to perform: """))
         start()
 
 
+def time_converter():
+    print("Input what you would like to convert from")
+    print("Please stick to this format")
+    print(colors.red, "XY XD XH XM XS (X is your number)\t ie: 10Y", colors.reset)
+
+    response = input().split()
+    total_seconds = 0
+    for date in response:
+
+        if date.endswith("d") or date.endswith("D"):
+            date = date[:-1]
+            date = float(date)
+            date *= 86400
+            total_seconds += date
+        elif date.endswith("h") or date.endswith("H"):
+            date = date[:-1]
+            date = float(date)
+            date *= 3600
+            total_seconds += date
+        elif date.endswith("m") or date.endswith("M"):
+            date = date[:-1]
+            date = float(date)
+            date *= 60
+            total_seconds += date
+        elif date.endswith("s") or date.endswith("S"):
+            date = date[:-1]
+            date = float(date)
+            total_seconds += date
+        elif date.endswith("y") or date.endswith("Y"):
+            date = date[:-1]
+            date = float(date)
+            date *= 31536000
+            total_seconds += date
+
+    convert_to = input("""(1) Years
+(2) Days
+(3) Minutes
+(4) Seconds
+What do you want to convert to: """)
+    print()
+    convert_to = int(convert_to)
+    if convert_to == 1:
+        print(colors.green, total_seconds / 31536000, "years\n", colors.reset)
+        restart.restart()
+    elif convert_to == 2:
+        print(colors.green, total_seconds / 86400, "days\n", colors.reset)
+        restart.restart()
+    elif convert_to == 3:
+        print(colors.green, total_seconds / 60, "minutes\n", colors.reset)
+        restart.restart()
+    elif convert_to == 4:
+        print(colors.green, total_seconds, "seconds\n", colors.reset)
+        restart.restart()
+    else:
+        print(colors.red + "Invalid input... Restarting input...\n" + colors.reset)
+        time.sleep(2)
+        time_converter()
+
+
+def bytes_converter():
+    choice = float(input('How many Bytes: '))
+    print()
+    b_k = choice / 1000
+    b_m = choice / 1e+6
+    b_g = choice / 1e+9
+    b_t = choice / 1e+12
+    print(colors.green, choice, 'Bytes equals', b_k, 'in Kilobytes.', colors.reset)
+    print(colors.green, choice, 'Bytes equals', b_m, 'in Megabytes.', colors.reset)
+    print(colors.green, choice, 'Bytes equals', b_g, 'in Gigabytes.', colors.reset)
+    print(colors.green, choice, 'Bytes equals', b_t, 'in Terabytes.\n', colors.reset)
+    restart.restart()
+
+
+def kilobytes_converter():
+    choice = float(input('How many Kilobytes: '))
+    print()
+    k_b = choice * 1000
+    k_m = choice / 1000
+    k_g = choice / 1e+6
+    k_t = choice / 1e+9
+    print(colors.green, choice, 'Kilobytes equals', k_b, 'in Bytes.', colors.reset)
+    print(colors.green, choice, 'Kilobytes equals', k_m, 'in Megabytes.', colors.reset)
+    print(colors.green, choice, 'Kilobytes equals', k_g, 'in Gigabytes.', colors.reset)
+    print(colors.green, choice, 'Kilobytes equals', k_t, 'in Terabytes.\n', colors.reset)
+    restart.restart()
+
+
+def megabytes_converter():
+    choice = float(input('How many Megabytes: '))
+    print()
+    m_b = choice * 1e+6
+    m_k = choice * 1000
+    m_g = choice / 1000
+    m_t = choice / 1e+6
+    print(colors.green, choice, 'Megabytes equals', m_b, 'in Bytes.', colors.reset)
+    print(colors.green, choice, 'Megabytes equals', m_k, 'in Kilobytes.', colors.reset)
+    print(colors.green, choice, 'Megabytes equals', m_g, 'in Gigabytes.', colors.reset)
+    print(colors.green, choice, 'Megabytes equals', m_t, 'in Terabytes.\n', colors.reset)
+    restart.restart()
+
+
+def gigabytes_converter():
+    choice = float(input('How many Gigabytes: '))
+    print()
+    g_b = choice * 1e+9
+    g_k = choice * 1e+6
+    g_m = choice * 1000
+    g_t = choice / 1000
+    print(colors.green, choice, 'Gigabytes equals', g_b, 'in Bytes.', colors.reset)
+    print(colors.green, choice, 'Gigabytes equals', g_k, 'in Kilobytes.', colors.reset)
+    print(colors.green, choice, 'Gigabytes equals', g_m, 'in Megabytes.', colors.reset)
+    print(colors.green, choice, 'Gigabytes equals', g_t, 'in Terabytes.\n', colors.reset)
+    restart.restart()
+
+
+def terabytes_converter():
+    choice = float(input('How many Terabytes: '))
+    print()
+    t_b = choice * 1e+12
+    t_k = choice * 1e+9
+    t_m = choice * 1e+6
+    t_g = choice * 1000
+    print(colors.green, choice, 'Terabytes equals', t_b, 'in Bytes.', colors.reset)
+    print(colors.green, choice, 'Terabytes equals', t_k, 'in Kilobytes.', colors.reset)
+    print(colors.green, choice, 'Terabytes equals', t_m, 'in Megabytes.', colors.reset)
+    print(colors.green, choice, 'Terabytes equals', t_g, 'in Gigabytes.\n', colors.reset)
+    restart.restart()
+
+
+def storage_converter():
+    choice = int(input("""(1) Bytes to All
+(2) Kilobytes to ALL
+(3) Megabytes to ALL
+(4) Gigabyte to ALL
+(5) Terabyte to ALL
+Which calculation would you like to perform: """))
+    print()
+
+    if choice == 1:
+        bytes_converter()
+    elif choice == 2:
+        kilobytes_converter()
+    elif choice == 3:
+        megabytes_converter()
+    elif choice == 4:
+        gigabytes_converter()
+    elif choice == 5:
+        terabytes_converter()
+    else:
+        print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
+        time.sleep(1)
+        start()
+
+
 def start():
     choice = int(input('''
 (1) Temperature Converter
@@ -541,8 +695,10 @@ def start():
 (5) Currency Converter
 (6) Crypto Converter
 (7) Speed Converter
-(8) Restart
-(9) Quit
+(8) Digital Storage Converter
+(9) Time Converter
+(10) Restart
+(11) Quit
 What converter would you like to perform: '''))
     print()
 
@@ -561,8 +717,12 @@ What converter would you like to perform: '''))
     elif choice == 7:
         speed_converter()
     elif choice == 8:
-        restart.restart()
+        storage_converter()
     elif choice == 9:
+        time_converter()
+    elif choice == 10:
+        restart.restart()
+    elif choice == 11:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
