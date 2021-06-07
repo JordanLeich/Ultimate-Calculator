@@ -1,85 +1,89 @@
-# Imports
 import time
 import colors
 import restart
 
-# Variables
-operator = float
-result = float
-number1 = float
-number2 = float
+
+def calculator(data):
+    if len(data) <= 3:
+        return 0
+
+    total: float = 0
+    for ind, dta in enumerate(data):
+        if dta == "+":
+            total += float(data[ind + 1])
+            data.pop(ind + 1)
+
+        elif dta == "-":
+            total -= float(data[ind + 1])
+            data.pop(ind + 1)
+
+        elif dta == "/":
+            total /= float(data[ind + 1])
+            data.pop(ind + 1)
+
+        elif dta == "*":
+            total *= float(data[ind + 1])
+            data.pop(ind + 1)
+
+        elif dta == "**":
+            total **= float(data[ind + 1])
+            data.pop(ind + 1)
+
+        elif dta == "=":
+            break
+
+        else:
+            total += float(dta)
+
+    return int(total) if total.is_integer() else total
 
 
 # Entire operation
 def start():
-    global operator, result, number1, number2
-
-    # Keep asking the user until they enter a valid input
+    print(colors.yellow + 'When you are finishing making your arithmetic problem, please use = when asked for an '
+                          'operator!\n', colors.reset)
+    calculation = []
     while True:
-        try:
-            number1 = float(input("What is your first number: "))
+        while True:
+            try:
+                number = input("Your Number: ")
+                float(number)
+                calculation.append(number)
+                break
+            except ValueError:
+                print("error")
+                continue
+
+        while True:
+            operator_options = [
+                "+", "-", "*", "/", "**", "=",
+                "add", "subtract", "multiply", "times",
+                "power", "divide", "division", "equals"]
+
+            operator = input("Your Operator: ")
+            if operator in operator_options:
+                calculation.append(operator)
+                break
+            else:
+                print(colors.red+"Error Found...\n", colors.reset)
+                continue
+
+        if operator == "=":
             print()
+            print(colors.green + " ".join(calculation), calculator(calculation), colors.reset)
             break
-        except ValueError:
-            print("Invalid Input.")
-            continue
+        print(" ".join(calculation))
 
-    while True:
-        try:
-            number2 = float(input("What is your second number: "))
-            print()
-            break
-        except ValueError:
-            print("Invalid Input.")
-            continue
-
-    operator_options = ["+", "-", "*", "/", "**",
-                        "add", "subtract", "multiply",
-                        "times", "divide", "division", "power"]
-    # input() is already a str by default
-    operator = input('Choose an operator (+, -, *, /, or ** to multiply by a power) ')
+    # Better Variable Names :)
     print()
-
-    # Keep asking the user until they enter a valid operator
-    while operator not in operator_options:
-        print("Invalid Operator, Please Choose Again.")
-        operator = input('Choose an operator (+, -, *, /, or ** to multiply by a power) ')
+    continue_opt = input("Would you like to make another arithmetic calculation (yes / no): ")
     print()
-
-    # "in []" is better with multiple choices
-    if operator.lower() in ["+", "add"]:
-        addition = number1 + number2
-        print(colors.green, addition, colors.reset, '\n')
-
-    elif operator.lower() in ["-", "subtract"]:
-        subtract = number1 - number2
-        print(colors.green, subtract, colors.reset, '\n')
-
-    elif operator.lower() in ["*", "multiply", "times"]:
-        multiply = number1 * number2
-        print(colors.green, multiply, colors.reset, '\n')
-
-    elif operator.lower() in ["/", "divide", "division"]:
-        if 0 in [number1, number2]:
-            print(colors.red + "You cannot divide by zero!\n", colors.reset)
-        else:
-            divide = number1 / number2
-            print(colors.green, divide, colors.reset, '\n')
-
-    elif operator.lower() in ["**", "power"]:
-        power = number1 ** number2
-        print(colors.green, power, colors.reset, '\n')
-
-    # it's kinda annoying to restart after, so I added continue option
-    # change the variable names because I'm not really good with naming variables
-    input_1 = str(input("Would you like to make another arithmetic calculation (yes / no): "))
-
-    if input_1.lower() == "yes" or input_1.lower() == 'y':
+    if continue_opt.lower() in ['y', 'yes']:
         start()
-    elif input_1.lower() == "no" or input_1.lower() == 'n':
+    elif continue_opt.lower() in ['n', 'no']:
         restart.restart()
     else:
-        print(colors.red+'User input error found...')
+        print(colors.red + 'User input error found...\n', colors.reset)
         time.sleep(2)
         restart.restart()
 

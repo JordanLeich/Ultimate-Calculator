@@ -1,6 +1,6 @@
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QWidget, QApplication
-from calculators.new_calculator import calculator
+from calculators.calculator import calculator
 from PyQt5.Qt import QIntValidator
 
 
