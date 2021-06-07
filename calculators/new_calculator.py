@@ -18,7 +18,7 @@ def calculator(data):
             total /= int(data[ind + 1])
             data.pop(ind + 1)
 
-        elif dta == "*":
+        elif dta in "*":
             total *= int(data[ind + 1])
             data.pop(ind + 1)
 
