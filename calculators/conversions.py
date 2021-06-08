@@ -800,7 +800,7 @@ def angle_converter():
             Which calculation would you like to perform: """))
     print()
     if user_choice == 1:
-        angle = float(input("Enter Pressure amount: "))
+        angle = float(input("Enter the angle : "))
         print()
         ang_to_rad = float(angle * (3.14/180))
         ang_to_grad = float(angle * (200/180))
@@ -813,7 +813,7 @@ def angle_converter():
               ang_to_min, "in Minute ['].\n", colors.reset)
         restart.restart()
     elif user_choice == 2:
-        angle = float(input("Enter Pressure amount: "))
+        angle = float(input("Enter the angle : "))
         print()
         ang_to_deg = float(angle * (180/3.14))
         ang_to_grad = float(angle * (200/3.14))
@@ -826,7 +826,7 @@ def angle_converter():
               ang_to_min, "in Minute ['].\n", colors.reset)
         restart.restart()
     elif user_choice == 3:
-        angle = float(input("Enter Pressure amount: "))
+        angle = float(input("Enter the angle : "))
         print()
         ang_to_deg = float(angle * 0.9)
         ang_to_rad = float(angle * 0.015708)
@@ -839,7 +839,7 @@ def angle_converter():
               ang_to_min, "in Minute ['].\n", colors.reset)
         restart.restart()
     elif user_choice == 4:
-        angle = float(input("Enter Pressure amount: "))
+        angle = float(input("Enter the angle : "))
         print()
         ang_to_deg = float(angle * 0.0166667)
         ang_to_rad = float(angle * 0.0002908882)
@@ -869,8 +869,9 @@ def start():
 (8) Digital Storage Converter
 (9) Time Converter
 (10) Pressure Converter
-(11) Restart
-(12) Quit
+(11) Angle converter
+(12) Restart
+(13) Quit
 What converter would you like to perform: '''))
     print()
 
@@ -894,9 +895,11 @@ What converter would you like to perform: '''))
         time_converter()
     elif choice == 10:
         pressure_converter()
-    elif choice == 10:
-        restart.restart()
     elif choice == 11:
+        angle_converter()
+    elif choice == 12:
+        restart.restart()
+    elif choice == 13:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
