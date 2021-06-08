@@ -444,10 +444,14 @@ def mph():
     mph_mps = choice / 2.237
     mph_kms = choice * 1.609
     mph_knot = choice / 1.151
-    print(colors.green, choice, 'Miles Per Hour equals', mph_fps, 'in Foot Per Seconds.', colors.reset)
-    print(colors.green, choice, 'Miles Per Hour equals', mph_mps, 'in Meters Per Second.', colors.reset)
-    print(colors.green, choice, 'Miles Per Hour equals', mph_kms, 'in Kilometers Per Hour.', colors.reset)
-    print(colors.green, choice, 'Miles Per Hour equals', mph_knot, 'in Knot.\n', colors.reset)
+    print(colors.green, choice, 'Miles Per Hour equals',
+          mph_fps, 'in Foot Per Seconds.', colors.reset)
+    print(colors.green, choice, 'Miles Per Hour equals',
+          mph_mps, 'in Meters Per Second.', colors.reset)
+    print(colors.green, choice, 'Miles Per Hour equals',
+          mph_kms, 'in Kilometers Per Hour.', colors.reset)
+    print(colors.green, choice, 'Miles Per Hour equals',
+          mph_knot, 'in Knot.\n', colors.reset)
     restart.restart()
 
 
@@ -458,10 +462,14 @@ def fps():
     fps_mps = choice / 3.281
     fps_kph = choice * 1.097
     fps_knot = choice / 1.688
-    print(colors.green, choice, 'Foot Per Seconds equals', fps_mph, 'in Miles Per Hour.', colors.reset)
-    print(colors.green, choice, 'Foot Per Seconds equals', fps_mps, 'in Meters Per Second.', colors.reset)
-    print(colors.green, choice, 'Foot Per Seconds equals', fps_kph, 'in Kilometers Per Hour.', colors.reset)
-    print(colors.green, choice, 'Foot Per Seconds equals', fps_knot, 'in Knot.\n', colors.reset)
+    print(colors.green, choice, 'Foot Per Seconds equals',
+          fps_mph, 'in Miles Per Hour.', colors.reset)
+    print(colors.green, choice, 'Foot Per Seconds equals',
+          fps_mps, 'in Meters Per Second.', colors.reset)
+    print(colors.green, choice, 'Foot Per Seconds equals',
+          fps_kph, 'in Kilometers Per Hour.', colors.reset)
+    print(colors.green, choice, 'Foot Per Seconds equals',
+          fps_knot, 'in Knot.\n', colors.reset)
     restart.restart()
 
 
@@ -472,10 +480,14 @@ def mps():
     mps_fps = choice * 3.281
     mps_kph = choice * 3.6
     mps_knot = choice * 1.944
-    print(colors.green, choice, 'Meters Per Second equals', mps_mph, 'in Miles Per Hour.', colors.reset)
-    print(colors.green, choice, 'Meters Per Second equals', mps_fps, 'in Foot Per Second.', colors.reset)
-    print(colors.green, choice, 'Meters Per Second equals', mps_kph, 'in Kilometers Per Hour.', colors.reset)
-    print(colors.green, choice, 'Meters Per Second equals', mps_knot, 'in Knot.\n', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals',
+          mps_mph, 'in Miles Per Hour.', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals',
+          mps_fps, 'in Foot Per Second.', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals',
+          mps_kph, 'in Kilometers Per Hour.', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals',
+          mps_knot, 'in Knot.\n', colors.reset)
     restart.restart()
 
 
@@ -486,10 +498,14 @@ def kph():
     kph_fps = choice / 1.097
     kph_mps = choice / 3.6
     kph_knot = choice / 1.852
-    print(colors.green, choice, 'Meters Per Second equals', kph_mph, 'in Miles Per Hour.', colors.reset)
-    print(colors.green, choice, 'Meters Per Second equals', kph_fps, 'in Foot Per Second.', colors.reset)
-    print(colors.green, choice, 'Meters Per Second equals', kph_mps, 'in Meters Per Second.', colors.reset)
-    print(colors.green, choice, 'Meters Per Second equals', kph_knot, 'in Knot.\n', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals',
+          kph_mph, 'in Miles Per Hour.', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals',
+          kph_fps, 'in Foot Per Second.', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals',
+          kph_mps, 'in Meters Per Second.', colors.reset)
+    print(colors.green, choice, 'Meters Per Second equals',
+          kph_knot, 'in Knot.\n', colors.reset)
     restart.restart()
 
 
@@ -500,10 +516,14 @@ def knot():
     knot_fps = choice * 1.688
     knot_mps = choice / 1.944
     knot_kph = choice * 1.852
-    print(colors.green, choice, 'Knots equals', knot_mph, 'in Miles Per Hour.', colors.reset)
-    print(colors.green, choice, 'Knots equals', knot_fps, 'in Foot Per Second.', colors.reset)
-    print(colors.green, choice, 'Knots equals', knot_mps, 'in Meters Per Second.', colors.reset)
-    print(colors.green, choice, 'Knots equals', knot_kph, 'in Kilometers Per Hour.\n', colors.reset)
+    print(colors.green, choice, 'Knots equals',
+          knot_mph, 'in Miles Per Hour.', colors.reset)
+    print(colors.green, choice, 'Knots equals',
+          knot_fps, 'in Foot Per Second.', colors.reset)
+    print(colors.green, choice, 'Knots equals', knot_mps,
+          'in Meters Per Second.', colors.reset)
+    print(colors.green, choice, 'Knots equals', knot_kph,
+          'in Kilometers Per Hour.\n', colors.reset)
     restart.restart()
 
 
@@ -598,10 +618,14 @@ def bytes_converter():
     b_m = choice / 1e+6
     b_g = choice / 1e+9
     b_t = choice / 1e+12
-    print(colors.green, choice, 'Bytes equals', b_k, 'in Kilobytes.', colors.reset)
-    print(colors.green, choice, 'Bytes equals', b_m, 'in Megabytes.', colors.reset)
-    print(colors.green, choice, 'Bytes equals', b_g, 'in Gigabytes.', colors.reset)
-    print(colors.green, choice, 'Bytes equals', b_t, 'in Terabytes.\n', colors.reset)
+    print(colors.green, choice, 'Bytes equals',
+          b_k, 'in Kilobytes.', colors.reset)
+    print(colors.green, choice, 'Bytes equals',
+          b_m, 'in Megabytes.', colors.reset)
+    print(colors.green, choice, 'Bytes equals',
+          b_g, 'in Gigabytes.', colors.reset)
+    print(colors.green, choice, 'Bytes equals',
+          b_t, 'in Terabytes.\n', colors.reset)
     restart.restart()
 
 
@@ -612,10 +636,14 @@ def kilobytes_converter():
     k_m = choice / 1000
     k_g = choice / 1e+6
     k_t = choice / 1e+9
-    print(colors.green, choice, 'Kilobytes equals', k_b, 'in Bytes.', colors.reset)
-    print(colors.green, choice, 'Kilobytes equals', k_m, 'in Megabytes.', colors.reset)
-    print(colors.green, choice, 'Kilobytes equals', k_g, 'in Gigabytes.', colors.reset)
-    print(colors.green, choice, 'Kilobytes equals', k_t, 'in Terabytes.\n', colors.reset)
+    print(colors.green, choice, 'Kilobytes equals',
+          k_b, 'in Bytes.', colors.reset)
+    print(colors.green, choice, 'Kilobytes equals',
+          k_m, 'in Megabytes.', colors.reset)
+    print(colors.green, choice, 'Kilobytes equals',
+          k_g, 'in Gigabytes.', colors.reset)
+    print(colors.green, choice, 'Kilobytes equals',
+          k_t, 'in Terabytes.\n', colors.reset)
     restart.restart()
 
 
@@ -626,10 +654,14 @@ def megabytes_converter():
     m_k = choice * 1000
     m_g = choice / 1000
     m_t = choice / 1e+6
-    print(colors.green, choice, 'Megabytes equals', m_b, 'in Bytes.', colors.reset)
-    print(colors.green, choice, 'Megabytes equals', m_k, 'in Kilobytes.', colors.reset)
-    print(colors.green, choice, 'Megabytes equals', m_g, 'in Gigabytes.', colors.reset)
-    print(colors.green, choice, 'Megabytes equals', m_t, 'in Terabytes.\n', colors.reset)
+    print(colors.green, choice, 'Megabytes equals',
+          m_b, 'in Bytes.', colors.reset)
+    print(colors.green, choice, 'Megabytes equals',
+          m_k, 'in Kilobytes.', colors.reset)
+    print(colors.green, choice, 'Megabytes equals',
+          m_g, 'in Gigabytes.', colors.reset)
+    print(colors.green, choice, 'Megabytes equals',
+          m_t, 'in Terabytes.\n', colors.reset)
     restart.restart()
 
 
@@ -640,10 +672,14 @@ def gigabytes_converter():
     g_k = choice * 1e+6
     g_m = choice * 1000
     g_t = choice / 1000
-    print(colors.green, choice, 'Gigabytes equals', g_b, 'in Bytes.', colors.reset)
-    print(colors.green, choice, 'Gigabytes equals', g_k, 'in Kilobytes.', colors.reset)
-    print(colors.green, choice, 'Gigabytes equals', g_m, 'in Megabytes.', colors.reset)
-    print(colors.green, choice, 'Gigabytes equals', g_t, 'in Terabytes.\n', colors.reset)
+    print(colors.green, choice, 'Gigabytes equals',
+          g_b, 'in Bytes.', colors.reset)
+    print(colors.green, choice, 'Gigabytes equals',
+          g_k, 'in Kilobytes.', colors.reset)
+    print(colors.green, choice, 'Gigabytes equals',
+          g_m, 'in Megabytes.', colors.reset)
+    print(colors.green, choice, 'Gigabytes equals',
+          g_t, 'in Terabytes.\n', colors.reset)
     restart.restart()
 
 
@@ -654,10 +690,14 @@ def terabytes_converter():
     t_k = choice * 1e+9
     t_m = choice * 1e+6
     t_g = choice * 1000
-    print(colors.green, choice, 'Terabytes equals', t_b, 'in Bytes.', colors.reset)
-    print(colors.green, choice, 'Terabytes equals', t_k, 'in Kilobytes.', colors.reset)
-    print(colors.green, choice, 'Terabytes equals', t_m, 'in Megabytes.', colors.reset)
-    print(colors.green, choice, 'Terabytes equals', t_g, 'in Gigabytes.\n', colors.reset)
+    print(colors.green, choice, 'Terabytes equals',
+          t_b, 'in Bytes.', colors.reset)
+    print(colors.green, choice, 'Terabytes equals',
+          t_k, 'in Kilobytes.', colors.reset)
+    print(colors.green, choice, 'Terabytes equals',
+          t_m, 'in Megabytes.', colors.reset)
+    print(colors.green, choice, 'Terabytes equals',
+          t_g, 'in Gigabytes.\n', colors.reset)
     restart.restart()
 
 
@@ -686,6 +726,71 @@ Which calculation would you like to perform: """))
         start()
 
 
+def pressure_converter():
+    user_choice = int(input("""
+        (1) Pascal [Pa] to All
+        (2) Kilopascal [kPa] to ALL
+        (3) bar to ALL
+        (4) Standard atmosphere [atm] to ALL
+        Which calculation would you like to perform: """))
+    print()
+    if user_choice == 1:
+        pressure = float(input("Enter Pressure amount: "))
+        print()
+        pr_to_kpa = float(pressure / 1000)
+        pr_to_bar = float(pressure / 100000)
+        pr_to_atm = float(pressure / 101325)
+        print(colors.green, pressure, "in pascal [Pa] equals",
+              pr_to_kpa, "in kilopascal [kPa].", colors.reset)
+        print(colors.green, pressure, "in pascal [Pa] equals",
+              pr_to_bar, "in bar.", colors.reset)
+        print(colors.green, pressure, "in pascal [Pa] equals",
+              pr_to_atm, "in Standard atmosphere [atm].\n", colors.reset)
+        restart.restart()
+    elif user_choice == 2:
+        pressure = float(input("Enter Pressure amount: "))
+        print()
+        kp_to_p = float(pressure * 1000)
+        kp_to_bar = float(pressure / 100)
+        kp_to_atm = float(pressure / 101)
+        print(colors.green, pressure, "in kilopascal [kPa] equals",
+              kp_to_p, "in pascal [Pa].", colors.reset)
+        print(colors.green, pressure, "in kilopascal [kPa] equals",
+              kp_to_bar, "in bar.", colors.reset)
+        print(colors.green, pressure, "in kilopascal [kPa] equals",
+              kp_to_atm, "in Standard atmosphere [atm].\n", colors.reset)
+        restart.restart()
+    elif user_choice == 3:
+        pressure = float(input("Enter Pressure amount: "))
+        print()
+        bar_to_p = float(pressure * 100000)
+        bar_to_kpa = float(pressure * 100)
+        bar_to_atm = float(pressure / 1013)
+        print(colors.green, pressure, "in bar equals",
+              bar_to_p, "in pascal [Pa].", colors.reset)
+        print(colors.green, pressure, "in bar equals",
+              bar_to_kpa, "in kilopascal [kPa].", colors.reset)
+        print(colors.green, pressure, "in bar equals",
+              bar_to_atm, "in Standard atmosphere [atm].\n", colors.reset)
+        restart.restart()
+    elif user_choice == 4:
+        pressure = float(input("Enter Pressure amount: "))
+        print()
+        atm_to_p = float(pressure * 101325)
+        atm_to_kpa = float(pressure * 101)
+        atm_to_bar = float(pressure * 1013)
+        print(colors.green, pressure, "in Standard atmosphere [atm] equals",
+              atm_to_p, "in pascal [Pa].", colors.reset)
+        print(colors.green, pressure, "in Standard atmosphere [atm] equals",
+              atm_to_kpa, "in kilopascal [kPa].", colors.reset)
+        print(colors.green, pressure, "in Standard atmosphere [atm] equals",
+              atm_to_bar, "in bar.\n", colors.reset)
+        restart.restart()
+    else:
+        print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        pressure_converter()
+
+
 def start():
     choice = int(input('''
 (1) Temperature Converter
@@ -697,8 +802,9 @@ def start():
 (7) Speed Converter
 (8) Digital Storage Converter
 (9) Time Converter
-(10) Restart
-(11) Quit
+(10) Pressure Converter
+(11) Restart
+(12) Quit
 What converter would you like to perform: '''))
     print()
 
@@ -720,6 +826,8 @@ What converter would you like to perform: '''))
         storage_converter()
     elif choice == 9:
         time_converter()
+    elif choice == 10:
+        pressure_converter()
     elif choice == 10:
         restart.restart()
     elif choice == 11:
