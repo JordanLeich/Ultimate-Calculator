@@ -7,9 +7,9 @@ from currency_api import get_currency
 
 def currency_converter():
     user_choice = int(
-        input("""(1) US Dollar to ALL 
-(2) Euro to ALL 
-(3) Canadian Dollar to ALL 
+        input("""(1) US Dollar to ALL
+(2) Euro to ALL
+(3) Canadian Dollar to ALL
 (4) Japanese Yen to ALL
 (5) Moroccan MAD to ALL
 Select a currency conversion:    """))
@@ -107,7 +107,7 @@ Handles all temperature conversions here
     user_choice = int(
         input("""(1) Celsius to ALL
 (2) Fahrenheit to ALL
-(3) Kelvin to ALL 
+(3) Kelvin to ALL
 Select a temperature conversion: """))
     print()
 
@@ -152,9 +152,9 @@ Handles all mass conversions
     """
     user_choice = int(
         input("""(1) Kilogram to ALL
-(2) Grams to ALL 
-(3) Pounds to ALL 
-(4) Ounces to ALL 
+(2) Grams to ALL
+(3) Pounds to ALL
+(4) Ounces to ALL
 Select a mass conversion: """))
     print()
 
@@ -221,9 +221,9 @@ Handles all length conversions
     """
     user_choice = int(
         input("""(1) Feet to ALL
-(2) Inch to ALL 
-(3) Yard to ALL 
-(4) Mile to ALL 
+(2) Inch to ALL
+(3) Yard to ALL
+(4) Mile to ALL
 Select a length conversion: """))
     print()
 
@@ -289,12 +289,12 @@ def volume_converter():
 Handles all volume conversions
     """
     user_choice = int(
-        input("""(1) Milliliters to Liters 
+        input("""(1) Milliliters to Liters
 (2) Liters to Milliliters
-(3) Gallons to ALL 
-(4) Quarts to ALL 
-(5) Pints to ALL 
-(6) Ounces to ALL 
+(3) Gallons to ALL
+(4) Quarts to ALL
+(5) Pints to ALL
+(6) Ounces to ALL
 Select a volume conversion: """))
     print()
 
@@ -374,9 +374,9 @@ def crypto_converter():
     Handles all crypto conversion
     """
     user_choice = int(
-        input("""(1) Bitcoin to ALL 
-(2) Ethereum to ALL 
-(3) DogeCoin  to ALL 
+        input("""(1) Bitcoin to ALL
+(2) Ethereum to ALL
+(3) DogeCoin  to ALL
 (4) SHIBA INU to ALL
 Select a crypto conversion:    """))
     print()
@@ -791,6 +791,72 @@ def pressure_converter():
         pressure_converter()
 
 
+def angle_converter():
+    user_choice = int(input("""
+            (1) Degree [°] to All
+            (2) Radian [rad] to ALL
+            (3) grad [^g] to ALL
+            (4) Minute ['] to ALL
+            Which calculation would you like to perform: """))
+    print()
+    if user_choice == 1:
+        angle = float(input("Enter the angle : "))
+        print()
+        ang_to_rad = float(angle * (3.14/180))
+        ang_to_grad = float(angle * (200/180))
+        ang_to_min = float(angle * 60)
+        print(colors.green, angle, "in Degree [°] equals",
+              ang_to_rad, "in Radian [rad].", colors.reset)
+        print(colors.green, angle, "in Degree [°] equals",
+              ang_to_grad, "in grad [^g].", colors.reset)
+        print(colors.green, angle, "in Degree [°] equals",
+              ang_to_min, "in Minute ['].\n", colors.reset)
+        restart.restart()
+    elif user_choice == 2:
+        angle = float(input("Enter the angle : "))
+        print()
+        ang_to_deg = float(angle * (180/3.14))
+        ang_to_grad = float(angle * (200/3.14))
+        ang_to_min = float(angle * 3437.75)
+        print(colors.green, angle, "in Radian [rad] equals",
+              ang_to_deg, "in Degree [°].", colors.reset)
+        print(colors.green, angle, "in Radian [rad] equals",
+              ang_to_grad, "in grad [^g].", colors.reset)
+        print(colors.green, angle, "in Radian [rad] equals",
+              ang_to_min, "in Minute ['].\n", colors.reset)
+        restart.restart()
+    elif user_choice == 3:
+        angle = float(input("Enter the angle : "))
+        print()
+        ang_to_deg = float(angle * 0.9)
+        ang_to_rad = float(angle * 0.015708)
+        ang_to_min = float(angle * 54)
+        print(colors.green, angle, "in grad [^g] equals",
+              ang_to_deg, "in Degree [°].", colors.reset)
+        print(colors.green, angle, "in grad [^g] equals",
+              ang_to_rad, "in Radian [rad].", colors.reset)
+        print(colors.green, angle, "in grad [^g] equals",
+              ang_to_min, "in Minute ['].\n", colors.reset)
+        restart.restart()
+    elif user_choice == 4:
+        angle = float(input("Enter the angle : "))
+        print()
+        ang_to_deg = float(angle * 0.0166667)
+        ang_to_rad = float(angle * 0.0002908882)
+        ang_to_grad = float(angle * 0.0185185185)
+        print(colors.green, angle, "in Minute ['] equals",
+              ang_to_deg, "in Degree [°].", colors.reset)
+        print(colors.green, angle, "in Minute ['] equals",
+              ang_to_rad, "in Radian [rad].", colors.reset)
+        print(colors.green, angle, "in Minute ['] equals",
+              ang_to_grad, "in grad [^g].\n", colors.reset)
+        restart.restart()
+
+    else:
+        print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        angle_converter()
+
+
 def start():
     choice = int(input('''
 (1) Temperature Converter
@@ -803,8 +869,9 @@ def start():
 (8) Digital Storage Converter
 (9) Time Converter
 (10) Pressure Converter
-(11) Restart
-(12) Quit
+(11) Angle converter
+(12) Restart
+(13) Quit
 What converter would you like to perform: '''))
     print()
 
@@ -828,9 +895,11 @@ What converter would you like to perform: '''))
         time_converter()
     elif choice == 10:
         pressure_converter()
-    elif choice == 10:
-        restart.restart()
     elif choice == 11:
+        angle_converter()
+    elif choice == 12:
+        restart.restart()
+    elif choice == 13:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
