@@ -841,15 +841,15 @@ def angle_converter():
     elif user_choice == 4:
         angle = float(input("Enter Pressure amount: "))
         print()
-        ang_to_deg = float(angle * (180/3.14))
-        ang_to_grad = float(angle * (200/3.14))
-        ang_to_min = float(angle * 3437.75)
-        print(colors.green, angle, "in Radian [rad] equals",
+        ang_to_deg = float(angle * 0.0166667)
+        ang_to_rad = float(angle * 0.0002908882)
+        ang_to_grad = float(angle * 0.0185185185)
+        print(colors.green, angle, "in Minute ['] equals",
               ang_to_deg, "in Degree [°].", colors.reset)
-        print(colors.green, angle, "in Radian [rad] equals",
-              ang_to_grad, "in grad [^g].", colors.reset)
-        print(colors.green, angle, "in Radian [rad] equals",
-              ang_to_min, "in Minute ['].\n", colors.reset)
+        print(colors.green, angle, "in Minute ['] equals",
+              ang_to_rad, "in Radian [rad].", colors.reset)
+        print(colors.green, angle, "in Minute ['] equals",
+              ang_to_grad, "in grad [^g].\n", colors.reset)
         restart.restart()
 
     else:
