@@ -5,7 +5,7 @@ import restart
 
 def calculator(data):
     if len(data) <= 3:
-        return 0
+        return data[0]
 
     total: float = 0
     for ind, dta in enumerate(data):

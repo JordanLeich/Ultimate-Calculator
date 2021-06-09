@@ -1,129 +1,92 @@
-from uis.converters_ui import *
-from uis.arithmetics_ui import *
-from uis.time_convert_ui import *
-from uis.algebra_ui import *
-from uis.stock_ui import *
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore
+from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QPushButton, QStatusBar, QMenuBar
+from uis.converters_ui import ConvertersWindow
+from uis.time_convert_ui import TimeWindow
+from uis.algebra_ui import AlgebraWindow
+from uis.stock_ui import StockWindow
+from uis.arith_calculator_ui import Arithmetic
 import webbrowser
 
 
-class Ui_MainWindow(object):
-    def converters_show(self):
-        self.window = QtWidgets.QDialog()
-        self.ui = Ui_ConvertionWindow()
-        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.ui.setupUi(self.window)
-        self.window.exec_()
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        self.setWindowTitle("Ultimate Calculator")
+        self.resize(800, 600)
 
-    def basic_arith(self):
-        self.window = QtWidgets.QDialog()
-        self.ui = Ui_MathWindow()
-        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.ui.setupUi(self.window)
-        self.window.exec_()
+        self.menubar = QMenuBar(self)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.setMenuBar(self.menubar)
 
-    def time_show(self):
-        self.window = QtWidgets.QDialog()
-        self.ui = Ui_TimeWindow()
-        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.ui.setupUi(self.window)
-        self.window.exec_()
+        self.statusbar = QStatusBar(self)
+        self.statusbar.setObjectName("statusbar")
+        self.setStatusBar(self.statusbar)
 
-    def algebra_show(self):
-        self.window = QtWidgets.QDialog()
-        self.ui = Ui_AlgebraWindow()
-        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.ui.setupUi(self.window)
-        self.window.exec_()
+        self.converters = ConvertersWindow()
+        self.time = TimeWindow()
+        self.algebra = AlgebraWindow()
+        self.stock = StockWindow()
+        self.basic_arith = Arithmetic()
 
-    def stock_show(self):
-        self.window = QtWidgets.QDialog()
-        self.ui = Ui_StockWindow()
-        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.ui.setupUi(self.window)
-        self.window.exec_()
-
-    def credits(self):
-        webbrowser.open_new(
-            "https://github.com/JordanLeich/Ultimate-Calculator/graphs/contributors")
-
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label = QLabel(self)
         self.label.setGeometry(QtCore.QRect(0, -10, 791, 111))
         self.label.setStyleSheet("\n"
                                  "font: 16pt \"MS Shell Dlg 2\";")
-        self.label.setObjectName("label")
-        self.Math_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.Math_btn.setGeometry(QtCore.QRect(110, 140, 211, 71))
-        self.Math_btn.setObjectName("Math_btn")
-        self.Math_btn.clicked.connect(self.basic_arith)
-        self.stock_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.stock_btn.setGeometry(QtCore.QRect(480, 260, 211, 71))
-        self.stock_btn.setObjectName("stock_btn")
-        self.stock_btn.clicked.connect(self.stock_show)
-        self.conv_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.conv_btn.setGeometry(QtCore.QRect(110, 260, 211, 71))
-        self.conv_btn.setObjectName("conv_btn")
-        self.conv_btn.clicked.connect(self.converters_show)
-        self.Alg_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.Alg_btn.setGeometry(QtCore.QRect(480, 140, 211, 71))
-        self.Alg_btn.setObjectName("Alg_btn")
-        self.Alg_btn.clicked.connect(self.algebra_show)
-        self.time_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.time_btn.setGeometry(QtCore.QRect(110, 380, 211, 71))
-        self.time_btn.setObjectName("time_btn")
-        self.time_btn.clicked.connect(self.time_show)
-        self.cred_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.cred_btn.setGeometry(QtCore.QRect(480, 380, 211, 71))
-        self.cred_btn.setObjectName("cred_btn")
-        self.cred_btn.clicked.connect(self.credits)
-        self.exit_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.exit_btn.setGeometry(QtCore.QRect(300, 480, 201, 71))
-        self.exit_btn.setObjectName("exit_btn")
-        self.exit_btn.clicked.connect(exit)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-    def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate(
-            "MainWindow", "Ultimate Calculator"))
-        self.label.setToolTip(_translate(
-            "MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Ultimate Calculator</span></p><p align=\"center\"><br/></p></body></html>"))
-        self.label.setText(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.label.setToolTip(
+            "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Ultimate Calculator</span></p><p align=\"center\"><br/></p></body></html>")
+        self.label.setText("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                       "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                       "p, li { white-space: pre-wrap; }\n"
                                       "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:16pt; font-weight:400; font-style:normal;\">\n"
-                                      "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#ff007f;\">Ultimate Calculator by <i>Jordan Leich<i/></span></p></body></html>"))
-        self.Math_btn.setText(_translate("MainWindow", "Basic Arithmetics"))
-        self.stock_btn.setText(_translate("MainWindow", "Stock Market"))
-        self.conv_btn.setText(_translate("MainWindow", "Converters"))
-        self.Alg_btn.setText(_translate("MainWindow", "Algebra"))
-        self.time_btn.setText(_translate("MainWindow", "Time Converter"))
-        self.cred_btn.setText(_translate("MainWindow", "Credits"))
-        self.exit_btn.setText(_translate("MainWindow", "Exit"))
+                                      "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#ff007f;\">Ultimate Calculator by <i>Jordan Leich<i/></span></p></body></html>")
+
+        self.Math_btn = QPushButton(self)
+        self.Math_btn.setGeometry(QtCore.QRect(110, 140, 211, 71))
+        self.Math_btn.clicked.connect(self.basic_arith.show)
+        self.Math_btn.setText("Basic Arithmetics")
+
+        self.stock_btn = QPushButton(self)
+        self.stock_btn.setGeometry(QtCore.QRect(480, 260, 211, 71))
+        self.stock_btn.clicked.connect(self.stock.show)
+        self.stock_btn.setText("Stock Market")
+
+        self.conv_btn = QPushButton(self)
+        self.conv_btn.setGeometry(QtCore.QRect(110, 260, 211, 71))
+        self.conv_btn.clicked.connect(self.converters.show)
+        self.conv_btn.setText("Converters")
+
+        self.Alg_btn = QPushButton(self)
+        self.Alg_btn.setGeometry(QtCore.QRect(480, 140, 211, 71))
+        self.Alg_btn.clicked.connect(self.algebra.show)
+        self.Alg_btn.setText("Algebra")
+
+        self.time_btn = QPushButton(self)
+        self.time_btn.setGeometry(QtCore.QRect(110, 380, 211, 71))
+        self.time_btn.clicked.connect(self.time.show)
+        self.time_btn.setText("Time Converter")
+
+        self.cred_btn = QPushButton(self)
+        self.cred_btn.setGeometry(QtCore.QRect(480, 380, 211, 71))
+        self.cred_btn.clicked.connect(self.credits)
+        self.cred_btn.setText("Credits")
+
+        self.exit_btn = QPushButton(self)
+        self.exit_btn.setGeometry(QtCore.QRect(300, 480, 201, 71))
+        self.exit_btn.clicked.connect(exit)
+        self.exit_btn.setText("Exit")\
+
+
+    @staticmethod
+    def credits():
+        webbrowser.open_new(
+            "https://github.com/JordanLeich/Ultimate-Calculator/graphs/contributors")
 
 
 def start_gui():
     import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
     sys.exit(app.exec_())
 
 

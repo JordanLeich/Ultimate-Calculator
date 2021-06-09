@@ -4,10 +4,10 @@ from calculators.calculator import calculator
 from PyQt5.Qt import QIntValidator
 
 
-class Window(QWidget):
+class Arithmetic(QWidget):
     def __init__(self):
-        super(Window, self).__init__()
-        loadUi("new_calculator.ui", self)
+        super(Arithmetic, self).__init__()
+        loadUi("uis/Ui_Base/arith_calculator.ui", self)
         self.only_int = QIntValidator()
         self.lineEdit.setValidator(self.only_int)
         self.lineEdit.setReadOnly(True)
@@ -17,7 +17,7 @@ class Window(QWidget):
         self.divide.clicked.connect(self.division)
         self.equal.clicked.connect(self.equals)
         self.clear.clicked.connect(lambda: self.lineEdit.clear())
-        self.exit.clicked.connect(lambda: self.hide())
+        self.exit.clicked.connect(self.hide)
 
         self.point.clicked.connect(lambda: self.lineEdit.insert("."))
         self.zero.clicked.connect(lambda: self.lineEdit.insert("0"))
@@ -76,9 +76,15 @@ class Window(QWidget):
             self.equals()
 
 
+class Test(QWidget):
+    def __init__(self):
+        super(Test, self).__init__()
+        loadUi("arith_calculator.ui", self)
+
+
 if __name__ == '__main__':
     import sys
     app = QApplication(sys.argv)
-    win = Window()
+    win = Arithmetic()
     win.show()
     sys.exit(app.exec_())
