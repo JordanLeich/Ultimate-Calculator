@@ -4,9 +4,11 @@ from currency_api import get_currency
 
 
 class CurrencyWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, path=""):
         super(CurrencyWindow, self).__init__()
-        loadUi("uis/Ui_Base/currency.ui", self)
+
+        self.path = f"{path}Ui_Base/currency.ui"
+        loadUi(self.path, self)
 
         self.cvt_btn.clicked.connect(self.convert)
         self.exit_btn.clicked.connect(self.hide)

@@ -3,9 +3,11 @@ from PyQt5.uic import loadUi
 
 
 class CryptoWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, path=""):
         super(CryptoWindow, self).__init__()
-        loadUi("uis/Ui_Base/crypto.ui", self)
+
+        self.path = f"{path}Ui_Base/crypto.ui"
+        loadUi(self.path, self)
 
         self.cvt_btn.clicked.connect(self.convert)
         self.exit_btn.clicked.connect(self.hide)

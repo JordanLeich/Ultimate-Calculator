@@ -3,9 +3,11 @@ from PyQt5.uic import loadUi
 
 
 class LengthWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, path=""):
         super(LengthWindow, self).__init__()
-        loadUi("uis/Ui_Base/length.ui", self)
+
+        self.path = f"{path}Ui_Base/length.ui"
+        loadUi(self.path, self)
 
         self.cvt_btn.clicked.connect(self.convert)
         self.exit_btn.clicked.connect(self.hide)

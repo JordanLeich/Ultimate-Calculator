@@ -9,17 +9,18 @@ from uis.crypto_ui import CryptoWindow
 
 
 class ConvertersWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, path=""):
         super(ConvertersWindow, self).__init__()
         self.setWindowTitle("Converters(Volumes, Currency, ...)")
         self.resize(672, 509)
+        self.path = path
 
-        self.currency = CurrencyWindow()
-        self.length = LengthWindow()
-        self.volume = VolumeWindow()
-        self.temperature = TemperatureWindow()
-        self.mass = MassWindow()
-        self.crypto = CryptoWindow()
+        self.currency = CurrencyWindow(self.path)
+        self.length = LengthWindow(self.path)
+        self.volume = VolumeWindow(self.path)
+        self.temperature = TemperatureWindow(self.path)
+        self.mass = MassWindow(self.path)
+        self.crypto = CryptoWindow(self.path)
 
         self.menubar = QtWidgets.QMenuBar(self)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 672, 21))

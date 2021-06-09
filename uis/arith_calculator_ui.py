@@ -5,9 +5,12 @@ from PyQt5.Qt import QIntValidator
 
 
 class Arithmetic(QWidget):
-    def __init__(self):
+    def __init__(self, path=""):
         super(Arithmetic, self).__init__()
-        loadUi("uis/Ui_Base/arith_calculator.ui", self)
+
+        self.path = f"{path}Ui_Base/arith_calculator.ui"
+        loadUi(self.path, self)
+
         self.only_int = QIntValidator()
         self.lineEdit.setValidator(self.only_int)
         self.lineEdit.setReadOnly(True)
