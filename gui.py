@@ -79,8 +79,8 @@ class MainWindow(QMainWindow):
         self.exit_btn = QPushButton(self)
         self.exit_btn.setGeometry(QtCore.QRect(300, 480, 201, 71))
         self.exit_btn.clicked.connect(exit)
-        self.exit_btn.setText("Exit") \
- \
+        self.exit_btn.setText("Exit")
+
     @staticmethod
     def credits():
         webbrowser.open_new(
