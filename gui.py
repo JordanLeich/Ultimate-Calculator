@@ -22,11 +22,11 @@ class MainWindow(QMainWindow):
         self.statusbar.setObjectName("statusbar")
         self.setStatusBar(self.statusbar)
 
-        self.converters = ConvertersWindow()
-        self.time = TimeWindow()
-        self.algebra = AlgebraWindow()
-        self.stock = StockWindow()
-        self.basic_arith = Arithmetic()
+        self.converters = ConvertersWindow("uis/")
+        self.time = TimeWindow("uis/")
+        self.algebra = AlgebraWindow("uis/")
+        self.stock = StockWindow("uis/")
+        self.basic_arith = Arithmetic("uis/")
 
         self.label = QLabel(self)
         self.label.setGeometry(QtCore.QRect(0, -10, 791, 111))

@@ -3,9 +3,11 @@ from PyQt5.uic import loadUi
 
 
 class VolumeWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, path=""):
         super(VolumeWindow, self).__init__()
-        loadUi("uis/Ui_Base/volume.ui", self)
+
+        self.path = f"{path}Ui_Base/volume.ui"
+        loadUi(self.path, self)
 
         self.exit_btn.clicked.connect(self.hide)
         self.cvt_btn.clicked.connect(self.convert)
