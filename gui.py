@@ -33,12 +33,18 @@ class MainWindow(QMainWindow):
         self.label.setStyleSheet("\n"
                                  "font: 16pt \"MS Shell Dlg 2\";")
         self.label.setToolTip(
-            "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Ultimate Calculator</span></p><p align=\"center\"><br/></p></body></html>")
-        self.label.setText("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                      "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                      "p, li { white-space: pre-wrap; }\n"
-                                      "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:16pt; font-weight:400; font-style:normal;\">\n"
-                                      "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#ff007f;\">Ultimate Calculator by <i>Jordan Leich<i/></span></p></body></html>")
+            "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Ultimate "
+            "Calculator</span></p><p align=\"center\"><br/></p></body></html>")
+        self.label.setText("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+                           "\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n "
+                           "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                           "p, li { white-space: pre-wrap; }\n"
+                           "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:16pt; "
+                           "font-weight:400; font-style:normal;\">\n "
+                           "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; "
+                           "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+                           "font-weight:600; color:#ff007f;\">Ultimate Calculator by <i>Jordan "
+                           "Leich<i/></span></p></body></html>")
 
         self.Math_btn = QPushButton(self)
         self.Math_btn.setGeometry(QtCore.QRect(110, 140, 211, 71))
@@ -73,9 +79,8 @@ class MainWindow(QMainWindow):
         self.exit_btn = QPushButton(self)
         self.exit_btn.setGeometry(QtCore.QRect(300, 480, 201, 71))
         self.exit_btn.clicked.connect(exit)
-        self.exit_btn.setText("Exit")\
-
-
+        self.exit_btn.setText("Exit") \
+ \
     @staticmethod
     def credits():
         webbrowser.open_new(

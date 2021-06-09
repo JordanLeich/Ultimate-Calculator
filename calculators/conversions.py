@@ -800,10 +800,10 @@ def angle_converter():
             Which calculation would you like to perform: """))
     print()
     if user_choice == 1:
-        angle = float(input("Enter the angle : "))
+        angle = float(input("Enter the angle: "))
         print()
-        ang_to_rad = float(angle * (3.14/180))
-        ang_to_grad = float(angle * (200/180))
+        ang_to_rad = float(angle * (3.14 / 180))
+        ang_to_grad = float(angle * (200 / 180))
         ang_to_min = float(angle * 60)
         print(colors.green, angle, "in Degree [°] equals",
               ang_to_rad, "in Radian [rad].", colors.reset)
@@ -813,10 +813,10 @@ def angle_converter():
               ang_to_min, "in Minute ['].\n", colors.reset)
         restart.restart()
     elif user_choice == 2:
-        angle = float(input("Enter the angle : "))
+        angle = float(input("Enter the angle: "))
         print()
-        ang_to_deg = float(angle * (180/3.14))
-        ang_to_grad = float(angle * (200/3.14))
+        ang_to_deg = float(angle * (180 / 3.14))
+        ang_to_grad = float(angle * (200 / 3.14))
         ang_to_min = float(angle * 3437.75)
         print(colors.green, angle, "in Radian [rad] equals",
               ang_to_deg, "in Degree [°].", colors.reset)
@@ -826,7 +826,7 @@ def angle_converter():
               ang_to_min, "in Minute ['].\n", colors.reset)
         restart.restart()
     elif user_choice == 3:
-        angle = float(input("Enter the angle : "))
+        angle = float(input("Enter the angle: "))
         print()
         ang_to_deg = float(angle * 0.9)
         ang_to_rad = float(angle * 0.015708)
@@ -839,7 +839,7 @@ def angle_converter():
               ang_to_min, "in Minute ['].\n", colors.reset)
         restart.restart()
     elif user_choice == 4:
-        angle = float(input("Enter the angle : "))
+        angle = float(input("Enter the angle: "))
         print()
         ang_to_deg = float(angle * 0.0166667)
         ang_to_rad = float(angle * 0.0002908882)
@@ -851,7 +851,70 @@ def angle_converter():
         print(colors.green, angle, "in Minute ['] equals",
               ang_to_grad, "in grad [^g].\n", colors.reset)
         restart.restart()
+    else:
+        print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        angle_converter()
 
+
+def energy_converter():
+    choice = int(input('''(1) Joule to ALL
+(2) KiloJoule to ALL
+(3) Watt Hour to ALL
+(4) Kilowatt Hour to ALL
+Which energy convertion would you like to pick: '''))
+    print()
+    if choice == 1:
+        j = float(input("Joules: "))
+        print()
+        j_to_kj = float(j / 1000)
+        j_to_w = float(j / 3600)
+        j_to_kw = float(j / 3.6e+6)
+        print(colors.green, j, "in Joules equals",
+              j_to_kj, "in Kilojoules.", colors.reset)
+        print(colors.green, j, "in Joules equals",
+              j_to_w, "in Watts.", colors.reset)
+        print(colors.green, j, "in Joules equals",
+              j_to_kw, "in Kilowatts.\n", colors.reset)
+        restart.restart()
+    elif choice == 2:
+        kj = float(input("Kilojoules: "))
+        print()
+        kj_to_j = float(kj * 1000)
+        kj_to_w = float(kj / 3.6)
+        kj_to_kw = float(kj / 3600)
+        print(colors.green, kj, "in Kilojoules equals",
+              kj_to_j, "in Kilojoules.", colors.reset)
+        print(colors.green, kj, "in Kilojoules equals",
+              kj_to_w, "in Watts.", colors.reset)
+        print(colors.green, kj, "in Kilojoules equals",
+              kj_to_kw, "in Kilowatts.\n", colors.reset)
+        restart.restart()
+    elif choice == 3:
+        w = float(input("Watts: "))
+        print()
+        w_to_j = float(w * 3600)
+        w_to_kj = float(w * 3.6)
+        w_to_kw = float(w / 1000)
+        print(colors.green, w, "in Watts equals",
+              w_to_j, "in Joules.", colors.reset)
+        print(colors.green, w, "in Watts equals",
+              w_to_kj, "in Kilojoules.", colors.reset)
+        print(colors.green, w, "in Watts equals",
+              w_to_kw, "in Kilowatts.\n", colors.reset)
+        restart.restart()
+    elif choice == 4:
+        kw = float(input("Kilowatts: "))
+        print()
+        kw_to_j = float(kw * 3.6e+6)
+        kw_to_kj = float(kw * 3600)
+        kw_to_w = float(kw * 1000)
+        print(colors.green, kw, "in Kilowatts equals",
+              kw_to_j, "in Joules.", colors.reset)
+        print(colors.green, kw, "in Kilowatts equals",
+              kw_to_kj, "in Kilojoules.", colors.reset)
+        print(colors.green, kw, "in Kilowatts equals",
+              kw_to_w, "in Watts.\n", colors.reset)
+        restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         angle_converter()
@@ -869,9 +932,10 @@ def start():
 (8) Digital Storage Converter
 (9) Time Converter
 (10) Pressure Converter
-(11) Angle converter
-(12) Restart
-(13) Quit
+(11) Angle Converter
+(12) Energy Converter
+(13) Restart
+(14) Quit
 What converter would you like to perform: '''))
     print()
 
@@ -898,8 +962,10 @@ What converter would you like to perform: '''))
     elif choice == 11:
         angle_converter()
     elif choice == 12:
-        restart.restart()
+        energy_converter()
     elif choice == 13:
+        restart.restart()
+    elif choice == 14:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
