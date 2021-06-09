@@ -1,77 +1,31 @@
-from uis.slope1_ui import *
-from uis.slope2_ui import *
-from uis.pythagore_ui import *
-from PyQt5 import QtCore, QtGui, QtWidgets
+from uis.slope1_ui import Slope1Window
+from uis.slope2_ui import Slope2Window
+from uis.pythagore_ui import PythaWindow
+from PyQt5.QtWidgets import QMainWindow, QApplication
+from PyQt5.uic import loadUi
 
 
-class Ui_AlgebraWindow(object):
-    def slope1(self):
-        self.window = QtWidgets.QDialog()
-        self.ui = Ui_Slope1Window()
-        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.ui.setupUi(self.window)
-        self.window.exec_()
+class AlgebraWindow(QMainWindow):
+    def __init__(self):
+        super(AlgebraWindow, self).__init__()
+        # Loading All the components needed
+        loadUi("uis/Ui_Base/algebra.ui", self)
 
-    def slope2(self):
-        self.window = QtWidgets.QDialog()
-        self.ui = Ui_Slope2Window()
-        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.ui.setupUi(self.window)
-        self.window.exec_()
+        # Setting the Windows needed
+        self.slope1 = Slope1Window()
+        self.slope2 = Slope2Window()
+        self.pytha = PythaWindow()
 
-    def pytha(self):
-        self.window = QtWidgets.QDialog()
-        self.ui = Ui_PythaWindow()
-        self.window.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.ui.setupUi(self.window)
-        self.window.exec_()
-
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(658, 451)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(0, 10, 651, 81))
-        self.label.setObjectName("label")
-        self.slope_1 = QtWidgets.QPushButton(self.centralwidget)
-        self.slope_1.setGeometry(QtCore.QRect(70, 140, 201, 51))
-        self.slope_1.setObjectName("slope_1")
-        self.slope_1.clicked.connect(self.slope1)
-        self.slope_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.slope_2.setGeometry(QtCore.QRect(410, 140, 201, 51))
-        self.slope_2.setObjectName("slope_2")
-        self.slope_2.clicked.connect(self.slope2)
-        self.pyth_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.pyth_btn.setGeometry(QtCore.QRect(70, 250, 201, 51))
-        self.pyth_btn.setObjectName("pyth_btn")
-        self.pyth_btn.clicked.connect(self.pytha)
-        self.exit_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.exit_btn.setGeometry(QtCore.QRect(410, 250, 201, 51))
-        self.exit_btn.setObjectName("exit_btn")
-        self.exit_btn.clicked.connect(MainWindow.hide)
-
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-    def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Algebra"))
-        self.label.setText(_translate(
-            "MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:600;\">Algebra Section</span></p></body></html>"))
-        self.slope_1.setText(_translate(
-            "MainWindow", "Find Slope (Rise Over Run)"))
-        self.slope_2.setText(_translate("MainWindow", "Find Slope Intercept"))
-        self.pyth_btn.setText(_translate(
-            "MainWindow", "Find Pythagorean Theorem"))
-        self.exit_btn.setText(_translate("MainWindow", "Exit"))
+        # Setting the buttons functions
+        self.slope_1.clicked.connect(self.slope1.show)
+        self.slope_2.clicked.connect(self.slope2.show)
+        self.pyth_btn.clicked.connect(self.pytha.show)
+        self.exit_btn.clicked.connect(self.hide)
 
 
 if __name__ == "__main__":
     import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_AlgebraWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    app = QApplication(sys.argv)
+    window = AlgebraWindow()
+    window.show()
     sys.exit(app.exec_())
