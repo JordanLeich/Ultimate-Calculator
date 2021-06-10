@@ -4,9 +4,11 @@ from PyQt5.uic import loadUi
 
 
 class PythaWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, path=""):
         super(PythaWindow, self).__init__()
-        loadUi("uis/Ui_Base/pythagore.ui", self)
+
+        self.path = f"{path}Ui_Base/pythagore.ui"
+        loadUi(self.path, self)
 
         self.go_btn.clicked.connect(self.pytha)
         self.exit_btn.clicked.connect(self.hide)

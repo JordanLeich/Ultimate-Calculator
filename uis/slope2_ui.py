@@ -3,9 +3,11 @@ from PyQt5.uic import loadUi
 
 
 class Slope2Window(QMainWindow):
-    def __init__(self):
+    def __init__(self, path=""):
         super(Slope2Window, self).__init__()
-        loadUi("uis/Ui_Base/slope2.ui", self)
+
+        self.path = f"{path}Ui_Base/slope2.ui"
+        loadUi(self.path, self)
 
         self.go_btn.clicked.connect(self.slope)
         self.exit_btn.clicked.connect(self.hide)
