@@ -14,12 +14,13 @@ class Arithmetic(QWidget):
         self.only_int = QIntValidator()
         self.lineEdit.setValidator(self.only_int)
         self.lineEdit.setReadOnly(True)
+
         self.add.clicked.connect(self.addition)
         self.subtract.clicked.connect(self.subtraction)
         self.multiply.clicked.connect(self.multiplication)
         self.divide.clicked.connect(self.division)
         self.equal.clicked.connect(self.equals)
-        self.clear.clicked.connect(lambda: self.lineEdit.clear())
+        self.clear.clicked.connect(self.lineEdit.clear)
         self.exit.clicked.connect(self.hide)
 
         self.point.clicked.connect(lambda: self.lineEdit.insert("."))
@@ -28,12 +29,11 @@ class Arithmetic(QWidget):
         self.two.clicked.connect(lambda: self.lineEdit.insert("2"))
         self.three.clicked.connect(lambda: self.lineEdit.insert("3"))
         self.four.clicked.connect(lambda: self.lineEdit.insert("4"))
-        self.four.clicked.connect(lambda: self.lineEdit.insert("5"))
+        self.five.clicked.connect(lambda: self.lineEdit.insert("5"))
         self.six.clicked.connect(lambda: self.lineEdit.insert("6"))
         self.seven.clicked.connect(lambda: self.lineEdit.insert("7"))
         self.eight.clicked.connect(lambda: self.lineEdit.insert("8"))
         self.nine.clicked.connect(lambda: self.lineEdit.insert("9"))
-        self.clear.clicked.connect(lambda: self.lineEdit.clear(" "))
 
     def addition(self):
         self.lineEdit.insert(" + ")
@@ -49,34 +49,49 @@ class Arithmetic(QWidget):
 
     def equals(self):
         curr_text = self.lineEdit.text().split(" ")
+
         for ind, text in enumerate(curr_text):
             if text == "":
                 curr_text.pop(ind)
+
         curr_text.append("=")
         calculated = str(calculator(curr_text))
         self.lineEdit.setText(calculated)
 
     def keyPressEvent(self, event):
         key = event.text()
+
         if key in [str(i) for i in range(10)]:
             self.lineEdit.insert(key)
+
         elif key == "+":
             self.addition()
+
         elif key == "-":
             self.subtraction()
+
         elif key in ["*", "x"]:
             self.multiplication()
+
         elif key == "/":
             self.division()
+
         elif key == "=":
             self.equals()
+
         elif key == ".":
             self.lineEdit.insert(".")
-        elif event.key() == 16777219:
-            if self.lineEdit.text()[-1] == " ":
+
+        elif event.key() == 16777219:  # Key Code for Backspace
+            if len(self.lineEdit.text()) == 0:
+                return
+
+            if self.lineEdit.text()[-1] == " ":  # Backspace two times if last text is blank/space
                 self.lineEdit.backspace()
+
             self.lineEdit.backspace()
-        elif event.key() == 16777220:
+
+        elif event.key() == 16777220:  # Key Code for Enter
             self.equals()
 
 
