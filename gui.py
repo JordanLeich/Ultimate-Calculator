@@ -43,8 +43,8 @@ class MainWindow(QMainWindow):
                            "font-weight:400; font-style:normal;\">\n "
                            "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; "
                            "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
-                           "font-weight:600; color:#ff007f;\">Ultimate Calculator by <i>Jordan "
-                           "Leich<i/></span></p></body></html>")
+                           "font-weight:600; color:#ff007f;\">Ultimate Calculator<i> "
+                           "<i/></span></p></body></html>")
 
         self.Math_btn = QPushButton(self)
         self.Math_btn.setGeometry(QtCore.QRect(110, 140, 211, 71))
