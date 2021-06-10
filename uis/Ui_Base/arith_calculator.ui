@@ -100,6 +100,9 @@ background-color: rgb(160, 160, 160);</string>
    <property name="text">
     <string>5</string>
    </property>
+   <property name="shortcut">
+    <string>5</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="two">
    <property name="geometry">
@@ -191,6 +194,9 @@ background-color: rgb(160, 160, 160);</string>
    <property name="text">
     <string>=</string>
    </property>
+   <property name="shortcut">
+    <string>Enter, Return</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="point">
    <property name="geometry">
@@ -202,6 +208,9 @@ background-color: rgb(160, 160, 160);</string>
     </rect>
    </property>
    <property name="text">
+    <string>.</string>
+   </property>
+   <property name="shortcut">
     <string>.</string>
    </property>
   </widget>
@@ -257,7 +266,10 @@ background-color: rgb(160, 160, 160);</string>
     </rect>
    </property>
    <property name="text">
-    <string>exit</string>
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Esc</string>
    </property>
   </widget>
   <widget class="QPushButton" name="clear">
@@ -270,6 +282,9 @@ background-color: rgb(160, 160, 160);</string>
     </rect>
    </property>
    <property name="text">
+    <string>C</string>
+   </property>
+   <property name="shortcut">
     <string>C</string>
    </property>
   </widget>

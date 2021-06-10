@@ -28,11 +28,12 @@ class Arithmetic(QWidget):
         self.two.clicked.connect(lambda: self.lineEdit.insert("2"))
         self.three.clicked.connect(lambda: self.lineEdit.insert("3"))
         self.four.clicked.connect(lambda: self.lineEdit.insert("4"))
-        self.five.clicked.connect(lambda: self.lineEdit.insert("5"))
+        self.four.clicked.connect(lambda: self.lineEdit.insert("5"))
         self.six.clicked.connect(lambda: self.lineEdit.insert("6"))
         self.seven.clicked.connect(lambda: self.lineEdit.insert("7"))
         self.eight.clicked.connect(lambda: self.lineEdit.insert("8"))
         self.nine.clicked.connect(lambda: self.lineEdit.insert("9"))
+        self.clear.clicked.connect(lambda: self.lineEdit.clear(" "))
 
     def addition(self):
         self.lineEdit.insert(" + ")
