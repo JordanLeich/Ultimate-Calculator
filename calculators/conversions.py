@@ -97,6 +97,7 @@ Select a currency conversion:    """))
 
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        time.sleep(2)
         currency_converter()
 
 
@@ -143,6 +144,7 @@ Select a temperature conversion: """))
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        time.sleep(2)
         temp_converter()
 
 
@@ -212,6 +214,7 @@ Select a mass conversion: """))
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        time.sleep(2)
         mass_converter()
 
 
@@ -281,6 +284,7 @@ Select a length conversion: """))
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        time.sleep(2)
         length_converter()
 
 
@@ -366,6 +370,7 @@ Select a volume conversion: """))
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        time.sleep(2)
         volume_converter()
 
 
@@ -434,6 +439,7 @@ Select a crypto conversion:    """))
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        time.sleep(2)
         crypto_converter()
 
 
@@ -548,14 +554,14 @@ Which calculation would you like to perform: """))
         knot()
     else:
         print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
-        time.sleep(1)
+        time.sleep(2)
         start()
 
 
 def time_converter():
     print("Input what you would like to convert from")
-    print("Please stick to this format")
-    print(colors.red, "XY XD XH XM XS (X is your number)\t ie: 10Y", colors.reset)
+    print(colors.yellow, "Please stick to this format")
+    print(colors.yellow, "XY XD XH XM XS (X is your number)\t ie: 10Y means 10 years.\n", colors.reset)
 
     response = input().split()
     total_seconds = 0
@@ -722,8 +728,8 @@ Which calculation would you like to perform: """))
         terabytes_converter()
     else:
         print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
-        time.sleep(1)
-        start()
+        time.sleep(2)
+        storage_converter()
 
 
 def pressure_converter():
@@ -788,6 +794,7 @@ def pressure_converter():
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        time.sleep(2)
         pressure_converter()
 
 
@@ -853,6 +860,7 @@ def angle_converter():
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        time.sleep(2)
         angle_converter()
 
 
@@ -917,7 +925,50 @@ Which energy convertion would you like to pick: '''))
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-        angle_converter()
+        time.sleep(2)
+        energy_converter()
+
+
+def fuel_converter():
+    choice = int(input('''(1) Miles Per Gallon to ALL
+(2) Miles Per Gallon (Imperial) to ALL
+(3) Kilometers Per Liter to ALL
+Which Fuel Economy convertion would you like to pick: '''))
+    print()
+    if choice == 1:
+        mpg = float(input("Miles Per Gallon: "))
+        print()
+        mpg_to_mpgi = float(mpg * 1.201)
+        mpg_to_kpl = float(mpg / 2.352)
+        print(colors.green, mpg, "in Miles Per Gallon equals",
+              mpg_to_mpgi, "in Miles Per Gallon (Imperial).", colors.reset)
+        print(colors.green, mpg, "in Miles Per Gallon equals",
+              mpg_to_kpl, "in Kilometers Per Liter.\n", colors.reset)
+        restart.restart()
+    elif choice == 2:
+        mpgi = float(input("Miles Per Gallon (Imperial): "))
+        print()
+        mpgi_to_mpg = float(mpgi / 1.201)
+        mpgi_to_kpl = float(mpgi / 2.825)
+        print(colors.green, mpgi, "in Miles Per Gallon (Imperial) equals",
+              mpgi_to_mpg, "in Miles Per Gallon.", colors.reset)
+        print(colors.green, mpgi, "in Miles Per Gallon (Imperial) equals",
+              mpgi_to_kpl, "in Kilometers Per Liter.\n", colors.reset)
+        restart.restart()
+    elif choice == 3:
+        kpl = float(input("Kilometers Per Liter: "))
+        print()
+        mpgi_to_mpg = float(kpl * 2.352)
+        mpgi_to_mpgi = float(kpl * 2.825)
+        print(colors.green, kpl, "in Kilometers Per Liter equals",
+              mpgi_to_mpg, "in Miles Per Gallon.", colors.reset)
+        print(colors.green, kpl, "in Kilometers Per Liter equals",
+              mpgi_to_mpgi, "in Miles Per Gallon (Imperial).\n", colors.reset)
+        restart.restart()
+    else:
+        print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        time.sleep(2)
+        fuel_converter()
 
 
 def start():
@@ -934,8 +985,9 @@ def start():
 (10) Pressure Converter
 (11) Angle Converter
 (12) Energy Converter
-(13) Restart
-(14) Quit
+(13) Fuel Economy Converter
+(14) Restart
+(15) Quit
 What converter would you like to perform: '''))
     print()
 
@@ -964,11 +1016,14 @@ What converter would you like to perform: '''))
     elif choice == 12:
         energy_converter()
     elif choice == 13:
-        restart.restart()
+        fuel_converter()
     elif choice == 14:
+        restart.restart()
+    elif choice == 15:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
+        time.sleep(2)
         start()
 
 
