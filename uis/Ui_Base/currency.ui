@@ -11,7 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Currency Converter</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(160, 160, 160);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLineEdit" name="lineEdit">
@@ -93,6 +96,9 @@
       <width>241</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="currentText">
+     <string>Euro</string>
     </property>
     <item>
      <property name="text">

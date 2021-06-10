@@ -6,20 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>564</width>
+    <width>381</width>
     <height>439</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Stock Market Calculator</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(160, 160, 160);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>200</x>
       <y>19</y>
-      <width>241</width>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
@@ -27,9 +30,9 @@
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>200</x>
       <y>70</y>
-      <width>241</width>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
@@ -37,9 +40,9 @@
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>200</x>
       <y>130</y>
-      <width>241</width>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
@@ -47,9 +50,9 @@
    <widget class="QLineEdit" name="lineEdit_4">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>200</x>
       <y>180</y>
-      <width>241</width>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
@@ -57,9 +60,9 @@
    <widget class="QLineEdit" name="lineEdit_5">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>200</x>
       <y>230</y>
-      <width>241</width>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
@@ -67,43 +70,17 @@
    <widget class="QLineEdit" name="lineEdit_6">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>200</x>
       <y>290</y>
-      <width>241</width>
+      <width>131</width>
       <height>31</height>
      </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="go_btn">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>360</y>
-      <width>121</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Go</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="exit_btn">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>360</y>
-      <width>121</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Exit</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>60</x>
       <y>10</y>
       <width>121</width>
       <height>41</height>
@@ -116,7 +93,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>60</x>
       <y>60</y>
       <width>121</width>
       <height>41</height>
@@ -129,7 +106,7 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>60</x>
       <y>120</y>
       <width>121</width>
       <height>41</height>
@@ -142,7 +119,7 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>60</x>
       <y>170</y>
       <width>121</width>
       <height>41</height>
@@ -155,7 +132,7 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>60</x>
       <y>220</y>
       <width>121</width>
       <height>41</height>
@@ -168,7 +145,7 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>60</x>
       <y>280</y>
       <width>121</width>
       <height>41</height>
@@ -177,6 +154,32 @@
     <property name="text">
      <string>Profit Gain/Loss</string>
     </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>350</y>
+      <width>291</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="go_btn">
+       <property name="text">
+        <string>Go</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="exit_btn">
+       <property name="text">
+        <string>Exit</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

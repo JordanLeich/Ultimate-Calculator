@@ -10,11 +10,18 @@
     <height>528</height>
    </rect>
   </property>
+  <property name="acceptDrops">
+   <bool>false</bool>
+  </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Calculator</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+   <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(160, 160, 160);</string>
   </property>
   <widget class="QPushButton" name="seven">
    <property name="geometry">

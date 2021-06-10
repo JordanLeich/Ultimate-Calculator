@@ -7,11 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>658</width>
-    <height>451</height>
+    <height>369</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Algebra Calculator</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(160, 160, 160);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -19,65 +22,53 @@
      <rect>
       <x>0</x>
       <y>10</y>
-      <width>651</width>
+      <width>681</width>
       <height>81</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:600;&quot;&gt;Algebra Section&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:600;&quot;&gt;Algebra Calculator&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="slope_1">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>140</y>
-      <width>201</width>
-      <height>51</height>
+      <x>71</x>
+      <y>96</y>
+      <width>541</width>
+      <height>201</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Find Slope (Rise Over Run)</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="slope_2">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>140</y>
-      <width>201</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Find Slope Intercept</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pyth_btn">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>250</y>
-      <width>201</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Find Pythagorean Theorem</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="exit_btn">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>250</y>
-      <width>201</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Exit</string>
-    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="slope_1">
+       <property name="text">
+        <string>Find Slope (Rise Over Run)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="slope_2">
+       <property name="text">
+        <string>Find Slope Intercept</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pyth_btn">
+       <property name="text">
+        <string>Find Pythagorean Theorem</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="exit_btn">
+       <property name="text">
+        <string>Exit</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

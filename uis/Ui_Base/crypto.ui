@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>464</width>
+    <width>475</width>
     <height>433</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Crypto-Currency Converter</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(160, 160, 160);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QComboBox" name="comboBox1">
@@ -49,7 +52,7 @@
      <rect>
       <x>100</x>
       <y>150</y>
-      <width>121</width>
+      <width>41</width>
       <height>31</height>
      </rect>
     </property>
@@ -62,7 +65,7 @@
      <rect>
       <x>100</x>
       <y>30</y>
-      <width>121</width>
+      <width>71</width>
       <height>31</height>
      </rect>
     </property>
@@ -87,7 +90,7 @@
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>20</y>
+      <y>30</y>
       <width>201</width>
       <height>41</height>
      </rect>
@@ -108,7 +111,7 @@
      <rect>
       <x>100</x>
       <y>90</y>
-      <width>121</width>
+      <width>51</width>
       <height>31</height>
      </rect>
     </property>
@@ -121,7 +124,7 @@
      <rect>
       <x>100</x>
       <y>220</y>
-      <width>121</width>
+      <width>71</width>
       <height>31</height>
      </rect>
     </property>
