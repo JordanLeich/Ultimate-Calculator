@@ -132,7 +132,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Slope&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -147,12 +147,18 @@
        <property name="text">
         <string>Go</string>
        </property>
+       <property name="shortcut">
+        <string>Return, Enter</string>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="exit_btn">
        <property name="text">
         <string>Exit</string>
+       </property>
+       <property name="shortcut">
+        <string>Esc</string>
        </property>
       </widget>
      </item>

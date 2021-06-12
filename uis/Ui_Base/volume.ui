@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>363</width>
-    <height>361</height>
+    <height>351</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -128,6 +128,9 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
     <item>
      <property name="text">
       <string>Gallons</string>
@@ -149,7 +152,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -164,12 +167,18 @@
        <property name="text">
         <string>Convert</string>
        </property>
+       <property name="shortcut">
+        <string>Return, Enter</string>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="exit_btn">
        <property name="text">
         <string>Exit</string>
+       </property>
+       <property name="shortcut">
+        <string>Esc</string>
        </property>
       </widget>
      </item>
