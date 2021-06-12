@@ -3,6 +3,7 @@ import end
 import restart
 import time
 from currency_api import get_currency
+from tools import repeat_input
 
 
 def currency_converter():
@@ -16,7 +17,7 @@ Select a currency conversion: """))
     print()
     if user_choice == 1:
         user_dollar = float(input("Dollar Amount: "))
-        print()
+
         d_to_e = float(user_dollar * get_currency("USD_EUR"))
         d_to_j = float(user_dollar * get_currency("USD_JPY"))
         d_to_c = float(user_dollar * get_currency("USD_CAD"))
@@ -76,7 +77,7 @@ Select a currency conversion: """))
         print(colors.green, user_yen, "in Japanese Yen equals",
               y_to_c, "in Canadian Dollar.")
         print(colors.green, user_yen, "in Japanese Yen equals",
-              y_to_mad, "in Moroccan MAD.\n", colors.reset)
+              y_to_mad, "in Moroccan MAD.\n")
         restart.restart()
     elif user_choice == 5:
         user_mad = float(input("Moroccan MAD Amount: "))
@@ -103,54 +104,73 @@ Select a currency conversion: """))
 
 def temp_converter():
     """
-Handles all temperature conversions here
+    Handles all temperature conversions here
     """
     user_choice = int(
-        input("""(1) Celsius to ALL
+        input("""
+(1) Celsius to ALL
 (2) Fahrenheit to ALL
 (3) Kelvin to ALL
 Select a temperature conversion: """))
     print()
 
     if user_choice == 1:
-        user_celsius = float(input("Celsius: "))
+        user_celsius = repeat_input("Celsius: ", "Invalid Number...\n", "float")
         print()
-        c_to_f = float(user_celsius * 1.8 + 32)
-        c_to_k = float(user_celsius + 273.15)
-        print(colors.green, user_celsius, "in Celsius equals",
-              c_to_f, "in Fahrenheit.")
-        print(colors.green, user_celsius, "in Celsius equals",
-              c_to_k, "in Kelvin.\n", colors.reset)
+
+        fahrenheit, kelvin = celsius_to_all(user_celsius)
+        print(f"{colors.green}{user_celsius} Celsius is {fahrenheit} in Fahrenheit.")
+        print(f"{colors.green}{user_celsius} Celsius is {kelvin} in Kelvin. {colors.reset}\n")
         restart.restart()
     elif user_choice == 2:
-        user_fahrenheit = float(input("Fahrenheit: "))
+        user_fahrenheit = repeat_input("Fahrenheit: ", "Invalid Number...\n", "float")
         print()
-        f_to_c = float((user_fahrenheit - 32) * 5 / 9)
-        f_to_k = float((user_fahrenheit - 32) * 5 / 9 + 273.15)
-        print(colors.green, user_fahrenheit, "in Fahrenheit equals",
-              f_to_c, "in Celsius.")
-        print(colors.green, user_fahrenheit, "in Fahrenheit equals",
-              f_to_k, "in Kelvin.\n", colors.reset)
+
+        celsius, kelvin = fahrenheit_to_all(user_fahrenheit)
+        print(f"{colors.green}{user_fahrenheit} Fahrenheit is {celsius} in Celsius.")
+        print(f"{colors.green}{user_fahrenheit} Fahrenheit is {kelvin} in Kelvin. {colors.reset}\n")
         restart.restart()
     elif user_choice == 3:
-        user_kelvin = float(input("Kelvin: "))
+        user_kelvin = repeat_input("Kelvin: ", "Invalid Number...\n", "float")
         print()
-        k_to_c = float(user_kelvin - 273.15)
-        k_to_f = float((user_kelvin - 273.15) * 1.8 + 32)
-        print(colors.green, user_kelvin, "in Kelvin equals",
-              k_to_c, "in Celsius.")
-        print(colors.green, user_kelvin, "in Kelvin equals",
-              k_to_f, "in Fahrenheit.\n", colors.reset)
+
+        celsius, fahrenheit = kelvin_to_all(user_kelvin)
+        print(f"{colors.green}{user_kelvin} Kelvin is {celsius} in Celsius.")
+        print(f"{colors.green}{user_kelvin} Kelvin is {fahrenheit} in Fahrenheit. {colors.reset}\n")
         restart.restart()
     else:
-        print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        print(f"{colors.red}Invalid input... Restarting input choice... {colors.reset}\n")
         time.sleep(2)
         temp_converter()
 
 
+def celsius_to_all(data):
+    data = float(data)
+    fahrenheit = data * 1.8 + 32
+    kelvin = data + 273.15
+
+    return fahrenheit, kelvin
+
+
+def fahrenheit_to_all(data):
+    data = float(data)
+    celsius = (data - 32) * 5 / 9
+    kelvin = (data - 32) * 5 / 9 + 273.15
+
+    return celsius, kelvin
+
+
+def kelvin_to_all(data):
+    data = float(data)
+    celsius = data - 273.15
+    fahrenheit = (data - 273.15) * 1.8 + 32
+
+    return celsius, fahrenheit
+
+
 def mass_converter():
     """
-Handles all mass conversions
+    Handles all mass conversions
     """
     user_choice = int(
         input("""(1) Kilogram to ALL
@@ -161,61 +181,85 @@ Select a mass conversion: """))
     print()
 
     if user_choice == 1:
-        user_kilo = float(input("Kilograms: "))
+        user_kilo = repeat_input("Kilograms: ", "Invalid Number...\n", "float")
         print()
-        kg_to_g = float(user_kilo * 1000)
-        kg_to_p = float(user_kilo * 2.205)
-        kg_to_o = float(user_kilo * 35.274)
-        print(colors.green, user_kilo, "in Kilograms equals",
-              kg_to_g, "in Grams.")
-        print(colors.green, user_kilo, "in Kilograms equals",
-              kg_to_p, "in Pounds.")
-        print(colors.green, user_kilo, "in Kilograms equals",
-              kg_to_o, "in Ounces.\n", colors.reset)
+
+        grams, pounds, ounces = kilograms_to_all(user_kilo)
+        print(f'{colors.green}{user_kilo} Kilograms is {grams} in Grams')
+        print(f'{user_kilo} Kilograms is {pounds} in Pounds')
+        print(f'{user_kilo} Kilograms is {ounces} in Ounces{colors.reset}\n')
         restart.restart()
     elif user_choice == 2:
-        user_gram = float(input("Grams: "))
+        user_gram = repeat_input("Grams: ", "Invalid Number...\n", "float")
         print()
-        g_to_kg = float(user_gram / 1000)
-        g_to_p = float(user_gram / 454)
-        g_to_o = float(user_gram / 28.35)
-        print(colors.green, user_gram, "in Grams equals",
-              g_to_kg, "in Kilograms.")
-        print(colors.green, user_gram, "in Grams equals",
-              g_to_p, "in Pounds.")
-        print(colors.green, user_gram, "in Grams equals",
-              g_to_o, "in Ounces.\n", colors.reset)
+
+        kilograms, pounds, ounces = grams_to_all(user_gram)
+        print(f'{colors.green}{user_gram} Grams is {kilograms} in Kilograms')
+        print(f'{user_gram} Grams is {pounds} in Pounds')
+        print(f'{user_gram} Grams is {ounces} in Ounces{colors.reset}\n')
         restart.restart()
     elif user_choice == 3:
-        user_pound = float(input("Pounds: "))
+        user_pound = repeat_input("Pounds: ", "Invalid Number...\n", 'float')
         print()
-        p_to_kg = float(user_pound / 2.205)
-        p_to_g = float(user_pound * 454)
-        p_to_o = float(user_pound * 16)
-        print(colors.green, user_pound, "in Pounds equals",
-              p_to_kg, "in Kilograms.")
-        print(colors.green, user_pound, "in Pounds equals",
-              p_to_g, "in Grams.")
-        print(colors.green, user_pound, "in Pounds equals",
-              p_to_o, "in Ounces.\n", colors.reset)
+
+        kilograms, grams, ounces = pounds_to_all(user_pound)
+        print(f'{colors.green}{user_pound} Grams is {kilograms} in Kilograms')
+        print(f'{user_pound} Grams is {grams} in Grams')
+        print(f'{user_pound} Grams is {ounces} in Ounces{colors.reset}\n')
         restart.restart()
     elif user_choice == 4:
-        user_ounce = float(input("Ounces: "))
+        user_ounce = repeat_input("Ounces: ", "Invalid Number...\n", 'float')
         print()
-        o_to_kg = float(user_ounce / 35.274)
-        o_to_g = float(user_ounce * 28.35)
-        o_to_p = float(user_ounce / 16)
-        print(colors.green, user_ounce, "in Ounces equals",
-              o_to_kg, "in Kilograms.")
-        print(colors.green, user_ounce, "in Ounces equals",
-              o_to_g, "in Grams.")
-        print(colors.green, user_ounce, "in Ounces equals",
-              o_to_p, "in Pounds.\n", colors.reset)
+
+        kilograms, grams, pounds = ounces_to_all(user_ounce)
+        print(f'{colors.green}{user_ounce} Grams is {kilograms} in Kilograms')
+        print(f'{user_ounce} Grams is {grams} in Grams')
+        print(f'{user_ounce} Grams is {pounds} in Pounds{colors.reset}\n')
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         time.sleep(2)
         mass_converter()
+
+
+def kilograms_to_all(data):
+    data = float(data)
+
+    grams = data * 1000
+    pounds = data * 2.205
+    ounces = data * 35.274
+
+    return grams, pounds, ounces
+
+
+def grams_to_all(data):
+    data = float(data)
+
+    kilograms = data / 1000
+    pounds = data / 454
+    ounces = data / 28.35
+
+    return kilograms, pounds, ounces
+
+
+def pounds_to_all(data):
+    data = float(data)
+
+    kilograms = data / 2.205
+    grams = data * 454
+    ounces = data * 16
+
+    return kilograms, grams, ounces
+
+
+def ounces_to_all(data):
+    data = float(data)
+
+    kilograms = data / 35.274
+    grams = data * 28.35
+    pounds = data / 16
+
+    return kilograms, grams, pounds
 
 
 def length_converter():
@@ -869,7 +913,7 @@ def energy_converter():
 (2) KiloJoule to ALL
 (3) Watt Hour to ALL
 (4) Kilowatt Hour to ALL
-Which energy convertion would you like to pick: '''))
+Which energy conversion would you like to pick: '''))
     print()
     if choice == 1:
         j = float(input("Joules: "))

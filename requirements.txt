@@ -2,3 +2,4 @@ colored==1.4.2
 pip==21.1.2
 PyQt5==5.15.4
 setuptools==57.0.0
+requests==2.25.1

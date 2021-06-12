@@ -1,6 +1,6 @@
-import time
 import colors
 import restart
+from tools import repeat_input
 
 
 def calculator(data):
@@ -44,47 +44,25 @@ def start():
                           'operator!\n', colors.reset)
     calculation = []
     while True:
-        while True:
-            try:
-                number = input("Your Number: ")
-                float(number)
-                calculation.append(number)
-                break
-            except ValueError:
-                print("error")
-                continue
+        number = repeat_input("Your Number: ", "Invalid Number...\n", "float")
+        calculation.append(number)
 
-        while True:
-            operator_options = [
-                "+", "-", "*", "/", "**", "=",
-                "add", "subtract", "multiply", "times",
-                "power", "divide", "division", "equals"]
-
-            operator = input("Your Operator: ")
-            if operator in operator_options:
-                calculation.append(operator)
-                break
-            else:
-                print(colors.red+"Error Found...\n", colors.reset)
-                continue
+        operator = repeat_input("Your Operator: ", "Invalid Operator...\n", "operator")
+        calculation.append(operator)
 
         if operator == "=":
             print()
             print(colors.green + " ".join(calculation), calculator(calculation), colors.reset)
             break
+
         print(" ".join(calculation))
 
-    # Better Variable Names :)
     print()
-    continue_opt = input("Would you like to make another arithmetic calculation (yes / no): ")
-    print()
+    continue_text = "Would you like to make another arithmetic calculation (yes / no): "
+    continue_opt = repeat_input(continue_text, "User input error found...\n", "yes_no")
     if continue_opt.lower() in ['y', 'yes']:
         start()
     elif continue_opt.lower() in ['n', 'no']:
-        restart.restart()
-    else:
-        print(colors.red + 'User input error found...\n', colors.reset)
-        time.sleep(2)
         restart.restart()
 
 
