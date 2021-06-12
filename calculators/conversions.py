@@ -170,7 +170,7 @@ def kelvin_to_all(data):
 
 def mass_converter():
     """
-Handles all mass conversions
+    Handles all mass conversions
     """
     user_choice = int(
         input("""(1) Kilogram to ALL
