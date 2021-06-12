@@ -285,7 +285,7 @@ Select a length conversion: """))
         print(colors.green, ft, "in Feet equals",
               ft_to_yard, "in Yards.")
         print(colors.green, ft, "in Feet equals",
-              ft_to_mile, "in Miles.\n")
+              ft_to_mile, "in Miles.\n", colors.reset)
         restart.restart()
     elif user_choice == 2:
         inch = float(input("Inches: "))
@@ -644,16 +644,16 @@ What do you want to convert to: """)
     print()
     convert_to = int(convert_to)
     if convert_to == 1:
-        print(colors.green, total_seconds / 31536000, "years\n")
+        print(colors.green, total_seconds / 31536000, "years\n", colors.reset)
         restart.restart()
     elif convert_to == 2:
-        print(colors.green, total_seconds / 86400, "days\n")
+        print(colors.green, total_seconds / 86400, "days\n", colors.reset)
         restart.restart()
     elif convert_to == 3:
-        print(colors.green, total_seconds / 60, "minutes\n")
+        print(colors.green, total_seconds / 60, "minutes\n", colors.reset)
         restart.restart()
     elif convert_to == 4:
-        print(colors.green, total_seconds, "seconds\n")
+        print(colors.green, total_seconds, "seconds\n", colors.reset)
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input...\n" + colors.reset)
@@ -793,9 +793,9 @@ def pressure_converter():
         print(colors.green, pressure, "in pascal [Pa] equals",
               pr_to_kpa, "in kilopascal [kPa].")
         print(colors.green, pressure, "in pascal [Pa] equals",
-              pr_to_bar, "in bar.", colors.reset)
+              pr_to_bar, "in bar.")
         print(colors.green, pressure, "in pascal [Pa] equals",
-              pr_to_atm, "in Standard atmosphere [atm].\n")
+              pr_to_atm, "in Standard atmosphere [atm].\n", colors.reset)
         restart.restart()
     elif user_choice == 2:
         pressure = float(input("Enter Pressure amount: "))
@@ -924,9 +924,9 @@ Which energy conversion would you like to pick: '''))
         print(colors.green, j, "in Joules equals",
               j_to_kj, "in Kilojoules.")
         print(colors.green, j, "in Joules equals",
-              j_to_w, "in Watts.", colors.reset)
+              j_to_w, "in Watts.")
         print(colors.green, j, "in Joules equals",
-              j_to_kw, "in Kilowatts.\n")
+              j_to_kw, "in Kilowatts.\n", colors.reset)
         restart.restart()
     elif choice == 2:
         kj = float(input("Kilojoules: "))
@@ -1140,4 +1140,4 @@ What converter would you like to perform: '''))
 
 
 if __name__ == '__main__':
-    mass_converter()
+    start()
