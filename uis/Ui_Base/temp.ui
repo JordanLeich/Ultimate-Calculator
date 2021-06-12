@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>464</width>
-    <height>371</height>
+    <width>477</width>
+    <height>431</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -145,37 +145,31 @@
      </property>
     </item>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QPushButton" name="cvt_btn">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>280</y>
-      <width>301</width>
-      <height>61</height>
+      <x>50</x>
+      <y>320</y>
+      <width>161</width>
+      <height>51</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QPushButton" name="cvt_btn">
-       <property name="text">
-        <string>Convert</string>
-       </property>
-       <property name="shortcut">
-        <string>Return, Enter</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="exit_btn">
-       <property name="text">
-        <string>Exit</string>
-       </property>
-       <property name="shortcut">
-        <string>Esc</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <property name="text">
+     <string>Convert</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exit_btn">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>320</y>
+      <width>161</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Exit</string>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

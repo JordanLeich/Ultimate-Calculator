@@ -66,9 +66,6 @@
        <property name="text">
         <string>Exit</string>
        </property>
-       <property name="shortcut">
-        <string>Esc</string>
-       </property>
       </widget>
      </item>
     </layout>
