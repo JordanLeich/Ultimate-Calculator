@@ -40,10 +40,7 @@
      <bool>false</bool>
     </property>
     <property name="currentText">
-     <string>Pounds</string>
-    </property>
-    <property name="currentIndex">
-     <number>2</number>
+     <string>Kilogram</string>
     </property>
     <property name="duplicatesEnabled">
      <bool>false</bool>
@@ -85,10 +82,7 @@
      <bool>false</bool>
     </property>
     <property name="currentText">
-     <string>Grams</string>
-    </property>
-    <property name="currentIndex">
-     <number>3</number>
+     <string>Kilogram</string>
     </property>
     <item>
      <property name="text">
@@ -173,7 +167,7 @@
      <string>Result</string>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -188,18 +182,12 @@
        <property name="text">
         <string>Convert</string>
        </property>
-       <property name="shortcut">
-        <string>Return, Enter</string>
-       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="exit_btn">
        <property name="text">
         <string>Exit</string>
-       </property>
-       <property name="shortcut">
-        <string>Esc</string>
        </property>
       </widget>
      </item>
