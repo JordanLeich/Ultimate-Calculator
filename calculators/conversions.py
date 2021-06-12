@@ -102,6 +102,31 @@ Select a currency conversion: """))
         currency_converter()
 
 
+# Temperatures
+def celsius_to_all(data):
+    data = float(data)
+    fahrenheit = data * 1.8 + 32
+    kelvin = data + 273.15
+
+    return fahrenheit, kelvin
+
+
+def fahrenheit_to_all(data):
+    data = float(data)
+    celsius = (data - 32) * 5 / 9
+    kelvin = (data - 32) * 5 / 9 + 273.15
+
+    return celsius, kelvin
+
+
+def kelvin_to_all(data):
+    data = float(data)
+    celsius = data - 273.15
+    fahrenheit = (data - 273.15) * 1.8 + 32
+
+    return celsius, fahrenheit
+
+
 def temp_converter():
     """
     Handles all temperature conversions here
@@ -144,28 +169,45 @@ Select a temperature conversion: """))
         temp_converter()
 
 
-def celsius_to_all(data):
+# Masses
+def kilograms_to_all(data):
     data = float(data)
-    fahrenheit = data * 1.8 + 32
-    kelvin = data + 273.15
 
-    return fahrenheit, kelvin
+    grams = data * 1000
+    pounds = data * 2.205
+    ounces = data * 35.274
+
+    return grams, pounds, ounces
 
 
-def fahrenheit_to_all(data):
+def grams_to_all(data):
     data = float(data)
-    celsius = (data - 32) * 5 / 9
-    kelvin = (data - 32) * 5 / 9 + 273.15
 
-    return celsius, kelvin
+    kilograms = data / 1000
+    pounds = data / 454
+    ounces = data / 28.35
+
+    return kilograms, pounds, ounces
 
 
-def kelvin_to_all(data):
+def pounds_to_all(data):
     data = float(data)
-    celsius = data - 273.15
-    fahrenheit = (data - 273.15) * 1.8 + 32
 
-    return celsius, fahrenheit
+    kilograms = data / 2.205
+    grams = data * 454
+    ounces = data * 16
+
+    return kilograms, grams, ounces
+
+
+def ounces_to_all(data):
+    data = float(data)
+
+    kilograms = data / 35.274
+    grams = data * 28.35
+    pounds = data / 16
+
+    return kilograms, grams, pounds
 
 
 def mass_converter():
@@ -222,49 +264,50 @@ Select a mass conversion: """))
         mass_converter()
 
 
-def kilograms_to_all(data):
+# Lengths
+def feet_to_all(data):
     data = float(data)
 
-    grams = data * 1000
-    pounds = data * 2.205
-    ounces = data * 35.274
+    inch = data * 12
+    yard = data / 3
+    mile = data / 5280
 
-    return grams, pounds, ounces
+    return inch, yard, mile
 
 
-def grams_to_all(data):
+def inches_to_all(data):
     data = float(data)
 
-    kilograms = data / 1000
-    pounds = data / 454
-    ounces = data / 28.35
+    feet = data / 12
+    yard = data / 36
+    mile = data / 63360
 
-    return kilograms, pounds, ounces
+    return feet, yard, mile
 
 
-def pounds_to_all(data):
+def yards_to_all(data):
     data = float(data)
 
-    kilograms = data / 2.205
-    grams = data * 454
-    ounces = data * 16
+    feet = data * 3
+    inch = data * 36
+    mile = data / 1760
 
-    return kilograms, grams, ounces
+    return feet, inch, mile
 
 
-def ounces_to_all(data):
+def miles_to_all(data):
     data = float(data)
 
-    kilograms = data / 35.274
-    grams = data * 28.35
-    pounds = data / 16
+    feet = data * 5280
+    inch = data * 63360
+    yard = data * 1760
 
-    return kilograms, grams, pounds
+    return feet, inch, yard
 
 
 def length_converter():
     """
-Handles all length conversions
+    Handles all length conversions
     """
     user_choice = int(
         input("""(1) Feet to ALL
@@ -275,56 +318,44 @@ Select a length conversion: """))
     print()
 
     if user_choice == 1:
-        ft = float(input("Feet: "))
+        feet = repeat_input("Feet: ", "Invalid Number...\n", "float")
         print()
-        ft_to_inch = ft * 12
-        ft_to_yard = ft / 3
-        ft_to_mile = ft / 5280
-        print(colors.green, ft, "in Feet equals",
-              ft_to_inch, "in Inches.")
-        print(colors.green, ft, "in Feet equals",
-              ft_to_yard, "in Yards.")
-        print(colors.green, ft, "in Feet equals",
-              ft_to_mile, "in Miles.\n", colors.reset)
+
+        inch, yard, mile = feet_to_all(feet)
+
+        print(f'{colors.green}{feet} in Feet equals {inch} in Inches.')
+        print(f'{colors.green}{feet} in Feet equals {yard} in Yards.')
+        print(f'{colors.green}{feet} in Feet equals {mile} in Miles.{colors.reset}\n')
         restart.restart()
+
     elif user_choice == 2:
-        inch = float(input("Inches: "))
+        inch = repeat_input("Inches: ", "Invalid Number...\n", "float")
         print()
-        inch_to_ft = inch / 12
-        inch_to_yard = inch / 36
-        inch_to_mile = inch / 63360
-        print(colors.green, inch, "in Inches equals",
-              inch_to_ft, "in Feet.")
-        print(colors.green, inch, "in Inches equals",
-              inch_to_yard, "in Yards.")
-        print(colors.green, inch, "in Inches equals",
-              inch_to_mile, "in Miles.\n", colors.reset)
+
+        feet, yard, mile = inches_to_all(inch)
+        print(f'{colors.green}{inch} in Inches equals {feet} in Feet.')
+        print(f'{colors.green}{inch} in Inches equals {yard} in Yards.')
+        print(f'{colors.green}{inch} in Inches equals {mile} in Miles.{colors.reset}\n')
         restart.restart()
+
     elif user_choice == 3:
-        yard = float(input("Yards: "))
+        yard = repeat_input("Yards: ", "Invalid Number...\n", "float")
         print()
-        yard_to_inch = yard * 36
-        yard_to_foot = yard * 3
-        yard_to_mile = yard / 1760
-        print(colors.green, yard, "in Yards equals",
-              yard_to_inch, "in Inches.")
-        print(colors.green, yard, "in Yards equals",
-              yard_to_foot, "in Feet.")
-        print(colors.green, yard, "in Yards equals",
-              yard_to_mile, "in Miles.\n", colors.reset)
+
+        feet, inch, mile = yards_to_all(yard)
+        print(f'{colors.green}{yard} in Yards equals {feet} in Feet.')
+        print(f'{colors.green}{yard} in Yards equals {inch} in Inches.')
+        print(f'{colors.green}{yard} in Yards equals {mile} in Miles.{colors.reset}\n')
         restart.restart()
+
     elif user_choice == 4:
         mile = float(input("Miles: "))
         print()
-        mile_to_inch = mile * 63360
-        mile_to_foot = mile * 5280
-        mile_to_yard = mile * 1760
-        print(colors.green, mile, "in Miles equals",
-              mile_to_inch, "in Inches.")
-        print(colors.green, mile, "in Miles equals",
-              mile_to_foot, "in Feet.")
-        print(colors.green, mile, "in Miles equals",
-              mile_to_yard, "in Yards.\n", colors.reset)
+
+        feet, inch, yard = miles_to_all(mile)
+        print(f'{colors.green}{mile} in Miles equals {feet} in Feet.')
+        print(f'{colors.green}{mile} in Miles equals {inch} in Inches.')
+        print(f'{colors.green}{mile} in Miles equals {yard} in Yards.{colors.reset}\n')
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
@@ -332,9 +363,60 @@ Select a length conversion: """))
         length_converter()
 
 
+# Volumes
+def milliliters_to_liters(data):
+    data = float(data)
+    return data * (1 / 1000)
+
+
+def liters_to_milliliters(data):
+    data = float(data)
+    return data * (1000 / 1)
+
+
+def gallons_to_all(data):
+    data = float(data)
+
+    quart = data * 4
+    pint = data * 8
+    ounce = data * 128
+
+    return quart, pint, ounce
+
+
+def quarts_to_all(data):
+    data = float(data)
+
+    gallon = data / 4
+    pint = data * 2
+    ounce = data * 32
+
+    return gallon, pint, ounce
+
+
+def pints_to_all(data):
+    data = float(data)
+
+    gallon = data / 8
+    quart = data / 2
+    ounce = data * 16
+
+    return gallon, quart, ounce
+
+
+def ounces_to_all2(data):
+    data = float(data)
+
+    gallon = data / 128
+    quart = data / 32
+    pint = data / 16
+
+    return gallon, quart, pint
+
+
 def volume_converter():
     """
-Handles all volume conversions
+    Handles all volume conversions
     """
     user_choice = int(
         input("""(1) Milliliters to Liters
@@ -347,71 +429,61 @@ Select a volume conversion: """))
     print()
 
     if user_choice == 1:
-        ml = float(input("Milliliters: "))
+        milliliters = repeat_input("Milliliters: ", "Invalid Number...\n", "float")
         print()
-        ml_to_l = ml * (1 / 1000)
-        print(colors.green, ml, "in Milliliters equals",
-              ml_to_l, "in Liters.\n", colors.reset)
+
+        liters = milliliters_to_liters(milliliters)
+        print(f'{colors.green}{milliliters} in Milliliters equals {liters} in Liters. {colors.reset}\n')
         restart.restart()
+
     elif user_choice == 2:
-        l = float(input("Liters: "))
+        liters = repeat_input("Liters: ", "Invalid Number...\n", "float")
         print()
-        l_to_ml = l * (1000 / 1)
-        print(colors.green, l, "in Liters equals",
-              l_to_ml, "in Milliliters.\n", colors.reset)
+
+        milliliters = liters_to_milliliters(liters)
+        print(f'{colors.green}{liters} in Liters equals {milliliters}in Milliliters. {colors.reset}\n')
         restart.restart()
+
     elif user_choice == 3:
-        gallon = float(input("Gallons: "))
+        gallon = repeat_input("Gallons: ", "Invalid Number...\n", "float")
         print()
-        gallon_to_quart = gallon * 4
-        gallon_to_pint = gallon * 8
-        gallon_to_ounce = gallon * 128
-        print(colors.green, gallon, "in Gallons equals",
-              gallon_to_quart, "in Quart.")
-        print(colors.green, gallon, "in Gallons equals",
-              gallon_to_pint, "in Pint.")
-        print(colors.green, gallon, "in Gallons equals",
-              gallon_to_ounce, "in Ounces.\n", colors.reset)
+
+        quart, pint, ounce = gallons_to_all(gallon)
+        print(f'{colors.green}{gallon} in Gallons equals {quart} in Quarts.')
+        print(f'{colors.green}{gallon} in Gallons equals {pint} in Pints.')
+        print(f'{colors.green}{gallon} in Gallons equals {ounce} in Ounces. {colors.reset}\n')
         restart.restart()
+
     elif user_choice == 4:
-        quart = float(input("Quarts: "))
+        quart = repeat_input("Quarts: ", "Invalid Number...\n", "float")
         print()
-        quart_to_gallon = quart / 4
-        quart_to_pint = quart * 2
-        quart_to_ounce = quart * 32
-        print(colors.green, quart, "in Ounces equals",
-              quart_to_gallon, "in Gallons.")
-        print(colors.green, quart, "in Ounces equals",
-              quart_to_pint, "in Pints.")
-        print(colors.green, quart, "in Ounces equals",
-              quart_to_ounce, "in Ounces.\n", colors.reset)
+
+        gallon, pint, ounce = quarts_to_all(quart)
+        print(f'{colors.green}{quart} in Quarts equals {gallon} in Gallons.')
+        print(f'{colors.green}{quart} in Quarts equals {pint} in Pints.')
+        print(f'{colors.green}{quart} in Quarts equals {ounce} in Ounces. {colors.reset}\n')
         restart.restart()
+
     elif user_choice == 5:
-        pint = float(input("Pints: "))
+        pint = repeat_input("Pints: ", "Invalid Number...\n", "float")
         print()
-        pint_to_gallon = pint / 8
-        pint_to_quart = pint / 2
-        pint_to_ounce = pint * 16
-        print(colors.green, pint, "in Pints equals",
-              pint_to_gallon, "in Gallons.")
-        print(colors.green, pint, "in Pints equals",
-              pint_to_quart, "in Quarts.")
-        print(colors.green, pint, "in Pints equals",
-              pint_to_ounce, "in Ounces.\n", colors.reset)
+
+        gallon, quart, ounce = pints_to_all(pint)
+        print(f'{colors.green}{pint} in Pints equals {gallon} in Gallons.')
+        print(f'{colors.green}{pint} in Pints equals {quart} in Quarts.')
+        print(f'{colors.green}{pint} in Pints equals {ounce} in Ounces. {colors.reset}\n')
         restart.restart()
+
     elif user_choice == 6:
-        ounce = float(input("Ounces: "))
+        ounce = repeat_input("Ounces: ", "Invalid Number...\n", "float")
         print()
-        ounce_to_quart = ounce / 32
-        ounce_to_gallon = ounce / 128
-        ounce_to_pint = ounce / 16
-        print(colors.green, ounce, "in Ounces equals",
-              ounce_to_quart, "in Quarts.")
-        print(colors.green, ounce, "in Ounces equals",
-              ounce_to_gallon, "in Gallons.")
-        print(colors.green, ounce, "in Ounces equals",
-              ounce_to_pint, "in Pints.\n", colors.reset)
+
+        gallon, quart, pint = ounces_to_all2(ounce)
+        print(f'{colors.green}{ounce} in Ounces equals {gallon} in Gallons.')
+        print(f'{colors.green}{ounce} in Ounces equals {quart} in Quarts.')
+        print(f'{colors.green}{ounce} in Ounces equals {pint} in Pints. {colors.reset}\n')
         restart.restart()
+
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         time.sleep(2)
