@@ -52,6 +52,9 @@
     <property name="currentText">
      <string>Month</string>
     </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
     <item>
      <property name="text">
       <string>Year</string>
@@ -128,6 +131,9 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
     <item>
      <property name="text">
       <string>Year</string>
@@ -172,7 +178,7 @@
      <string>To</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -185,7 +191,10 @@
      <item>
       <widget class="QPushButton" name="go_btn">
        <property name="text">
-        <string>Go</string>
+        <string>Convert</string>
+       </property>
+       <property name="shortcut">
+        <string>Return, Enter</string>
        </property>
       </widget>
      </item>
@@ -193,6 +202,9 @@
       <widget class="QPushButton" name="exit_btn">
        <property name="text">
         <string>Exit</string>
+       </property>
+       <property name="shortcut">
+        <string>Esc</string>
        </property>
       </widget>
      </item>

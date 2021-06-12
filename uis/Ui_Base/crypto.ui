@@ -85,6 +85,9 @@
     <property name="text">
      <string>Convert</string>
     </property>
+    <property name="shortcut">
+     <string>Return, Enter</string>
+    </property>
    </widget>
    <widget class="QLineEdit" name="line1">
     <property name="geometry">
@@ -143,6 +146,9 @@
     </property>
     <property name="text">
      <string>Exit</string>
+    </property>
+    <property name="shortcut">
+     <string>Esc</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox2">

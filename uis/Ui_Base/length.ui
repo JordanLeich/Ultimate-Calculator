@@ -75,6 +75,9 @@
     <property name="currentText">
      <string>Inch</string>
     </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
     <item>
      <property name="text">
       <string>Feet</string>
@@ -131,6 +134,9 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
     <item>
      <property name="text">
       <string>Feet</string>
@@ -152,7 +158,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -167,12 +173,18 @@
        <property name="text">
         <string>Convert</string>
        </property>
+       <property name="shortcut">
+        <string>Return, Enter</string>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="exit_btn">
        <property name="text">
         <string>Exit</string>
+       </property>
+       <property name="shortcut">
+        <string>Esc</string>
        </property>
       </widget>
      </item>
