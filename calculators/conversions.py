@@ -1015,23 +1015,81 @@ Which Fuel Economy convertion would you like to pick: '''))
         fuel_converter()
 
 
+def frequency_converter():
+    choice = int(input('''(1) Hertz to ALL
+(2) Kilohertz to ALL
+(3) Megahertz to ALL
+(4) Gigahertz to ALL
+Which Sound Frequency convertion would you like to pick: '''))
+    print()
+    if choice == 1:
+        h = float(input("Hertz: "))
+        print()
+        h_to_kh = float(h / 1000)
+        h_to_mh = float(h / 1e+6)
+        h_to_gh = float(h / 1e+9)
+        print(colors.green, h, "in Hertz equals",
+              h_to_kh, "in Kilohertz.")
+        print(colors.green, h, "in Hertz equals",
+              h_to_mh, "in Megahertz.")
+        print(colors.green, h, "in Hertz equals",
+              h_to_gh, "in Gigahertz.\n", colors.reset)
+        restart.restart()
+    elif choice == 2:
+        kh = float(input("Kilohertz: "))
+        print()
+        kh_to_h = float(kh * 1000)
+        kh_to_mh = float(kh / 1000)
+        kh_to_gh = float(kh / 1e+6)
+        print(colors.green, kh, "in Kilohertz equals",
+              kh_to_h, "in Hertz.")
+        print(colors.green, kh, "in Kilohertz equals",
+              kh_to_mh, "in Megahertz.")
+        print(colors.green, kh, "in Kilohertz equals",
+              kh_to_gh, "in Gigahertz.\n", colors.reset)
+        restart.restart()
+    elif choice == 3:
+        mh = float(input("Megahertz: "))
+        print()
+        mh_to_h = float(mh * 1e+6)
+        mh_to_kh = float(mh * 1000)
+        mh_to_gh = float(mh / 1000)
+        print(colors.green, mh, "in Megahertz equals",
+              mh_to_h, "in Hertz.")
+        print(colors.green, mh, "in Megahertz equals",
+              mh_to_kh, "in Kilohertz.")
+        print(colors.green, mh, "in Megahertz equals",
+              mh_to_gh, "in Gigahertz.\n", colors.reset)
+        restart.restart()
+    elif choice == 4:
+        gh = float(input("Gigahertz: "))
+        print()
+        gh_to_h = float(gh * 1e+9)
+        gh_to_kh = float(gh * 1e+6)
+        gh_to_mh = float(gh * 1000)
+        print(colors.green, gh, "in Gigahertz equals",
+              gh_to_h, "in Hertz.")
+        print(colors.green, gh, "in Gigahertz equals",
+              gh_to_kh, "in Kilohertz.")
+        print(colors.green, gh, "in Gigahertz equals",
+              gh_to_mh, "in Megahertz.\n", colors.reset)
+        restart.restart()
+    else:
+        print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        time.sleep(2)
+        frequency_converter()
+
+
 def start():
     choice = int(input('''
 (1) Temperature Converter
-(2) Mass Converter
-(3) Length Converter
-(4) Volume Converter
-(5) Currency Converter
-(6) Crypto Converter
-(7) Speed Converter
-(8) Digital Storage Converter
-(9) Time Converter
-(10) Pressure Converter
+	@@ -986,8 +1051,9 @@ def start():
 (11) Angle Converter
 (12) Energy Converter
 (13) Fuel Economy Converter
-(14) Restart
-(15) Quit
+(14) Sound Frequency Converter
+(15) Restart
+(16) Quit
 What converter would you like to perform: '''))
     print()
 
@@ -1062,8 +1120,10 @@ What converter would you like to perform: '''))
     elif choice == 13:
         fuel_converter()
     elif choice == 14:
-        restart.restart()
+        frequency_converter()
     elif choice == 15:
+        restart.restart()
+    elif choice == 16:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
