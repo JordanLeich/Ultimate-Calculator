@@ -12,7 +12,7 @@ def currency_converter():
 (3) Canadian Dollar to ALL
 (4) Japanese Yen to ALL
 (5) Moroccan MAD to ALL
-Select a currency conversion:    """))
+Select a currency conversion: """))
     print()
     if user_choice == 1:
         user_dollar = float(input("Dollar Amount: "))
@@ -22,11 +22,11 @@ Select a currency conversion:    """))
         d_to_c = float(user_dollar * get_currency("USD_CAD"))
         d_to_mad = float(user_dollar * get_currency("USD_MAD"))
         print(colors.green, user_dollar, "in US Dollar equals",
-              d_to_e, "in Euros.", colors.reset)
+              d_to_e, "in Euros.")
         print(colors.green, user_dollar, "in US Dollar equals",
-              d_to_j, "in Japanese Yen.", colors.reset)
+              d_to_j, "in Japanese Yen.")
         print(colors.green, user_dollar, "in US Dollar equals",
-              d_to_c, "in Canadian Dollar.", colors.reset)
+              d_to_c, "in Canadian Dollar.")
         print(colors.green, user_dollar, "in US Dollar equals",
               d_to_mad, "in Moroccan MAD.\n", colors.reset)
         restart.restart()
@@ -38,11 +38,11 @@ Select a currency conversion:    """))
         e_to_c = float(user_euro * get_currency("EUR_CAD"))
         e_to_mad = float(user_euro * get_currency("EUR_MAD"))
         print(colors.green, user_euro, "in Euro equals",
-              e_to_d, "in US Dollars.", colors.reset)
+              e_to_d, "in US Dollars.")
         print(colors.green, user_euro, "in Euro equals",
-              e_to_j, "in Japanese Yen.", colors.reset)
+              e_to_j, "in Japanese Yen.")
         print(colors.green, user_euro, "in Euro equals",
-              e_to_c, "in Canadian Dollar.", colors.reset)
+              e_to_c, "in Canadian Dollar.")
         print(colors.green, user_euro, "in Euro equals",
               e_to_mad, "in Moroccan MAD.\n", colors.reset)
         restart.restart()
@@ -54,11 +54,11 @@ Select a currency conversion:    """))
         c_to_e = float(user_canadian * get_currency("CAD_EUR"))
         c_to_mad = float(user_canadian * get_currency("CAD_MAD"))
         print(colors.green, user_canadian, "in Canadian Dollar equals",
-              c_to_d, "in US Dollars.", colors.reset)
+              c_to_d, "in US Dollars.")
         print(colors.green, user_canadian, "in Canadian Dollar equals",
-              c_to_j, "in Japanese Yen.", colors.reset)
+              c_to_j, "in Japanese Yen.")
         print(colors.green, user_canadian, "in Canadian Dollar equals",
-              c_to_e, "in Euro.", colors.reset)
+              c_to_e, "in Euro.")
         print(colors.green, user_canadian, "in Canadian Dollar equals",
               c_to_mad, "in Moroccan MAD.\n", colors.reset)
         restart.restart()
@@ -70,11 +70,11 @@ Select a currency conversion:    """))
         y_to_c = float(user_yen * get_currency("JPY_CAD"))
         y_to_mad = float(user_yen * get_currency("JPY_MAD"))
         print(colors.green, user_yen, "in Japanese Yen equals",
-              y_to_d, "in US Dollars.", colors.reset)
+              y_to_d, "in US Dollars.")
         print(colors.green, user_yen, "in Japanese Yen equals",
-              y_to_e, "in Euros.", colors.reset)
+              y_to_e, "in Euros.")
         print(colors.green, user_yen, "in Japanese Yen equals",
-              y_to_c, "in Canadian Dollar.", colors.reset)
+              y_to_c, "in Canadian Dollar.")
         print(colors.green, user_yen, "in Japanese Yen equals",
               y_to_mad, "in Moroccan MAD.\n", colors.reset)
         restart.restart()
@@ -86,11 +86,11 @@ Select a currency conversion:    """))
         mad_to_c = float(user_mad * get_currency("MAD_CAD"))
         mad_to_yen = float(user_mad * get_currency("MAD_JPY"))
         print(colors.green, user_mad, "in Moroccan MAD equals",
-              mad_to_d, "in US Dollars.", colors.reset)
+              mad_to_d, "in US Dollars.")
         print(colors.green, user_mad, "in Moroccan MAD equals",
-              mad_to_e, "in Euros.", colors.reset)
+              mad_to_e, "in Euros.")
         print(colors.green, user_mad, "in Moroccan MAD equals",
-              mad_to_c, "in Canadian Dollar.", colors.reset)
+              mad_to_c, "in Canadian Dollar.")
         print(colors.green, user_mad, "in Moroccan MAD equals",
               mad_to_yen, "in Japanese Yen.\n", colors.reset)
         restart.restart()
@@ -118,7 +118,7 @@ Select a temperature conversion: """))
         c_to_f = float(user_celsius * 1.8 + 32)
         c_to_k = float(user_celsius + 273.15)
         print(colors.green, user_celsius, "in Celsius equals",
-              c_to_f, "in Fahrenheit.", colors.reset)
+              c_to_f, "in Fahrenheit.")
         print(colors.green, user_celsius, "in Celsius equals",
               c_to_k, "in Kelvin.\n", colors.reset)
         restart.restart()
@@ -128,7 +128,7 @@ Select a temperature conversion: """))
         f_to_c = float((user_fahrenheit - 32) * 5 / 9)
         f_to_k = float((user_fahrenheit - 32) * 5 / 9 + 273.15)
         print(colors.green, user_fahrenheit, "in Fahrenheit equals",
-              f_to_c, "in Celsius.", colors.reset)
+              f_to_c, "in Celsius.")
         print(colors.green, user_fahrenheit, "in Fahrenheit equals",
               f_to_k, "in Kelvin.\n", colors.reset)
         restart.restart()
@@ -138,7 +138,7 @@ Select a temperature conversion: """))
         k_to_c = float(user_kelvin - 273.15)
         k_to_f = float((user_kelvin - 273.15) * 1.8 + 32)
         print(colors.green, user_kelvin, "in Kelvin equals",
-              k_to_c, "in Celsius.", colors.reset)
+              k_to_c, "in Celsius.")
         print(colors.green, user_kelvin, "in Kelvin equals",
               k_to_f, "in Fahrenheit.\n", colors.reset)
         restart.restart()
@@ -167,9 +167,9 @@ Select a mass conversion: """))
         kg_to_p = float(user_kilo * 2.205)
         kg_to_o = float(user_kilo * 35.274)
         print(colors.green, user_kilo, "in Kilograms equals",
-              kg_to_g, "in Grams.", colors.reset)
+              kg_to_g, "in Grams.")
         print(colors.green, user_kilo, "in Kilograms equals",
-              kg_to_p, "in Pounds.", colors.reset)
+              kg_to_p, "in Pounds.")
         print(colors.green, user_kilo, "in Kilograms equals",
               kg_to_o, "in Ounces.\n", colors.reset)
         restart.restart()
@@ -180,9 +180,9 @@ Select a mass conversion: """))
         g_to_p = float(user_gram / 454)
         g_to_o = float(user_gram / 28.35)
         print(colors.green, user_gram, "in Grams equals",
-              g_to_kg, "in Kilograms.", colors.reset)
+              g_to_kg, "in Kilograms.")
         print(colors.green, user_gram, "in Grams equals",
-              g_to_p, "in Pounds.", colors.reset)
+              g_to_p, "in Pounds.")
         print(colors.green, user_gram, "in Grams equals",
               g_to_o, "in Ounces.\n", colors.reset)
         restart.restart()
@@ -193,9 +193,9 @@ Select a mass conversion: """))
         p_to_g = float(user_pound * 454)
         p_to_o = float(user_pound * 16)
         print(colors.green, user_pound, "in Pounds equals",
-              p_to_kg, "in Kilograms.", colors.reset)
+              p_to_kg, "in Kilograms.")
         print(colors.green, user_pound, "in Pounds equals",
-              p_to_g, "in Grams.", colors.reset)
+              p_to_g, "in Grams.")
         print(colors.green, user_pound, "in Pounds equals",
               p_to_o, "in Ounces.\n", colors.reset)
         restart.restart()
@@ -206,9 +206,9 @@ Select a mass conversion: """))
         o_to_g = float(user_ounce * 28.35)
         o_to_p = float(user_ounce / 16)
         print(colors.green, user_ounce, "in Ounces equals",
-              o_to_kg, "in Kilograms.", colors.reset)
+              o_to_kg, "in Kilograms.")
         print(colors.green, user_ounce, "in Ounces equals",
-              o_to_g, "in Grams.", colors.reset)
+              o_to_g, "in Grams.")
         print(colors.green, user_ounce, "in Ounces equals",
               o_to_p, "in Pounds.\n", colors.reset)
         restart.restart()
@@ -237,9 +237,9 @@ Select a length conversion: """))
         ft_to_yard = ft / 3
         ft_to_mile = ft / 5280
         print(colors.green, ft, "in Feet equals",
-              ft_to_inch, "in Inches.", colors.reset)
+              ft_to_inch, "in Inches.")
         print(colors.green, ft, "in Feet equals",
-              ft_to_yard, "in Yards.", colors.reset)
+              ft_to_yard, "in Yards.")
         print(colors.green, ft, "in Feet equals",
               ft_to_mile, "in Miles.\n", colors.reset)
         restart.restart()
@@ -250,9 +250,9 @@ Select a length conversion: """))
         inch_to_yard = inch / 36
         inch_to_mile = inch / 63360
         print(colors.green, inch, "in Inches equals",
-              inch_to_ft, "in Feet.", colors.reset)
+              inch_to_ft, "in Feet.")
         print(colors.green, inch, "in Inches equals",
-              inch_to_yard, "in Yards.", colors.reset)
+              inch_to_yard, "in Yards.")
         print(colors.green, inch, "in Inches equals",
               inch_to_mile, "in Miles.\n", colors.reset)
         restart.restart()
@@ -263,9 +263,9 @@ Select a length conversion: """))
         yard_to_foot = yard * 3
         yard_to_mile = yard / 1760
         print(colors.green, yard, "in Yards equals",
-              yard_to_inch, "in Inches.", colors.reset)
+              yard_to_inch, "in Inches.")
         print(colors.green, yard, "in Yards equals",
-              yard_to_foot, "in Feet.", colors.reset)
+              yard_to_foot, "in Feet.")
         print(colors.green, yard, "in Yards equals",
               yard_to_mile, "in Miles.\n", colors.reset)
         restart.restart()
@@ -276,9 +276,9 @@ Select a length conversion: """))
         mile_to_foot = mile * 5280
         mile_to_yard = mile * 1760
         print(colors.green, mile, "in Miles equals",
-              mile_to_inch, "in Inches.", colors.reset)
+              mile_to_inch, "in Inches.")
         print(colors.green, mile, "in Miles equals",
-              mile_to_foot, "in Feet.", colors.reset)
+              mile_to_foot, "in Feet.")
         print(colors.green, mile, "in Miles equals",
               mile_to_yard, "in Yards.\n", colors.reset)
         restart.restart()
@@ -323,9 +323,9 @@ Select a volume conversion: """))
         gallon_to_pint = gallon * 8
         gallon_to_ounce = gallon * 128
         print(colors.green, gallon, "in Gallons equals",
-              gallon_to_quart, "in Quart.", colors.reset)
+              gallon_to_quart, "in Quart.")
         print(colors.green, gallon, "in Gallons equals",
-              gallon_to_pint, "in Pint.", colors.reset)
+              gallon_to_pint, "in Pint.")
         print(colors.green, gallon, "in Gallons equals",
               gallon_to_ounce, "in Ounces.\n", colors.reset)
         restart.restart()
@@ -336,9 +336,9 @@ Select a volume conversion: """))
         quart_to_pint = quart * 2
         quart_to_ounce = quart * 32
         print(colors.green, quart, "in Ounces equals",
-              quart_to_gallon, "in Gallons.", colors.reset)
+              quart_to_gallon, "in Gallons.")
         print(colors.green, quart, "in Ounces equals",
-              quart_to_pint, "in Pints.", colors.reset)
+              quart_to_pint, "in Pints.")
         print(colors.green, quart, "in Ounces equals",
               quart_to_ounce, "in Ounces.\n", colors.reset)
         restart.restart()
@@ -349,9 +349,9 @@ Select a volume conversion: """))
         pint_to_quart = pint / 2
         pint_to_ounce = pint * 16
         print(colors.green, pint, "in Pints equals",
-              pint_to_gallon, "in Gallons.", colors.reset)
+              pint_to_gallon, "in Gallons.")
         print(colors.green, pint, "in Pints equals",
-              pint_to_quart, "in Quarts.", colors.reset)
+              pint_to_quart, "in Quarts.")
         print(colors.green, pint, "in Pints equals",
               pint_to_ounce, "in Ounces.\n", colors.reset)
         restart.restart()
@@ -362,9 +362,9 @@ Select a volume conversion: """))
         ounce_to_gallon = ounce / 128
         ounce_to_pint = ounce / 16
         print(colors.green, ounce, "in Ounces equals",
-              ounce_to_quart, "in Quarts.", colors.reset)
+              ounce_to_quart, "in Quarts.")
         print(colors.green, ounce, "in Ounces equals",
-              ounce_to_gallon, "in Gallons.", colors.reset)
+              ounce_to_gallon, "in Gallons.")
         print(colors.green, ounce, "in Ounces equals",
               ounce_to_pint, "in Pints.\n", colors.reset)
         restart.restart()
@@ -392,9 +392,9 @@ Select a crypto conversion:    """))
         btc_to_dc = float(btc * 95317.32)
         btc_to_sh = float(btc * 4.03)
         print(colors.green, btc, "in Bitcoin equals",
-              btc_to_e, "in Ethereum.", colors.reset)
+              btc_to_e, "in Ethereum.")
         print(colors.green, btc, "in Bitcoin equals",
-              btc_to_dc, "in DogeCoin.", colors.reset)
+              btc_to_dc, "in DogeCoin.")
         print(colors.green, btc, "in Bitcoin equals",
               btc_to_sh, "B in SHIB INU.\n", colors.reset)
         restart.restart()
@@ -405,9 +405,9 @@ Select a crypto conversion:    """))
         e_to_dc = float(eth * 6686.2)
         e_to_sh = float(eth * 292.12)
         print(colors.green, eth, "in Ethereum equals",
-              e_to_b, "in Bitcoin.", colors.reset)
+              e_to_b, "in Bitcoin.")
         print(colors.green, eth, "in Ethereum equals",
-              e_to_dc, "in DogeCoin.", colors.reset)
+              e_to_dc, "in DogeCoin.")
         print(colors.green, eth, "in Euro equals",
               e_to_sh, "M in SHIBA INU.\n", colors.reset)
         restart.restart()
@@ -418,9 +418,9 @@ Select a crypto conversion:    """))
         dc_to_e = float(doge_c * 0.000150)
         dc_to_sh = float(doge_c * 43745)
         print(colors.green, doge_c, "in DogeCoin equals",
-              dc_to_b, "in Bitcoin.", colors.reset)
+              dc_to_b, "in Bitcoin.")
         print(colors.green, doge_c, "in DogeCoin equals",
-              dc_to_e, "in Ethereum.", colors.reset)
+              dc_to_e, "in Ethereum.")
         print(colors.green, doge_c, "in DogeCoin equals",
               dc_to_sh, "in SHIBA INU.\n", colors.reset)
         restart.restart()
@@ -431,9 +431,9 @@ Select a crypto conversion:    """))
         sh_to_e = float(sh * 0.0000000012)
         sh_to_dc = float(sh * 0.000023)
         print(colors.green, sh, "in SHIBA INU equals",
-              sh_to_b, "in Bitcoin.", colors.reset)
+              sh_to_b, "in Bitcoin.")
         print(colors.green, sh, "in SHIBA INU equals",
-              sh_to_e, "in Ethereum.", colors.reset)
+              sh_to_e, "in Ethereum.")
         print(colors.green, sh, "in SHIBA INU equals",
               sh_to_dc, "in DogeCoin.\n", colors.reset)
         restart.restart()
@@ -451,11 +451,11 @@ def mph():
     mph_kms = choice * 1.609
     mph_knot = choice / 1.151
     print(colors.green, choice, 'Miles Per Hour equals',
-          mph_fps, 'in Foot Per Seconds.', colors.reset)
+          mph_fps, 'in Foot Per Seconds.')
     print(colors.green, choice, 'Miles Per Hour equals',
-          mph_mps, 'in Meters Per Second.', colors.reset)
+          mph_mps, 'in Meters Per Second.')
     print(colors.green, choice, 'Miles Per Hour equals',
-          mph_kms, 'in Kilometers Per Hour.', colors.reset)
+          mph_kms, 'in Kilometers Per Hour.')
     print(colors.green, choice, 'Miles Per Hour equals',
           mph_knot, 'in Knot.\n', colors.reset)
     restart.restart()
@@ -469,11 +469,11 @@ def fps():
     fps_kph = choice * 1.097
     fps_knot = choice / 1.688
     print(colors.green, choice, 'Foot Per Seconds equals',
-          fps_mph, 'in Miles Per Hour.', colors.reset)
+          fps_mph, 'in Miles Per Hour.')
     print(colors.green, choice, 'Foot Per Seconds equals',
-          fps_mps, 'in Meters Per Second.', colors.reset)
+          fps_mps, 'in Meters Per Second.')
     print(colors.green, choice, 'Foot Per Seconds equals',
-          fps_kph, 'in Kilometers Per Hour.', colors.reset)
+          fps_kph, 'in Kilometers Per Hour.')
     print(colors.green, choice, 'Foot Per Seconds equals',
           fps_knot, 'in Knot.\n', colors.reset)
     restart.restart()
@@ -487,11 +487,11 @@ def mps():
     mps_kph = choice * 3.6
     mps_knot = choice * 1.944
     print(colors.green, choice, 'Meters Per Second equals',
-          mps_mph, 'in Miles Per Hour.', colors.reset)
+          mps_mph, 'in Miles Per Hour.')
     print(colors.green, choice, 'Meters Per Second equals',
-          mps_fps, 'in Foot Per Second.', colors.reset)
+          mps_fps, 'in Foot Per Second.')
     print(colors.green, choice, 'Meters Per Second equals',
-          mps_kph, 'in Kilometers Per Hour.', colors.reset)
+          mps_kph, 'in Kilometers Per Hour.')
     print(colors.green, choice, 'Meters Per Second equals',
           mps_knot, 'in Knot.\n', colors.reset)
     restart.restart()
@@ -505,11 +505,11 @@ def kph():
     kph_mps = choice / 3.6
     kph_knot = choice / 1.852
     print(colors.green, choice, 'Meters Per Second equals',
-          kph_mph, 'in Miles Per Hour.', colors.reset)
+          kph_mph, 'in Miles Per Hour.')
     print(colors.green, choice, 'Meters Per Second equals',
-          kph_fps, 'in Foot Per Second.', colors.reset)
+          kph_fps, 'in Foot Per Second.')
     print(colors.green, choice, 'Meters Per Second equals',
-          kph_mps, 'in Meters Per Second.', colors.reset)
+          kph_mps, 'in Meters Per Second.')
     print(colors.green, choice, 'Meters Per Second equals',
           kph_knot, 'in Knot.\n', colors.reset)
     restart.restart()
@@ -523,11 +523,11 @@ def knot():
     knot_mps = choice / 1.944
     knot_kph = choice * 1.852
     print(colors.green, choice, 'Knots equals',
-          knot_mph, 'in Miles Per Hour.', colors.reset)
+          knot_mph, 'in Miles Per Hour.')
     print(colors.green, choice, 'Knots equals',
-          knot_fps, 'in Foot Per Second.', colors.reset)
+          knot_fps, 'in Foot Per Second.')
     print(colors.green, choice, 'Knots equals', knot_mps,
-          'in Meters Per Second.', colors.reset)
+          'in Meters Per Second.')
     print(colors.green, choice, 'Knots equals', knot_kph,
           'in Kilometers Per Hour.\n', colors.reset)
     restart.restart()
@@ -625,11 +625,11 @@ def bytes_converter():
     b_g = choice / 1e+9
     b_t = choice / 1e+12
     print(colors.green, choice, 'Bytes equals',
-          b_k, 'in Kilobytes.', colors.reset)
+          b_k, 'in Kilobytes.')
     print(colors.green, choice, 'Bytes equals',
-          b_m, 'in Megabytes.', colors.reset)
+          b_m, 'in Megabytes.')
     print(colors.green, choice, 'Bytes equals',
-          b_g, 'in Gigabytes.', colors.reset)
+          b_g, 'in Gigabytes.')
     print(colors.green, choice, 'Bytes equals',
           b_t, 'in Terabytes.\n', colors.reset)
     restart.restart()
@@ -643,11 +643,11 @@ def kilobytes_converter():
     k_g = choice / 1e+6
     k_t = choice / 1e+9
     print(colors.green, choice, 'Kilobytes equals',
-          k_b, 'in Bytes.', colors.reset)
+          k_b, 'in Bytes.')
     print(colors.green, choice, 'Kilobytes equals',
-          k_m, 'in Megabytes.', colors.reset)
+          k_m, 'in Megabytes.')
     print(colors.green, choice, 'Kilobytes equals',
-          k_g, 'in Gigabytes.', colors.reset)
+          k_g, 'in Gigabytes.')
     print(colors.green, choice, 'Kilobytes equals',
           k_t, 'in Terabytes.\n', colors.reset)
     restart.restart()
@@ -661,11 +661,11 @@ def megabytes_converter():
     m_g = choice / 1000
     m_t = choice / 1e+6
     print(colors.green, choice, 'Megabytes equals',
-          m_b, 'in Bytes.', colors.reset)
+          m_b, 'in Bytes.')
     print(colors.green, choice, 'Megabytes equals',
-          m_k, 'in Kilobytes.', colors.reset)
+          m_k, 'in Kilobytes.')
     print(colors.green, choice, 'Megabytes equals',
-          m_g, 'in Gigabytes.', colors.reset)
+          m_g, 'in Gigabytes.')
     print(colors.green, choice, 'Megabytes equals',
           m_t, 'in Terabytes.\n', colors.reset)
     restart.restart()
@@ -679,11 +679,11 @@ def gigabytes_converter():
     g_m = choice * 1000
     g_t = choice / 1000
     print(colors.green, choice, 'Gigabytes equals',
-          g_b, 'in Bytes.', colors.reset)
+          g_b, 'in Bytes.')
     print(colors.green, choice, 'Gigabytes equals',
-          g_k, 'in Kilobytes.', colors.reset)
+          g_k, 'in Kilobytes.')
     print(colors.green, choice, 'Gigabytes equals',
-          g_m, 'in Megabytes.', colors.reset)
+          g_m, 'in Megabytes.')
     print(colors.green, choice, 'Gigabytes equals',
           g_t, 'in Terabytes.\n', colors.reset)
     restart.restart()
@@ -697,11 +697,11 @@ def terabytes_converter():
     t_m = choice * 1e+6
     t_g = choice * 1000
     print(colors.green, choice, 'Terabytes equals',
-          t_b, 'in Bytes.', colors.reset)
+          t_b, 'in Bytes.')
     print(colors.green, choice, 'Terabytes equals',
-          t_k, 'in Kilobytes.', colors.reset)
+          t_k, 'in Kilobytes.')
     print(colors.green, choice, 'Terabytes equals',
-          t_m, 'in Megabytes.', colors.reset)
+          t_m, 'in Megabytes.')
     print(colors.green, choice, 'Terabytes equals',
           t_g, 'in Gigabytes.\n', colors.reset)
     restart.restart()
@@ -747,9 +747,9 @@ def pressure_converter():
         pr_to_bar = float(pressure / 100000)
         pr_to_atm = float(pressure / 101325)
         print(colors.green, pressure, "in pascal [Pa] equals",
-              pr_to_kpa, "in kilopascal [kPa].", colors.reset)
+              pr_to_kpa, "in kilopascal [kPa].")
         print(colors.green, pressure, "in pascal [Pa] equals",
-              pr_to_bar, "in bar.", colors.reset)
+              pr_to_bar, "in bar.")
         print(colors.green, pressure, "in pascal [Pa] equals",
               pr_to_atm, "in Standard atmosphere [atm].\n", colors.reset)
         restart.restart()
@@ -760,9 +760,9 @@ def pressure_converter():
         kp_to_bar = float(pressure / 100)
         kp_to_atm = float(pressure / 101)
         print(colors.green, pressure, "in kilopascal [kPa] equals",
-              kp_to_p, "in pascal [Pa].", colors.reset)
+              kp_to_p, "in pascal [Pa].")
         print(colors.green, pressure, "in kilopascal [kPa] equals",
-              kp_to_bar, "in bar.", colors.reset)
+              kp_to_bar, "in bar.")
         print(colors.green, pressure, "in kilopascal [kPa] equals",
               kp_to_atm, "in Standard atmosphere [atm].\n", colors.reset)
         restart.restart()
@@ -773,9 +773,9 @@ def pressure_converter():
         bar_to_kpa = float(pressure * 100)
         bar_to_atm = float(pressure / 1013)
         print(colors.green, pressure, "in bar equals",
-              bar_to_p, "in pascal [Pa].", colors.reset)
+              bar_to_p, "in pascal [Pa].")
         print(colors.green, pressure, "in bar equals",
-              bar_to_kpa, "in kilopascal [kPa].", colors.reset)
+              bar_to_kpa, "in kilopascal [kPa].")
         print(colors.green, pressure, "in bar equals",
               bar_to_atm, "in Standard atmosphere [atm].\n", colors.reset)
         restart.restart()
@@ -786,9 +786,9 @@ def pressure_converter():
         atm_to_kpa = float(pressure * 101)
         atm_to_bar = float(pressure * 1013)
         print(colors.green, pressure, "in Standard atmosphere [atm] equals",
-              atm_to_p, "in pascal [Pa].", colors.reset)
+              atm_to_p, "in pascal [Pa].")
         print(colors.green, pressure, "in Standard atmosphere [atm] equals",
-              atm_to_kpa, "in kilopascal [kPa].", colors.reset)
+              atm_to_kpa, "in kilopascal [kPa].")
         print(colors.green, pressure, "in Standard atmosphere [atm] equals",
               atm_to_bar, "in bar.\n", colors.reset)
         restart.restart()
@@ -813,9 +813,9 @@ def angle_converter():
         ang_to_grad = float(angle * (200 / 180))
         ang_to_min = float(angle * 60)
         print(colors.green, angle, "in Degree [°] equals",
-              ang_to_rad, "in Radian [rad].", colors.reset)
+              ang_to_rad, "in Radian [rad].")
         print(colors.green, angle, "in Degree [°] equals",
-              ang_to_grad, "in grad [^g].", colors.reset)
+              ang_to_grad, "in grad [^g].")
         print(colors.green, angle, "in Degree [°] equals",
               ang_to_min, "in Minute ['].\n", colors.reset)
         restart.restart()
@@ -826,9 +826,9 @@ def angle_converter():
         ang_to_grad = float(angle * (200 / 3.14))
         ang_to_min = float(angle * 3437.75)
         print(colors.green, angle, "in Radian [rad] equals",
-              ang_to_deg, "in Degree [°].", colors.reset)
+              ang_to_deg, "in Degree [°].")
         print(colors.green, angle, "in Radian [rad] equals",
-              ang_to_grad, "in grad [^g].", colors.reset)
+              ang_to_grad, "in grad [^g].")
         print(colors.green, angle, "in Radian [rad] equals",
               ang_to_min, "in Minute ['].\n", colors.reset)
         restart.restart()
@@ -839,9 +839,9 @@ def angle_converter():
         ang_to_rad = float(angle * 0.015708)
         ang_to_min = float(angle * 54)
         print(colors.green, angle, "in grad [^g] equals",
-              ang_to_deg, "in Degree [°].", colors.reset)
+              ang_to_deg, "in Degree [°].")
         print(colors.green, angle, "in grad [^g] equals",
-              ang_to_rad, "in Radian [rad].", colors.reset)
+              ang_to_rad, "in Radian [rad].")
         print(colors.green, angle, "in grad [^g] equals",
               ang_to_min, "in Minute ['].\n", colors.reset)
         restart.restart()
@@ -852,9 +852,9 @@ def angle_converter():
         ang_to_rad = float(angle * 0.0002908882)
         ang_to_grad = float(angle * 0.0185185185)
         print(colors.green, angle, "in Minute ['] equals",
-              ang_to_deg, "in Degree [°].", colors.reset)
+              ang_to_deg, "in Degree [°].")
         print(colors.green, angle, "in Minute ['] equals",
-              ang_to_rad, "in Radian [rad].", colors.reset)
+              ang_to_rad, "in Radian [rad].")
         print(colors.green, angle, "in Minute ['] equals",
               ang_to_grad, "in grad [^g].\n", colors.reset)
         restart.restart()
@@ -878,9 +878,9 @@ Which energy convertion would you like to pick: '''))
         j_to_w = float(j / 3600)
         j_to_kw = float(j / 3.6e+6)
         print(colors.green, j, "in Joules equals",
-              j_to_kj, "in Kilojoules.", colors.reset)
+              j_to_kj, "in Kilojoules.")
         print(colors.green, j, "in Joules equals",
-              j_to_w, "in Watts.", colors.reset)
+              j_to_w, "in Watts.")
         print(colors.green, j, "in Joules equals",
               j_to_kw, "in Kilowatts.\n", colors.reset)
         restart.restart()
@@ -891,9 +891,9 @@ Which energy convertion would you like to pick: '''))
         kj_to_w = float(kj / 3.6)
         kj_to_kw = float(kj / 3600)
         print(colors.green, kj, "in Kilojoules equals",
-              kj_to_j, "in Kilojoules.", colors.reset)
+              kj_to_j, "in Kilojoules.")
         print(colors.green, kj, "in Kilojoules equals",
-              kj_to_w, "in Watts.", colors.reset)
+              kj_to_w, "in Watts.")
         print(colors.green, kj, "in Kilojoules equals",
               kj_to_kw, "in Kilowatts.\n", colors.reset)
         restart.restart()
@@ -904,9 +904,9 @@ Which energy convertion would you like to pick: '''))
         w_to_kj = float(w * 3.6)
         w_to_kw = float(w / 1000)
         print(colors.green, w, "in Watts equals",
-              w_to_j, "in Joules.", colors.reset)
+              w_to_j, "in Joules.")
         print(colors.green, w, "in Watts equals",
-              w_to_kj, "in Kilojoules.", colors.reset)
+              w_to_kj, "in Kilojoules.")
         print(colors.green, w, "in Watts equals",
               w_to_kw, "in Kilowatts.\n", colors.reset)
         restart.restart()
@@ -917,9 +917,9 @@ Which energy convertion would you like to pick: '''))
         kw_to_kj = float(kw * 3600)
         kw_to_w = float(kw * 1000)
         print(colors.green, kw, "in Kilowatts equals",
-              kw_to_j, "in Joules.", colors.reset)
+              kw_to_j, "in Joules.")
         print(colors.green, kw, "in Kilowatts equals",
-              kw_to_kj, "in Kilojoules.", colors.reset)
+              kw_to_kj, "in Kilojoules.")
         print(colors.green, kw, "in Kilowatts equals",
               kw_to_w, "in Watts.\n", colors.reset)
         restart.restart()
@@ -941,7 +941,7 @@ Which Fuel Economy convertion would you like to pick: '''))
         mpg_to_mpgi = float(mpg * 1.201)
         mpg_to_kpl = float(mpg / 2.352)
         print(colors.green, mpg, "in Miles Per Gallon equals",
-              mpg_to_mpgi, "in Miles Per Gallon (Imperial).", colors.reset)
+              mpg_to_mpgi, "in Miles Per Gallon (Imperial).")
         print(colors.green, mpg, "in Miles Per Gallon equals",
               mpg_to_kpl, "in Kilometers Per Liter.\n", colors.reset)
         restart.restart()
@@ -951,7 +951,7 @@ Which Fuel Economy convertion would you like to pick: '''))
         mpgi_to_mpg = float(mpgi / 1.201)
         mpgi_to_kpl = float(mpgi / 2.825)
         print(colors.green, mpgi, "in Miles Per Gallon (Imperial) equals",
-              mpgi_to_mpg, "in Miles Per Gallon.", colors.reset)
+              mpgi_to_mpg, "in Miles Per Gallon.")
         print(colors.green, mpgi, "in Miles Per Gallon (Imperial) equals",
               mpgi_to_kpl, "in Kilometers Per Liter.\n", colors.reset)
         restart.restart()
@@ -961,7 +961,7 @@ Which Fuel Economy convertion would you like to pick: '''))
         mpgi_to_mpg = float(kpl * 2.352)
         mpgi_to_mpgi = float(kpl * 2.825)
         print(colors.green, kpl, "in Kilometers Per Liter equals",
-              mpgi_to_mpg, "in Miles Per Gallon.", colors.reset)
+              mpgi_to_mpg, "in Miles Per Gallon.")
         print(colors.green, kpl, "in Kilometers Per Liter equals",
               mpgi_to_mpgi, "in Miles Per Gallon (Imperial).\n", colors.reset)
         restart.restart()
@@ -969,6 +969,71 @@ Which Fuel Economy convertion would you like to pick: '''))
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         time.sleep(2)
         fuel_converter()
+
+
+def frequency_converter():
+    choice = int(input('''(1) Hertz to ALL
+(2) Kilohertz to ALL
+(3) Megahertz to ALL
+(4) Gigahertz to ALL
+Which Sound Frequency convertion would you like to pick: '''))
+    print()
+    if choice == 1:
+        h = float(input("Hertz: "))
+        print()
+        h_to_kh = float(h / 1000)
+        h_to_mh = float(h / 1e+6)
+        h_to_gh = float(h / 1e+9)
+        print(colors.green, h, "in Hertz equals",
+              h_to_kh, "in Kilohertz.")
+        print(colors.green, h, "in Hertz equals",
+              h_to_mh, "in Megahertz.")
+        print(colors.green, h, "in Hertz equals",
+              h_to_gh, "in Gigahertz.\n", colors.reset)
+        restart.restart()
+    elif choice == 2:
+        kh = float(input("Kilohertz: "))
+        print()
+        kh_to_h = float(kh * 1000)
+        kh_to_mh = float(kh / 1000)
+        kh_to_gh = float(kh / 1e+6)
+        print(colors.green, kh, "in Kilohertz equals",
+              kh_to_h, "in Hertz.")
+        print(colors.green, kh, "in Kilohertz equals",
+              kh_to_mh, "in Megahertz.")
+        print(colors.green, kh, "in Kilohertz equals",
+              kh_to_gh, "in Gigahertz.\n", colors.reset)
+        restart.restart()
+    elif choice == 3:
+        mh = float(input("Megahertz: "))
+        print()
+        mh_to_h = float(mh * 1e+6)
+        mh_to_kh = float(mh * 1000)
+        mh_to_gh = float(mh / 1000)
+        print(colors.green, mh, "in Megahertz equals",
+              mh_to_h, "in Hertz.")
+        print(colors.green, mh, "in Megahertz equals",
+              mh_to_kh, "in Kilohertz.")
+        print(colors.green, mh, "in Megahertz equals",
+              mh_to_gh, "in Gigahertz.\n", colors.reset)
+        restart.restart()
+    elif choice == 4:
+        gh = float(input("Gigahertz: "))
+        print()
+        gh_to_h = float(gh * 1e+9)
+        gh_to_kh = float(gh * 1e+6)
+        gh_to_mh = float(gh * 1000)
+        print(colors.green, gh, "in Gigahertz equals",
+              gh_to_h, "in Hertz.")
+        print(colors.green, gh, "in Gigahertz equals",
+              gh_to_kh, "in Kilohertz.")
+        print(colors.green, gh, "in Gigahertz equals",
+              gh_to_mh, "in Megahertz.\n", colors.reset)
+        restart.restart()
+    else:
+        print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        time.sleep(2)
+        frequency_converter()
 
 
 def start():
@@ -986,8 +1051,9 @@ def start():
 (11) Angle Converter
 (12) Energy Converter
 (13) Fuel Economy Converter
-(14) Restart
-(15) Quit
+(14) Sound Frequency Converter
+(15) Restart
+(16) Quit
 What converter would you like to perform: '''))
     print()
 
@@ -1018,8 +1084,10 @@ What converter would you like to perform: '''))
     elif choice == 13:
         fuel_converter()
     elif choice == 14:
-        restart.restart()
+        frequency_converter()
     elif choice == 15:
+        restart.restart()
+    elif choice == 16:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
