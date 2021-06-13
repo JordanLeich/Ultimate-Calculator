@@ -644,6 +644,9 @@ def knot_to_all(data):
 
 
 def speed_converter():
+    """
+    Handles all speed conversion
+    """
     choice = int(input("""(1) Miles Per Hour to All
 (2) Foot Per Second to ALL
 (3) Meter Per Second to ALL
