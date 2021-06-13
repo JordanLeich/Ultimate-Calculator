@@ -1468,4 +1468,4 @@ What converter would you like to perform: '''))
 
 
 if __name__ == '__main__':
-    time_converter()
+    start()
