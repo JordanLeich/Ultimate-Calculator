@@ -4,6 +4,8 @@ import restart
 import time
 from currency_api import get_currency
 from tools import repeat_input
+from docx2pdf import convert
+from moviepy.editor import *
 
 
 def currency_converter():
@@ -17,7 +19,7 @@ Select a currency conversion: """))
     print()
     if user_choice == 1:
         user_dollar = float(input("Dollar Amount: "))
-
+        print()
         d_to_e = float(user_dollar * get_currency("USD_EUR"))
         d_to_j = float(user_dollar * get_currency("USD_JPY"))
         d_to_c = float(user_dollar * get_currency("USD_CAD"))
@@ -1356,6 +1358,53 @@ Which Sound Frequency conversion would you like to pick: '''))
         frequency_converter()
 
 
+def file_converter():
+    choice = int(input('''(1) Word Document to PDF
+(2) MP4 Video to MP3 Audio
+Which File convertion would you like to pick: '''))
+    print()
+    if choice == 1:
+        path = str(input('Enter the file path from which the Word Document is located: '))
+        print()
+        convert(path)
+        time.sleep(1)
+        print(colors.green, 'Word to PDF conversion completed! The .pdf file should be found in the same directory '
+                            'from where the Word Document was located.\n', colors.reset)
+        time.sleep(1)
+        restart.restart()
+    elif choice == 2:
+        mp4_file_path = str(input('Enter the file path from which the MP4 Video is located ('
+                                  'C:\Folder\YourName\Desktop\example.mp4): '))
+        mp3_file_path = str(input('Output MP3 Audio to where (example - C:\Folder\YourName\Desktop\example.mp3): '))
+        video_clip = VideoFileClip(mp4_file_path)
+        audio_clip = video_clip.audio
+        audio_clip.write_audiofile(mp3_file_path)
+        audio_clip.close()
+        video_clip.close()
+        print()
+        print(colors.green + "Conversion completed!\n", colors.reset)
+        time.sleep(1)
+
+        choice = str(input('Want to open the .mp3 file to give it a listen (yes / no): '))
+        print()
+
+        if choice.lower() == 'y' or choice.lower() == 'yes':
+            os.startfile(mp3_file_path)
+            print(colors.green + 'Audio should now be opened and playing!\n', colors.reset)
+            restart.restart()
+        elif choice.lower() == 'n' or choice.lower() == 'no':
+            print(colors.yellow + 'Audio playback skipped...\n', colors.reset)
+            restart.restart()
+        else:
+            print(colors.red + "User input error found...\n", colors.reset)
+            time.sleep(2)
+            restart.restart()
+    else:
+        print(colors.red + "User input error found...\n", colors.reset)
+        time.sleep(2)
+        file_converter()
+
+
 def start():
     choice = int(input('''
 (1) Temperature Converter
@@ -1372,8 +1421,9 @@ def start():
 (12) Energy Converter
 (13) Fuel Economy Converter
 (14) Sound Frequency Converter
-(15) Restart
-(16) Quit
+(15) File Converter
+(16) Restart
+(17) Quit
 What converter would you like to perform: '''))
     print()
 
@@ -1406,8 +1456,10 @@ What converter would you like to perform: '''))
     elif choice == 14:
         frequency_converter()
     elif choice == 15:
-        restart.restart()
+        file_converter()
     elif choice == 16:
+        restart.restart()
+    elif choice == 17:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
