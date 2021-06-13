@@ -716,153 +716,107 @@ Which calculation would you like to perform: """))
         start()
 
 
+# Time
 def time_converter():
     print("Input what you would like to convert from")
-    print(colors.yellow, "Please stick to this format")
-    print(colors.yellow, "XY XD XH XM XS (X is your number)\t ie: 10Y means 10 years.\n", colors.reset)
+    print(f'{colors.yellow}Please stick to this format')
+    print(f'XY XD XH XM XS (X is your number)\t ie: 10Y means 10 years. {colors.reset}\n')
 
-    response = input().split()
-    total_seconds = 0
-    for date in response:
+    response = input('Time: ').replace(" ", '')
+    time_format = response[-1].lower()
+    total_seconds = int(response[:-1])
 
-        if date.endswith("d") or date.endswith("D"):
-            date = date[:-1]
-            date = float(date)
-            date *= 86400
-            total_seconds += date
-        elif date.endswith("h") or date.endswith("H"):
-            date = date[:-1]
-            date = float(date)
-            date *= 3600
-            total_seconds += date
-        elif date.endswith("m") or date.endswith("M"):
-            date = date[:-1]
-            date = float(date)
-            date *= 60
-            total_seconds += date
-        elif date.endswith("s") or date.endswith("S"):
-            date = date[:-1]
-            date = float(date)
-            total_seconds += date
-        elif date.endswith("y") or date.endswith("Y"):
-            date = date[:-1]
-            date = float(date)
-            date *= 31536000
-            total_seconds += date
+    if time_format.endswith('m'):
+        total_seconds *= 60
+    elif time_format.endswith('h'):
+        total_seconds *= 3600
+    elif time_format.endswith('d'):
+        total_seconds *= 86400
+    elif time_format.endswith('y'):
+        total_seconds *= 31536000
 
     convert_to = input("""(1) Years
 (2) Days
 (3) Minutes
 (4) Seconds
 What do you want to convert to: """)
-    print()
-    convert_to = int(convert_to)
-    if convert_to == 1:
+
+    if convert_to == '1':
         print(colors.green, total_seconds / 31536000, "years\n", colors.reset)
         restart.restart()
-    elif convert_to == 2:
+
+    elif convert_to == '2':
         print(colors.green, total_seconds / 86400, "days\n", colors.reset)
         restart.restart()
-    elif convert_to == 3:
+
+    elif convert_to == "3":
         print(colors.green, total_seconds / 60, "minutes\n", colors.reset)
         restart.restart()
-    elif convert_to == 4:
+
+    elif convert_to == "4":
         print(colors.green, total_seconds, "seconds\n", colors.reset)
         restart.restart()
+
     else:
         print(colors.red + "Invalid input... Restarting input...\n" + colors.reset)
         time.sleep(2)
         time_converter()
 
 
-def bytes_converter():
-    choice = float(input('How many Bytes: '))
-    print()
-    b_k = choice / 1000
-    b_m = choice / 1e+6
-    b_g = choice / 1e+9
-    b_t = choice / 1e+12
-    print(colors.green, choice, 'Bytes equals',
-          b_k, 'in Kilobytes.')
-    print(colors.green, choice, 'Bytes equals',
-          b_m, 'in Megabytes.')
-    print(colors.green, choice, 'Bytes equals',
-          b_g, 'in Gigabytes.')
-    print(colors.green, choice, 'Bytes equals',
-          b_t, 'in Terabytes.\n', colors.reset)
-    restart.restart()
+# Storage
+def bytes_converter(data):
+    data = float(data)
+
+    kilobyte = data / 1000
+    megabyte = data / 1e+6
+    gigabyte = data / 1e+9
+    terabyte = data / 1e+12
+
+    return kilobyte, megabyte, gigabyte, terabyte
 
 
-def kilobytes_converter():
-    choice = float(input('How many Kilobytes: '))
-    print()
-    k_b = choice * 1000
-    k_m = choice / 1000
-    k_g = choice / 1e+6
-    k_t = choice / 1e+9
-    print(colors.green, choice, 'Kilobytes equals',
-          k_b, 'in Bytes.')
-    print(colors.green, choice, 'Kilobytes equals',
-          k_m, 'in Megabytes.')
-    print(colors.green, choice, 'Kilobytes equals',
-          k_g, 'in Gigabytes.')
-    print(colors.green, choice, 'Kilobytes equals',
-          k_t, 'in Terabytes.\n', colors.reset)
-    restart.restart()
+def kilobytes_converter(data):
+    data = float(data)
+
+    byte = data * 1000
+    megabyte = data / 1000
+    gigabyte = data / 1e+6
+    terabyte = data / 1e+9
+
+    return byte, megabyte, gigabyte, terabyte
 
 
-def megabytes_converter():
-    choice = float(input('How many Megabytes: '))
-    print()
-    m_b = choice * 1e+6
-    m_k = choice * 1000
-    m_g = choice / 1000
-    m_t = choice / 1e+6
-    print(colors.green, choice, 'Megabytes equals',
-          m_b, 'in Bytes.')
-    print(colors.green, choice, 'Megabytes equals',
-          m_k, 'in Kilobytes.')
-    print(colors.green, choice, 'Megabytes equals',
-          m_g, 'in Gigabytes.')
-    print(colors.green, choice, 'Megabytes equals',
-          m_t, 'in Terabytes.\n', colors.reset)
-    restart.restart()
+def megabytes_converter(data):
+    data = float(data)
+
+    byte = data * 1e+6
+    kilobyte = data * 1000
+    gigabyte = data / 1000
+    terabyte = data / 1e+6
+
+    return byte, kilobyte, gigabyte, terabyte
 
 
-def gigabytes_converter():
-    choice = float(input('How many Gigabytes: '))
-    print()
-    g_b = choice * 1e+9
-    g_k = choice * 1e+6
-    g_m = choice * 1000
-    g_t = choice / 1000
-    print(colors.green, choice, 'Gigabytes equals',
-          g_b, 'in Bytes.')
-    print(colors.green, choice, 'Gigabytes equals',
-          g_k, 'in Kilobytes.')
-    print(colors.green, choice, 'Gigabytes equals',
-          g_m, 'in Megabytes.')
-    print(colors.green, choice, 'Gigabytes equals',
-          g_t, 'in Terabytes.\n', colors.reset)
-    restart.restart()
+def gigabytes_converter(data):
+    data = float(data)
+
+    byte = data * 1e+9
+    kilobyte = data * 1e+6
+    megabyte = data * 1000
+    terabyte = data / 1000
+
+    return byte, kilobyte, megabyte, terabyte
 
 
-def terabytes_converter():
-    choice = float(input('How many Terabytes: '))
-    print()
-    t_b = choice * 1e+12
-    t_k = choice * 1e+9
-    t_m = choice * 1e+6
-    t_g = choice * 1000
-    print(colors.green, choice, 'Terabytes equals',
-          t_b, 'in Bytes.')
-    print(colors.green, choice, 'Terabytes equals',
-          t_k, 'in Kilobytes.')
-    print(colors.green, choice, 'Terabytes equals',
-          t_m, 'in Megabytes.')
-    print(colors.green, choice, 'Terabytes equals',
-          t_g, 'in Gigabytes.\n', colors.reset)
-    restart.restart()
+def terabytes_converter(data):
+    data = float(data)
+
+    byte = data * 1e+12
+    kilobyte = data * 1e+9
+    megabyte = data * 1e+6
+    gigabyte = data * 1000
+
+    return byte, kilobyte, megabyte, gigabyte
 
 
 def storage_converter():
@@ -875,15 +829,60 @@ Which calculation would you like to perform: """))
     print()
 
     if choice == 1:
-        bytes_converter()
+        byte = repeat_input("Bytes: ", "Invalid Number...\n", "float")
+        print()
+
+        kilobyte, megabyte, gigabyte, terabyte = bytes_converter(byte)
+        print(f'{colors.green}{byte} Bytes equals {kilobyte} in Kilobytes.')
+        print(f'{colors.green}{byte} Bytes equals {megabyte} in Megabytes.')
+        print(f'{colors.green}{byte} Bytes equals {gigabyte} in Gigabytes.')
+        print(f'{colors.green}{byte} Bytes equals {terabyte} in Terabytes. {colors.reset}\n')
+        restart.restart()
+
     elif choice == 2:
-        kilobytes_converter()
+        kilobyte = repeat_input("Kilobytes: ", "Invalid Number...\n", "float")
+        print()
+
+        byte, megabyte, gigabyte, terabyte = kilobytes_converter(kilobyte)
+        print(f'{colors.green}{kilobyte} Kilobytes equals {byte} in Bytes.')
+        print(f'{colors.green}{kilobyte} Kilobytes equals {megabyte} in Megabytes.')
+        print(f'{colors.green}{kilobyte} Kilobytes equals {gigabyte} in Gigabytes.')
+        print(f'{colors.green}{kilobyte} Kilobytes equals {terabyte} in Terabytes. {colors.reset}\n')
+        restart.restart()
+
     elif choice == 3:
-        megabytes_converter()
+        megabyte = repeat_input("Megabytes: ", "Invalid Number...\n", "float")
+        print()
+
+        byte, kilobyte, gigabyte, terabyte = megabytes_converter(megabyte)
+        print(f'{colors.green}{megabyte} Megabytes equals {byte} in Bytes.')
+        print(f'{colors.green}{megabyte} Megabytes equals {kilobyte} in Kilobytes.')
+        print(f'{colors.green}{megabyte} Megabytes equals {gigabyte} in Gigabytes.')
+        print(f'{colors.green}{megabyte} Megabytes equals {terabyte} in Terabytes. {colors.reset}\n')
+        restart.restart()
+
     elif choice == 4:
-        gigabytes_converter()
+        gigabyte = repeat_input("Gigabytes: ", "Invalid Number...\n", "float")
+        print()
+
+        byte, kilobyte, megabyte, terabyte = gigabytes_converter(gigabyte)
+        print(f'{colors.green}{gigabyte} Gigabytes equals {byte} in Bytes.')
+        print(f'{colors.green}{gigabyte} Gigabytes equals {kilobyte} in Kilobytes.')
+        print(f'{colors.green}{gigabyte} Gigabytes equals {megabyte} in Megabytes.')
+        print(f'{colors.green}{gigabyte} Gigabytes equals {terabyte} in Terabytes. {colors.reset}\n')
+        restart.restart()
+
     elif choice == 5:
-        terabytes_converter()
+        terabyte = repeat_input("Terabytes: ", "Invalid Number...\n", "float")
+        print()
+
+        byte, kilobyte, megabyte, gigabyte = terabytes_converter(terabyte)
+        print(f'{colors.green}{terabyte} Terabytes equals {byte} in Bytes.')
+        print(f'{colors.green}{terabyte} Terabytes equals {kilobyte} in Kilobytes.')
+        print(f'{colors.green}{terabyte} Terabytes equals {megabyte} in Megabytes.')
+        print(f'{colors.green}{terabyte} Terabytes equals {gigabyte} in Gigabytes. {colors.reset}\n')
+        restart.restart()
+
     else:
         print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
         time.sleep(2)
@@ -1254,4 +1253,4 @@ What converter would you like to perform: '''))
 
 
 if __name__ == '__main__':
-    start()
+    time_converter()
