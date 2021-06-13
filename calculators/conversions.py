@@ -718,6 +718,9 @@ Which calculation would you like to perform: """))
 
 # Time
 def time_converter():
+    """
+    Handles all time conversion
+    """
     print("Input what you would like to convert from")
     print(f'{colors.yellow}Please stick to this format')
     print(f'XY XD XH XM XS (X is your number)\t ie: 10Y means 10 years. {colors.reset}\n')
@@ -820,6 +823,9 @@ def terabytes_converter(data):
 
 
 def storage_converter():
+    """
+    Handles all speed conversion
+    """
     choice = int(input("""(1) Bytes to All
 (2) Kilobytes to ALL
 (3) Megabytes to ALL
@@ -889,7 +895,51 @@ Which calculation would you like to perform: """))
         storage_converter()
 
 
+# Pressure
+def pascal_to_all(data):
+    data = float(data)
+
+    kpa = data / 1000
+    bar = data / 100000
+    atm = data / 101325
+
+    return kpa, bar, atm
+
+
+def kilopascal_to_all(data):
+    data = float(data)
+
+    pa = data * 1000
+    bar = data / 100
+    atm = data / 101
+
+    return pa, bar, atm
+
+
+def bar_to_all(data):
+    data = float(data)
+
+    pa = data * 100000
+    kpa = data * 100
+    atm = data / 1013
+
+    return pa, kpa, atm
+
+
+def atm_to_all(data):
+    data = float(data)
+
+    pa = data * 101325
+    kpa = data * 101
+    bar = data * 1013
+
+    return pa, kpa, bar
+
+
 def pressure_converter():
+    """
+    Handles all pressure conversion
+    """
     user_choice = int(input("""
         (1) Pascal [Pa] to All
         (2) Kilopascal [kPa] to ALL
@@ -897,65 +947,98 @@ def pressure_converter():
         (4) Standard atmosphere [atm] to ALL
         Which calculation would you like to perform: """))
     print()
+
     if user_choice == 1:
-        pressure = float(input("Enter Pressure amount: "))
+        pa = repeat_input("Enter Pressure amount: ", "Invalid Number...\n", "float")
         print()
-        pr_to_kpa = float(pressure / 1000)
-        pr_to_bar = float(pressure / 100000)
-        pr_to_atm = float(pressure / 101325)
-        print(colors.green, pressure, "in pascal [Pa] equals",
-              pr_to_kpa, "in kilopascal [kPa].")
-        print(colors.green, pressure, "in pascal [Pa] equals",
-              pr_to_bar, "in bar.")
-        print(colors.green, pressure, "in pascal [Pa] equals",
-              pr_to_atm, "in Standard atmosphere [atm].\n", colors.reset)
+
+        kpa, bar, atm = pascal_to_all(pa)
+        print(f'{colors.green}{pa} in pascal [Pa] equals {kpa} in kilopascal [kPa].')
+        print(f'{pa} in pascal [Pa] equals {bar} in bar.')
+        print(f'{pa} in pascal [Pa] equals {atm} in Standard atmosphere [atm]. {colors.reset}\n')
         restart.restart()
+
     elif user_choice == 2:
-        pressure = float(input("Enter Pressure amount: "))
+        kilopascal = repeat_input("Enter Pressure amount: ", "Invalid Number...\n", "float")
         print()
-        kp_to_p = float(pressure * 1000)
-        kp_to_bar = float(pressure / 100)
-        kp_to_atm = float(pressure / 101)
-        print(colors.green, pressure, "in kilopascal [kPa] equals",
-              kp_to_p, "in pascal [Pa].")
-        print(colors.green, pressure, "in kilopascal [kPa] equals",
-              kp_to_bar, "in bar.")
-        print(colors.green, pressure, "in kilopascal [kPa] equals",
-              kp_to_atm, "in Standard atmosphere [atm].\n", colors.reset)
+
+        pa, bar, atm = kilopascal_to_all(kilopascal)
+        print(f'{colors.green}{kilopascal} in pascal [Pa] equals {pa} in pascal [Pa].')
+        print(f'{kilopascal} in pascal [Pa] equals {bar} in bar.')
+        print(f'{kilopascal} in pascal [Pa] equals {atm} in Standard atmosphere [atm]. {colors.reset}\n')
         restart.restart()
+
     elif user_choice == 3:
-        pressure = float(input("Enter Pressure amount: "))
+        bar = repeat_input("Enter Pressure amount: ", "Invalid Number...\n", "float")
         print()
-        bar_to_p = float(pressure * 100000)
-        bar_to_kpa = float(pressure * 100)
-        bar_to_atm = float(pressure / 1013)
-        print(colors.green, pressure, "in bar equals",
-              bar_to_p, "in pascal [Pa].")
-        print(colors.green, pressure, "in bar equals",
-              bar_to_kpa, "in kilopascal [kPa].")
-        print(colors.green, pressure, "in bar equals",
-              bar_to_atm, "in Standard atmosphere [atm].\n", colors.reset)
+
+        pa, kpa, atm = kilopascal_to_all(bar)
+        print(f'{colors.green}{bar} in pascal [Pa] equals {pa} in pascal [Pa].')
+        print(f'{bar} in pascal [Pa] equals {kpa} kilopascal [kPa].')
+        print(f'{bar} in pascal [Pa] equals {atm} in Standard atmosphere [atm]. {colors.reset}\n')
         restart.restart()
+
     elif user_choice == 4:
-        pressure = float(input("Enter Pressure amount: "))
+        atm = repeat_input("Enter Pressure amount: ", "Invalid Number...\n", "float")
         print()
-        atm_to_p = float(pressure * 101325)
-        atm_to_kpa = float(pressure * 101)
-        atm_to_bar = float(pressure * 1013)
-        print(colors.green, pressure, "in Standard atmosphere [atm] equals",
-              atm_to_p, "in pascal [Pa].")
-        print(colors.green, pressure, "in Standard atmosphere [atm] equals",
-              atm_to_kpa, "in kilopascal [kPa].")
-        print(colors.green, pressure, "in Standard atmosphere [atm] equals",
-              atm_to_bar, "in bar.\n", colors.reset)
+
+        pa, kpa, bar = atm_to_all(atm)
+        print(f'{colors.green}{bar} in pascal [Pa] equals {pa} in pascal [Pa].')
+        print(f'{bar} in pascal [Pa] equals {kpa} kilopascal [kPa].')
+        print(f'{bar} in pascal [Pa] equals {bar} in in bar. {colors.reset}\n')
         restart.restart()
+
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         time.sleep(2)
         pressure_converter()
 
 
+# Angle
+def degree_to_all(data):
+    data = float(data)
+
+    rad = data * (3.14 / 180)
+    grad = data * (200 / 180)
+    minute = data * 60
+
+    return rad, grad, minute
+
+
+def radian_to_all(data):
+    data = float(data)
+
+    deg = data * (180 / 3.14)
+    grad = data * (200 / 3.14)
+    minute = data * 3437.75
+
+    return deg, grad, minute
+
+
+def grad_to_all(data):
+    data = float(data)
+
+    deg = data * 0.9
+    rad = data * 0.015708
+    minute = data * 54
+
+    return deg, rad, minute
+
+
+def minute_to_all(data):
+    data = float(data)
+
+    deg = data * 0.0166667
+    rad = data * 0.0002908882
+    grad = data * 0.0185185185
+
+    return deg, rad, grad
+
+
 def angle_converter():
+    """
+    Handles all angle conversion
+    """
     user_choice = int(input("""
             (1) Degree [°] to All
             (2) Radian [rad] to ALL
@@ -964,64 +1047,96 @@ def angle_converter():
             Which calculation would you like to perform: """))
     print()
     if user_choice == 1:
-        angle = float(input("Enter the angle: "))
+        deg = repeat_input("Enter the angle: ", "Invalid Number...\n", "float")
         print()
-        ang_to_rad = float(angle * (3.14 / 180))
-        ang_to_grad = float(angle * (200 / 180))
-        ang_to_min = float(angle * 60)
-        print(colors.green, angle, "in Degree [°] equals",
-              ang_to_rad, "in Radian [rad].")
-        print(colors.green, angle, "in Degree [°] equals",
-              ang_to_grad, "in grad [^g].")
-        print(colors.green, angle, "in Degree [°] equals",
-              ang_to_min, "in Minute ['].\n", colors.reset)
+
+        rad, grad, minute = degree_to_all(deg)
+        print(f'{colors.green}{deg} in Degree [°] equals {rad} in Radian [rad].')
+        print(f'{deg} in Degree [°] equals {grad} in grad [^g].')
+        print(f"{deg} in Degree [°] equals {minute} in Minute [']. {colors.reset}\n ")
         restart.restart()
+
     elif user_choice == 2:
-        angle = float(input("Enter the angle: "))
+        rad = repeat_input("Enter the angle: ", "Invalid Number...\n", "float")
         print()
-        ang_to_deg = float(angle * (180 / 3.14))
-        ang_to_grad = float(angle * (200 / 3.14))
-        ang_to_min = float(angle * 3437.75)
-        print(colors.green, angle, "in Radian [rad] equals",
-              ang_to_deg, "in Degree [°].")
-        print(colors.green, angle, "in Radian [rad] equals",
-              ang_to_grad, "in grad [^g].")
-        print(colors.green, angle, "in Radian [rad] equals",
-              ang_to_min, "in Minute ['].\n", colors.reset)
+
+        deg, grad, minute = radian_to_all(rad)
+        print(f'{colors.green}{rad} in Radian [rad] equals {deg} in Degree [°].')
+        print(f'{rad} in Radian [rad] equals {grad} in grad [^g].')
+        print(f"{rad} in Radian [rad] equals {minute} in Minute [']. {colors.reset}\n ")
         restart.restart()
+
     elif user_choice == 3:
-        angle = float(input("Enter the angle: "))
+        grad = float(input("Enter the angle: "))
         print()
-        ang_to_deg = float(angle * 0.9)
-        ang_to_rad = float(angle * 0.015708)
-        ang_to_min = float(angle * 54)
-        print(colors.green, angle, "in grad [^g] equals",
-              ang_to_deg, "in Degree [°].")
-        print(colors.green, angle, "in grad [^g] equals",
-              ang_to_rad, "in Radian [rad].")
-        print(colors.green, angle, "in grad [^g] equals",
-              ang_to_min, "in Minute ['].\n", colors.reset)
+
+        deg, rad, minute = grad_to_all(grad)
+        print(f'{colors.green}{grad} in grad [^g] equals {deg} in Degree [°].')
+        print(f'{grad} in grad [^g] equals {rad} in Radian [rad].')
+        print(f"{grad} in grad [^g] equals {minute} in Minute [']. {colors.reset}\n ")
         restart.restart()
+
     elif user_choice == 4:
-        angle = float(input("Enter the angle: "))
+        minute = float(input("Enter the angle: "))
         print()
-        ang_to_deg = float(angle * 0.0166667)
-        ang_to_rad = float(angle * 0.0002908882)
-        ang_to_grad = float(angle * 0.0185185185)
-        print(colors.green, angle, "in Minute ['] equals",
-              ang_to_deg, "in Degree [°].")
-        print(colors.green, angle, "in Minute ['] equals",
-              ang_to_rad, "in Radian [rad].")
-        print(colors.green, angle, "in Minute ['] equals",
-              ang_to_grad, "in grad [^g].\n", colors.reset)
+
+        deg, rad, grad = minute_to_all(minute)
+        print(f"{colors.green}{minute} in Minute ['] equals {deg} in Degree [°].")
+        print(f"{minute} in Minute ['] equals {rad} in Radian [rad].")
+        print(f"{minute} in Minute ['] equals {grad} in grad [^g]. {colors.reset}\n ")
         restart.restart()
+
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         time.sleep(2)
         angle_converter()
 
 
+# Energy
+def joule_to_all(data):
+    data = float(data)
+
+    kj = data / 1000
+    w = data / 3600
+    kw = data / 3.6e+6
+
+    return kj, w, kw
+
+
+def kj_to_all(data):
+    data = float(data)
+
+    j = data * 1000
+    w = data / 3.6
+    kw = data / 3600
+
+    return j, w, kw
+
+
+def w_to_all(data):
+    data = float(data)
+
+    j = data * 3600
+    kj = data * 3.6
+    kw = data / 1000
+
+    return j, kj, kw
+
+
+def kw_to_all(data):
+    data = float(data)
+
+    j = data * 3.6e+6
+    kj = data * 3600
+    w = data * 1000
+
+    return j, kj, w
+
+
 def energy_converter():
+    """
+    Handles all energy conversion
+    """
     choice = int(input('''(1) Joule to ALL
 (2) KiloJoule to ALL
 (3) Watt Hour to ALL
@@ -1029,164 +1144,212 @@ def energy_converter():
 Which energy conversion would you like to pick: '''))
     print()
     if choice == 1:
-        j = float(input("Joules: "))
+        j = repeat_input("Joules: ", "Invalid Number...\n", "float")
         print()
-        j_to_kj = float(j / 1000)
-        j_to_w = float(j / 3600)
-        j_to_kw = float(j / 3.6e+6)
-        print(colors.green, j, "in Joules equals",
-              j_to_kj, "in Kilojoules.")
-        print(colors.green, j, "in Joules equals",
-              j_to_w, "in Watts.")
-        print(colors.green, j, "in Joules equals",
-              j_to_kw, "in Kilowatts.\n", colors.reset)
+
+        kj, w, kw = joule_to_all(j)
+        print(f'{colors.green}{j} in Joules equals {kj} in Kilojoules.')
+        print(f'{j} in Joules equals {w} in in Watts.')
+        print(f'{j} in Joules equals {kw} in Kilowatts. {colors.reset}\n')
         restart.restart()
+
     elif choice == 2:
-        kj = float(input("Kilojoules: "))
+        kj = repeat_input("Kilojoules: ", "Invalid Number...\n", "float")
         print()
-        kj_to_j = float(kj * 1000)
-        kj_to_w = float(kj / 3.6)
-        kj_to_kw = float(kj / 3600)
-        print(colors.green, kj, "in Kilojoules equals",
-              kj_to_j, "in Kilojoules.")
-        print(colors.green, kj, "in Kilojoules equals",
-              kj_to_w, "in Watts.")
-        print(colors.green, kj, "in Kilojoules equals",
-              kj_to_kw, "in Kilowatts.\n", colors.reset)
+
+        j, w, kw = kj_to_all(kj)
+        print(f'{colors.green}{kj} in Kilojoules equals {j} in Joules.')
+        print(f'{kj} in Kilojoules equals {w} in in Watts.')
+        print(f'{kj} in Kilojoules equals {kw} in Kilowatts. {colors.reset}\n')
         restart.restart()
+
     elif choice == 3:
         w = float(input("Watts: "))
         print()
-        w_to_j = float(w * 3600)
-        w_to_kj = float(w * 3.6)
-        w_to_kw = float(w / 1000)
-        print(colors.green, w, "in Watts equals",
-              w_to_j, "in Joules.")
-        print(colors.green, w, "in Watts equals",
-              w_to_kj, "in Kilojoules.")
-        print(colors.green, w, "in Watts equals",
-              w_to_kw, "in Kilowatts.\n", colors.reset)
+
+        j, kj, kw = w_to_all(w)
+        print(f'{colors.green}{w} in Watts equals {j} in Joules.')
+        print(f'{w} in Watts equals {kj} in in Joules.')
+        print(f'{w} in Watts equals {kw} in Kilowatts. {colors.reset}\n')
         restart.restart()
+
     elif choice == 4:
         kw = float(input("Kilowatts: "))
         print()
-        kw_to_j = float(kw * 3.6e+6)
-        kw_to_kj = float(kw * 3600)
-        kw_to_w = float(kw * 1000)
-        print(colors.green, kw, "in Kilowatts equals",
-              kw_to_j, "in Joules.")
-        print(colors.green, kw, "in Kilowatts equals",
-              kw_to_kj, "in Kilojoules.")
-        print(colors.green, kw, "in Kilowatts equals",
-              kw_to_w, "in Watts.\n", colors.reset)
+
+        j, kj, w = kw_to_all(kw)
+        print(f'{colors.green}{kw} in Kilowatts equals {j} in Joules.')
+        print(f'{kw} in Kilowatts equals {kj} in in Joules.')
+        print(f'{kw} in Kilowatts equals {w} in Watts. {colors.reset}\n')
         restart.restart()
+
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         time.sleep(2)
         energy_converter()
 
 
+#  Fuel
+def mpg_to_all(data):
+    data = float(data)
+
+    mpgi = data * 1.201
+    kpl = data / 2.352
+
+    return mpgi, kpl
+
+
+def mpgi_to_all(data):
+    data = float(data)
+
+    mpg = data / 1.201
+    kpl = data / 2.825
+
+    return mpg, kpl
+
+
+def kpl_to_all(data):
+    data = float(data)
+
+    mpg = data * 2.352
+    mpgi = data * 2.825
+
+    return mpg, mpgi
+
+
 def fuel_converter():
+    """
+    Handles all fuel conversion
+    """
     choice = int(input('''(1) Miles Per Gallon to ALL
 (2) Miles Per Gallon (Imperial) to ALL
 (3) Kilometers Per Liter to ALL
-Which Fuel Economy convertion would you like to pick: '''))
+Which Fuel Economy conversion would you like to pick: '''))
     print()
     if choice == 1:
-        mpg = float(input("Miles Per Gallon: "))
+        mpg = repeat_input("Miles Per Gallon: ", "Invalid Number...\n", "float")
         print()
-        mpg_to_mpgi = float(mpg * 1.201)
-        mpg_to_kpl = float(mpg / 2.352)
-        print(colors.green, mpg, "in Miles Per Gallon equals",
-              mpg_to_mpgi, "in Miles Per Gallon (Imperial).")
-        print(colors.green, mpg, "in Miles Per Gallon equals",
-              mpg_to_kpl, "in Kilometers Per Liter.\n", colors.reset)
+
+        mpgi, kpl = mpg_to_all(mpg)
+        print(f'{colors.green}{mpg} in Miles Per Gallon equals {mpgi} in Miles Per Gallon (Imperial).')
+        print(f'{mpg} in Miles Per Gallon equals {kpl} in Kilometers Per Liter. {colors.reset}\n')
         restart.restart()
+
     elif choice == 2:
-        mpgi = float(input("Miles Per Gallon (Imperial): "))
+        mpgi = repeat_input("Miles Per Gallon (Imperial): ", "Invalid Number...\n", "float")
         print()
-        mpgi_to_mpg = float(mpgi / 1.201)
-        mpgi_to_kpl = float(mpgi / 2.825)
-        print(colors.green, mpgi, "in Miles Per Gallon (Imperial) equals",
-              mpgi_to_mpg, "in Miles Per Gallon.")
-        print(colors.green, mpgi, "in Miles Per Gallon (Imperial) equals",
-              mpgi_to_kpl, "in Kilometers Per Liter.\n", colors.reset)
+
+        mpg, kpl = mpgi_to_all(mpgi)
+        print(f'{colors.green}{mpgi} in Miles Per Gallon (Imperial) equals {mpg} in Miles Per Gallon.')
+        print(f'{mpgi} in Miles Per Gallon (Imperial) equals {kpl} in Kilometers Per Liter. {colors.reset}\n')
         restart.restart()
+
     elif choice == 3:
-        kpl = float(input("Kilometers Per Liter: "))
+        kpl = repeat_input("Kilometers Per Liter: ", "Invalid Number...\n", "float")
         print()
-        mpgi_to_mpg = float(kpl * 2.352)
-        mpgi_to_mpgi = float(kpl * 2.825)
-        print(colors.green, kpl, "in Kilometers Per Liter equals",
-              mpgi_to_mpg, "in Miles Per Gallon.")
-        print(colors.green, kpl, "in Kilometers Per Liter equals",
-              mpgi_to_mpgi, "in Miles Per Gallon (Imperial).\n", colors.reset)
+
+        mpg, mpgi = kpl_to_all(kpl)
+        print(f'{colors.green}{kpl} in Kilometers Per Liter equals {mpg} in Miles Per Gallon.')
+        print(f'{kpl} inKilometers Per Liter equals {kpl} in Miles Per Gallon (Imperial). {colors.reset}\n')
         restart.restart()
+
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         time.sleep(2)
         fuel_converter()
 
 
+# Frequency
+def hertz_to_all(data):
+    data = float(data)
+
+    kilohertz = data / 1000
+    megahertz = data / 1e+6
+    gigahertz = data / 1e+9
+
+    return kilohertz, megahertz, gigahertz
+
+
+def kilohertz_to_all(data):
+    data = float(data)
+
+    hertz = data * 1000
+    megahertz = data / 1000
+    gigahertz = data / 1e+6
+
+    return hertz, megahertz, gigahertz
+
+
+def megahertz_to_all(data):
+    data = float(data)
+
+    hertz = data * 1e+6
+    kilohertz = data * 1000
+    gigahertz = data / 1000
+
+    return hertz, kilohertz, gigahertz
+
+
+def gigahertz_to_all(data):
+    data = float(data)
+
+    hertz = data * 1e+9
+    kilohertz = data * 1e+6
+    megahertz = data * 1000
+
+    return hertz, kilohertz, megahertz
+
+
 def frequency_converter():
+    """
+    Handles all frequency conversion
+    """
     choice = int(input('''(1) Hertz to ALL
 (2) Kilohertz to ALL
 (3) Megahertz to ALL
 (4) Gigahertz to ALL
-Which Sound Frequency convertion would you like to pick: '''))
+Which Sound Frequency conversion would you like to pick: '''))
     print()
     if choice == 1:
-        h = float(input("Hertz: "))
+        hertz = repeat_input("Hertz: ", "Invalid Number...\n", "float")
         print()
-        h_to_kh = float(h / 1000)
-        h_to_mh = float(h / 1e+6)
-        h_to_gh = float(h / 1e+9)
-        print(colors.green, h, "in Hertz equals",
-              h_to_kh, "in Kilohertz.")
-        print(colors.green, h, "in Hertz equals",
-              h_to_mh, "in Megahertz.")
-        print(colors.green, h, "in Hertz equals",
-              h_to_gh, "in Gigahertz.\n", colors.reset)
+
+        kilohertz, megahertz, gigahertz = hertz_to_all(hertz)
+        print(f'{colors.green}{hertz} in Hertz equals {kilohertz} in Kilohertz.')
+        print(f'{hertz} in Hertz equals {megahertz} in Megahertz.')
+        print(f'{hertz} in Hertz equals {gigahertz} in Gigahertz. {colors.reset}\n')
         restart.restart()
+
     elif choice == 2:
-        kh = float(input("Kilohertz: "))
+        kilohertz = repeat_input("Kilohertz: ", "Invalid Number...\n", "float")
         print()
-        kh_to_h = float(kh * 1000)
-        kh_to_mh = float(kh / 1000)
-        kh_to_gh = float(kh / 1e+6)
-        print(colors.green, kh, "in Kilohertz equals",
-              kh_to_h, "in Hertz.")
-        print(colors.green, kh, "in Kilohertz equals",
-              kh_to_mh, "in Megahertz.")
-        print(colors.green, kh, "in Kilohertz equals",
-              kh_to_gh, "in Gigahertz.\n", colors.reset)
+
+        hertz, megahertz, gigahertz = kilohertz_to_all(kilohertz)
+        print(f'{colors.green}{kilohertz} in Kilohertz equals {hertz} in Hertz.')
+        print(f'{kilohertz} in Kilohertz equals {megahertz} in Megahertz.')
+        print(f'{kilohertz} in Kilohertz equals {gigahertz} in Gigahertz. {colors.reset}\n')
         restart.restart()
+
     elif choice == 3:
-        mh = float(input("Megahertz: "))
+        megahertz = repeat_input("Megahertz: ", "Invalid Number...\n", "float")
         print()
-        mh_to_h = float(mh * 1e+6)
-        mh_to_kh = float(mh * 1000)
-        mh_to_gh = float(mh / 1000)
-        print(colors.green, mh, "in Megahertz equals",
-              mh_to_h, "in Hertz.")
-        print(colors.green, mh, "in Megahertz equals",
-              mh_to_kh, "in Kilohertz.")
-        print(colors.green, mh, "in Megahertz equals",
-              mh_to_gh, "in Gigahertz.\n", colors.reset)
+
+        hertz, kilohertz, gigahertz = megahertz_to_all(megahertz)
+        print(f'{colors.green}{megahertz} in Megahertz equals {hertz} in Hertz.')
+        print(f'{megahertz} in Megahertz equals {kilohertz} in Kilohertz.')
+        print(f'{megahertz} in Megahertz equals {gigahertz} in Gigahertz. {colors.reset}\n')
         restart.restart()
+
     elif choice == 4:
-        gh = float(input("Gigahertz: "))
+        gigahertz = repeat_input("Gigahertz: ", "Invalid Number...\n", "float")
         print()
-        gh_to_h = float(gh * 1e+9)
-        gh_to_kh = float(gh * 1e+6)
-        gh_to_mh = float(gh * 1000)
-        print(colors.green, gh, "in Gigahertz equals",
-              gh_to_h, "in Hertz.")
-        print(colors.green, gh, "in Gigahertz equals",
-              gh_to_kh, "in Kilohertz.")
-        print(colors.green, gh, "in Gigahertz equals",
-              gh_to_mh, "in Megahertz.\n", colors.reset)
+
+        hertz, kilohertz, megahertz = gigahertz_to_all(gigahertz)
+        print(f'{colors.green}{gigahertz} in Gigahertz equals {hertz} in Hertz.')
+        print(f'{gigahertz} in Gigahertz equals {kilohertz} in Kilohertz.')
+        print(f'{gigahertz} in Gigahertz equals {megahertz} in Megahertz. {colors.reset}\n')
         restart.restart()
+
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         time.sleep(2)
