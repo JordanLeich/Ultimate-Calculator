@@ -145,7 +145,7 @@ Select a temperature conversion: """))
 
         fahrenheit, kelvin = celsius_to_all(user_celsius)
         print(f"{colors.green}{user_celsius} Celsius is {fahrenheit} in Fahrenheit.")
-        print(f"{colors.green}{user_celsius} Celsius is {kelvin} in Kelvin. {colors.reset}\n")
+        print(f"{user_celsius} Celsius is {kelvin} in Kelvin. {colors.reset}\n")
         restart.restart()
     elif user_choice == 2:
         user_fahrenheit = repeat_input("Fahrenheit: ", "Invalid Number...\n", "float")
@@ -153,7 +153,7 @@ Select a temperature conversion: """))
 
         celsius, kelvin = fahrenheit_to_all(user_fahrenheit)
         print(f"{colors.green}{user_fahrenheit} Fahrenheit is {celsius} in Celsius.")
-        print(f"{colors.green}{user_fahrenheit} Fahrenheit is {kelvin} in Kelvin. {colors.reset}\n")
+        print(f"{user_fahrenheit} Fahrenheit is {kelvin} in Kelvin. {colors.reset}\n")
         restart.restart()
     elif user_choice == 3:
         user_kelvin = repeat_input("Kelvin: ", "Invalid Number...\n", "float")
@@ -161,7 +161,7 @@ Select a temperature conversion: """))
 
         celsius, fahrenheit = kelvin_to_all(user_kelvin)
         print(f"{colors.green}{user_kelvin} Kelvin is {celsius} in Celsius.")
-        print(f"{colors.green}{user_kelvin} Kelvin is {fahrenheit} in Fahrenheit. {colors.reset}\n")
+        print(f"{user_kelvin} Kelvin is {fahrenheit} in Fahrenheit. {colors.reset}\n")
         restart.restart()
     else:
         print(f"{colors.red}Invalid input... Restarting input choice... {colors.reset}\n")
@@ -324,8 +324,8 @@ Select a length conversion: """))
         inch, yard, mile = feet_to_all(feet)
 
         print(f'{colors.green}{feet} in Feet equals {inch} in Inches.')
-        print(f'{colors.green}{feet} in Feet equals {yard} in Yards.')
-        print(f'{colors.green}{feet} in Feet equals {mile} in Miles.{colors.reset}\n')
+        print(f'{feet} in Feet equals {yard} in Yards.')
+        print(f'{feet} in Feet equals {mile} in Miles.{colors.reset}\n')
         restart.restart()
 
     elif user_choice == 2:
@@ -334,8 +334,8 @@ Select a length conversion: """))
 
         feet, yard, mile = inches_to_all(inch)
         print(f'{colors.green}{inch} in Inches equals {feet} in Feet.')
-        print(f'{colors.green}{inch} in Inches equals {yard} in Yards.')
-        print(f'{colors.green}{inch} in Inches equals {mile} in Miles.{colors.reset}\n')
+        print(f'{inch} in Inches equals {yard} in Yards.')
+        print(f'{inch} in Inches equals {mile} in Miles.{colors.reset}\n')
         restart.restart()
 
     elif user_choice == 3:
@@ -344,8 +344,8 @@ Select a length conversion: """))
 
         feet, inch, mile = yards_to_all(yard)
         print(f'{colors.green}{yard} in Yards equals {feet} in Feet.')
-        print(f'{colors.green}{yard} in Yards equals {inch} in Inches.')
-        print(f'{colors.green}{yard} in Yards equals {mile} in Miles.{colors.reset}\n')
+        print(f'{yard} in Yards equals {inch} in Inches.')
+        print(f'{yard} in Yards equals {mile} in Miles.{colors.reset}\n')
         restart.restart()
 
     elif user_choice == 4:
@@ -354,8 +354,8 @@ Select a length conversion: """))
 
         feet, inch, yard = miles_to_all(mile)
         print(f'{colors.green}{mile} in Miles equals {feet} in Feet.')
-        print(f'{colors.green}{mile} in Miles equals {inch} in Inches.')
-        print(f'{colors.green}{mile} in Miles equals {yard} in Yards.{colors.reset}\n')
+        print(f'{mile} in Miles equals {inch} in Inches.')
+        print(f'{mile} in Miles equals {yard} in Yards.{colors.reset}\n')
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
@@ -450,8 +450,8 @@ Select a volume conversion: """))
 
         quart, pint, ounce = gallons_to_all(gallon)
         print(f'{colors.green}{gallon} in Gallons equals {quart} in Quarts.')
-        print(f'{colors.green}{gallon} in Gallons equals {pint} in Pints.')
-        print(f'{colors.green}{gallon} in Gallons equals {ounce} in Ounces. {colors.reset}\n')
+        print(f'{gallon} in Gallons equals {pint} in Pints.')
+        print(f'{gallon} in Gallons equals {ounce} in Ounces. {colors.reset}\n')
         restart.restart()
 
     elif user_choice == 4:
@@ -460,8 +460,8 @@ Select a volume conversion: """))
 
         gallon, pint, ounce = quarts_to_all(quart)
         print(f'{colors.green}{quart} in Quarts equals {gallon} in Gallons.')
-        print(f'{colors.green}{quart} in Quarts equals {pint} in Pints.')
-        print(f'{colors.green}{quart} in Quarts equals {ounce} in Ounces. {colors.reset}\n')
+        print(f'{quart} in Quarts equals {pint} in Pints.')
+        print(f'{quart} in Quarts equals {ounce} in Ounces. {colors.reset}\n')
         restart.restart()
 
     elif user_choice == 5:
@@ -470,8 +470,8 @@ Select a volume conversion: """))
 
         gallon, quart, ounce = pints_to_all(pint)
         print(f'{colors.green}{pint} in Pints equals {gallon} in Gallons.')
-        print(f'{colors.green}{pint} in Pints equals {quart} in Quarts.')
-        print(f'{colors.green}{pint} in Pints equals {ounce} in Ounces. {colors.reset}\n')
+        print(f'{pint} in Pints equals {quart} in Quarts.')
+        print(f'{pint} in Pints equals {ounce} in Ounces. {colors.reset}\n')
         restart.restart()
 
     elif user_choice == 6:
@@ -480,14 +480,55 @@ Select a volume conversion: """))
 
         gallon, quart, pint = ounces_to_all2(ounce)
         print(f'{colors.green}{ounce} in Ounces equals {gallon} in Gallons.')
-        print(f'{colors.green}{ounce} in Ounces equals {quart} in Quarts.')
-        print(f'{colors.green}{ounce} in Ounces equals {pint} in Pints. {colors.reset}\n')
+        print(f'{ounce} in Ounces equals {quart} in Quarts.')
+        print(f'{ounce} in Ounces equals {pint} in Pints. {colors.reset}\n')
         restart.restart()
 
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         time.sleep(2)
         volume_converter()
+
+
+# Crypto
+def bitcoin_to_all(data):
+    data = float(data)
+
+    ethereum = data * 13.72
+    dogecoin = data * 95317.32
+    shiba_inu = data * 4.03
+
+    return ethereum, dogecoin, shiba_inu
+
+
+def ethereum_to_all(data):
+    data = float(data)
+
+    bitcoin = data * 0.072
+    dogecoin = data * 6686.2
+    shiba_inu = data * 292.12
+
+    return bitcoin, dogecoin, shiba_inu
+
+
+def dogecoin_to_all(data):
+    data = float(data)
+
+    bitcoin = data * 0.00001089
+    ethereum = data * 0.000150
+    shiba_inu = data * 43745
+
+    return bitcoin, ethereum, shiba_inu
+
+
+def shiba_inu_to_all(data):
+    data = float(data)
+
+    bitcoin = data * 0.00000001
+    ethereum = data * 0.0000000012
+    dogecoin = data * 0.000023
+
+    return bitcoin, ethereum, dogecoin
 
 
 def crypto_converter():
@@ -502,56 +543,43 @@ def crypto_converter():
 Select a crypto conversion:    """))
     print()
     if user_choice == 1:
-        btc = float(input("Bitcoin Amount: "))
+        bitcoin = repeat_input("Bitcoin Amount: ", "Invalid Number...\n", "float")
         print()
-        btc_to_e = float(btc * 13.72)
-        btc_to_dc = float(btc * 95317.32)
-        btc_to_sh = float(btc * 4.03)
-        print(colors.green, btc, "in Bitcoin equals",
-              btc_to_e, "in Ethereum.")
-        print(colors.green, btc, "in Bitcoin equals",
-              btc_to_dc, "in DogeCoin.")
-        print(colors.green, btc, "in Bitcoin equals",
-              btc_to_sh, "B in SHIB INU.\n", colors.reset)
+
+        ethereum, dogecoin, shiba_inu = bitcoin_to_all(bitcoin)
+        print(f'{colors.green}{bitcoin} in Bitcoin equals {ethereum} in Ethereum.')
+        print(f'{bitcoin} in Bitcoin equals {dogecoin} in DogeCoin.')
+        print(f'{bitcoin} in Bitcoin equals {shiba_inu} in SHIBA INU. {colors.reset}\n')
         restart.restart()
+
     elif user_choice == 2:
-        eth = float(input("Ethereum Amount: "))
+        ethereum = repeat_input("Ethereum Amount: ", "Invalid Number...\n", "float")
         print()
-        e_to_b = float(eth * 0.072)
-        e_to_dc = float(eth * 6686.2)
-        e_to_sh = float(eth * 292.12)
-        print(colors.green, eth, "in Ethereum equals",
-              e_to_b, "in Bitcoin.")
-        print(colors.green, eth, "in Ethereum equals",
-              e_to_dc, "in DogeCoin.")
-        print(colors.green, eth, "in Euro equals",
-              e_to_sh, "M in SHIBA INU.\n", colors.reset)
+
+        bitcoin, dogecoin, shiba_inu = ethereum_to_all(ethereum)
+        print(f'{colors.green}{ethereum} in Ethereum equals {bitcoin} in Bitcoin.')
+        print(f'{ethereum} in Ethereum equals {dogecoin} in DogeCoin.')
+        print(f'{ethereum} in Ethereum equals {shiba_inu} in SHIBA INU. {colors.reset}\n')
         restart.restart()
+
     elif user_choice == 3:
-        doge_c = float(input("DogeCoin Amount: "))
+        dogecoin = repeat_input("DogeCoin Amount: ", "Invalid Number...\n", "float")
         print()
-        dc_to_b = float(doge_c * 0.00001089)
-        dc_to_e = float(doge_c * 0.000150)
-        dc_to_sh = float(doge_c * 43745)
-        print(colors.green, doge_c, "in DogeCoin equals",
-              dc_to_b, "in Bitcoin.")
-        print(colors.green, doge_c, "in DogeCoin equals",
-              dc_to_e, "in Ethereum.")
-        print(colors.green, doge_c, "in DogeCoin equals",
-              dc_to_sh, "in SHIBA INU.\n", colors.reset)
+
+        bitcoin, ethereum, shiba_inu = bitcoin_to_all(dogecoin)
+        print(f'{colors.green}{dogecoin} in DogeCoin equals {bitcoin} in Bitcoin.')
+        print(f'{dogecoin} in DogeCoin equals {ethereum} in Ethereum.')
+        print(f'{dogecoin} in DogeCoin equals {shiba_inu} in SHIBA INU. {colors.reset}\n')
         restart.restart()
+
     elif user_choice == 4:
-        sh = float(input("SHIBA INU Amount: "))
+        shiba_inu = float(input("SHIBA INU Amount: "))
         print()
-        sh_to_b = float(sh * 0.00000001)
-        sh_to_e = float(sh * 0.0000000012)
-        sh_to_dc = float(sh * 0.000023)
-        print(colors.green, sh, "in SHIBA INU equals",
-              sh_to_b, "in Bitcoin.")
-        print(colors.green, sh, "in SHIBA INU equals",
-              sh_to_e, "in Ethereum.")
-        print(colors.green, sh, "in SHIBA INU equals",
-              sh_to_dc, "in DogeCoin.\n", colors.reset)
+
+        bitcoin, ethereum, dogecoin = shiba_inu_to_all(shiba_inu)
+        print(f'{colors.green}{shiba_inu} in DogeCoin equals {bitcoin} in Bitcoin.')
+        print(f'{shiba_inu} in DogeCoin equals {ethereum} in Ethereum.')
+        print(f'{shiba_inu} in DogeCoin equals {dogecoin} in DogeCoin. {colors.reset}\n')
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
@@ -559,94 +587,60 @@ Select a crypto conversion:    """))
         crypto_converter()
 
 
-def mph():
-    choice = float(input('How many Miles Per Hour: '))
-    print()
-    mph_fps = choice * 1.467
-    mph_mps = choice / 2.237
-    mph_kms = choice * 1.609
-    mph_knot = choice / 1.151
-    print(colors.green, choice, 'Miles Per Hour equals',
-          mph_fps, 'in Foot Per Seconds.')
-    print(colors.green, choice, 'Miles Per Hour equals',
-          mph_mps, 'in Meters Per Second.')
-    print(colors.green, choice, 'Miles Per Hour equals',
-          mph_kms, 'in Kilometers Per Hour.')
-    print(colors.green, choice, 'Miles Per Hour equals',
-          mph_knot, 'in Knot.\n', colors.reset)
-    restart.restart()
+# Speed
+def mph_to_all(data):
+    data = float(data)
+
+    fps = data * 1.467
+    mps = data / 2.237
+    kph = data * 1.609
+    knot = data / 1.151
+
+    return fps, mps, kph, knot
 
 
-def fps():
-    choice = float(input('How many Foot Per Seconds: '))
-    print()
-    fps_mph = choice / 1.467
-    fps_mps = choice / 3.281
-    fps_kph = choice * 1.097
-    fps_knot = choice / 1.688
-    print(colors.green, choice, 'Foot Per Seconds equals',
-          fps_mph, 'in Miles Per Hour.')
-    print(colors.green, choice, 'Foot Per Seconds equals',
-          fps_mps, 'in Meters Per Second.')
-    print(colors.green, choice, 'Foot Per Seconds equals',
-          fps_kph, 'in Kilometers Per Hour.')
-    print(colors.green, choice, 'Foot Per Seconds equals',
-          fps_knot, 'in Knot.\n', colors.reset)
-    restart.restart()
+def fps_to_all(data):
+    data = float(data)
+
+    mph = data / 1.467
+    mps = data / 3.281
+    kph = data * 1.097
+    knot = data / 1.688
+
+    return mph, mps, kph, knot
 
 
-def mps():
-    choice = float(input('How many Meters Per Second: '))
-    print()
-    mps_mph = choice * 2.237
-    mps_fps = choice * 3.281
-    mps_kph = choice * 3.6
-    mps_knot = choice * 1.944
-    print(colors.green, choice, 'Meters Per Second equals',
-          mps_mph, 'in Miles Per Hour.')
-    print(colors.green, choice, 'Meters Per Second equals',
-          mps_fps, 'in Foot Per Second.')
-    print(colors.green, choice, 'Meters Per Second equals',
-          mps_kph, 'in Kilometers Per Hour.')
-    print(colors.green, choice, 'Meters Per Second equals',
-          mps_knot, 'in Knot.\n', colors.reset)
-    restart.restart()
+def mps_to_all(data):
+    data = float(data)
+
+    mph = data * 2.237
+    fps = data * 3.281
+    kph = data * 3.6
+    knot = data * 1.944
+
+    return mph, fps, kph, knot
 
 
-def kph():
-    choice = float(input('How many Kilometers Per Hour: '))
-    print()
-    kph_mph = choice / 1.609
-    kph_fps = choice / 1.097
-    kph_mps = choice / 3.6
-    kph_knot = choice / 1.852
-    print(colors.green, choice, 'Meters Per Second equals',
-          kph_mph, 'in Miles Per Hour.')
-    print(colors.green, choice, 'Meters Per Second equals',
-          kph_fps, 'in Foot Per Second.')
-    print(colors.green, choice, 'Meters Per Second equals',
-          kph_mps, 'in Meters Per Second.')
-    print(colors.green, choice, 'Meters Per Second equals',
-          kph_knot, 'in Knot.\n', colors.reset)
-    restart.restart()
+def kph_to_all(data):
+    data = float(data)
+
+    mph = data / 1.609
+    fps = data / 1.097
+    mps = data / 3.6
+    knot = data / 1.852
+
+    return mph, fps, mps, knot
 
 
-def knot():
-    choice = float(input('How many Knots: '))
-    print()
-    knot_mph = choice * 1.151
-    knot_fps = choice * 1.688
-    knot_mps = choice / 1.944
-    knot_kph = choice * 1.852
-    print(colors.green, choice, 'Knots equals',
-          knot_mph, 'in Miles Per Hour.')
-    print(colors.green, choice, 'Knots equals',
-          knot_fps, 'in Foot Per Second.')
-    print(colors.green, choice, 'Knots equals', knot_mps,
-          'in Meters Per Second.')
-    print(colors.green, choice, 'Knots equals', knot_kph,
-          'in Kilometers Per Hour.\n', colors.reset)
-    restart.restart()
+def knot_to_all(data):
+    data = float(data)
+
+    mph = data * 1.151
+    fps = data * 1.688
+    mps = data / 1.944
+    kph = data * 1.852
+
+    return mph, fps, mps, kph
 
 
 def speed_converter():
@@ -659,15 +653,60 @@ Which calculation would you like to perform: """))
     print()
 
     if choice == 1:
-        mph()
+        mph = repeat_input('How many Miles Per Hour: ', "Invalid Number...\n", "float")
+        print()
+
+        fps, mps, kph, knot = mph_to_all(mph)
+        print(f'{colors.green}{mph} Miles Per Hour equals {fps} in Foot Per Second.')
+        print(f'{mph} Miles Per Hour equals {mps} in Meters Per Second.')
+        print(f'{mph} Miles Per Hour equals {kph} in Kilometers Per Hour.')
+        print(f'{mph} Miles Per Hour equals {knot} in Knot. {colors.reset}\n')
+        restart.restart()
+
     elif choice == 2:
-        fps()
+        fps = repeat_input('How many Foot Per Second: ', "Invalid Number...\n", "float")
+        print()
+
+        mph, mps, kph, knot = fps_to_all(fps)
+        print(f'{colors.green}{fps} Foot Per Second equals {mph} in Miles Per Hour.')
+        print(f'{fps} Foot Per Second equals {mps} in Meters Per Second.')
+        print(f'{fps} Foot Per Second equals {kph} in Kilometers Per Hour.')
+        print(f'{fps} Foot Per Seconds equals {knot} in Knot. {colors.reset}\n')
+        restart.restart()
+
     elif choice == 3:
-        mps()
+        mps = repeat_input('How many Meters Per Second: ', "Invalid Number...\n", "float")
+        print()
+
+        mph, fps, kph, knot = mps_to_all(mps)
+        print(f'{colors.green}{mps} Meters Per Second equals {mph} in Miles Per Hour.')
+        print(f'{mps} Meters Per Second equals {fps} in Foot Per Second.')
+        print(f'{mps} Meters Per Second equals {kph} in Kilometers Per Hour.')
+        print(f'{mps} Meters Per Second equals {knot} in Knot. {colors.reset}\n')
+        restart.restart()
+
     elif choice == 4:
-        kph()
+        kph = repeat_input('How many Kilometers Per Hour: ', "Invalid Number...\n", "float")
+        print()
+
+        mph, fps, mps, knot = kph_to_all(kph)
+        print(f'{colors.green}{kph} Kilometers Per Hour equals {mph} in Miles Per Hour.')
+        print(f'{kph} Kilometers Per Hour equals {fps} in Foot Per Second.')
+        print(f'{kph} Kilometers Per Hour equals {mps} in Meters Per Second.')
+        print(f'{kph} Kilometers Per Hour equals {knot} in Knot. {colors.reset}\n')
+        restart.restart()
+
     elif choice == 5:
-        knot()
+        knot = repeat_input('How many Knots: ', "Invalid Number...\n", "float")
+        print()
+
+        mph, fps, mps, kph = knot_to_all(knot)
+        print(f'{colors.green}{knot} Meters Per Second equals {mph} in Miles Per Hour.')
+        print(f'{knot} Knots equals {fps} in Foot Per Second.')
+        print(f'{knot} Knots equals {mps} in Meters Per Second.')
+        print(f'{knot} Knots {kph} in Kilometers Per Hour. {colors.reset}\n')
+        restart.restart()
+
     else:
         print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
         time.sleep(2)
