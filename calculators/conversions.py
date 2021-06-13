@@ -1251,4 +1251,4 @@ What converter would you like to perform: '''))
 
 
 if __name__ == '__main__':
-    length_converter()
+    start()
