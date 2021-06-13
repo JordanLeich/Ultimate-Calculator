@@ -4,7 +4,7 @@
 # https://github.com/JordanLeich/Ultimate-Calculator/graphs/contributors
 
 # Imports
-from calculators import algebra, conversions, stocks, financial, calculator, randomization
+from calculators import algebra, conversions, stocks, financial, calculator, randomization, bmi
 import restart
 import colors
 import contribution
@@ -26,21 +26,22 @@ INPUT_CHOICES = {
     4: stocks.start,
     5: financial.start,
     6: randomization.start,
-    7: contribution.start,
-    8: restart.restart,
-    9: end.end
+    7: bmi.start,
+    8: contribution.start,
+    9: restart.restart,
+    10: end.end
 }
 
 
 def start():
-    choice1 = str(
+    choice = str(
         input('Want to run the GUI version of this project (yes / no): '))
     print()
 
-    if choice1.lower() in ['y', 'yes']:
+    if choice.lower() in ['y', 'yes']:
         print(colors.green, 'GUI Application is now running!\n', colors.reset)
         start_gui()
-    elif choice1.lower() in ['n', 'no']:
+    elif choice.lower() in ['n', 'no']:
         print('Proceeding to normal calculator...\n')
     else:
         print(colors.red + 'User input error found... Restarting input choice...\n', colors.reset)
@@ -48,25 +49,26 @@ def start():
         start()
 
     print(colors.green + 'All Calculators and Converters!', colors.reset)
-    choice2 = int(input('''(1) Basic Arithmetic Math (Add, Subtract, Multiply, Divide, & More)
+    choice = int(input('''(1) Basic Arithmetic Math (Add, Subtract, Multiply, Divide, & More)
 (2) Algebra (Find Slope, Pythagorean Theorem)
 (3) All Converters (Temperature, Mass, Length, Volume, Digital Storage, Speed, & More)
 (4) Stock Market Shares Calculator (Gain/Loss of a stock)
 (5) Financial Calculator (Payroll, Tipping Amount, Compound Interest)
 (6) Randomization (Random Number Generator, Heads or Tails)
-(7) All Project Contributors
-(8) Restart Program
-(9) Exit Program
+(7) BMI Calculator (Body Mass Index)
+(8) All Project Contributors
+(9) Restart Program
+(10) Exit Program
 Which option would you like to pick: '''))
     print()
 
-    if choice2 not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
+    if choice not in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
         wrong_option()
 
     else:
         # get function from dict and execute
         # if option not found then execute wrong option function
-        INPUT_CHOICES.get(choice2, 9)()
+        INPUT_CHOICES.get(choice, 10)()
 
 
 if __name__ == '__main__':
