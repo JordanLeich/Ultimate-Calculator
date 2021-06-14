@@ -40,11 +40,3 @@ def repeat_input(sentence, error, flag):
             return inputs
 
         print(colors.red + error, colors.reset)  # error is what error it will print when the validation fails
-
-
-"""
-                     input text       custom error message     validation
-test = repeat_input("Your Number: ", "Error, Invalid Number", "float")
-
-test would run until the user enters a valid input (In this case a float/number)
-"""
