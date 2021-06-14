@@ -42,24 +42,21 @@ def start():
         print(colors.green, 'GUI Application is now running!\n', colors.reset)
         start_gui()
     elif choice.lower() in ['n', 'no']:
-        print('Proceeding to normal calculator...\n')
+        pass
     else:
         print(colors.red + 'User input error found... Restarting input choice...\n', colors.reset)
         time.sleep(2)
         start()
 
-    print(colors.green + 'All Calculators and Converters!', colors.reset)
-    choice = int(input('''(1) Basic Arithmetic Math (Add, Subtract, Multiply, Divide, & More)
-(2) Algebra (Find Slope, Pythagorean Theorem)
-(3) All Converters (Temperature, Mass, Length, Volume, Digital Storage, Speed, & More)
-(4) Stock Market Shares Calculator (Gain/Loss of a stock)
-(5) Financial Calculator (Payroll, Tipping Amount, Compound Interest)
-(6) Randomization (Random Number Generator, Heads or Tails)
-(7) BMI Calculator (Body Mass Index)
-(8) All Project Contributors
-(9) Restart Program
-(10) Exit Program
-Which option would you like to pick: '''))
+    print(colors.green + 'All Calculators and Converters', colors.reset)
+    choice = int(input('''
+(1) Basic Arithmetic Math                           |      (6) Randomization (Random Number Generator, Heads or Tails)
+(2) Algebra (Find Slope, Pythagorean Theorem)       |      (7) BMI Calculator (Body Mass Index)
+(3) All Converters (Temperature, Mass, & More)      |      (8) All Project Contributors
+(4) Stock Market Shares Calculator (Gain/Loss)      |      (9) Restart Program
+(5) Financial Calculator (Payroll, Tipping)         |      (10) Exit Program
+
+Which option would you like to use: '''))
     print()
 
     if choice not in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:

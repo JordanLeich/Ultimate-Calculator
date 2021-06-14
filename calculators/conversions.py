@@ -1406,25 +1406,15 @@ Which File convertion would you like to pick: '''))
 
 
 def start():
+    print(colors.green + "All Converters", colors.reset)
     choice = int(input('''
-(1) Temperature Converter
-(2) Mass Converter
-(3) Length Converter
-(4) Volume Converter
-(5) Currency Converter
-(6) Crypto Converter
-(7) Speed Converter
-(8) Digital Storage Converter
-(9) Time Converter
-(10) Pressure Converter
-(11) Angle Converter
-(12) Energy Converter
-(13) Fuel Economy Converter
-(14) Sound Frequency Converter
-(15) File Converter
-(16) Restart
-(17) Quit
-What converter would you like to perform: '''))
+(1) Temperature        |       (6) Crypto            |       (11) Angle         |       (16) Restart
+(2) Mass               |       (7) Speed             |       (12) Energy        |       (17) Quit 
+(3) Length             |       (8) Digital Storage   |       (13) Fuel Economy
+(4) Volume             |       (9) Time              |       (14) Sound Frequency
+(5) Currency           |       (10) Pressure         |       (15) File     
+
+Which convertion would you like to use: '''))
     print()
 
     if choice == 1:
