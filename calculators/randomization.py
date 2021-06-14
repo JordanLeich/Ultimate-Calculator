@@ -2,12 +2,14 @@ import random
 import time
 import colors
 import restart
+from tools import repeat_input
 
 
 def random_number():
-    start_number = int(input('Pick a starting number: '))
-    end_number = int(input('Pick a ending number: '))
+    start_number = repeat_input('Pick a starting number: ', "Invalid Number...\n", "float")
+    end_number = repeat_input('Pick a ending number: ', "Invalid Number...\n", "float")
     print()
+
     number = random.randint(start_number, end_number)
     print(colors.green, 'Your random generated number:',
           number, '\n', colors.reset)
@@ -15,7 +17,7 @@ def random_number():
 
 
 def heads_or_tails():
-    choice = str(input('Pick heads or tails: '))
+    choice = input('Pick heads or tails: ')
     print()
 
     if choice.lower() not in ['heads', 'h', 't', 'tails', 'tail', 'head']:
