@@ -4,7 +4,7 @@
 # https://github.com/JordanLeich/Ultimate-Calculator/graphs/contributors
 
 # Imports
-from calculators import algebra, conversions, stocks, financial, calculator, randomization, bmi
+from calculators import algebra, conversions, stocks, financial, calculator, randomization, bmi, geometry
 import restart
 import colors
 import contribution
@@ -22,14 +22,15 @@ def wrong_option():
 INPUT_CHOICES = {
     1: calculator.start,
     2: algebra.start,
-    3: conversions.start,
-    4: stocks.start,
-    5: financial.start,
-    6: randomization.start,
-    7: bmi.start,
-    8: contribution.start,
-    9: restart.restart,
-    10: end.end
+    3: geometry.start,
+    4: conversions.start,
+    5: stocks.start,
+    6: financial.start,
+    7: randomization.start,
+    8: bmi.start,
+    9: contribution.start,
+    10: restart.restart,
+    11: end.end
 }
 
 
@@ -50,22 +51,22 @@ def start():
 
     print(colors.green + 'All Calculators and Converters', colors.reset)
     choice = int(input('''
-(1) Basic Arithmetic Math                           |      (6) Randomization (Random Number Generator, Heads or Tails)
-(2) Algebra (Find Slope, Pythagorean Theorem)       |      (7) BMI Calculator (Body Mass Index)
-(3) All Converters (Temperature, Mass, & More)      |      (8) All Project Contributors
-(4) Stock Market Shares Calculator (Gain/Loss)      |      (9) Restart Program
-(5) Financial Calculator (Payroll, Tipping)         |      (10) Exit Program
+(1) Basic Arithmetic Math        |      (6) Financial Calculator      |      (10) Exit
+(2) Algebra Calculator           |      (7) Randomization
+(3) Geometry Calculator          |      (8) BMI Calculator
+(4) All Converters               |      (9) Credits
+(5) Stock Market Calculator      |      (10) Restart              
 
 Which option would you like to use: '''))
     print()
 
-    if choice not in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
+    if choice not in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
         wrong_option()
 
     else:
         # get function from dict and execute
         # if option not found then execute wrong option function
-        INPUT_CHOICES.get(choice, 10)()
+        INPUT_CHOICES.get(choice, 11)()
 
 
 if __name__ == '__main__':
