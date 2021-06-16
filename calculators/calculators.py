@@ -12,7 +12,7 @@ def calculator(data):
     if len(data) <= 3:
         return data[0]
 
-    total = float
+    total: float = 0
     for ind, dta in enumerate(data):
         if dta == "+":
             total += float(data[ind + 1])
@@ -40,34 +40,55 @@ def calculator(data):
         else:
             total += float(dta)
 
-    return int(total) if total.is_integer(False) else total
+    return int(total) if total.is_integer() else total
 
 
-# Entire operation for the basic calculator
-def basic_calculator():
+# Entire operation
+def basic_calc():
     print(colors.yellow + 'When you are finishing making your arithmetic problem, please use = when asked for an '
                           'operator!\n', colors.reset)
     calculation = []
     while True:
-        number = repeat_input("Your Number: ", "Invalid Number...\n", "float")
-        calculation.append(number)
+        while True:
+            try:
+                number = input("Your Number: ")
+                float(number)
+                calculation.append(number)
+                break
+            except ValueError:
+                print("error")
+                continue
 
-        operator = repeat_input("Your Operator: ", "Invalid Operator...\n", "operator")
-        calculation.append(operator)
+        while True:
+            operator_options = [
+                "+", "-", "*", "/", "**", "=",
+                "add", "subtract", "multiply", "times",
+                "power", "divide", "division", "equals"]
+
+            operator = input("Your Operator: ")
+            if operator in operator_options:
+                calculation.append(operator)
+                break
+            else:
+                print(colors.red + "Error Found...\n", colors.reset)
+                continue
 
         if operator == "=":
             print()
-            print(colors.green + " ".join(calculation), basic_calculator(), colors.reset)
+            print(colors.green + " ".join(calculation), calculator(calculation), colors.reset)
             break
-
         print(" ".join(calculation))
 
     print()
-    continue_text = "Would you like to make another arithmetic calculation (yes / no): "
-    continue_opt = repeat_input(continue_text, "User input error found...\n", "yes_no")
+    continue_opt = input("Would you like to make another arithmetic calculation (yes / no): ")
+    print()
     if continue_opt.lower() in ['y', 'yes']:
-        basic_calculator()
+        start()
     elif continue_opt.lower() in ['n', 'no']:
+        restart.restart()
+    else:
+        print(colors.red + 'User input error found...\n', colors.reset)
+        time.sleep(2)
         restart.restart()
 
 
@@ -179,7 +200,7 @@ What calculation would you like to perform: '''))
         if formula.lower() == 'a':
             b = repeat_input('Input the length of side b: ', "Invalid Number...\n", 'float')
             c = repeat_input('Input the length of side c: ', "Invalid Number...\n", 'float')
-
+            print()
             result = find_pythagorean(formula, b=b, c=c)
             print(colors.green + 'The length of side a is:', result, '\n', colors.reset)
             restart.restart()
@@ -187,7 +208,7 @@ What calculation would you like to perform: '''))
         elif formula.lower() == 'b':
             a = repeat_input('Input the length of side a: ', "Invalid Number...\n", 'float')
             c = repeat_input('Input the length of side c: ', "Invalid Number...\n", 'float')
-
+            print()
             result = find_pythagorean(formula, a=a, c=c)
             print(colors.green + 'The length of side b is:', result, '\n', colors.reset)
             restart.restart()
@@ -195,7 +216,7 @@ What calculation would you like to perform: '''))
         elif formula.lower() == 'c':
             a = repeat_input('Input the length of side a: ', "Invalid Number...\n", 'float')
             b = repeat_input('Input the length of side b: ', "Invalid Number...\n", 'float')
-
+            print()
             result = find_pythagorean(formula, a=a, b=b)
             print(colors.green + 'The length of side c is:', result, '\n', colors.reset)
             restart.restart()
@@ -205,7 +226,7 @@ What calculation would you like to perform: '''))
         y1 = repeat_input('y1 Value: ', "Invalid Number...\n", "float")
         x2 = repeat_input('x2 Value: ', "Invalid Number...\n", "float")
         y2 = repeat_input('y2 Value: ', "Invalid Number...\n", "float")
-
+        print()
         distance = find_distance(x1, y1, x2, y2)
         print(colors.green + "The distance between the two points is", distance, '\n', colors.reset)
         restart.restart()
@@ -215,13 +236,13 @@ What calculation would you like to perform: '''))
         y1 = repeat_input('The value of y1: ', "Invalid Number...\n", "float")
         x2 = repeat_input('The value of x2: ', "Invalid Number...\n", "float")
         y2 = repeat_input('The value of y2: ', "Invalid Number...\n", "float")
-
+        print()
         midpoint = find_midpoint(x1, y1, x2, y2)
         x_m_point = midpoint[0]
         y_m_point = midpoint[1]
 
-        print(colors.green + "The midpoint's x value is: ", x_m_point)
-        print("The midpoint's y value is: ", y_m_point, '\n', colors.reset)
+        print(colors.green + "The midpoint's x value is:", x_m_point)
+        print("The midpoint's y value is:", y_m_point, '\n', colors.reset)
         restart.restart()
 
     elif choice == 6:
@@ -479,7 +500,7 @@ def stocks():
 
 def results(user_shares, user_sell_commission, user_buy_commission, user_sell_price, user_purchase_price):
     user_gain_loss = ((user_sell_price * user_shares) - user_sell_commission) - (
-        (user_purchase_price * user_shares) + user_buy_commission)
+            (user_purchase_price * user_shares) + user_buy_commission)
 
     print(colors.green + 'Profit gain/loss:',
           user_gain_loss, 'Dollars.', colors.reset, '\n')
@@ -541,7 +562,7 @@ Which convertion would you like to use: '''))
     print()
 
     if choice == 1:
-        basic_calculator()
+        basic_calc()
     elif choice == 2:
         algebra()
     elif choice == 3:
