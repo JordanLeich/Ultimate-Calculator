@@ -21,7 +21,7 @@ Obesity = BMI of 30 or greater.\n''', colors.reset)
         time.sleep(2)
         start()
 
-    if kg <= 0:
+    elif kg <= 0:
         print(colors.red + 'Error: Weight Must Be More Than 0', colors.reset)
         time.sleep(2)
         start()

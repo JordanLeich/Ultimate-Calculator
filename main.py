@@ -39,19 +39,17 @@ def start():
         input('Want to run the GUI version of this project (yes / no): '))
     print()
 
-    if choice.lower() in ['y', 'yes']:
+    if choice.lower() in ['y', 'yes', 'sure', 'yep']:
         print(colors.green, 'GUI Application is now running!\n', colors.reset)
         start_gui()
-    elif choice.lower() in ['n', 'no']:
+    elif choice.lower() in ['n', 'no', 'nope', 'nah']:
         pass
     else:
-        print(colors.red + 'User input error found... Restarting input choice...\n', colors.reset)
-        time.sleep(2)
-        start()
+        wrong_option()
 
     print(colors.green + 'All Calculators and Converters', colors.reset)
     choice = int(input('''
-(1) Basic Arithmetic Math        |      (6) Financial Calculator      |      (10) Exit
+(1) Basic Arithmetic Math        |      (6) Financial Calculator      |      (11) Exit
 (2) Algebra Calculator           |      (7) Randomization
 (3) Geometry Calculator          |      (8) BMI Calculator
 (4) All Converters               |      (9) Credits
