@@ -3,34 +3,30 @@
 # Made by Jordan Leich on 6/1/2021, all contributors via GitHub can be found at
 # https://github.com/JordanLeich/Ultimate-Calculator/graphs/contributors
 
+
 # Imports
-from calculators import algebra, conversions, stocks, financial, calculator, randomization, bmi, geometry
-import restart
+import calculators.calculators
+import calculators.conversions
 import colors
 import contribution
-import end
 import time
+import end
+import restart
 from gui import *
 
 
 def wrong_option():
-    print(colors.red + 'User input error found... Restarting user input choice...', colors.reset)
+    print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
     time.sleep(2)
     start()
 
 
 INPUT_CHOICES = {
-    1: calculator.start,
-    2: algebra.start,
-    3: geometry.start,
-    4: conversions.start,
-    5: stocks.start,
-    6: financial.start,
-    7: randomization.start,
-    8: bmi.start,
-    9: contribution.start,
-    10: restart.restart,
-    11: end.end
+    1: calculators.calculators.start,
+    2: calculators.conversions.start,
+    3: contribution.start,
+    4: restart.restart,
+    5: end.end
 }
 
 
@@ -49,22 +45,22 @@ def start():
 
     print(colors.green + 'All Calculators and Converters', colors.reset)
     choice = int(input('''
-(1) Basic Arithmetic Math        |      (6) Financial Calculator      |      (11) Exit
-(2) Algebra Calculator           |      (7) Randomization
-(3) Geometry Calculator          |      (8) BMI Calculator
-(4) All Converters               |      (9) Credits
-(5) Stock Market Calculator      |      (10) Restart              
+(1) All Calculators            
+(2) All Converters
+(3) Credits
+(4) Restart  
+(5) Exit             
 
 Which option would you like to use: '''))
     print()
 
-    if choice not in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
+    if choice not in [1, 2, 3, 4, 5]:
         wrong_option()
 
     else:
         # get function from dict and execute
         # if option not found then execute wrong option function
-        INPUT_CHOICES.get(choice, 11)()
+        INPUT_CHOICES.get(choice, 5)()
 
 
 if __name__ == '__main__':

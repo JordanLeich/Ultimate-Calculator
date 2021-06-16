@@ -1,6 +1,6 @@
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QWidget, QApplication
-from calculators.calculator import calculator
+from calculators.calculators import basic_calculator
 from PyQt5.Qt import QIntValidator
 
 
@@ -55,7 +55,7 @@ class Arithmetic(QWidget):
                 curr_text.pop(ind)
 
         curr_text.append("=")
-        calculated = str(calculator(curr_text))
+        calculated = str(basic_calculator())
         self.lineEdit.setText(calculated)
 
     def keyPressEvent(self, event):

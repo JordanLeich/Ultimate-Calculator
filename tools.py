@@ -9,6 +9,22 @@ def validate_float(data):
         return False
 
 
+def validate_int(data):
+    try:
+        int(data)
+        return True
+    except ValueError:
+        return False
+
+
+def validate_str(data):
+    try:
+        str(data)
+        return True
+    except ValueError:
+        return False
+
+
 def validate_operator(data):
     operator_options = [
         "+", "-", "*", "/", "**", "=",
@@ -30,6 +46,8 @@ def validate_yes_no(data):
 def repeat_input(sentence, error, flag):
     flags = {
         "float": validate_float,
+        "int": validate_int,
+        "str": validate_str,
         "operator": validate_operator,
         "yes_no": validate_yes_no
     }
