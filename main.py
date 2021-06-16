@@ -7,11 +7,8 @@
 # Imports
 import calculators.calculators
 import conversions.conversions
-import colors
-import contribution
 import time
-import end
-import restart
+from modules import restart, contribution, end, colors
 from gui import *
 
 

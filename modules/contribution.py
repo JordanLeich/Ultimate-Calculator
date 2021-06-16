@@ -1,7 +1,6 @@
 import webbrowser
 import time
-import colors
-import restart
+from modules import colors, restart
 
 
 def start():

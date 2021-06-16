@@ -1,11 +1,9 @@
 import math
 import random
 import time
-import end
-from tools import repeat_input
+from modules.tools import repeat_input
 from math import sqrt
-import colors
-import restart
+from modules import restart, end, colors
 
 
 def calculator(data):

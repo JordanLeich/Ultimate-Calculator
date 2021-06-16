@@ -4,8 +4,7 @@
 # restart of program function
 def restart():
     import time
-    import end
-    import colors
+    from modules import end, colors
 
     user_restart_choice = str(input("Do you wish to restart (yes / no): "))
     print()

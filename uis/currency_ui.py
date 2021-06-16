@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5.uic import loadUi
-from currency_api import get_currency
+from modules.currency_api import get_currency
 
 
 class CurrencyWindow(QMainWindow):

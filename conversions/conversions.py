@@ -1,9 +1,7 @@
-import colors
-import end
-import restart
+from modules import restart, end, colors
 import time
-from currency_api import get_currency
-from tools import repeat_input
+from modules.currency_api import get_currency
+from modules.tools import repeat_input
 from docx2pdf import convert
 from moviepy.editor import *
 
@@ -15,6 +13,7 @@ def currency_converter():
 (3) Canadian Dollar to ALL
 (4) Japanese Yen to ALL
 (5) Moroccan MAD to ALL
+
 Select a currency conversion: """))
     print()
     if user_choice == 1:
@@ -138,6 +137,7 @@ def temp_converter():
 (1) Celsius to ALL
 (2) Fahrenheit to ALL
 (3) Kelvin to ALL
+
 Select a temperature conversion: """))
     print()
 
@@ -221,6 +221,7 @@ def mass_converter():
 (2) Grams to ALL
 (3) Pounds to ALL
 (4) Ounces to ALL
+
 Select a mass conversion: """))
     print()
 
@@ -316,6 +317,7 @@ def length_converter():
 (2) Inch to ALL
 (3) Yard to ALL
 (4) Mile to ALL
+
 Select a length conversion: """))
     print()
 
@@ -427,6 +429,7 @@ def volume_converter():
 (4) Quarts to ALL
 (5) Pints to ALL
 (6) Ounces to ALL
+
 Select a volume conversion: """))
     print()
 
@@ -542,6 +545,7 @@ def crypto_converter():
 (2) Ethereum to ALL
 (3) DogeCoin  to ALL
 (4) SHIBA INU to ALL
+
 Select a crypto conversion:    """))
     print()
     if user_choice == 1:
@@ -654,6 +658,7 @@ def speed_converter():
 (3) Meter Per Second to ALL
 (4) Kilometer Per Hour to ALL
 (5) Knot to ALL
+
 Which calculation would you like to perform: """))
     print()
 
@@ -833,6 +838,7 @@ def storage_converter():
 (3) Megabytes to ALL
 (4) Gigabyte to ALL
 (5) Terabyte to ALL
+
 Which calculation would you like to perform: """))
     print()
 
@@ -943,11 +949,12 @@ def pressure_converter():
     Handles all pressure conversion
     """
     user_choice = int(input("""
-        (1) Pascal [Pa] to All
-        (2) Kilopascal [kPa] to ALL
-        (3) bar to ALL
-        (4) Standard atmosphere [atm] to ALL
-        Which calculation would you like to perform: """))
+(1) Pascal [Pa] to All
+(2) Kilopascal [kPa] to ALL
+(3) bar to ALL
+(4) Standard atmosphere [atm] to ALL
+
+Which calculation would you like to perform: """))
     print()
 
     if user_choice == 1:
@@ -1042,11 +1049,12 @@ def angle_converter():
     Handles all angle conversion
     """
     user_choice = int(input("""
-            (1) Degree [°] to All
-            (2) Radian [rad] to ALL
-            (3) grad [^g] to ALL
-            (4) Minute ['] to ALL
-            Which calculation would you like to perform: """))
+(1) Degree [°] to All
+(2) Radian [rad] to ALL
+(3) grad [^g] to ALL
+(4) Minute ['] to ALL
+
+Which calculation would you like to perform: """))
     print()
     if user_choice == 1:
         deg = repeat_input("Enter the angle: ", "Invalid Number...\n", "float")
@@ -1143,6 +1151,7 @@ def energy_converter():
 (2) KiloJoule to ALL
 (3) Watt Hour to ALL
 (4) Kilowatt Hour to ALL
+
 Which energy conversion would you like to pick: '''))
     print()
     if choice == 1:
@@ -1226,6 +1235,7 @@ def fuel_converter():
     choice = int(input('''(1) Miles Per Gallon to ALL
 (2) Miles Per Gallon (Imperial) to ALL
 (3) Kilometers Per Liter to ALL
+
 Which Fuel Economy conversion would you like to pick: '''))
     print()
     if choice == 1:
@@ -1310,6 +1320,7 @@ def frequency_converter():
 (2) Kilohertz to ALL
 (3) Megahertz to ALL
 (4) Gigahertz to ALL
+
 Which Sound Frequency conversion would you like to pick: '''))
     print()
     if choice == 1:
@@ -1361,6 +1372,7 @@ Which Sound Frequency conversion would you like to pick: '''))
 def file_converter():
     choice = int(input('''(1) Word Document to PDF
 (2) MP4 Video to MP3 Audio
+
 Which File convertion would you like to pick: '''))
     print()
     if choice == 1:

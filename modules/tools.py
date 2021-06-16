@@ -1,4 +1,4 @@
-import colors
+from modules import colors
 
 
 def validate_float(data):
