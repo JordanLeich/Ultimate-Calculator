@@ -6,7 +6,7 @@
 
 # Imports
 import calculators.calculators
-import converters.conversions
+import conversions.conversions
 import colors
 import contribution
 import time
@@ -23,7 +23,7 @@ def wrong_option():
 
 INPUT_CHOICES = {
     1: calculators.calculators.start,
-    2: converters.conversions.start,
+    2: conversions.conversions.start,
     3: contribution.start,
     4: restart.restart,
     5: end.end
