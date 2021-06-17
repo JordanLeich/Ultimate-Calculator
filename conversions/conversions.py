@@ -1,12 +1,13 @@
-from modules import restart, end, colors
 import time
-from modules.currency_api import get_currency
-from modules.tools import repeat_input
 from docx2pdf import convert
 from moviepy.editor import *
+from modules import restart, end, colors
+from modules.currency_api import get_currency
+from modules.tools import repeat_input
 
 
 def currency_converter():
+    api_key = os.environ.get('API_KEY')
     user_choice = int(
         input("""(1) US Dollar to ALL
 (2) Euro to ALL
@@ -19,10 +20,10 @@ Select a currency conversion: """))
     if user_choice == 1:
         user_dollar = float(input("Dollar Amount: "))
         print()
-        d_to_e = float(user_dollar * get_currency("USD_EUR"))
-        d_to_j = float(user_dollar * get_currency("USD_JPY"))
-        d_to_c = float(user_dollar * get_currency("USD_CAD"))
-        d_to_mad = float(user_dollar * get_currency("USD_MAD"))
+        d_to_e = float(user_dollar * get_currency("USD_EUR", api_key))
+        d_to_j = float(user_dollar * get_currency("USD_JPY", api_key))
+        d_to_c = float(user_dollar * get_currency("USD_CAD", api_key))
+        d_to_mad = float(user_dollar * get_currency("USD_MAD", api_key))
         print(colors.green, user_dollar, "in US Dollar equals",
               d_to_e, "in Euros.")
         print(colors.green, user_dollar, "in US Dollar equals",
@@ -35,10 +36,10 @@ Select a currency conversion: """))
     elif user_choice == 2:
         user_euro = float(input("Euro Amount: "))
         print()
-        e_to_d = float(user_euro * get_currency("EUR_USD"))
-        e_to_j = float(user_euro * get_currency("EUR_JPY"))
-        e_to_c = float(user_euro * get_currency("EUR_CAD"))
-        e_to_mad = float(user_euro * get_currency("EUR_MAD"))
+        e_to_d = float(user_euro * get_currency("EUR_USD", api_key))
+        e_to_j = float(user_euro * get_currency("EUR_JPY", api_key))
+        e_to_c = float(user_euro * get_currency("EUR_CAD", api_key))
+        e_to_mad = float(user_euro * get_currency("EUR_MAD", api_key))
         print(colors.green, user_euro, "in Euro equals",
               e_to_d, "in US Dollars.")
         print(colors.green, user_euro, "in Euro equals",
@@ -51,10 +52,10 @@ Select a currency conversion: """))
     elif user_choice == 3:
         user_canadian = float(input("Canadian Dollar Amount: "))
         print()
-        c_to_d = float(user_canadian * get_currency("CAD_USD"))
-        c_to_j = float(user_canadian * get_currency("CAD_JPY"))
-        c_to_e = float(user_canadian * get_currency("CAD_EUR"))
-        c_to_mad = float(user_canadian * get_currency("CAD_MAD"))
+        c_to_d = float(user_canadian * get_currency("CAD_USD", api_key))
+        c_to_j = float(user_canadian * get_currency("CAD_JPY", api_key))
+        c_to_e = float(user_canadian * get_currency("CAD_EUR", api_key))
+        c_to_mad = float(user_canadian * get_currency("CAD_MAD", api_key))
         print(colors.green, user_canadian, "in Canadian Dollar equals",
               c_to_d, "in US Dollars.")
         print(colors.green, user_canadian, "in Canadian Dollar equals",
@@ -67,10 +68,10 @@ Select a currency conversion: """))
     elif user_choice == 4:
         user_yen = float(input("Japanese Yen Amount: "))
         print()
-        y_to_d = float(user_yen * get_currency("JPY_USD"))
-        y_to_e = float(user_yen * get_currency("JPY_EUR"))
-        y_to_c = float(user_yen * get_currency("JPY_CAD"))
-        y_to_mad = float(user_yen * get_currency("JPY_MAD"))
+        y_to_d = float(user_yen * get_currency("JPY_USD", api_key))
+        y_to_e = float(user_yen * get_currency("JPY_EUR", api_key))
+        y_to_c = float(user_yen * get_currency("JPY_CAD", api_key))
+        y_to_mad = float(user_yen * get_currency("JPY_MAD", api_key))
         print(colors.green, user_yen, "in Japanese Yen equals",
               y_to_d, "in US Dollars.")
         print(colors.green, user_yen, "in Japanese Yen equals",
@@ -83,10 +84,10 @@ Select a currency conversion: """))
     elif user_choice == 5:
         user_mad = float(input("Moroccan MAD Amount: "))
         print()
-        mad_to_d = float(user_mad * get_currency("MAD_USD"))
-        mad_to_e = float(user_mad * get_currency("MAD_EUR"))
-        mad_to_c = float(user_mad * get_currency("MAD_CAD"))
-        mad_to_yen = float(user_mad * get_currency("MAD_JPY"))
+        mad_to_d = float(user_mad * get_currency("MAD_USD", api_key))
+        mad_to_e = float(user_mad * get_currency("MAD_EUR", api_key))
+        mad_to_c = float(user_mad * get_currency("MAD_CAD", api_key))
+        mad_to_yen = float(user_mad * get_currency("MAD_JPY", api_key))
         print(colors.green, user_mad, "in Moroccan MAD equals",
               mad_to_d, "in US Dollars.")
         print(colors.green, user_mad, "in Moroccan MAD equals",

@@ -4,6 +4,7 @@ basic currency-conversion pairings in real-time.
 MAX 100 requests/hr.
 """
 from requests import get
+import os
 
 
 def get_currency_pairs():
@@ -14,7 +15,8 @@ def get_currency_pairs():
     THIS STILL NEEDS WORK TO PUT TOGETHER
     EVERY POSSIBLE CURRENCY COMBINATION.
     """
-    url = 'https://free.currconv.com/api/v7/currencies?apiKey=915c1e08f6ada7ca7704'
+    api_key = os.environ.get('API_KEY')
+    url = 'https://free.currconv.com/api/v7/currencies?apiKey={}'.format(api_key)
     data = get(url)
     currencies = [currency for currency in data.json()['results']]
     pairs = []
@@ -26,13 +28,9 @@ def get_currency_pairs():
     return pairs
 
 
-def get_currency(req_pair):
-    url = "https://free.currconv.com/api/v7/convert?q={}&compact=ultra&apiKey=915c1e08f6ada7ca7704".format(req_pair)
-
-    print("Opening API...")
+def get_currency(req_pair, api_key):
+    url = "https://free.currconv.com/api/v7/convert?q={}&compact=ultra&apiKey={}".format(req_pair, api_key)
     data = get(url)
-
-    print('Fetching Data...')
     return data.json()[req_pair]
 
 
