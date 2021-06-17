@@ -1,5 +1,4 @@
 import time
-import winsound
 try:
     import winsound
     windows = True
