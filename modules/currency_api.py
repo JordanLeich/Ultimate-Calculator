@@ -21,13 +21,13 @@ def get_currency_pairs():
 
     for ind, currency in enumerate(currencies):
         if ind != 0:
-            pairs.append(f'ALL_{currency}')
+            pairs.append('ALL_{}'.format(currency))
 
     return pairs
 
 
 def get_currency(req_pair):
-    url = f"https://free.currconv.com/api/v7/convert?q={req_pair}&compact=ultra&apiKey=915c1e08f6ada7ca7704"
+    url = "https://free.currconv.com/api/v7/convert?q={}&compact=ultra&apiKey=915c1e08f6ada7ca7704".format(req_pair)
 
     print("Opening API...")
     data = get(url)
@@ -37,6 +37,6 @@ def get_currency(req_pair):
 
 
 if __name__ == '__main__':
-    urls = f"https://api.exchangerate.host/latest?base=USD&symbols=EUR"
+    urls = "https://api.exchangerate.host/latest?base=USD&symbols=EUR"
     panda = get(urls)
     print(panda.json())
