@@ -1,6 +1,5 @@
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QWidget, QApplication
-from calculators.calculators import basic_calc
 from PyQt5.Qt import QIntValidator
 
 
@@ -44,23 +43,28 @@ class Arithmetic(QWidget):
     def multiplication(self):
         self.lineEdit.insert(" * ")
 
+    def power(self):
+        self.lineEdit.insert(" ** ")
+
     def division(self):
         self.lineEdit.insert(" / ")
 
+    def left_bracket(self):
+        self.lineEdit.insert("(")
+
+    def right_bracket(self):
+        self.lineEdit.insert(")")
+
     def equals(self):
-        curr_text = self.lineEdit.text().split(" ")
-
-        for ind, text in enumerate(curr_text):
-            if text == "":
-                curr_text.pop(ind)
-
-        curr_text.append("=")
-        calculated = str(basic_calc())
-        self.lineEdit.setText(calculated)
+        calculation = self.lineEdit.text()
+        try:
+            answer = eval(calculation)
+            self.lineEdit.setText(str(answer))
+        except SyntaxError:
+            print("Error")
 
     def keyPressEvent(self, event):
         key = event.text()
-
         if key in [str(i) for i in range(10)]:
             self.lineEdit.insert(key)
 
@@ -81,6 +85,15 @@ class Arithmetic(QWidget):
 
         elif key == ".":
             self.lineEdit.insert(".")
+
+        elif key == "(":
+            self.left_bracket()
+
+        elif key == ")":
+            self.right_bracket()
+
+        elif key == "^":
+            self.power()
 
         elif event.key() == 16777219:  # Key Code for Backspace
             if len(self.lineEdit.text()) == 0:

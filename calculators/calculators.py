@@ -6,80 +6,38 @@ from math import sqrt
 from modules import restart, end, colors
 
 
-def calculator(data):
-    if len(data) <= 3:
-        return data[0]
-
-    total: float = 0
-    for ind, dta in enumerate(data):
-        if dta == "+":
-            total += float(data[ind + 1])
-            data.pop(ind + 1)
-
-        elif dta == "-":
-            total -= float(data[ind + 1])
-            data.pop(ind + 1)
-
-        elif dta == "/":
-            total /= float(data[ind + 1])
-            data.pop(ind + 1)
-
-        elif dta == "*":
-            total *= float(data[ind + 1])
-            data.pop(ind + 1)
-
-        elif dta == "**":
-            total **= float(data[ind + 1])
-            data.pop(ind + 1)
-
-        elif dta == "=":
-            break
-
-        else:
-            total += float(dta)
-
-    return int(total) if total.is_integer() else total
-
-
 # Entire operation
 def basic_calc():
-    print(colors.yellow + 'When you are finishing making your arithmetic problem, please use = when asked for an '
-                          'operator!\n', colors.reset)
-    calculation = []
+    history = []
     while True:
-        while True:
-            try:
-                number = input("Your Number: ")
-                float(number)
-                calculation.append(number)
-                break
-            except ValueError:
-                print("error")
-                continue
+        calculation = input("Your Calculation: ")
+        if calculation == "--help":
+            print("""
+--help: list of commands
+--history: past calculations
+--calculators: back to calculator list 
+            """)
+            continue
+        elif calculation == "--history":
+            for i in history:
+                print(i)
+            continue
 
-        while True:
-            operator_options = [
-                "+", "-", "*", "/", "**", "=",
-                "add", "subtract", "multiply", "times",
-                "power", "divide", "division", "equals"]
+        elif calculation == "--calculators":  # --exit, --end, --main Other command names
+            start()
 
-            operator = input("Your Operator: ")
-            if operator in operator_options:
-                calculation.append(operator)
-                break
-            else:
-                print(colors.red + "Error Found...\n", colors.reset)
-                continue
+        try:
+            answer = eval(calculation)
+            print(answer)
+            history.append(f"{calculation} = {answer}")
 
-        if operator == "=":
-            print()
-            print(colors.green + " ".join(calculation), calculator(calculation), colors.reset)
-            break
-        print(" ".join(calculation))
+        except SyntaxError:
+            print("Calculation Error")
+            continue
 
-    print()
     continue_opt = input("Would you like to make another arithmetic calculation (yes / no): ")
     print()
+
     if continue_opt.lower() in ['y', 'yes']:
         basic_calc()
     elif continue_opt.lower() in ['n', 'no']:
@@ -574,7 +532,7 @@ def start():
 (4) Financial            |       (9) Restart
 (5) Body Mass Index      |       (10) Quit   
 
-Which convertion would you like to use: '''))
+Which calculator would you like to use: '''))
     print()
 
     if choice == 1:
