@@ -13,12 +13,19 @@ from gui import *
 
 
 def error_message():
+    """
+A basic error message for when something doesn't work correctly or logical statements fail.
+    """
     print(colors.red + "Invalid Choice...\n", colors.reset)
     time.sleep(2)
     start()
 
 
 def start():
+    """
+This is the first user input choice an end-user would receive, this is a main ui hub to access all the other areas of
+this project.
+    """
     print(colors.green + 'All Calculators and Converters', colors.reset)
     choice = int(input('''
 (1) All Calculators            
