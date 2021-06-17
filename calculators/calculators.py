@@ -547,14 +547,32 @@ Which calculation would you like to perform: """))
         randomization()
 
 
+def bitwise():
+    nbin = lambda x: bin(x)[2:] if x >=0 else '-' + bin(x)[3:]
+    binary_operators = {'&', '|', '^', '<<', '>>'}
+    unary_operators = {'~'}
+    
+    operand_1 = int(input('First number: '))
+    operator  = input('Operator: ')
+    if operator in binary_operators:
+        operand_2 = int(input('Second number: '))
+        answer = eval(str(operand_1) + operator + str(operand_2))
+        print(f'{operand_1} {operator} {operand_2} = {answer}')
+        print(f'{nbin(operand_1)} {operator} {nbin(operand_2)} = {nbin(answer)}')
+    else:
+        answer = eval(operator + str(operand_1))
+        print(f'{operator}{operand_1} = {answer}')
+        print(f'{operator}{nbin(operand_1)} = {nbin(answer)}')
+
+
 def start():
     print(colors.green + "All Calculators", colors.reset)
     choice = int(input('''
-(1) Basic Calculator     |       (6) Randomization          
-(2) Algebra              |       (7) Stocks         
-(3) Geometry             |       (8) Restart       
-(4) Financial            |       (9) Quit         
-(5) Body Mass Index      |                  
+(1) Basic Calculator     |       (6) Randomization
+(2) Algebra              |       (7) Stocks
+(3) Geometry             |       (8) Bitwise Operations
+(4) Financial            |       (9) Restart
+(5) Body Mass Index      |       (10) Quit   
 
 Which convertion would you like to use: '''))
     print()
@@ -574,8 +592,10 @@ Which convertion would you like to use: '''))
     elif choice == 7:
         stocks()
     elif choice == 8:
-        restart.restart()
+        bitwise()
     elif choice == 9:
+        restart.restart()
+    elif choice == 10:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
