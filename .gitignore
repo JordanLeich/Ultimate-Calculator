@@ -1,5 +1,4 @@
 .idea
 __pycache__
 .pytest_cache
-modules/currency_api.py
-LICENSE
+currency_api.py

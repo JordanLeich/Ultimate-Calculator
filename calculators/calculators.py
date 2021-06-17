@@ -81,7 +81,7 @@ def basic_calc():
     continue_opt = input("Would you like to make another arithmetic calculation (yes / no): ")
     print()
     if continue_opt.lower() in ['y', 'yes']:
-        start()
+        basic_calc()
     elif continue_opt.lower() in ['n', 'no']:
         restart.restart()
     else:

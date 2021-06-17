@@ -12,19 +12,10 @@ from modules import restart, contribution, end, colors
 from gui import *
 
 
-def wrong_option():
-    print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
+def error_message():
+    print(colors.red + "Invalid Choice...\n", colors.reset)
     time.sleep(2)
     start()
-
-
-INPUT_CHOICES = {
-    1: calculators.calculators.start,
-    2: conversions.conversions.start,
-    3: contribution.start,
-    4: restart.restart,
-    5: end.end
-}
 
 
 def start():
@@ -32,16 +23,16 @@ def start():
         input('Want to run the GUI version of this project (yes / no): '))
     print()
 
-    if choice.lower() in ['y', 'yes', 'sure', 'yep']:
-        print(colors.green, 'GUI Application is now running!\n', colors.reset)
-        start_gui()
-    elif choice.lower() in ['n', 'no', 'nope', 'nah']:
-        pass
-    else:
-        wrong_option()
-
-    print(colors.green + 'All Calculators and Converters', colors.reset)
-    choice = int(input('''
+    valid_entry = False
+    while valid_entry is False:
+        if choice.lower() in ['y', 'yes', 'sure', 'yep']:
+            valid_entry = True
+            print(colors.green, 'GUI Application is now running!\n', colors.reset)
+            start_gui()
+        elif choice.lower() in ['n', 'no', 'nope', 'nah']:
+            valid_entry = True
+            print(colors.green + 'All Calculators and Converters', colors.reset)
+            choice = int(input('''
 (1) All Calculators            
 (2) All Converters
 (3) Credits
@@ -49,15 +40,22 @@ def start():
 (5) Exit             
 
 Which option would you like to use: '''))
-    print()
+            print()
 
-    if choice not in [1, 2, 3, 4, 5]:
-        wrong_option()
-
-    else:
-        # get function from dict and execute
-        # if option not found then execute wrong option function
-        INPUT_CHOICES.get(choice, 5)()
+            if choice == 1:
+                calculators.calculators.start()
+            elif choice == 2:
+                conversions.conversions.start()
+            elif choice == 3:
+                contribution.start()
+            elif choice == 4:
+                restart.restart()
+            elif choice == 5:
+                end.end()
+            else:
+                error_message()
+        else:
+            error_message()
 
 
 if __name__ == '__main__':
