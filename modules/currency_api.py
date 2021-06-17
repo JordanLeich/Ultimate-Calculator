@@ -4,7 +4,29 @@ basic currency-conversion pairings in real-time.
 MAX 100 requests/hr.
 """
 from requests import get
+import json
 import os
+
+
+def validate_key(key):
+    url = f'https://free.currconv.com/api/v7/currencies?apiKey={key}'
+    data = get(url)
+    if data.status_code == 200:
+        save_key(key)
+        return True
+    else:
+        return False
+
+
+def create_key_json():
+    with open("key.json", 'w'):
+        pass
+
+
+def save_key(key):
+    data = {'key': key}
+    with open("../key.json", "w") as outfile:
+        json.dump(data, outfile)
 
 
 def get_currency_pairs():
