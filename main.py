@@ -19,46 +19,36 @@ def error_message():
 
 
 def start():
-    choice = str(
-        input('Want to run the GUI version of this project (yes / no): '))
-    print()
-
-    valid_entry = False
-    while valid_entry is False:
-        if choice.lower() in ['y', 'yes', 'sure', 'yep']:
-            valid_entry = True
-            print(colors.green, 'GUI Application is now running!\n', colors.reset)
-            start_gui()
-        elif choice.lower() in ['n', 'no', 'nope', 'nah']:
-            valid_entry = True
-            print(colors.green + 'All Calculators and Converters', colors.reset)
-            choice = int(input('''
+    print(colors.green + 'All Calculators and Converters', colors.reset)
+    choice = int(input('''
 (1) All Calculators            
 (2) All Converters
-(3) Releases
-(4) Credits
-(5) Restart  
-(6) Exit             
+(3) GUI Version
+(4) Releases
+(5) Credits
+(6) Restart  
+(7) Exit             
 
 Which option would you like to use: '''))
-            print()
+    print()
 
-            if choice == 1:
-                calculators.calculators.start()
-            elif choice == 2:
-                conversions.conversions.start()
-            elif choice == 3:
-                release.start()
-            elif choice == 4:
-                contribution.start()
-            elif choice == 5:
-                restart.restart()
-            elif choice == 6:
-                end.end()
-            else:
-                error_message()
-        else:
-            error_message()
+    if choice == 1:
+        calculators.calculators.start()
+    elif choice == 2:
+        conversions.conversions.start()
+    elif choice == 3:
+        print(colors.green + 'GUI Application is now running!\n', colors.reset)
+        start_gui()
+    elif choice == 4:
+        release.start()
+    elif choice == 5:
+        contribution.start()
+    elif choice == 6:
+        restart.restart()
+    elif choice == 7:
+        end.end()
+    else:
+        error_message()
 
 
 if __name__ == '__main__':
