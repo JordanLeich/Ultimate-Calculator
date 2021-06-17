@@ -1403,14 +1403,45 @@ Which File convertion would you like to pick: '''))
         file_converter()
 
 
+def binary_converter():
+    choice = int(input("""(1) Binary to Decimal
+(2) Decimal to Binary
+
+Enter choice: """))
+    print()
+    binary = ""
+    if choice == 1:
+        number = int(input("Enter your whole decimal number (integer): "))
+        print()
+        while number > 1:
+            binary = str(number % 2) + binary
+            number //= 2
+        binary = str(number % 2) + binary
+        print(colors.green, 'Result:', binary, '\n', colors.reset)
+        restart.restart()
+    elif choice == 2:
+        total = 0
+        number = (input("Enter your whole binary number: "))
+        print()
+        for i in range(1, (number.__len__()) + 1):
+            if number[-i] == str(1):
+                total = total + (2 ** (i - 1))
+        print(colors.green, 'Result:', total, '\n', colors.reset)
+        restart.restart()
+    else:
+        print(colors.red + 'User input error found...\n', colors.reset)
+        time.sleep(2)
+        binary_converter()
+
+
 def start():
     print(colors.green + "All Converters", colors.reset)
     choice = int(input('''
-(1) Temperature        |       (6) Crypto            |       (11) Angle         |       (16) Restart
-(2) Mass               |       (7) Speed             |       (12) Energy        |       (17) Quit 
-(3) Length             |       (8) Digital Storage   |       (13) Fuel Economy
-(4) Volume             |       (9) Time              |       (14) Sound Frequency
-(5) Currency           |       (10) Pressure         |       (15) File     
+(1) Temperature        |       (6) Crypto            |       (11) Angle         |       (16) Binary
+(2) Mass               |       (7) Speed             |       (12) Energy        |       (17) Restart 
+(3) Length             |       (8) Digital Storage   |       (13) Fuel Economy  |       (18) Quit
+(4) Volume             |       (9) Time              |       (14) Sounds
+(5) Currency           |       (10) Pressure         |       (15) Files     
 
 Which convertion would you like to use: '''))
     print()
@@ -1446,8 +1477,10 @@ Which convertion would you like to use: '''))
     elif choice == 15:
         file_converter()
     elif choice == 16:
-        restart.restart()
+        binary_converter()
     elif choice == 17:
+        restart.restart()
+    elif choice == 18:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
