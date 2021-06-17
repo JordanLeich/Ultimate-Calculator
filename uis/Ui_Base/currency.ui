@@ -74,6 +74,11 @@
       <string>Moroccan MAD</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Indian INR</string>
+     </property>
+    </item>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
@@ -123,6 +128,11 @@
     <item>
      <property name="text">
       <string>Moroccan MAD</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Indian INR</string>
      </property>
     </item>
    </widget>

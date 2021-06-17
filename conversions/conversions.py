@@ -1,28 +1,31 @@
-from modules import restart, end, colors
 import time
-from modules.currency_api import get_currency
-from modules.tools import repeat_input
 from docx2pdf import convert
 from moviepy.editor import *
+from modules import restart, end, colors
+from modules.currency_api import get_currency
+from modules.tools import repeat_input
 
 
 def currency_converter():
+    api_key = os.environ.get('API_KEY')
     user_choice = int(
         input("""(1) US Dollar to ALL
 (2) Euro to ALL
 (3) Canadian Dollar to ALL
 (4) Japanese Yen to ALL
 (5) Moroccan MAD to ALL
+(6) Indian INR to ALL
 
 Select a currency conversion: """))
     print()
     if user_choice == 1:
         user_dollar = float(input("Dollar Amount: "))
         print()
-        d_to_e = float(user_dollar * get_currency("USD_EUR"))
-        d_to_j = float(user_dollar * get_currency("USD_JPY"))
-        d_to_c = float(user_dollar * get_currency("USD_CAD"))
-        d_to_mad = float(user_dollar * get_currency("USD_MAD"))
+        d_to_e = float(user_dollar * get_currency("USD_EUR", api_key))
+        d_to_j = float(user_dollar * get_currency("USD_JPY", api_key))
+        d_to_c = float(user_dollar * get_currency("USD_CAD", api_key))
+        d_to_mad = float(user_dollar * get_currency("USD_MAD", api_key))
+        d_to_inr = float(user_dollar * get_currency("USD_INR", api_key))
         print(colors.green, user_dollar, "in US Dollar equals",
               d_to_e, "in Euros.")
         print(colors.green, user_dollar, "in US Dollar equals",
@@ -30,15 +33,18 @@ Select a currency conversion: """))
         print(colors.green, user_dollar, "in US Dollar equals",
               d_to_c, "in Canadian Dollar.")
         print(colors.green, user_dollar, "in US Dollar equals",
-              d_to_mad, "in Moroccan MAD.\n", colors.reset)
+              d_to_mad, "in Moroccan MAD.")
+        print(colors.green, user_dollar, "in US Dollar equals",
+              d_to_inr, "in Indian INR.\n", colors.reset)
         restart.restart()
     elif user_choice == 2:
         user_euro = float(input("Euro Amount: "))
         print()
-        e_to_d = float(user_euro * get_currency("EUR_USD"))
-        e_to_j = float(user_euro * get_currency("EUR_JPY"))
-        e_to_c = float(user_euro * get_currency("EUR_CAD"))
-        e_to_mad = float(user_euro * get_currency("EUR_MAD"))
+        e_to_d = float(user_euro * get_currency("EUR_USD", api_key))
+        e_to_j = float(user_euro * get_currency("EUR_JPY", api_key))
+        e_to_c = float(user_euro * get_currency("EUR_CAD", api_key))
+        e_to_mad = float(user_euro * get_currency("EUR_MAD", api_key))
+        e_to_inr = float(user_euro * get_currency("EUR_INR", api_key))
         print(colors.green, user_euro, "in Euro equals",
               e_to_d, "in US Dollars.")
         print(colors.green, user_euro, "in Euro equals",
@@ -46,15 +52,18 @@ Select a currency conversion: """))
         print(colors.green, user_euro, "in Euro equals",
               e_to_c, "in Canadian Dollar.")
         print(colors.green, user_euro, "in Euro equals",
-              e_to_mad, "in Moroccan MAD.\n", colors.reset)
+              e_to_mad, "in Moroccan MAD.")
+        print(colors.green, user_euro, "in Euro equals",
+              e_to_inr, "in Indian INR.\n", colors.reset)
         restart.restart()
     elif user_choice == 3:
         user_canadian = float(input("Canadian Dollar Amount: "))
         print()
-        c_to_d = float(user_canadian * get_currency("CAD_USD"))
-        c_to_j = float(user_canadian * get_currency("CAD_JPY"))
-        c_to_e = float(user_canadian * get_currency("CAD_EUR"))
-        c_to_mad = float(user_canadian * get_currency("CAD_MAD"))
+        c_to_d = float(user_canadian * get_currency("CAD_USD", api_key))
+        c_to_j = float(user_canadian * get_currency("CAD_JPY", api_key))
+        c_to_e = float(user_canadian * get_currency("CAD_EUR", api_key))
+        c_to_mad = float(user_canadian * get_currency("CAD_MAD", api_key))
+        c_to_inr = float(user_canadian * get_currency("CAD_INR", api_key))
         print(colors.green, user_canadian, "in Canadian Dollar equals",
               c_to_d, "in US Dollars.")
         print(colors.green, user_canadian, "in Canadian Dollar equals",
@@ -62,15 +71,18 @@ Select a currency conversion: """))
         print(colors.green, user_canadian, "in Canadian Dollar equals",
               c_to_e, "in Euro.")
         print(colors.green, user_canadian, "in Canadian Dollar equals",
-              c_to_mad, "in Moroccan MAD.\n", colors.reset)
+              c_to_mad, "in Moroccan MAD.")
+        print(colors.green, user_canadian, "in Canadian Dollar equals",
+              c_to_inr, "in Indian INR.\n", colors.reset)
         restart.restart()
     elif user_choice == 4:
         user_yen = float(input("Japanese Yen Amount: "))
         print()
-        y_to_d = float(user_yen * get_currency("JPY_USD"))
-        y_to_e = float(user_yen * get_currency("JPY_EUR"))
-        y_to_c = float(user_yen * get_currency("JPY_CAD"))
-        y_to_mad = float(user_yen * get_currency("JPY_MAD"))
+        y_to_d = float(user_yen * get_currency("JPY_USD", api_key))
+        y_to_e = float(user_yen * get_currency("JPY_EUR", api_key))
+        y_to_c = float(user_yen * get_currency("JPY_CAD", api_key))
+        y_to_mad = float(user_yen * get_currency("JPY_MAD", api_key))
+        y_to_inr = float(user_yen * get_currency("JPY_INR", api_key))
         print(colors.green, user_yen, "in Japanese Yen equals",
               y_to_d, "in US Dollars.")
         print(colors.green, user_yen, "in Japanese Yen equals",
@@ -78,15 +90,18 @@ Select a currency conversion: """))
         print(colors.green, user_yen, "in Japanese Yen equals",
               y_to_c, "in Canadian Dollar.")
         print(colors.green, user_yen, "in Japanese Yen equals",
-              y_to_mad, "in Moroccan MAD.\n")
+              y_to_mad, "in Moroccan MAD.")
+        print(colors.green, user_yen, "in Japanese Yen equals",
+              y_to_inr, "in Indian INR.\n", colors.reset)
         restart.restart()
     elif user_choice == 5:
         user_mad = float(input("Moroccan MAD Amount: "))
         print()
-        mad_to_d = float(user_mad * get_currency("MAD_USD"))
-        mad_to_e = float(user_mad * get_currency("MAD_EUR"))
-        mad_to_c = float(user_mad * get_currency("MAD_CAD"))
-        mad_to_yen = float(user_mad * get_currency("MAD_JPY"))
+        mad_to_d = float(user_mad * get_currency("MAD_USD", api_key))
+        mad_to_e = float(user_mad * get_currency("MAD_EUR", api_key))
+        mad_to_c = float(user_mad * get_currency("MAD_CAD", api_key))
+        mad_to_yen = float(user_mad * get_currency("MAD_JPY", api_key))
+        mad_to_inr = float(user_mad * get_currency("MAD_INR", api_key))
         print(colors.green, user_mad, "in Moroccan MAD equals",
               mad_to_d, "in US Dollars.")
         print(colors.green, user_mad, "in Moroccan MAD equals",
@@ -94,9 +109,28 @@ Select a currency conversion: """))
         print(colors.green, user_mad, "in Moroccan MAD equals",
               mad_to_c, "in Canadian Dollar.")
         print(colors.green, user_mad, "in Moroccan MAD equals",
-              mad_to_yen, "in Japanese Yen.\n", colors.reset)
+              mad_to_yen, "in Japanese Yen.")
+        print(colors.green, user_mad, "in Moroccan MAD equals",
+              mad_to_inr, "in Indian INR.\n", colors.reset)
         restart.restart()
-
+    elif user_choice == 6:
+        user_inr = float(input("Indian INR Amount: "))
+        print()
+        inr_to_d = float(user_inr * get_currency("INR_USD", api_key))
+        inr_to_e = float(user_inr * get_currency("INR_EUR", api_key))
+        inr_to_c = float(user_inr * get_currency("INR_CAD", api_key))
+        inr_to_yen = float(user_inr * get_currency("INR_JPY", api_key))
+        inr_to_mad = float(user_inr * get_currency("INR_MAD", api_key))
+        print(colors.green, user_inr, "in Indian INR equals",
+              inr_to_d, "in US Dollars.")
+        print(colors.green, user_inr, "in Indian INR equals",
+              inr_to_e, "in Euros.")
+        print(colors.green, user_inr, "in Indian INR equals",
+              inr_to_c, "in Canadian Dollar.")
+        print(colors.green, user_inr, "in Indian INR equals",
+              inr_to_yen, "in Japanese Yen.")
+        print(colors.green, user_inr, "in Indian INR equals",
+              inr_to_mad, "in Moroccan MAD.\n", colors.reset)
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
         time.sleep(2)
@@ -108,7 +142,6 @@ def celsius_to_all(data):
     data = float(data)
     fahrenheit = data * 1.8 + 32
     kelvin = data + 273.15
-
     return fahrenheit, kelvin
 
 
@@ -116,7 +149,6 @@ def fahrenheit_to_all(data):
     data = float(data)
     celsius = (data - 32) * 5 / 9
     kelvin = (data - 32) * 5 / 9 + 273.15
-
     return celsius, kelvin
 
 
@@ -124,7 +156,6 @@ def kelvin_to_all(data):
     data = float(data)
     celsius = data - 273.15
     fahrenheit = (data - 273.15) * 1.8 + 32
-
     return celsius, fahrenheit
 
 
@@ -133,8 +164,7 @@ def temp_converter():
     Handles all temperature conversions here
     """
     user_choice = int(
-        input("""
-(1) Celsius to ALL
+        input("""(1) Celsius to ALL
 (2) Fahrenheit to ALL
 (3) Kelvin to ALL
 
@@ -144,29 +174,26 @@ Select a temperature conversion: """))
     if user_choice == 1:
         user_celsius = repeat_input("Celsius: ", "Invalid Number...\n", "float")
         print()
-
         fahrenheit, kelvin = celsius_to_all(user_celsius)
-        print(f"{colors.green}{user_celsius} Celsius is {fahrenheit} in Fahrenheit.")
-        print(f"{user_celsius} Celsius is {kelvin} in Kelvin. {colors.reset}\n")
+        print("{}{} Celsius is {} in Fahrenheit.".format(colors.green, user_celsius, fahrenheit))
+        print("{} Celsius is {} in Kelvin. {}\n".format(user_celsius, kelvin, colors.reset))
         restart.restart()
     elif user_choice == 2:
         user_fahrenheit = repeat_input("Fahrenheit: ", "Invalid Number...\n", "float")
         print()
-
         celsius, kelvin = fahrenheit_to_all(user_fahrenheit)
-        print(f"{colors.green}{user_fahrenheit} Fahrenheit is {celsius} in Celsius.")
-        print(f"{user_fahrenheit} Fahrenheit is {kelvin} in Kelvin. {colors.reset}\n")
+        print("{}{} Fahrenheit is {} in Celsius.".format(colors.green, user_fahrenheit, celsius))
+        print("{} Fahrenheit is {} in Kelvin. {}\n".format(user_fahrenheit, kelvin, colors.reset))
         restart.restart()
     elif user_choice == 3:
         user_kelvin = repeat_input("Kelvin: ", "Invalid Number...\n", "float")
         print()
-
         celsius, fahrenheit = kelvin_to_all(user_kelvin)
-        print(f"{colors.green}{user_kelvin} Kelvin is {celsius} in Celsius.")
-        print(f"{user_kelvin} Kelvin is {fahrenheit} in Fahrenheit. {colors.reset}\n")
+        print("{}{} Kelvin is {} in Celsius.".format(colors.green, user_kelvin, celsius))
+        print("{} Kelvin is {} in Fahrenheit. {}\n".format(user_kelvin, fahrenheit, colors.reset))
         restart.restart()
     else:
-        print(f"{colors.red}Invalid input... Restarting input choice... {colors.reset}\n")
+        print("{}Invalid input... Restarting input choice... {}\n".format(colors.red, colors.reset))
         time.sleep(2)
         temp_converter()
 
@@ -174,41 +201,33 @@ Select a temperature conversion: """))
 # Masses
 def kilograms_to_all(data):
     data = float(data)
-
     grams = data * 1000
     pounds = data * 2.205
     ounces = data * 35.274
-
     return grams, pounds, ounces
 
 
 def grams_to_all(data):
     data = float(data)
-
     kilograms = data / 1000
     pounds = data / 454
     ounces = data / 28.35
-
     return kilograms, pounds, ounces
 
 
 def pounds_to_all(data):
     data = float(data)
-
     kilograms = data / 2.205
     grams = data * 454
     ounces = data * 16
-
     return kilograms, grams, ounces
 
 
 def ounces_to_all(data):
     data = float(data)
-
     kilograms = data / 35.274
     grams = data * 28.35
     pounds = data / 16
-
     return kilograms, grams, pounds
 
 
@@ -230,36 +249,36 @@ Select a mass conversion: """))
         print()
 
         grams, pounds, ounces = kilograms_to_all(user_kilo)
-        print(f'{colors.green}{user_kilo} Kilograms is {grams} in Grams')
-        print(f'{user_kilo} Kilograms is {pounds} in Pounds')
-        print(f'{user_kilo} Kilograms is {ounces} in Ounces{colors.reset}\n')
+        print('{}{} Kilograms is {} in Grams'.format(colors.green, user_kilo, grams))
+        print('{} Kilograms is {} in Pounds'.format(user_kilo, pounds))
+        print('{} Kilograms is {} in Ounces{}\n'.format(user_kilo, ounces, colors.reset))
         restart.restart()
     elif user_choice == 2:
         user_gram = repeat_input("Grams: ", "Invalid Number...\n", "float")
         print()
 
         kilograms, pounds, ounces = grams_to_all(user_gram)
-        print(f'{colors.green}{user_gram} Grams is {kilograms} in Kilograms')
-        print(f'{user_gram} Grams is {pounds} in Pounds')
-        print(f'{user_gram} Grams is {ounces} in Ounces{colors.reset}\n')
+        print('{}{} Grams is {} in Kilograms'.format(colors.green, user_gram, kilograms))
+        print('{} Grams is {} in Pounds'.format(user_gram, pounds))
+        print('{} Grams is {} in Ounces{}\n'.format(user_gram, ounces, colors.reset))
         restart.restart()
     elif user_choice == 3:
         user_pound = repeat_input("Pounds: ", "Invalid Number...\n", 'float')
         print()
 
         kilograms, grams, ounces = pounds_to_all(user_pound)
-        print(f'{colors.green}{user_pound} Grams is {kilograms} in Kilograms')
-        print(f'{user_pound} Grams is {grams} in Grams')
-        print(f'{user_pound} Grams is {ounces} in Ounces{colors.reset}\n')
+        print('{}{} Grams is {} in Kilograms'.format(colors.green, user_pound, kilograms))
+        print('{} Grams is {} in Grams'.format(user_pound, grams))
+        print('{} Grams is {} in Ounces{}\n'.format(user_pound, ounces, colors.reset))
         restart.restart()
     elif user_choice == 4:
         user_ounce = repeat_input("Ounces: ", "Invalid Number...\n", 'float')
         print()
 
         kilograms, grams, pounds = ounces_to_all(user_ounce)
-        print(f'{colors.green}{user_ounce} Grams is {kilograms} in Kilograms')
-        print(f'{user_ounce} Grams is {grams} in Grams')
-        print(f'{user_ounce} Grams is {pounds} in Pounds{colors.reset}\n')
+        print('{}{} Grams is {} in Kilograms'.format(colors.green, user_ounce, kilograms))
+        print('{} Grams is {} in Grams'.format(user_ounce, grams))
+        print('{} Grams is {} in Pounds{}\n'.format(user_ounce, pounds, colors.reset))
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
