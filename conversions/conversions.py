@@ -142,25 +142,25 @@ Select a temperature conversion: """))
         user_celsius = repeat_input("Celsius: ", "Invalid Number...\n", "float")
         print()
         fahrenheit, kelvin = celsius_to_all(user_celsius)
-        print("{}{} Celsius is {} in Fahrenheit.".format(colors.green, user_celsius, fahrenheit))
-        print("{} Celsius is {} in Kelvin. {}\n".format(user_celsius, kelvin, colors.reset))
+        print(f"{colors.green}{user_celsius} Celsius is {fahrenheit} in Fahrenheit.")
+        print(f"{user_celsius} Celsius is {kelvin} in Kelvin. {colors.reset}\n")
         restart.restart()
     elif user_choice == 2:
         user_fahrenheit = repeat_input("Fahrenheit: ", "Invalid Number...\n", "float")
         print()
         celsius, kelvin = fahrenheit_to_all(user_fahrenheit)
-        print("{}{} Fahrenheit is {} in Celsius.".format(colors.green, user_fahrenheit, celsius))
-        print("{} Fahrenheit is {} in Kelvin. {}\n".format(user_fahrenheit, kelvin, colors.reset))
+        print(f"{colors.green}{user_fahrenheit} Fahrenheit is {celsius} in Celsius.")
+        print(f"{user_fahrenheit} Fahrenheit is {kelvin} in Kelvin. {colors.reset}\n")
         restart.restart()
     elif user_choice == 3:
         user_kelvin = repeat_input("Kelvin: ", "Invalid Number...\n", "float")
         print()
         celsius, fahrenheit = kelvin_to_all(user_kelvin)
-        print("{}{} Kelvin is {} in Celsius.".format(colors.green, user_kelvin, celsius))
-        print("{} Kelvin is {} in Fahrenheit. {}\n".format(user_kelvin, fahrenheit, colors.reset))
+        print(f"{colors.green}{user_kelvin} Kelvin is {celsius} in Celsius.")
+        print(f"{user_kelvin} Kelvin is {fahrenheit} in Fahrenheit. {colors.reset}\n")
         restart.restart()
     else:
-        print("{}Invalid input... Restarting input choice... {}\n".format(colors.red, colors.reset))
+        print(f"{colors.red}Invalid input... Restarting input choice... {colors.reset}\n")
         time.sleep(2)
         temp_converter()
 
@@ -216,36 +216,36 @@ Select a mass conversion: """))
         print()
 
         grams, pounds, ounces = kilograms_to_all(user_kilo)
-        print('{}{} Kilograms is {} in Grams'.format(colors.green, user_kilo, grams))
-        print('{} Kilograms is {} in Pounds'.format(user_kilo, pounds))
-        print('{} Kilograms is {} in Ounces{}\n'.format(user_kilo, ounces, colors.reset))
+        print(f'{colors.green}{user_kilo} Kilograms is {grams} in Grams')
+        print(f'{user_kilo} Kilograms is {pounds} in Pounds')
+        print(f'{user_kilo} Kilograms is {ounces} in Ounces{colors.reset}\n')
         restart.restart()
     elif user_choice == 2:
         user_gram = repeat_input("Grams: ", "Invalid Number...\n", "float")
         print()
 
         kilograms, pounds, ounces = grams_to_all(user_gram)
-        print('{}{} Grams is {} in Kilograms'.format(colors.green, user_gram, kilograms))
-        print('{} Grams is {} in Pounds'.format(user_gram, pounds))
-        print('{} Grams is {} in Ounces{}\n'.format(user_gram, ounces, colors.reset))
+        print(f'{colors.green}{user_gram} Grams is {kilograms} in Kilograms')
+        print(f'{user_gram} Grams is {pounds} in Pounds')
+        print(f'{user_gram} Grams is {ounces} in Ounces{colors.reset}\n')
         restart.restart()
     elif user_choice == 3:
         user_pound = repeat_input("Pounds: ", "Invalid Number...\n", 'float')
         print()
 
         kilograms, grams, ounces = pounds_to_all(user_pound)
-        print('{}{} Grams is {} in Kilograms'.format(colors.green, user_pound, kilograms))
-        print('{} Grams is {} in Grams'.format(user_pound, grams))
-        print('{} Grams is {} in Ounces{}\n'.format(user_pound, ounces, colors.reset))
+        print(f'{colors.green}{user_pound} Grams is {kilograms} in Kilograms')
+        print(f'{user_pound} Grams is {grams} in Grams')
+        print(f'{user_pound} Grams is {ounces} in Ounces{colors.reset}\n')
         restart.restart()
     elif user_choice == 4:
         user_ounce = repeat_input("Ounces: ", "Invalid Number...\n", 'float')
         print()
 
         kilograms, grams, pounds = ounces_to_all(user_ounce)
-        print('{}{} Grams is {} in Kilograms'.format(colors.green, user_ounce, kilograms))
-        print('{} Grams is {} in Grams'.format(user_ounce, grams))
-        print('{} Grams is {} in Pounds{}\n'.format(user_ounce, pounds, colors.reset))
+        print(f'{colors.green}{user_ounce} Grams is {kilograms} in Kilograms')
+        print(f'{user_ounce} Grams is {grams} in Grams')
+        print(f'{user_ounce} Grams is {pounds} in Pounds{colors.reset}\n')
         restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
@@ -1403,14 +1403,45 @@ Which File convertion would you like to pick: '''))
         file_converter()
 
 
+def binary_converter():
+    choice = int(input("""(1) Binary to Decimal
+(2) Decimal to Binary
+
+Enter choice: """))
+    print()
+    binary = ""
+    if choice == 1:
+        number = int(input("Enter your whole decimal number (integer): "))
+        print()
+        while number > 1:
+            binary = str(number % 2) + binary
+            number //= 2
+        binary = str(number % 2) + binary
+        print(colors.green, 'Result:', binary, '\n', colors.reset)
+        restart.restart()
+    elif choice == 2:
+        total = 0
+        number = (input("Enter your whole binary number: "))
+        print()
+        for i in range(1, (number.__len__()) + 1):
+            if number[-i] == str(1):
+                total = total + (2 ** (i - 1))
+        print(colors.green, 'Result:', total, '\n', colors.reset)
+        restart.restart()
+    else:
+        print(colors.red + 'User input error found...\n', colors.reset)
+        time.sleep(2)
+        binary_converter()
+
+
 def start():
     print(colors.green + "All Converters", colors.reset)
     choice = int(input('''
-(1) Temperature        |       (6) Crypto            |       (11) Angle         |       (16) Restart
-(2) Mass               |       (7) Speed             |       (12) Energy        |       (17) Quit 
-(3) Length             |       (8) Digital Storage   |       (13) Fuel Economy
-(4) Volume             |       (9) Time              |       (14) Sound Frequency
-(5) Currency           |       (10) Pressure         |       (15) File     
+(1) Temperature        |       (6) Crypto            |       (11) Angle         |       (16) Binary
+(2) Mass               |       (7) Speed             |       (12) Energy        |       (17) Restart 
+(3) Length             |       (8) Digital Storage   |       (13) Fuel Economy  |       (18) Quit
+(4) Volume             |       (9) Time              |       (14) Sounds
+(5) Currency           |       (10) Pressure         |       (15) Files     
 
 Which convertion would you like to use: '''))
     print()
@@ -1446,8 +1477,10 @@ Which convertion would you like to use: '''))
     elif choice == 15:
         file_converter()
     elif choice == 16:
-        restart.restart()
+        binary_converter()
     elif choice == 17:
+        restart.restart()
+    elif choice == 18:
         end.end()
     else:
         print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)

@@ -8,7 +8,7 @@
 import calculators.calculators
 import conversions.conversions
 import time
-from modules import restart, contribution, end, colors
+from modules import restart, contribution, end, colors, release
 from gui import *
 
 
@@ -35,9 +35,10 @@ def start():
             choice = int(input('''
 (1) All Calculators            
 (2) All Converters
-(3) Credits
-(4) Restart  
-(5) Exit             
+(3) Releases
+(4) Credits
+(5) Restart  
+(6) Exit             
 
 Which option would you like to use: '''))
             print()
@@ -47,10 +48,12 @@ Which option would you like to use: '''))
             elif choice == 2:
                 conversions.conversions.start()
             elif choice == 3:
-                contribution.start()
+                release.start()
             elif choice == 4:
-                restart.restart()
+                contribution.start()
             elif choice == 5:
+                restart.restart()
+            elif choice == 6:
                 end.end()
             else:
                 error_message()
