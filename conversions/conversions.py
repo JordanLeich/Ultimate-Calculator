@@ -1,4 +1,6 @@
 import time
+import winsound
+
 from docx2pdf import convert
 from moviepy.editor import *
 from modules import restart, end, colors
@@ -1406,8 +1408,9 @@ Which File convertion would you like to pick: '''))
 def binary_converter():
     choice = int(input("""(1) Binary to Decimal
 (2) Decimal to Binary
+(3) Binary to Sound
 
-Enter choice: """))
+Which Binary conversion would you like to use: """))
     print()
     binary = ""
     if choice == 1:
@@ -1428,6 +1431,23 @@ Enter choice: """))
                 total = total + (2 ** (i - 1))
         print(colors.green, 'Result:', total, '\n', colors.reset)
         restart.restart()
+    elif choice == 3:
+        binary = input("Binary input: ")
+        print()
+        for i in binary:
+            if i == "0":
+                winsound.Beep(2000, 100)
+                print(colors.green + 'Sound played!\n', colors.reset)
+                restart.restart()
+            elif i == "1":
+                winsound.Beep(4000, 100)
+                print(colors.green + 'Sound played!\n', colors.reset)
+                restart.restart()
+            else:
+                print(colors.red + "User input error found... Please only use 0 or 1 as an input choice...\n",
+                      colors.reset)
+                time.sleep(2)
+                binary_converter()
     else:
         print(colors.red + 'User input error found...\n', colors.reset)
         time.sleep(2)
