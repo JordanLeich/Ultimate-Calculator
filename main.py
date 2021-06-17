@@ -5,10 +5,11 @@
 
 
 # Imports
-from modules import restart, contribution, end, colors, release
 import calculators.calculators
 import conversions.conversions
 import time
+from modules import restart, contribution, end, colors, release
+from modules.currency_api import create_key_json
 from gui import *
 
 
@@ -59,4 +60,5 @@ Which option would you like to use: '''))
 
 
 if __name__ == '__main__':
+    create_key_json()
     start()

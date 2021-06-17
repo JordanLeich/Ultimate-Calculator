@@ -8,12 +8,15 @@ except:
 from docx2pdf import convert
 from moviepy.editor import *
 from modules import restart, end, colors
-from modules.currency_api import get_currency
+from modules.currency_api import get_currency, validate_key
 from modules.tools import repeat_input
+import json
 
 
 def currency_converter():
-    api_key = os.environ.get('API_KEY')
+    with open("../key.json", 'r') as json_file:
+        data = json.load(json_file)
+        api_key = data["key"]
     user_choice = int(
         input("""(1) US Dollar to ALL
 (2) Euro to ALL
@@ -1469,7 +1472,7 @@ def start():
 (4) Volume             |       (9) Time              |       (14) Sounds
 (5) Currency           |       (10) Pressure         |       (15) Files     
 
-Which convertion would you like to use: '''))
+Which conversion would you like to use: '''))
     print()
 
     if choice == 1:
@@ -1481,7 +1484,16 @@ Which convertion would you like to use: '''))
     elif choice == 4:
         volume_converter()
     elif choice == 5:
-        currency_converter()
+        print("""To Use The Currency Conversion an API Key is Required
+Visit www.currencyconverterapi.com And Follow The Steps To Get an API Key.\n""")
+        key = input("API Key: ")
+
+        if validate_key(key):
+            currency_converter()
+        else:
+            print("Invalid Key")
+            start()
+
     elif choice == 6:
         crypto_converter()
     elif choice == 7:
