@@ -1,6 +1,5 @@
 from modules import restart, end, colors
 import time
-from modules.currency_api import get_currency
 from modules.tools import repeat_input
 from docx2pdf import convert
 from moviepy.editor import *

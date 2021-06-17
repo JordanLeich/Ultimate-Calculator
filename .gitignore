@@ -1,4 +1,3 @@
 .idea
 __pycache__
 .pytest_cache
-currency_api.py
