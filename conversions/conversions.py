@@ -1,5 +1,10 @@
 import time
 import winsound
+try:
+    import winsound
+    windows = True
+except:
+    linux = True
 
 from docx2pdf import convert
 from moviepy.editor import *
@@ -1436,11 +1441,13 @@ Which Binary conversion would you like to use: """))
         print()
         for i in binary:
             if i == "0":
-                winsound.Beep(2000, 100)
+                if windows:
+                    winsound.Beep(2000, 100)
                 print(colors.green + 'Sound played!\n', colors.reset)
                 restart.restart()
             elif i == "1":
-                winsound.Beep(4000, 100)
+                if windows:
+                    winsound.Beep(4000, 100)
                 print(colors.green + 'Sound played!\n', colors.reset)
                 restart.restart()
             else:
