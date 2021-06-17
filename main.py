@@ -5,10 +5,10 @@
 
 
 # Imports
+from modules import restart, contribution, end, colors, release
 import calculators.calculators
 import conversions.conversions
 import time
-from modules import restart, contribution, end, colors, release
 from gui import *
 
 

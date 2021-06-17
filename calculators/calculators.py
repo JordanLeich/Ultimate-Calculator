@@ -506,12 +506,12 @@ Which calculation would you like to perform: """))
 
 
 def bitwise():
-    nbin = lambda x: bin(x)[2:] if x >=0 else '-' + bin(x)[3:]
+    nbin = lambda x: bin(x)[2:] if x >= 0 else '-' + bin(x)[3:]
     binary_operators = {'&', '|', '^', '<<', '>>'}
     unary_operators = {'~'}
-    
+
     operand_1 = int(input('First number: '))
-    operator  = input('Operator: ')
+    operator = input('Operator: ')
     if operator in binary_operators:
         operand_2 = int(input('Second number: '))
         answer = eval(str(operand_1) + operator + str(operand_2))
