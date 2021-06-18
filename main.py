@@ -10,6 +10,7 @@ import conversions.conversions
 import time
 from modules import restart, contribution, end, colors, release
 from modules.currency_api import create_key_json
+from modules.errors import Restart, Exit
 from gui import *
 
 
@@ -27,36 +28,38 @@ def start():
 This is the first user input choice an end-user would receive, this is a main ui hub to access all the other areas of
 this project.
     """
-    print(colors.green + 'All Calculators and Converters', colors.reset)
-    choice = int(input('''
-(1) All Calculators            
+    while True:
+        print(colors.green + 'All Calculators and Converters', colors.reset)
+        choice = int(input('''
+(1) All Calculators
 (2) All Converters
 (3) GUI Version
 (4) Releases
 (5) Credits
-(6) Restart  
-(7) Exit             
+(6) Exit
 
 Which option would you like to use: '''))
-    print()
+        print()
 
-    if choice == 1:
-        calculators.calculators.start()
-    elif choice == 2:
-        conversions.conversions.start()
-    elif choice == 3:
-        print(colors.green + 'GUI Application is now running!\n', colors.reset)
-        start_gui()
-    elif choice == 4:
-        release.start()
-    elif choice == 5:
-        contribution.start()
-    elif choice == 6:
-        restart.restart()
-    elif choice == 7:
-        end.end()
-    else:
-        error_message()
+        if choice == 1:
+            try:
+                calculators.calculators.start()
+            except Exit:
+                break
+        elif choice == 2:
+            conversions.conversions.start()
+        elif choice == 3:
+            print(colors.green + 'GUI Application is now running!\n', colors.reset)
+            start_gui()
+        elif choice == 4:
+            release.start()
+        elif choice == 5:
+            contribution.start()
+        elif choice == 6:
+            break
+        else:
+            error_message()
+    print('Exiting...')
 
 
 if __name__ == '__main__':

@@ -1,50 +1,36 @@
 import math
 import random
-import time
 from modules.tools import repeat_input
-from modules import restart, end, colors
+from modules import colors
+from modules.errors import Exit
 
 
 # Entire operation
 def basic_calc():
     history = []
+    print("Use '--help' for help")
     while True:
         calculation = input("Your Calculation: ")
         if calculation == "--help":
             print("""
 --help: list of commands
 --history: past calculations
---calculators: back to calculator list 
+--exit: return to list of calculators
             """)
-            continue
         elif calculation == "--history":
             for i in history:
                 print(i)
-            continue
+        elif calculation == "--exit":
+            break
+        else:
+            try:
+                answer = eval(calculation)
+                print(answer)
+                history.append(f"{calculation} = {answer}")
 
-        elif calculation == "--calculators":  # --exit, --end, --main Other command names
-            start()
-
-        try:
-            answer = eval(calculation)
-            print(answer)
-            history.append(f"{calculation} = {answer}")
-
-        except SyntaxError:
-            print("Calculation Error")
-            continue
-
-    continue_opt = input("Would you like to make another arithmetic calculation (yes / no): ")
-    print()
-
-    if continue_opt.lower() in ['y', 'yes']:
-        basic_calc()
-    elif continue_opt.lower() in ['n', 'no']:
-        restart.restart()
-    else:
-        print(colors.red + 'User input error found...\n', colors.reset)
-        time.sleep(2)
-        restart.restart()
+            except SyntaxError:
+                print("Calculation Error")
+                continue
 
 
 def find_slope1(y2, y1, x2, x1):
@@ -112,213 +98,178 @@ def find_midpoint(x1, y1, x2, y2):
 
 
 def algebra():
-    choice = int(input('''
+    while True:
+        choice = int(input('''
 (1) Find Slope (Rise Over Run)
 (2) Find Slope Intercept (y=mx+b)
 (3) Find Pythagorean Theorem
 (4) Find The Distance Between Two Points
 (5) Find The Midpoint of a Line
-(6) Restart
+(6) Return to list of calculators
 (7) Quit
 
 What calculation would you like to perform: '''))
-    print()
-
-    if choice == 1:
-        float_error = "Invalid Number...\n"
-        y2 = repeat_input("What is your Y2 value: ", float_error, "float")
-        y1 = repeat_input("What is your Y1 value: ", float_error, "float")
-        x2 = repeat_input("What is your X2 value: ", float_error, "float")
-        x1 = repeat_input("What is your X1 value: ", float_error, "float")
         print()
-        result = find_slope1(y2, y1, x2, x1)
-        print(colors.green + 'Slope:', result, '\n', colors.reset)
-        restart.restart()
 
-    elif choice == 2:
-        m = repeat_input('What is your M value: ', "Invalid Number...\n", "float")
-        x = repeat_input('What is your X value: ', "Invalid Number...\n", "float")
-        b = repeat_input('What is your B value: ', "Invalid Number...\n", "float")
-        print()
-        result = find_slope2(m, x, b)
-        print(colors.green + 'Result:', result, '\n', colors.reset)
-        restart.restart()
-
-    elif choice == 3:
-        while True:
-            formula = input('Which side (a, b, c) do you wish to calculate: ')
+        if choice == 1:
+            float_error = "Invalid Number...\n"
+            y2 = repeat_input("What is your Y2 value: ", float_error, "float")
+            y1 = repeat_input("What is your Y1 value: ", float_error, "float")
+            x2 = repeat_input("What is your X2 value: ", float_error, "float")
+            x1 = repeat_input("What is your X1 value: ", float_error, "float")
             print()
-            if formula in ['a', 'b', 'c']:
-                break
-            print(colors.red + 'User input error found...\n', colors.reset)
+            result = find_slope1(y2, y1, x2, x1)
+            print(colors.green + 'Slope:', result, '\n', colors.reset)
 
-        if formula.lower() == 'a':
-            b = repeat_input('Input the length of side b: ', "Invalid Number...\n", 'float')
-            c = repeat_input('Input the length of side c: ', "Invalid Number...\n", 'float')
+        elif choice == 2:
+            m = repeat_input('What is your M value: ', "Invalid Number...\n", "float")
+            x = repeat_input('What is your X value: ', "Invalid Number...\n", "float")
+            b = repeat_input('What is your B value: ', "Invalid Number...\n", "float")
             print()
-            result = find_pythagorean(formula, b=b, c=c)
-            print(colors.green + 'The length of side a is:', result, '\n', colors.reset)
-            restart.restart()
+            result = find_slope2(m, x, b)
+            print(colors.green + 'Result:', result, '\n', colors.reset)
 
-        elif formula.lower() == 'b':
-            a = repeat_input('Input the length of side a: ', "Invalid Number...\n", 'float')
-            c = repeat_input('Input the length of side c: ', "Invalid Number...\n", 'float')
+        elif choice == 3:
+            formula = repeat_input('Which side (a, b, c) do you wish to calculate: ',
+                                   'Invalid Side...\n',
+                                   custom_validation=lambda i: i in ('a', 'b', 'c')
+                                   )
+
+            if formula == 'a':
+                b = repeat_input('Input the length of side b: ', "Invalid Number...\n", 'float')
+                c = repeat_input('Input the length of side c: ', "Invalid Number...\n", 'float')
+                print()
+                result = find_pythagorean(formula, b=b, c=c)
+                print(colors.green + 'The length of side a is:', result, '\n', colors.reset)
+
+            elif formula == 'b':
+                a = repeat_input('Input the length of side a: ', "Invalid Number...\n", 'float')
+                c = repeat_input('Input the length of side c: ', "Invalid Number...\n", 'float')
+                print()
+                result = find_pythagorean(formula, a=a, c=c)
+                print(colors.green + 'The length of side b is:', result, '\n', colors.reset)
+
+            elif formula == 'c':
+                a = repeat_input('Input the length of side a: ', "Invalid Number...\n", 'float')
+                b = repeat_input('Input the length of side b: ', "Invalid Number...\n", 'float')
+                print()
+                result = find_pythagorean(formula, a=a, b=b)
+                print(colors.green + 'The length of side c is:', result, '\n', colors.reset)
+
+        elif choice == 4:
+            x1 = repeat_input('x1 Value: ', "Invalid Number...\n", "float")
+            y1 = repeat_input('y1 Value: ', "Invalid Number...\n", "float")
+            x2 = repeat_input('x2 Value: ', "Invalid Number...\n", "float")
+            y2 = repeat_input('y2 Value: ', "Invalid Number...\n", "float")
             print()
-            result = find_pythagorean(formula, a=a, c=c)
-            print(colors.green + 'The length of side b is:', result, '\n', colors.reset)
-            restart.restart()
+            distance = find_distance(x1, y1, x2, y2)
+            print(colors.green + "The distance between the two points is", distance, '\n', colors.reset)
 
-        elif formula.lower() == 'c':
-            a = repeat_input('Input the length of side a: ', "Invalid Number...\n", 'float')
-            b = repeat_input('Input the length of side b: ', "Invalid Number...\n", 'float')
+        elif choice == 5:
+            x1 = repeat_input('The value of x1: ', "Invalid Number...\n", "float")
+            y1 = repeat_input('The value of y1: ', "Invalid Number...\n", "float")
+            x2 = repeat_input('The value of x2: ', "Invalid Number...\n", "float")
+            y2 = repeat_input('The value of y2: ', "Invalid Number...\n", "float")
             print()
-            result = find_pythagorean(formula, a=a, b=b)
-            print(colors.green + 'The length of side c is:', result, '\n', colors.reset)
-            restart.restart()
+            midpoint = find_midpoint(x1, y1, x2, y2)
+            x_m_point = midpoint[0]
+            y_m_point = midpoint[1]
 
-    elif choice == 4:
-        x1 = repeat_input('x1 Value: ', "Invalid Number...\n", "float")
-        y1 = repeat_input('y1 Value: ', "Invalid Number...\n", "float")
-        x2 = repeat_input('x2 Value: ', "Invalid Number...\n", "float")
-        y2 = repeat_input('y2 Value: ', "Invalid Number...\n", "float")
-        print()
-        distance = find_distance(x1, y1, x2, y2)
-        print(colors.green + "The distance between the two points is", distance, '\n', colors.reset)
-        restart.restart()
+            print(colors.green + "The midpoint's x value is:", x_m_point)
+            print("The midpoint's y value is:", y_m_point, '\n', colors.reset)
 
-    elif choice == 5:
-        x1 = repeat_input('The value of x1: ', "Invalid Number...\n", "float")
-        y1 = repeat_input('The value of y1: ', "Invalid Number...\n", "float")
-        x2 = repeat_input('The value of x2: ', "Invalid Number...\n", "float")
-        y2 = repeat_input('The value of y2: ', "Invalid Number...\n", "float")
-        print()
-        midpoint = find_midpoint(x1, y1, x2, y2)
-        x_m_point = midpoint[0]
-        y_m_point = midpoint[1]
+        elif choice == 6:
+            break
 
-        print(colors.green + "The midpoint's x value is:", x_m_point)
-        print("The midpoint's y value is:", y_m_point, '\n', colors.reset)
-        restart.restart()
+        elif choice == 7:
+            raise Exit
 
-    elif choice == 6:
-        restart.restart()
-
-    elif choice == 7:
-        end.end()
-
-    else:
-        print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
-        start()
+        else:
+            print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
 
 
 def payroll():
-    weekly = float(input("How much money do you make weekly: "))
-    print()
+    weekly = float(repeat_input('How much money do you make weekly: ',
+                                'Salary must be above 0',
+                                'float',
+                                lambda i: i > 0
+                                ))
 
-    if weekly <= 0:
-        print(
-            colors.red + "Please select a valid positive salary, having a salary below or equal to 0 is not possible.",
-            colors.reset)
-        time.sleep(2)
-        payroll()
+    bi_weekly = weekly * 2
+    monthly = weekly * 4
+    semi_annual = monthly * 6
+    annual = monthly * 12
+    decade = annual * 10
 
-    else:
-        bi_weekly = weekly * 2
-        monthly = weekly * 4
-        semi_annual = monthly * 6
-        annual = monthly * 12
-        decade = annual * 10
-        print(colors.green + "Weekly Pay:", weekly)
-        print(colors.green + "Bi-Weekly Pay:", bi_weekly)
-        print(colors.green + "Monthly Pay:", monthly)
-        print(colors.green + "Semi-Annual Pay:", semi_annual)
-        print(colors.green + "Annual Pay:", annual)
-        print(colors.green + "Decade (10 Years) Pay:", decade, '\n', colors.reset)
-        time.sleep(1)
-        restart.restart()
+    print(colors.green + "Weekly Pay:", weekly)
+    print(colors.green + "Bi-Weekly Pay:", bi_weekly)
+    print(colors.green + "Monthly Pay:", monthly)
+    print(colors.green + "Semi-Annual Pay:", semi_annual)
+    print(colors.green + "Annual Pay:", annual)
+    print(colors.green + "Decade (10 Years) Pay:", decade, '\n', colors.reset)
 
 
 def tipping():
-    total_bill = float(input("How much is your total bill: "))
-    print()
-    people_number = int(input("How many people: "))
+    total_bill = float(repeat_input('How much is your total bill: ', 'Bill must be above 0', 'float', lambda i: i > 0))
+    people_number = int(repeat_input("How many people: ", 'Number of people must be above 0', 'int', lambda i: i > 0))
 
-    if total_bill <= 0:
-        print(
-            colors.red + "Please select a valid positive bill amount, having a bill amount below or equal to 0 is not "
-                         "possible.", colors.reset)
-        time.sleep(2)
-        tipping()
+    five_percent = total_bill * 0.05 / people_number
+    ten_percent = total_bill * 0.10 / people_number
+    fifteen_percent = total_bill * 0.15 / people_number
+    twenty_percent = total_bill * 0.20 / people_number
+    twenty_five_percent = total_bill * 0.25 / people_number
 
-    elif people_number <= 0:
-        print(
-            colors.red + "Please select a valid positive amount of people, having an amount of people below or equal "
-                         "to 0 is not possible.", colors.reset)
-        time.sleep(2)
-        tipping()
-
-    else:
-        five_percent = total_bill * 0.05 / people_number
-        ten_percent = total_bill * 0.10 / people_number
-        fifteen_percent = total_bill * 0.15 / people_number
-        twenty_percent = total_bill * 0.20 / people_number
-        twenty_five_percent = total_bill * 0.25 / people_number
-        print(colors.green + "5 Percent Tip Per Person:", five_percent)
-        print(colors.green + "10 Percent Tip Per Person:", ten_percent)
-        print(colors.green + "15 Percent Tip Per Person:", fifteen_percent)
-        print(colors.green + "20 Percent Tip Per Person:", twenty_percent)
-        print(colors.green + "25 Percent Tip Per Person:", twenty_five_percent, '\n', colors.reset)
-        time.sleep(1)
-        restart.restart()
+    print(colors.green + "5 Percent Tip Per Person:", five_percent)
+    print(colors.green + "10 Percent Tip Per Person:", ten_percent)
+    print(colors.green + "15 Percent Tip Per Person:", fifteen_percent)
+    print(colors.green + "20 Percent Tip Per Person:", twenty_percent)
+    print(colors.green + "25 Percent Tip Per Person:", twenty_five_percent, '\n', colors.reset)
 
 
 def interest():
-    principal = float(input("How much money do you currently have in the bank: "))
-    rate = float(input("What is your interest rate: "))
+    principal = repeat_input('How much money do you currently have in the bank: ',
+                             'Amount of money must be a valid number',
+                             'int')
+    rate = repeat_input('What is your interest rate: ',
+                        'Interest rate must be greater than zero',
+                        'float',
+                        lambda i: i > 0
+                        )
+    years = repeat_input('Over how many years is the interest compounded: ',
+                         'Number of years must be above 0',
+                         'int',
+                         )
 
-    if rate <= 0:
-        print(colors.red, 'You cannot have a rate less than or equal to 0!', colors.reset, '\n')
-        time.sleep(2)
-        interest()
+    print()
+    actual_principal = float(principal)
+    actual_rate = float(rate)
+    actual_time = int(years)
 
-    else:
-        years = int(input("Over how many years is the interest compounded: "))
-
-        if years <= 0:
-            print(colors.red, 'You cannot have a yearly compound interest timeline that is less than or equal to 0!',
-                  colors.reset, '\n')
-            time.sleep(2)
-            interest()
-
-        else:
-            print()
-            actual_principal = float(principal)
-            actual_rate = float(rate)
-            actual_time = int(years)
-            A = math.pow((1 + actual_rate), actual_time)
-            B = actual_principal * A
-            print(colors.green, 'Your Balance After Compound Interest:', B, '\n', colors.reset)
-            restart.restart()
+    A = math.pow((1 + actual_rate), actual_time)
+    B = actual_principal * A
+    print(colors.green, 'Your Balance After Compound Interest:', B, '\n', colors.reset)
 
 
 def financial():
-    choice = int(input("""(1) Payroll Calculator
+    while True:
+        choice = int(input("""(1) Payroll Calculator
 (2) Restaurant Tip Calculator
 (3) Compound Interest Calculator
+(4) Return to list of calculators
 
 Which calculation would you like to perform: """))
-    print()
+        print()
 
-    if choice == 1:
-        payroll()
-    elif choice == 2:
-        tipping()
-    elif choice == 3:
-        interest()
-    else:
-        print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
-        time.sleep(1)
-        financial()
+        if choice == 1:
+            payroll()
+        elif choice == 2:
+            tipping()
+        elif choice == 3:
+            interest()
+        elif choice == 4:
+            break
+        else:
+            print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
 
 
 def bmi():
@@ -328,126 +279,110 @@ Underweight = <18.5
 Normal weight = 18.5–24.9
 Overweight = 25–29.9
 Obesity = BMI of 30 or greater.\n''', colors.reset)
-    cm = int(repeat_input("Height (Centimeters): ", "Invalid Height...\n", "float"))
+    cm = int(repeat_input("Height (Centimeters): ", "Invalid Height...\n", "float", lambda i: i > 0))
+    kg = int(repeat_input("Weight (Kilograms): ", "Invalid Weight...\n", "float", lambda i: i > 0))
     print()
-    kg = int(repeat_input("Weight (Kilograms): ", "Invalid Weight...\n", "float"))
-    print()
-    if cm <= 0:
-        print(colors.red + 'Error: Height Must Be More Than 0', colors.reset)
-        time.sleep(2)
-        bmi()
-    elif kg <= 0:
-        print(colors.red + 'Error: Weight Must Be More Than 0', colors.reset)
-        time.sleep(2)
-        bmi()
+
     formula = kg / (cm * cm) * 10000
-    scale = str
     if formula <= 18.5:
         scale = 'Underweight'
     elif 18.6 <= formula <= 24.9:
         scale = 'Normal Weight'
     elif 25 <= formula <= 29.9:
         scale = 'Overweight'
-    elif formula >= 30:
+    else:
         scale = 'Obese'
     print(colors.green, 'Your BMI Measurement is:', formula, scale, colors.reset, '\n')
-    time.sleep(1)
-    restart.restart()
 
 
 def geometry():
-    choice = int(input('''(1) Find Area
+    while True:
+        choice = int(input('''(1) Find Area
 (2) Find Circumference
 (3) Find Perimeter
 (4) Find Volume
+(5) Return to list of calculations
 
 Which Geometry calculator would you like to use: '''))
-    print()
+        print()
 
-    if choice == 1:
-        choice = int(input('''(1) Area of a Rectangle
+        if choice == 1:
+            choice = int(input('''(1) Area of a Rectangle
 (2) Area of a Circle
 
 Which Shape would you like to solve the area for: '''))
-        print()
+            print()
 
-        if choice == 1:
-            length = float(input('Length: '))
-            width = float(input('Width: '))
-            print()
-            area = length * width
-            print(colors.green, "Area of a Rectangle:", area, colors.reset, '\n')
-            restart.restart()
+            if choice == 1:
+                length = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: i >= 0))
+                width = float(repeat_input('Width: ', 'Width must be positive', 'float', lambda i: i >= 0))
+                print()
+                area = length * width
+                print(colors.green, "Area of a Rectangle:", area, colors.reset, '\n')
+            elif choice == 2:
+                radius = float(repeat_input('Radius: ', 'Radius must be positive', 'float', lambda i: i >= 0))
+                print()
+                area = math.pi * radius * radius
+                print(colors.green, "Area of a Circle:", area, colors.reset, '\n')
+            else:
+                print(colors.red + "User input error found...\n", colors.reset)
+
         elif choice == 2:
-            radius = float(input('Radius: '))
+            radius = float(repeat_input('Radius: ', 'Radius must be positive', 'float', lambda i: i >= 0))
             print()
-            area = math.pi * radius * radius
-            print(colors.green, "Area of a Circle:", area, colors.reset, '\n')
-            restart.restart()
-        else:
-            print(colors.red + "User input error found...\n", colors.reset)
-            time.sleep(2)
-            geometry()
-    elif choice == 2:
-        radius = float(input('Radius: '))
-        print()
-        circumference = 2 * math.pi * radius
-        print(colors.green, "Circumference:", circumference, colors.reset, '\n')
-        restart.restart()
-    elif choice == 3:
-        a = float(input('A: '))
-        b = float(input('B: '))
-        c = float(input('C: '))
-        print()
-        perimeter = a + b + c
-        print(colors.green, "Perimeter:", perimeter, colors.reset, '\n')
-        restart.restart()
-    elif choice == 4:
-        choice = int(input('''(1) Volume of a Cube
+            circumference = 2 * math.pi * radius
+            print(colors.green, "Circumference:", circumference, colors.reset, '\n')
+
+        elif choice == 3:
+            a = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: i >= 0))
+            b = float(repeat_input('Width: ', 'Width must be positive', 'float', lambda i: i >= 0))
+            c = float(repeat_input('Height: ', 'Height must be positive', 'float', lambda i: i >= 0))
+            print()
+            perimeter = a + b + c
+            print(colors.green, "Perimeter:", perimeter, colors.reset, '\n')
+
+        elif choice == 4:
+            choice = int(input('''(1) Volume of a Cube
 (2) Volume of a Right Rectangular Prism
-(3) Volume of a Prism or Cylinder
+(3) Volume of a Cylinder
 
 Which Shape would you like to solve the volume for: '''))
-        print()
+            print()
 
-        if choice == 1:
-            side = float(input('Length of the Side: '))
-            print()
-            volume = side * side * side
-            print(colors.green, "Volume:", volume, colors.reset, '\n')
-            restart.restart()
-        elif choice == 2:
-            length = float(input('Length: '))
-            width = float(input('Width: '))
-            height = float(input('Height: '))
-            print()
-            volume = length * width * height
-            print(colors.green, "Volume:", volume, colors.reset, '\n')
-            restart.restart()
-        elif choice == 3:
-            area = float(input('Area / Base / Radius: '))
-            height = float(input('Height: '))
-            print()
-            volume = math.pi * area * area * height
-            print(colors.green, "Volume:", volume, colors.reset, '\n')
-            restart.restart()
+            if choice == 1:
+                side = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: i >= 0))
+                print()
+                volume = side * side * side
+                print(colors.green, "Volume:", volume, colors.reset, '\n')
+            elif choice == 2:
+                length = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: i >= 0))
+                width = float(repeat_input('Width: ', 'Width must be positive', 'float', lambda i: i >= 0))
+                height = float(repeat_input('Height: ', 'Height must be positive', 'float', lambda i: i >= 0))
+                print()
+                volume = length * width * height
+                print(colors.green, "Volume:", volume, colors.reset, '\n')
+            elif choice == 3:
+                area = float(repeat_input('Radius: ', 'Radius must be positive', 'float', lambda i: i >= 0))
+                height = float(repeat_input('Height: ', 'Height must be positive', 'float', lambda i: i >= 0))
+                print()
+                volume = math.pi * area * area * height
+                print(colors.green, "Volume:", volume, colors.reset, '\n')
+            else:
+                print(colors.red + "User input error found...\n", colors.reset)
+
+        elif choice == 5:
+            break
+
         else:
             print(colors.red + "User input error found...\n", colors.reset)
-            time.sleep(2)
-            geometry()
-
-    else:
-        print(colors.red + "User input error found...\n", colors.reset)
-        time.sleep(2)
-        geometry()
 
 
 def stocks():
-    user_shares = float(input('Number of Shares: '))
-    user_purchase_price = float(input('Purchase Price ($): '))
-    user_sell_price = float(input('Sell Price ($): '))
-    user_buy_commission = float(input('Buy Commission (if none, put 0): '))
-    user_sell_commission = float(input('Sell Commission (if none, put 0): '))
+    user_shares = float(repeat_input('Number of Shares: ', 'Must be positive', 'float', lambda i: i > 0))
+    user_purchase_price = float(repeat_input('Purchase Price ($): ', 'Must be positive', 'float', lambda i: i > 0))
+    user_sell_price = float(repeat_input('Sell Price ($): ', 'Must be positive', 'float', lambda i: i > 0))
+    user_buy_commission = float(repeat_input('Buy Commission (if none, put 0): ', 'Must be positive', 'float', lambda i: i > 0))
+    user_sell_commission = float(repeat_input('Sell Commission (if none, put 0): ', 'Must be positive', 'float', lambda i: i > 0))
     print()
     results(user_shares, user_sell_commission, user_buy_commission,
             user_sell_price, user_purchase_price)
@@ -459,105 +394,106 @@ def results(user_shares, user_sell_commission, user_buy_commission, user_sell_pr
 
     print(colors.green + 'Profit gain/loss:',
           user_gain_loss, 'Dollars.', colors.reset, '\n')
-    restart.restart()
 
 
 def random_number():
-    start_number = int(input('Pick a starting number: '))
-    end_number = int(input('Pick a ending number: '))
+    start_number = int(repeat_input('Pick a starting number: ', 'Must be a number', 'int'))
+    end_number = int(repeat_input('Pick a ending number: ', 'Must be a number', 'int'))
     print()
     number = random.randint(start_number, end_number)
     print(colors.green, 'Your random generated number:', number, '\n', colors.reset)
-    restart.restart()
 
 
 def heads_or_tails():
-    choice = input('Pick heads or tails: ')
-    print()
+    choice = repeat_input('Pick heads or tails: ',
+                          'Invalid choice',
+                          custom_validation=lambda i: i in ['heads', 'h', 't', 'tails', 'tail', 'head']
+                          )
 
-    if choice.lower() not in ['heads', 'h', 't', 'tails', 'tail', 'head']:
-        print(colors.red, 'User input error found! Restarting heads or tails...')
-        time.sleep(2)
-        heads_or_tails()
-
-    else:
-        coin_flip = ['heads', 'tails']
-        print('You have picked:', choice)
-        print('The coin flip landed on:', random.choice(coin_flip), '\n')
-        restart.restart()
+    coin_flip = ['heads', 'tails']
+    print('You have picked:', choice)
+    print('The coin flip landed on:', random.choice(coin_flip), '\n')
 
 
 def randomization():
-    choice = int(input("""(1) Random Number Generator
+    while True:
+        choice = int(input("""(1) Random Number Generator
 (2) Heads or Tails 
+(3) Exit
 
 Which calculation would you like to perform: """))
-    print()
+        print()
 
-    if choice == 1:
-        random_number()
-    elif choice == 2:
-        heads_or_tails()
-    else:
-        print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
-        time.sleep(1)
-        randomization()
+        if choice == 1:
+            random_number()
+        elif choice == 2:
+            heads_or_tails()
+        elif choice == 3:
+            break
+        else:
+            print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
 
 
 def bitwise():
+    # Turns the result from bin into something nice
     nbin = lambda x: bin(x)[2:] if x >= 0 else '-' + bin(x)[3:]
     binary_operators = {'&', '|', '^', '<<', '>>'}
     unary_operators = {'~'}
 
-    operand_1 = int(input('First number: '))
-    operator = input('Operator: ')
+    operand_1 = int(repeat_input('First number: ', 'Must be an integer', 'int'))
+    operator = repeat_input('Operator: ',
+                            'Must be a bitwise operator',
+                            custom_validation=lambda i: i in binary_operators | unary_operators
+                            )
+
     if operator in binary_operators:
-        operand_2 = int(input('Second number: '))
+        operand_2 = int(repeat_input('Second number: ', 'Must be an integer', 'int'))
         answer = eval(str(operand_1) + operator + str(operand_2))
+
         print(f'{operand_1} {operator} {operand_2} = {answer}')
         print(f'{nbin(operand_1)} {operator} {nbin(operand_2)} = {nbin(answer)}')
     else:
         answer = eval(operator + str(operand_1))
+
         print(f'{operator}{operand_1} = {answer}')
         print(f'{operator}{nbin(operand_1)} = {nbin(answer)}')
 
 
 def start():
-    print(colors.green + "All Calculators", colors.reset)
-    choice = int(input('''
+    while True:
+        print(colors.green + "All Calculators", colors.reset)
+        choice = int(input('''
 (1) Basic Calculator     |       (6) Randomization
 (2) Algebra              |       (7) Stocks
 (3) Geometry             |       (8) Bitwise Operations
-(4) Financial            |       (9) Restart
-(5) Body Mass Index      |       (10) Quit   
+(4) Financial            |       (9) Return to main menu
+(5) Body Mass Index      |       (10) Quit
 
 Which calculator would you like to use: '''))
-    print()
+        print()
 
-    if choice == 1:
-        basic_calc()
-    elif choice == 2:
-        algebra()
-    elif choice == 3:
-        geometry()
-    elif choice == 4:
-        financial()
-    elif choice == 5:
-        bmi()
-    elif choice == 6:
-        randomization()
-    elif choice == 7:
-        stocks()
-    elif choice == 8:
-        bitwise()
-    elif choice == 9:
-        restart.restart()
-    elif choice == 10:
-        end.end()
-    else:
-        print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
-        time.sleep(2)
-        start()
+        if choice == 1:
+            basic_calc()
+        elif choice == 2:
+            algebra()
+        elif choice == 3:
+            geometry()
+        elif choice == 4:
+            financial()
+        elif choice == 5:
+            bmi()
+        elif choice == 6:
+            randomization()
+        elif choice == 7:
+            stocks()
+        elif choice == 8:
+            bitwise()
+        elif choice == 9:
+            return
+        elif choice == 10:
+            raise Exit
+        else:
+            print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
 
 
 if __name__ == '__main__':
