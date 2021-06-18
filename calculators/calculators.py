@@ -2,7 +2,6 @@ import math
 import random
 import time
 from modules.tools import repeat_input
-from math import sqrt
 from modules import restart, end, colors
 
 
@@ -71,21 +70,21 @@ def find_pythagorean(formula, a="", b="", c=""):
     if formula == 'a':
         side_b = int(b)
         side_c = int(c)
-        side_a = sqrt((side_c * side_c) - (side_b * side_b))
+        side_a = math.sqrt((side_c * side_c) - (side_b * side_b))
 
         return side_a
 
     elif formula == 'b':
         side_a = int(a)
         side_c = int(c)
-        side_b = sqrt(side_c * side_c - side_a * side_a)
+        side_b = math.sqrt(side_c * side_c - side_a * side_a)
 
         return side_b
 
     elif formula == 'c':
         side_a = int(a)
         side_b = int(b)
-        side_c = sqrt(side_a * side_a + side_b * side_b)
+        side_c = math.sqrt(side_a * side_a + side_b * side_b)
 
         return side_c
 
@@ -96,7 +95,7 @@ def find_distance(x1, y1, x2, y2):
     x2 = float(x2)
     y2 = float(y2)
 
-    distance = sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2))
+    distance = math.sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2))
     return distance
 
 
