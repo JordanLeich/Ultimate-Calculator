@@ -1,33 +1,33 @@
 import webbrowser
 import time
-from modules import colors, restart
+from modules import colors
 
 
 def start():
-    choice = int(input('''(1) Latest Stable Release
+    while True:
+        choice = int(input('''(1) Latest Stable Release
 (2) Oldest Release
+(3) Exit
 
 Which release would you like to view: '''))
-    print()
+        print()
 
-    if choice == 1:
-        print(colors.green + "Opening the latest stable release...\n", colors.reset)
-        time.sleep(1)
-        webbrowser.open_new(
-            "https://github.com/JordanLeich/Ultimate-Calculator/releases")
-        time.sleep(1)
-        restart.restart()
-    elif choice == 2:
-        print(colors.green + "Opening the oldest release...\n", colors.reset)
-        time.sleep(1)
-        webbrowser.open_new(
-            "https://github.com/JordanLeich/Ultimate-Calculator/releases/tag/v1.0")
-        time.sleep(1)
-        restart.restart()
-    else:
-        print(colors.red + 'User input error found...\n', colors.reset)
-        time.sleep(2)
-        restart.restart()
+        if choice == 1:
+            print(colors.green + "Opening the latest stable release...\n", colors.reset)
+            time.sleep(1)
+            webbrowser.open_new(
+                "https://github.com/JordanLeich/Ultimate-Calculator/releases")
+            time.sleep(1)
+        elif choice == 2:
+            print(colors.green + "Opening the oldest release...\n", colors.reset)
+            time.sleep(1)
+            webbrowser.open_new(
+                "https://github.com/JordanLeich/Ultimate-Calculator/releases/tag/v1.0")
+            time.sleep(1)
+        elif choice == 3:
+            break
+        else:
+            print(colors.red + 'User input error found...\n', colors.reset)
 
 
 if __name__ == '__main__':
