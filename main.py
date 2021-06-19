@@ -7,20 +7,10 @@
 # Imports
 import calculators.calculators
 import conversions.conversions
-import time
-from modules import restart, contribution, end, colors, release
+from modules import contribution, colors, release
 from modules.currency_api import create_key_json
-from modules.errors import Restart, Exit
+from modules.errors import Exit
 from gui import *
-
-
-def error_message():
-    """
-A basic error message for when something doesn't work correctly or logical statements fail.
-    """
-    print(colors.red + "Invalid Choice...\n", colors.reset)
-    time.sleep(2)
-    start()
 
 
 def start():
@@ -47,7 +37,10 @@ Which option would you like to use: '''))
             except Exit:
                 break
         elif choice == 2:
-            conversions.conversions.start()
+            try:
+                conversions.conversions.start()
+            except Exit:
+                break
         elif choice == 3:
             print(colors.green + 'GUI Application is now running!\n', colors.reset)
             start_gui()
@@ -58,8 +51,8 @@ Which option would you like to use: '''))
         elif choice == 6:
             break
         else:
-            error_message()
-    print('Exiting...')
+            print(colors.red + "Invalid Choice...\n", colors.reset)
+    print("Reached end of the program... Ending program...\n")
 
 
 if __name__ == '__main__':
