@@ -43,18 +43,19 @@ def validate_yes_no(data):
 
 
 # To remove the ugly while True and to make user input validation easier
-def repeat_input(sentence, error, flag):
+def repeat_input(sentence, error, flag='', custom_validation=lambda _: True):
     flags = {
         "float": validate_float,
         "int": validate_int,
         "str": validate_str,
         "operator": validate_operator,
-        "yes_no": validate_yes_no
+        "yes_no": validate_yes_no,
+        '': lambda _: True
     }
 
     while True:
-        inputs = input(sentence)  # sentence is what the input text is
-        if flags[flag](inputs):  # flag is what kind of validation it will use
+        inputs = input(sentence)
+        if flags[flag](inputs) and custom_validation(inputs):  # flag is what kind of validation it will use
             return inputs
 
         print(colors.red + error, colors.reset)  # error is what error it will print when the validation fails

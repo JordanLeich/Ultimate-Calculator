@@ -2,14 +2,15 @@ import time
 try:
     import winsound
     windows = True
-except:
+except ImportError:
     linux = True
 
 from docx2pdf import convert
 from moviepy.editor import *
-from modules import restart, end, colors
+from modules import colors
 from modules.currency_api import get_currency, validate_key
 from modules.tools import repeat_input
+from modules.errors import Exit
 import json
 
 
@@ -41,7 +42,6 @@ Select a currency conversion: """))
               d_to_c, "in Canadian Dollar.")
         print(colors.green, user_dollar, "in US Dollar equals",
               d_to_mad, "in Moroccan MAD.\n", colors.reset)
-        restart.restart()
     elif user_choice == 2:
         user_euro = float(input("Euro Amount: "))
         print()
@@ -57,7 +57,6 @@ Select a currency conversion: """))
               e_to_c, "in Canadian Dollar.")
         print(colors.green, user_euro, "in Euro equals",
               e_to_mad, "in Moroccan MAD.\n", colors.reset)
-        restart.restart()
     elif user_choice == 3:
         user_canadian = float(input("Canadian Dollar Amount: "))
         print()
@@ -73,7 +72,6 @@ Select a currency conversion: """))
               c_to_e, "in Euro.")
         print(colors.green, user_canadian, "in Canadian Dollar equals",
               c_to_mad, "in Moroccan MAD.\n", colors.reset)
-        restart.restart()
     elif user_choice == 4:
         user_yen = float(input("Japanese Yen Amount: "))
         print()
@@ -89,7 +87,6 @@ Select a currency conversion: """))
               y_to_c, "in Canadian Dollar.")
         print(colors.green, user_yen, "in Japanese Yen equals",
               y_to_mad, "in Moroccan MAD.\n")
-        restart.restart()
     elif user_choice == 5:
         user_mad = float(input("Moroccan MAD Amount: "))
         print()
@@ -105,12 +102,9 @@ Select a currency conversion: """))
               mad_to_c, "in Canadian Dollar.")
         print(colors.green, user_mad, "in Moroccan MAD equals",
               mad_to_yen, "in Japanese Yen.\n", colors.reset)
-        restart.restart()
 
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-        time.sleep(2)
-        currency_converter()
 
 
 # Temperatures
@@ -153,25 +147,20 @@ Select a temperature conversion: """))
         fahrenheit, kelvin = celsius_to_all(user_celsius)
         print(f"{colors.green}{user_celsius} Celsius is {fahrenheit} in Fahrenheit.")
         print(f"{user_celsius} Celsius is {kelvin} in Kelvin. {colors.reset}\n")
-        restart.restart()
     elif user_choice == 2:
         user_fahrenheit = repeat_input("Fahrenheit: ", "Invalid Number...\n", "float")
         print()
         celsius, kelvin = fahrenheit_to_all(user_fahrenheit)
         print(f"{colors.green}{user_fahrenheit} Fahrenheit is {celsius} in Celsius.")
         print(f"{user_fahrenheit} Fahrenheit is {kelvin} in Kelvin. {colors.reset}\n")
-        restart.restart()
     elif user_choice == 3:
         user_kelvin = repeat_input("Kelvin: ", "Invalid Number...\n", "float")
         print()
         celsius, fahrenheit = kelvin_to_all(user_kelvin)
         print(f"{colors.green}{user_kelvin} Kelvin is {celsius} in Celsius.")
         print(f"{user_kelvin} Kelvin is {fahrenheit} in Fahrenheit. {colors.reset}\n")
-        restart.restart()
     else:
         print(f"{colors.red}Invalid input... Restarting input choice... {colors.reset}\n")
-        time.sleep(2)
-        temp_converter()
 
 
 # Masses
@@ -228,7 +217,6 @@ Select a mass conversion: """))
         print(f'{colors.green}{user_kilo} Kilograms is {grams} in Grams')
         print(f'{user_kilo} Kilograms is {pounds} in Pounds')
         print(f'{user_kilo} Kilograms is {ounces} in Ounces{colors.reset}\n')
-        restart.restart()
     elif user_choice == 2:
         user_gram = repeat_input("Grams: ", "Invalid Number...\n", "float")
         print()
@@ -237,7 +225,6 @@ Select a mass conversion: """))
         print(f'{colors.green}{user_gram} Grams is {kilograms} in Kilograms')
         print(f'{user_gram} Grams is {pounds} in Pounds')
         print(f'{user_gram} Grams is {ounces} in Ounces{colors.reset}\n')
-        restart.restart()
     elif user_choice == 3:
         user_pound = repeat_input("Pounds: ", "Invalid Number...\n", 'float')
         print()
@@ -246,7 +233,6 @@ Select a mass conversion: """))
         print(f'{colors.green}{user_pound} Grams is {kilograms} in Kilograms')
         print(f'{user_pound} Grams is {grams} in Grams')
         print(f'{user_pound} Grams is {ounces} in Ounces{colors.reset}\n')
-        restart.restart()
     elif user_choice == 4:
         user_ounce = repeat_input("Ounces: ", "Invalid Number...\n", 'float')
         print()
@@ -255,11 +241,8 @@ Select a mass conversion: """))
         print(f'{colors.green}{user_ounce} Grams is {kilograms} in Kilograms')
         print(f'{user_ounce} Grams is {grams} in Grams')
         print(f'{user_ounce} Grams is {pounds} in Pounds{colors.reset}\n')
-        restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-        time.sleep(2)
-        mass_converter()
 
 
 # Lengths
@@ -325,7 +308,6 @@ Select a length conversion: """))
         print(f'{colors.green}{feet} in Feet equals {inch} in Inches.')
         print(f'{feet} in Feet equals {yard} in Yards.')
         print(f'{feet} in Feet equals {mile} in Miles.{colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 2:
         inch = repeat_input("Inches: ", "Invalid Number...\n", "float")
@@ -335,7 +317,6 @@ Select a length conversion: """))
         print(f'{colors.green}{inch} in Inches equals {feet} in Feet.')
         print(f'{inch} in Inches equals {yard} in Yards.')
         print(f'{inch} in Inches equals {mile} in Miles.{colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 3:
         yard = repeat_input("Yards: ", "Invalid Number...\n", "float")
@@ -345,7 +326,6 @@ Select a length conversion: """))
         print(f'{colors.green}{yard} in Yards equals {feet} in Feet.')
         print(f'{yard} in Yards equals {inch} in Inches.')
         print(f'{yard} in Yards equals {mile} in Miles.{colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 4:
         mile = float(input("Miles: "))
@@ -355,11 +335,8 @@ Select a length conversion: """))
         print(f'{colors.green}{mile} in Miles equals {feet} in Feet.')
         print(f'{mile} in Miles equals {inch} in Inches.')
         print(f'{mile} in Miles equals {yard} in Yards.{colors.reset}\n')
-        restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-        time.sleep(2)
-        length_converter()
 
 
 # Volumes
@@ -434,7 +411,6 @@ Select a volume conversion: """))
 
         liters = milliliters_to_liters(milliliters)
         print(f'{colors.green}{milliliters} in Milliliters equals {liters} in Liters. {colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 2:
         liters = repeat_input("Liters: ", "Invalid Number...\n", "float")
@@ -442,7 +418,6 @@ Select a volume conversion: """))
 
         milliliters = liters_to_milliliters(liters)
         print(f'{colors.green}{liters} in Liters equals {milliliters}in Milliliters. {colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 3:
         gallon = repeat_input("Gallons: ", "Invalid Number...\n", "float")
@@ -452,7 +427,6 @@ Select a volume conversion: """))
         print(f'{colors.green}{gallon} in Gallons equals {quart} in Quarts.')
         print(f'{gallon} in Gallons equals {pint} in Pints.')
         print(f'{gallon} in Gallons equals {ounce} in Ounces. {colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 4:
         quart = repeat_input("Quarts: ", "Invalid Number...\n", "float")
@@ -462,7 +436,6 @@ Select a volume conversion: """))
         print(f'{colors.green}{quart} in Quarts equals {gallon} in Gallons.')
         print(f'{quart} in Quarts equals {pint} in Pints.')
         print(f'{quart} in Quarts equals {ounce} in Ounces. {colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 5:
         pint = repeat_input("Pints: ", "Invalid Number...\n", "float")
@@ -472,7 +445,6 @@ Select a volume conversion: """))
         print(f'{colors.green}{pint} in Pints equals {gallon} in Gallons.')
         print(f'{pint} in Pints equals {quart} in Quarts.')
         print(f'{pint} in Pints equals {ounce} in Ounces. {colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 6:
         ounce = repeat_input("Ounces: ", "Invalid Number...\n", "float")
@@ -482,7 +454,6 @@ Select a volume conversion: """))
         print(f'{colors.green}{ounce} in Ounces equals {gallon} in Gallons.')
         print(f'{ounce} in Ounces equals {quart} in Quarts.')
         print(f'{ounce} in Ounces equals {pint} in Pints. {colors.reset}\n')
-        restart.restart()
 
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
@@ -551,7 +522,6 @@ Select a crypto conversion:    """))
         print(f'{colors.green}{bitcoin} in Bitcoin equals {ethereum} in Ethereum.')
         print(f'{bitcoin} in Bitcoin equals {dogecoin} in DogeCoin.')
         print(f'{bitcoin} in Bitcoin equals {shiba_inu} in SHIBA INU. {colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 2:
         ethereum = repeat_input("Ethereum Amount: ", "Invalid Number...\n", "float")
@@ -561,7 +531,6 @@ Select a crypto conversion:    """))
         print(f'{colors.green}{ethereum} in Ethereum equals {bitcoin} in Bitcoin.')
         print(f'{ethereum} in Ethereum equals {dogecoin} in DogeCoin.')
         print(f'{ethereum} in Ethereum equals {shiba_inu} in SHIBA INU. {colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 3:
         dogecoin = repeat_input("DogeCoin Amount: ", "Invalid Number...\n", "float")
@@ -571,7 +540,6 @@ Select a crypto conversion:    """))
         print(f'{colors.green}{dogecoin} in DogeCoin equals {bitcoin} in Bitcoin.')
         print(f'{dogecoin} in DogeCoin equals {ethereum} in Ethereum.')
         print(f'{dogecoin} in DogeCoin equals {shiba_inu} in SHIBA INU. {colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 4:
         shiba_inu = float(input("SHIBA INU Amount: "))
@@ -581,11 +549,8 @@ Select a crypto conversion:    """))
         print(f'{colors.green}{shiba_inu} in DogeCoin equals {bitcoin} in Bitcoin.')
         print(f'{shiba_inu} in DogeCoin equals {ethereum} in Ethereum.')
         print(f'{shiba_inu} in DogeCoin equals {dogecoin} in DogeCoin. {colors.reset}\n')
-        restart.restart()
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-        time.sleep(2)
-        crypto_converter()
 
 
 # Speed
@@ -666,7 +631,6 @@ Which calculation would you like to perform: """))
         print(f'{mph} Miles Per Hour equals {mps} in Meters Per Second.')
         print(f'{mph} Miles Per Hour equals {kph} in Kilometers Per Hour.')
         print(f'{mph} Miles Per Hour equals {knot} in Knot. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 2:
         fps = repeat_input('How many Foot Per Second: ', "Invalid Number...\n", "float")
@@ -677,7 +641,6 @@ Which calculation would you like to perform: """))
         print(f'{fps} Foot Per Second equals {mps} in Meters Per Second.')
         print(f'{fps} Foot Per Second equals {kph} in Kilometers Per Hour.')
         print(f'{fps} Foot Per Seconds equals {knot} in Knot. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 3:
         mps = repeat_input('How many Meters Per Second: ', "Invalid Number...\n", "float")
@@ -688,7 +651,6 @@ Which calculation would you like to perform: """))
         print(f'{mps} Meters Per Second equals {fps} in Foot Per Second.')
         print(f'{mps} Meters Per Second equals {kph} in Kilometers Per Hour.')
         print(f'{mps} Meters Per Second equals {knot} in Knot. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 4:
         kph = repeat_input('How many Kilometers Per Hour: ', "Invalid Number...\n", "float")
@@ -699,7 +661,6 @@ Which calculation would you like to perform: """))
         print(f'{kph} Kilometers Per Hour equals {fps} in Foot Per Second.')
         print(f'{kph} Kilometers Per Hour equals {mps} in Meters Per Second.')
         print(f'{kph} Kilometers Per Hour equals {knot} in Knot. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 5:
         knot = repeat_input('How many Knots: ', "Invalid Number...\n", "float")
@@ -710,12 +671,9 @@ Which calculation would you like to perform: """))
         print(f'{knot} Knots equals {fps} in Foot Per Second.')
         print(f'{knot} Knots equals {mps} in Meters Per Second.')
         print(f'{knot} Knots {kph} in Kilometers Per Hour. {colors.reset}\n')
-        restart.restart()
 
     else:
         print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
-        time.sleep(2)
-        start()
 
 
 # Time
@@ -748,24 +706,18 @@ What do you want to convert to: """)
 
     if convert_to == '1':
         print(colors.green, total_seconds / 31536000, "years\n", colors.reset)
-        restart.restart()
 
     elif convert_to == '2':
         print(colors.green, total_seconds / 86400, "days\n", colors.reset)
-        restart.restart()
 
     elif convert_to == "3":
         print(colors.green, total_seconds / 60, "minutes\n", colors.reset)
-        restart.restart()
 
     elif convert_to == "4":
         print(colors.green, total_seconds, "seconds\n", colors.reset)
-        restart.restart()
 
     else:
         print(colors.red + "Invalid input... Restarting input...\n" + colors.reset)
-        time.sleep(2)
-        time_converter()
 
 
 # Storage
@@ -846,7 +798,6 @@ Which calculation would you like to perform: """))
         print(f'{colors.green}{byte} Bytes equals {megabyte} in Megabytes.')
         print(f'{colors.green}{byte} Bytes equals {gigabyte} in Gigabytes.')
         print(f'{colors.green}{byte} Bytes equals {terabyte} in Terabytes. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 2:
         kilobyte = repeat_input("Kilobytes: ", "Invalid Number...\n", "float")
@@ -857,7 +808,6 @@ Which calculation would you like to perform: """))
         print(f'{colors.green}{kilobyte} Kilobytes equals {megabyte} in Megabytes.')
         print(f'{colors.green}{kilobyte} Kilobytes equals {gigabyte} in Gigabytes.')
         print(f'{colors.green}{kilobyte} Kilobytes equals {terabyte} in Terabytes. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 3:
         megabyte = repeat_input("Megabytes: ", "Invalid Number...\n", "float")
@@ -868,7 +818,6 @@ Which calculation would you like to perform: """))
         print(f'{colors.green}{megabyte} Megabytes equals {kilobyte} in Kilobytes.')
         print(f'{colors.green}{megabyte} Megabytes equals {gigabyte} in Gigabytes.')
         print(f'{colors.green}{megabyte} Megabytes equals {terabyte} in Terabytes. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 4:
         gigabyte = repeat_input("Gigabytes: ", "Invalid Number...\n", "float")
@@ -879,7 +828,6 @@ Which calculation would you like to perform: """))
         print(f'{colors.green}{gigabyte} Gigabytes equals {kilobyte} in Kilobytes.')
         print(f'{colors.green}{gigabyte} Gigabytes equals {megabyte} in Megabytes.')
         print(f'{colors.green}{gigabyte} Gigabytes equals {terabyte} in Terabytes. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 5:
         terabyte = repeat_input("Terabytes: ", "Invalid Number...\n", "float")
@@ -890,12 +838,9 @@ Which calculation would you like to perform: """))
         print(f'{colors.green}{terabyte} Terabytes equals {kilobyte} in Kilobytes.')
         print(f'{colors.green}{terabyte} Terabytes equals {megabyte} in Megabytes.')
         print(f'{colors.green}{terabyte} Terabytes equals {gigabyte} in Gigabytes. {colors.reset}\n')
-        restart.restart()
 
     else:
         print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
-        time.sleep(2)
-        storage_converter()
 
 
 # Pressure
@@ -960,7 +905,6 @@ Which calculation would you like to perform: """))
         print(f'{colors.green}{pa} in pascal [Pa] equals {kpa} in kilopascal [kPa].')
         print(f'{pa} in pascal [Pa] equals {bar} in bar.')
         print(f'{pa} in pascal [Pa] equals {atm} in Standard atmosphere [atm]. {colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 2:
         kilopascal = repeat_input("Enter Pressure amount: ", "Invalid Number...\n", "float")
@@ -970,7 +914,6 @@ Which calculation would you like to perform: """))
         print(f'{colors.green}{kilopascal} in pascal [Pa] equals {pa} in pascal [Pa].')
         print(f'{kilopascal} in pascal [Pa] equals {bar} in bar.')
         print(f'{kilopascal} in pascal [Pa] equals {atm} in Standard atmosphere [atm]. {colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 3:
         bar = repeat_input("Enter Pressure amount: ", "Invalid Number...\n", "float")
@@ -980,7 +923,6 @@ Which calculation would you like to perform: """))
         print(f'{colors.green}{bar} in pascal [Pa] equals {pa} in pascal [Pa].')
         print(f'{bar} in pascal [Pa] equals {kpa} kilopascal [kPa].')
         print(f'{bar} in pascal [Pa] equals {atm} in Standard atmosphere [atm]. {colors.reset}\n')
-        restart.restart()
 
     elif user_choice == 4:
         atm = repeat_input("Enter Pressure amount: ", "Invalid Number...\n", "float")
@@ -990,12 +932,9 @@ Which calculation would you like to perform: """))
         print(f'{colors.green}{bar} in pascal [Pa] equals {pa} in pascal [Pa].')
         print(f'{bar} in pascal [Pa] equals {kpa} kilopascal [kPa].')
         print(f'{bar} in pascal [Pa] equals {bar} in in bar. {colors.reset}\n')
-        restart.restart()
 
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-        time.sleep(2)
-        pressure_converter()
 
 
 # Angle
@@ -1059,7 +998,6 @@ Which calculation would you like to perform: """))
         print(f'{colors.green}{deg} in Degree [°] equals {rad} in Radian [rad].')
         print(f'{deg} in Degree [°] equals {grad} in grad [^g].')
         print(f"{deg} in Degree [°] equals {minute} in Minute [']. {colors.reset}\n ")
-        restart.restart()
 
     elif user_choice == 2:
         rad = repeat_input("Enter the angle: ", "Invalid Number...\n", "float")
@@ -1069,7 +1007,6 @@ Which calculation would you like to perform: """))
         print(f'{colors.green}{rad} in Radian [rad] equals {deg} in Degree [°].')
         print(f'{rad} in Radian [rad] equals {grad} in grad [^g].')
         print(f"{rad} in Radian [rad] equals {minute} in Minute [']. {colors.reset}\n ")
-        restart.restart()
 
     elif user_choice == 3:
         grad = float(input("Enter the angle: "))
@@ -1079,7 +1016,6 @@ Which calculation would you like to perform: """))
         print(f'{colors.green}{grad} in grad [^g] equals {deg} in Degree [°].')
         print(f'{grad} in grad [^g] equals {rad} in Radian [rad].')
         print(f"{grad} in grad [^g] equals {minute} in Minute [']. {colors.reset}\n ")
-        restart.restart()
 
     elif user_choice == 4:
         minute = float(input("Enter the angle: "))
@@ -1089,12 +1025,9 @@ Which calculation would you like to perform: """))
         print(f"{colors.green}{minute} in Minute ['] equals {deg} in Degree [°].")
         print(f"{minute} in Minute ['] equals {rad} in Radian [rad].")
         print(f"{minute} in Minute ['] equals {grad} in grad [^g]. {colors.reset}\n ")
-        restart.restart()
 
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-        time.sleep(2)
-        angle_converter()
 
 
 # Energy
@@ -1157,7 +1090,6 @@ Which energy conversion would you like to pick: '''))
         print(f'{colors.green}{j} in Joules equals {kj} in Kilojoules.')
         print(f'{j} in Joules equals {w} in in Watts.')
         print(f'{j} in Joules equals {kw} in Kilowatts. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 2:
         kj = repeat_input("Kilojoules: ", "Invalid Number...\n", "float")
@@ -1167,7 +1099,6 @@ Which energy conversion would you like to pick: '''))
         print(f'{colors.green}{kj} in Kilojoules equals {j} in Joules.')
         print(f'{kj} in Kilojoules equals {w} in in Watts.')
         print(f'{kj} in Kilojoules equals {kw} in Kilowatts. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 3:
         w = float(input("Watts: "))
@@ -1177,7 +1108,6 @@ Which energy conversion would you like to pick: '''))
         print(f'{colors.green}{w} in Watts equals {j} in Joules.')
         print(f'{w} in Watts equals {kj} in in Joules.')
         print(f'{w} in Watts equals {kw} in Kilowatts. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 4:
         kw = float(input("Kilowatts: "))
@@ -1187,12 +1117,9 @@ Which energy conversion would you like to pick: '''))
         print(f'{colors.green}{kw} in Kilowatts equals {j} in Joules.')
         print(f'{kw} in Kilowatts equals {kj} in in Joules.')
         print(f'{kw} in Kilowatts equals {w} in Watts. {colors.reset}\n')
-        restart.restart()
 
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-        time.sleep(2)
-        energy_converter()
 
 
 #  Fuel
@@ -1240,7 +1167,6 @@ Which Fuel Economy conversion would you like to pick: '''))
         mpgi, kpl = mpg_to_all(mpg)
         print(f'{colors.green}{mpg} in Miles Per Gallon equals {mpgi} in Miles Per Gallon (Imperial).')
         print(f'{mpg} in Miles Per Gallon equals {kpl} in Kilometers Per Liter. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 2:
         mpgi = repeat_input("Miles Per Gallon (Imperial): ", "Invalid Number...\n", "float")
@@ -1249,7 +1175,6 @@ Which Fuel Economy conversion would you like to pick: '''))
         mpg, kpl = mpgi_to_all(mpgi)
         print(f'{colors.green}{mpgi} in Miles Per Gallon (Imperial) equals {mpg} in Miles Per Gallon.')
         print(f'{mpgi} in Miles Per Gallon (Imperial) equals {kpl} in Kilometers Per Liter. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 3:
         kpl = repeat_input("Kilometers Per Liter: ", "Invalid Number...\n", "float")
@@ -1258,12 +1183,9 @@ Which Fuel Economy conversion would you like to pick: '''))
         mpg, mpgi = kpl_to_all(kpl)
         print(f'{colors.green}{kpl} in Kilometers Per Liter equals {mpg} in Miles Per Gallon.')
         print(f'{kpl} inKilometers Per Liter equals {kpl} in Miles Per Gallon (Imperial). {colors.reset}\n')
-        restart.restart()
 
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-        time.sleep(2)
-        fuel_converter()
 
 
 # Frequency
@@ -1326,7 +1248,6 @@ Which Sound Frequency conversion would you like to pick: '''))
         print(f'{colors.green}{hertz} in Hertz equals {kilohertz} in Kilohertz.')
         print(f'{hertz} in Hertz equals {megahertz} in Megahertz.')
         print(f'{hertz} in Hertz equals {gigahertz} in Gigahertz. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 2:
         kilohertz = repeat_input("Kilohertz: ", "Invalid Number...\n", "float")
@@ -1336,7 +1257,6 @@ Which Sound Frequency conversion would you like to pick: '''))
         print(f'{colors.green}{kilohertz} in Kilohertz equals {hertz} in Hertz.')
         print(f'{kilohertz} in Kilohertz equals {megahertz} in Megahertz.')
         print(f'{kilohertz} in Kilohertz equals {gigahertz} in Gigahertz. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 3:
         megahertz = repeat_input("Megahertz: ", "Invalid Number...\n", "float")
@@ -1346,7 +1266,6 @@ Which Sound Frequency conversion would you like to pick: '''))
         print(f'{colors.green}{megahertz} in Megahertz equals {hertz} in Hertz.')
         print(f'{megahertz} in Megahertz equals {kilohertz} in Kilohertz.')
         print(f'{megahertz} in Megahertz equals {gigahertz} in Gigahertz. {colors.reset}\n')
-        restart.restart()
 
     elif choice == 4:
         gigahertz = repeat_input("Gigahertz: ", "Invalid Number...\n", "float")
@@ -1356,7 +1275,6 @@ Which Sound Frequency conversion would you like to pick: '''))
         print(f'{colors.green}{gigahertz} in Gigahertz equals {hertz} in Hertz.')
         print(f'{gigahertz} in Gigahertz equals {kilohertz} in Kilohertz.')
         print(f'{gigahertz} in Gigahertz equals {megahertz} in Megahertz. {colors.reset}\n')
-        restart.restart()
 
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
@@ -1374,15 +1292,13 @@ Which File convertion would you like to pick: '''))
         path = str(input('Enter the file path from which the Word Document is located: '))
         print()
         convert(path)
-        time.sleep(1)
         print(colors.green, 'Word to PDF conversion completed! The .pdf file should be found in the same directory '
                             'from where the Word Document was located.\n', colors.reset)
-        time.sleep(1)
-        restart.restart()
     elif choice == 2:
-        mp4_file_path = str(input('Enter the file path from which the MP4 Video is located ('
-                                  'C:\Folder\YourName\Desktop\example.mp4): '))
-        mp3_file_path = str(input('Output MP3 Audio to where (example - C:\Folder\YourName\Desktop\example.mp3): '))
+        # These are raw strings so the backslashes aren't interpreted as escape sequences
+        mp4_file_path = str(input(r'Enter the file path from which the MP4 Video is located ('
+                                  r'C:\Folder\YourName\Desktop\example.mp4): '))
+        mp3_file_path = str(input(r'Output MP3 Audio to where (example - C:\Folder\YourName\Desktop\example.mp3): '))
         video_clip = VideoFileClip(mp4_file_path)
         audio_clip = video_clip.audio
         audio_clip.write_audiofile(mp3_file_path)
@@ -1390,26 +1306,18 @@ Which File convertion would you like to pick: '''))
         video_clip.close()
         print()
         print(colors.green + "Conversion completed!\n", colors.reset)
-        time.sleep(1)
+        choice = repeat_input('Want to open the .mp3 file to give it a listen (yes / no): ',
+                              'User input error found',
+                              'yes_no'
+                              ).lower()
 
-        choice = str(input('Want to open the .mp3 file to give it a listen (yes / no): '))
-        print()
-
-        if choice.lower() == 'y' or choice.lower() == 'yes':
+        if choice == 'y' or choice == 'yes':
             os.startfile(mp3_file_path)
             print(colors.green + 'Audio should now be opened and playing!\n', colors.reset)
-            restart.restart()
-        elif choice.lower() == 'n' or choice.lower() == 'no':
+        elif choice == 'n' or choice == 'no':
             print(colors.yellow + 'Audio playback skipped...\n', colors.reset)
-            restart.restart()
-        else:
-            print(colors.red + "User input error found...\n", colors.reset)
-            time.sleep(2)
-            restart.restart()
     else:
         print(colors.red + "User input error found...\n", colors.reset)
-        time.sleep(2)
-        file_converter()
 
 
 def binary_converter():
@@ -1428,7 +1336,6 @@ Which Binary conversion would you like to use: """))
             number //= 2
         binary = str(number % 2) + binary
         print(colors.green, 'Result:', binary, '\n', colors.reset)
-        restart.restart()
     elif choice == 2:
         total = 0
         number = (input("Enter your whole binary number: "))
@@ -1437,7 +1344,6 @@ Which Binary conversion would you like to use: """))
             if number[-i] == str(1):
                 total = total + (2 ** (i - 1))
         print(colors.green, 'Result:', total, '\n', colors.reset)
-        restart.restart()
     elif choice == 3:
         binary = input("Binary input: ")
         print()
@@ -1446,26 +1352,22 @@ Which Binary conversion would you like to use: """))
                 if windows:
                     winsound.Beep(2000, 100)
                 print(colors.green + 'Sound played!\n', colors.reset)
-                restart.restart()
             elif i == "1":
                 if windows:
                     winsound.Beep(4000, 100)
                 print(colors.green + 'Sound played!\n', colors.reset)
-                restart.restart()
             else:
                 print(colors.red + "User input error found... Please only use 0 or 1 as an input choice...\n",
                       colors.reset)
                 time.sleep(2)
-                binary_converter()
     else:
         print(colors.red + 'User input error found...\n', colors.reset)
-        time.sleep(2)
-        binary_converter()
 
 
 def start():
-    print(colors.green + "All Converters", colors.reset)
-    choice = int(input('''
+    while True:
+        print(colors.green + "All Converters", colors.reset)
+        choice = int(input('''
 (1) Temperature        |       (6) Crypto            |       (11) Angle         |       (16) Binary
 (2) Mass               |       (7) Speed             |       (12) Energy        |       (17) Restart 
 (3) Length             |       (8) Digital Storage   |       (13) Fuel Economy  |       (18) Quit
@@ -1473,57 +1375,55 @@ def start():
 (5) Currency           |       (10) Pressure         |       (15) Files     
 
 Which conversion would you like to use: '''))
-    print()
+        print()
 
-    if choice == 1:
-        temp_converter()
-    elif choice == 2:
-        mass_converter()
-    elif choice == 3:
-        length_converter()
-    elif choice == 4:
-        volume_converter()
-    elif choice == 5:
-        print("""To Use The Currency Conversion an API Key is Required
+        if choice == 1:
+            temp_converter()
+        elif choice == 2:
+            mass_converter()
+        elif choice == 3:
+            length_converter()
+        elif choice == 4:
+            volume_converter()
+        elif choice == 5:
+            print("""To Use The Currency Conversion an API Key is Required
 Visit www.currencyconverterapi.com And Follow The Steps To Get an API Key.\n""")
-        key = input("API Key: ")
+            key = input("API Key: ")
 
-        if validate_key(key):
-            currency_converter()
+            if validate_key(key):
+                currency_converter()
+            else:
+                print("Invalid Key")
+                start()
+
+        elif choice == 6:
+            crypto_converter()
+        elif choice == 7:
+            speed_converter()
+        elif choice == 8:
+            storage_converter()
+        elif choice == 9:
+            time_converter()
+        elif choice == 10:
+            pressure_converter()
+        elif choice == 11:
+            angle_converter()
+        elif choice == 12:
+            energy_converter()
+        elif choice == 13:
+            fuel_converter()
+        elif choice == 14:
+            frequency_converter()
+        elif choice == 15:
+            file_converter()
+        elif choice == 16:
+            binary_converter()
+        elif choice == 17:
+            break
+        elif choice == 18:
+            raise Exit
         else:
-            print("Invalid Key")
-            start()
-
-    elif choice == 6:
-        crypto_converter()
-    elif choice == 7:
-        speed_converter()
-    elif choice == 8:
-        storage_converter()
-    elif choice == 9:
-        time_converter()
-    elif choice == 10:
-        pressure_converter()
-    elif choice == 11:
-        angle_converter()
-    elif choice == 12:
-        energy_converter()
-    elif choice == 13:
-        fuel_converter()
-    elif choice == 14:
-        frequency_converter()
-    elif choice == 15:
-        file_converter()
-    elif choice == 16:
-        binary_converter()
-    elif choice == 17:
-        restart.restart()
-    elif choice == 18:
-        end.end()
-    else:
-        print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
-        time.sleep(2)
-        start()
+            print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
 
 
 if __name__ == '__main__':
