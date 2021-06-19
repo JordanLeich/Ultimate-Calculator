@@ -192,7 +192,7 @@ def payroll():
     weekly = float(repeat_input('How much money do you make weekly: ',
                                 'Salary must be above 0',
                                 'float',
-                                lambda i: i > 0
+                                lambda i: float(i) > 0
                                 ))
 
     bi_weekly = weekly * 2
@@ -210,8 +210,16 @@ def payroll():
 
 
 def tipping():
-    total_bill = float(repeat_input('How much is your total bill: ', 'Bill must be above 0', 'float', lambda i: i > 0))
-    people_number = int(repeat_input("How many people: ", 'Number of people must be above 0', 'int', lambda i: i > 0))
+    total_bill = float(repeat_input('How much is your total bill: ',
+                                    'Bill must be above 0',
+                                    'float',
+                                    lambda i: float(i) > 0
+                                    ))
+    people_number = int(repeat_input("How many people: ",
+                                     'Number of people must be above 0',
+                                     'int',
+                                     lambda i: float(i) > 0
+                                     ))
 
     five_percent = total_bill * 0.05 / people_number
     ten_percent = total_bill * 0.10 / people_number
@@ -233,11 +241,12 @@ def interest():
     rate = repeat_input('What is your interest rate: ',
                         'Interest rate must be greater than zero',
                         'float',
-                        lambda i: i > 0
+                        lambda i: float(i) > 0
                         )
     years = repeat_input('Over how many years is the interest compounded: ',
                          'Number of years must be above 0',
                          'int',
+                         lambda i: int(i) > 0
                          )
 
     print()
@@ -279,8 +288,8 @@ Underweight = <18.5
 Normal weight = 18.5–24.9
 Overweight = 25–29.9
 Obesity = BMI of 30 or greater.\n''', colors.reset)
-    cm = int(repeat_input("Height (Centimeters): ", "Invalid Height...\n", "float", lambda i: i > 0))
-    kg = int(repeat_input("Weight (Kilograms): ", "Invalid Weight...\n", "float", lambda i: i > 0))
+    cm = int(repeat_input("Height (Centimeters): ", "Invalid Height...\n", "float", lambda i: int(i) > 0))
+    kg = int(repeat_input("Weight (Kilograms): ", "Invalid Weight...\n", "float", lambda i: int(i) > 0))
     print()
 
     formula = kg / (cm * cm) * 10000
@@ -314,13 +323,13 @@ Which Shape would you like to solve the area for: '''))
             print()
 
             if choice == 1:
-                length = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: i >= 0))
-                width = float(repeat_input('Width: ', 'Width must be positive', 'float', lambda i: i >= 0))
+                length = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: float(i) >= 0))
+                width = float(repeat_input('Width: ', 'Width must be positive', 'float', lambda i: float(i) >= 0))
                 print()
                 area = length * width
                 print(colors.green, "Area of a Rectangle:", area, colors.reset, '\n')
             elif choice == 2:
-                radius = float(repeat_input('Radius: ', 'Radius must be positive', 'float', lambda i: i >= 0))
+                radius = float(repeat_input('Radius: ', 'Radius must be positive', 'float', lambda i: float(i) >= 0))
                 print()
                 area = math.pi * radius * radius
                 print(colors.green, "Area of a Circle:", area, colors.reset, '\n')
@@ -328,15 +337,15 @@ Which Shape would you like to solve the area for: '''))
                 print(colors.red + "User input error found...\n", colors.reset)
 
         elif choice == 2:
-            radius = float(repeat_input('Radius: ', 'Radius must be positive', 'float', lambda i: i >= 0))
+            radius = float(repeat_input('Radius: ', 'Radius must be positive', 'float', lambda i: float(i) >= 0))
             print()
             circumference = 2 * math.pi * radius
             print(colors.green, "Circumference:", circumference, colors.reset, '\n')
 
         elif choice == 3:
-            a = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: i >= 0))
-            b = float(repeat_input('Width: ', 'Width must be positive', 'float', lambda i: i >= 0))
-            c = float(repeat_input('Height: ', 'Height must be positive', 'float', lambda i: i >= 0))
+            a = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: float(i) >= 0))
+            b = float(repeat_input('Width: ', 'Width must be positive', 'float', lambda i: float(i) >= 0))
+            c = float(repeat_input('Height: ', 'Height must be positive', 'float', lambda i: float(i) >= 0))
             print()
             perimeter = a + b + c
             print(colors.green, "Perimeter:", perimeter, colors.reset, '\n')
@@ -350,20 +359,20 @@ Which Shape would you like to solve the volume for: '''))
             print()
 
             if choice == 1:
-                side = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: i >= 0))
+                side = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: float(i) >= 0))
                 print()
                 volume = side * side * side
                 print(colors.green, "Volume:", volume, colors.reset, '\n')
             elif choice == 2:
-                length = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: i >= 0))
-                width = float(repeat_input('Width: ', 'Width must be positive', 'float', lambda i: i >= 0))
-                height = float(repeat_input('Height: ', 'Height must be positive', 'float', lambda i: i >= 0))
+                length = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: float(i) >= 0))
+                width = float(repeat_input('Width: ', 'Width must be positive', 'float', lambda i: float(i) >= 0))
+                height = float(repeat_input('Height: ', 'Height must be positive', 'float', lambda i: float(i) >= 0))
                 print()
                 volume = length * width * height
                 print(colors.green, "Volume:", volume, colors.reset, '\n')
             elif choice == 3:
-                area = float(repeat_input('Radius: ', 'Radius must be positive', 'float', lambda i: i >= 0))
-                height = float(repeat_input('Height: ', 'Height must be positive', 'float', lambda i: i >= 0))
+                area = float(repeat_input('Radius: ', 'Radius must be positive', 'float', lambda i: float(i) >= 0))
+                height = float(repeat_input('Height: ', 'Height must be positive', 'float', lambda i: float(i) >= 0))
                 print()
                 volume = math.pi * area * area * height
                 print(colors.green, "Volume:", volume, colors.reset, '\n')
@@ -378,11 +387,18 @@ Which Shape would you like to solve the volume for: '''))
 
 
 def stocks():
-    user_shares = float(repeat_input('Number of Shares: ', 'Must be positive', 'float', lambda i: i > 0))
-    user_purchase_price = float(repeat_input('Purchase Price ($): ', 'Must be positive', 'float', lambda i: i > 0))
-    user_sell_price = float(repeat_input('Sell Price ($): ', 'Must be positive', 'float', lambda i: i > 0))
-    user_buy_commission = float(repeat_input('Buy Commission (if none, put 0): ', 'Must be positive', 'float', lambda i: i > 0))
-    user_sell_commission = float(repeat_input('Sell Commission (if none, put 0): ', 'Must be positive', 'float', lambda i: i > 0))
+    user_shares = float(repeat_input('Number of Shares: ', 'Must be positive', 'float', lambda i: float(i) > 0))
+    user_purchase_price = float(repeat_input('Purchase Price ($): ', 'Must be positive', 'float', lambda i: float(i) > 0))
+    user_sell_price = float(repeat_input('Sell Price ($): ', 'Must be positive', 'float', lambda i: float(i) > 0))
+    user_buy_commission = float(repeat_input('Buy Commission (if none, put 0): ',
+                                             'Must be positive',
+                                             'float',
+                                             lambda i: float(i) >= 0
+                                             ))
+    user_sell_commission = float(repeat_input('Sell Commission (if none, put 0): ',
+                                              'Must be positive',
+                                              'float',
+                                              lambda i: float(i) >= 0))
     print()
     results(user_shares, user_sell_commission, user_buy_commission,
             user_sell_price, user_purchase_price)

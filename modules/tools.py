@@ -55,7 +55,7 @@ def repeat_input(sentence, error, flag='', custom_validation=lambda _: True):
 
     while True:
         inputs = input(sentence)
-        if custom_validation(inputs) and flags[flag](inputs):  # flag is what kind of validation it will use
+        if flags[flag](inputs) and custom_validation(inputs):  # flag is what kind of validation it will use
             return inputs
 
         print(colors.red + error, colors.reset)  # error is what error it will print when the validation fails
