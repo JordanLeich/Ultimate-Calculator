@@ -1,6 +1,6 @@
-import time
 try:
     import winsound
+
     windows = True
 except ImportError:
     linux = True
@@ -11,6 +11,7 @@ from modules import colors
 from modules.currency_api import get_currency, validate_key
 from modules.tools import repeat_input
 from modules.errors import Exit
+from time import sleep
 import json
 
 
@@ -110,7 +111,7 @@ Select a currency conversion: """))
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
 
 
-# Temperatures
+# All Temperature Formulas
 def celsius_to_all(data):
     data = float(data)
     fahrenheit = data * 1.8 + 32
@@ -134,7 +135,7 @@ def kelvin_to_all(data):
 
 def temp_converter():
     """
-    Handles all temperature conversions here
+Handles all temperature conversions here and displays the results
     """
     user_choice = int(
         input("""(1) Celsius to ALL
@@ -166,7 +167,7 @@ Select a temperature conversion: """))
         print(f"{colors.red}Invalid input... Restarting input choice... {colors.reset}\n")
 
 
-# Masses
+# All Masse Formulas
 def kilograms_to_all(data):
     data = float(data)
     grams = data * 1000
@@ -201,7 +202,7 @@ def ounces_to_all(data):
 
 def mass_converter():
     """
-    Handles all mass conversions
+Handles all mass conversions and displays the results
     """
     user_choice = int(
         input("""(1) Kilogram to ALL
@@ -248,7 +249,7 @@ Select a mass conversion: """))
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
 
 
-# Lengths
+# All Length Formulas
 def feet_to_all(data):
     data = float(data)
 
@@ -291,7 +292,7 @@ def miles_to_all(data):
 
 def length_converter():
     """
-    Handles all length conversions
+Handles all length conversions and displays the results
     """
     user_choice = int(
         input("""(1) Feet to ALL
@@ -342,7 +343,7 @@ Select a length conversion: """))
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
 
 
-# Volumes
+# All Volume Formulas
 def milliliters_to_liters(data):
     data = float(data)
     return data * (1 / 1000)
@@ -395,7 +396,7 @@ def ounces_to_all2(data):
 
 def volume_converter():
     """
-    Handles all volume conversions
+Handles all volume conversions and displays the results
     """
     user_choice = int(
         input("""(1) Milliliters to Liters
@@ -460,11 +461,11 @@ Select a volume conversion: """))
 
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-        time.sleep(2)
+        sleep(2)
         volume_converter()
 
 
-# Crypto
+# All Crypto-Currency Formulas
 def bitcoin_to_all(data):
     data = float(data)
 
@@ -507,7 +508,7 @@ def shiba_inu_to_all(data):
 
 def crypto_converter():
     """
-    Handles all crypto conversion
+Handles all crypto conversions and displays the results
     """
     user_choice = int(
         input("""(1) Bitcoin to ALL
@@ -556,7 +557,7 @@ Select a crypto conversion:    """))
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
 
 
-# Speed
+# All Speed Formulas
 def mph_to_all(data):
     data = float(data)
 
@@ -614,7 +615,7 @@ def knot_to_all(data):
 
 def speed_converter():
     """
-    Handles all speed conversion
+Handles all speed conversions and displays the results
     """
     choice = int(input("""(1) Miles Per Hour to All
 (2) Foot Per Second to ALL
@@ -679,10 +680,9 @@ Which calculation would you like to perform: """))
         print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
 
 
-# Time
 def time_converter():
     """
-    Handles all time conversion
+Handles all time conversions based upon a set starting time
     """
     print("Input what you would like to convert from")
     print(f'{colors.yellow}Please stick to this format')
@@ -723,7 +723,7 @@ What do you want to convert to: """)
         print(colors.red + "Invalid input... Restarting input...\n" + colors.reset)
 
 
-# Storage
+# All Storage Formulas
 def bytes_converter(data):
     data = float(data)
 
@@ -781,7 +781,7 @@ def terabytes_converter(data):
 
 def storage_converter():
     """
-    Handles all speed conversion
+Handles all storage conversions and displays the results
     """
     choice = int(input("""(1) Bytes to All
 (2) Kilobytes to ALL
@@ -846,7 +846,7 @@ Which calculation would you like to perform: """))
         print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
 
 
-# Pressure
+# All Pressure Formulas
 def pascal_to_all(data):
     data = float(data)
 
@@ -889,7 +889,7 @@ def atm_to_all(data):
 
 def pressure_converter():
     """
-    Handles all pressure conversion
+Handles all pressure conversions and displays the results
     """
     user_choice = int(input("""
 (1) Pascal [Pa] to All
@@ -940,7 +940,7 @@ Which calculation would you like to perform: """))
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
 
 
-# Angle
+# All Angle Formulas
 def degree_to_all(data):
     data = float(data)
 
@@ -983,7 +983,7 @@ def minute_to_all(data):
 
 def angle_converter():
     """
-    Handles all angle conversion
+Handles all angle conversions and displays the results
     """
     user_choice = int(input("""
 (1) Degree [°] to All
@@ -1033,7 +1033,7 @@ Which calculation would you like to perform: """))
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
 
 
-# Energy
+# All Energy Formulas
 def joule_to_all(data):
     data = float(data)
 
@@ -1076,7 +1076,7 @@ def kw_to_all(data):
 
 def energy_converter():
     """
-    Handles all energy conversion
+Handles all energy conversions and displays the results
     """
     choice = int(input('''(1) Joule to ALL
 (2) KiloJoule to ALL
@@ -1125,7 +1125,7 @@ Which energy conversion would you like to pick: '''))
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
 
 
-#  Fuel
+#  All Fuel Formulas
 def mpg_to_all(data):
     data = float(data)
 
@@ -1155,7 +1155,7 @@ def kpl_to_all(data):
 
 def fuel_converter():
     """
-    Handles all fuel conversion
+Handles all fuel conversions and displays the results
     """
     choice = int(input('''(1) Miles Per Gallon to ALL
 (2) Miles Per Gallon (Imperial) to ALL
@@ -1191,7 +1191,7 @@ Which Fuel Economy conversion would you like to pick: '''))
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
 
 
-# Frequency
+# All Sound-Frequency Formulas
 def hertz_to_all(data):
     data = float(data)
 
@@ -1234,7 +1234,7 @@ def gigahertz_to_all(data):
 
 def frequency_converter():
     """
-    Handles all frequency conversion
+Handles all sound-frequency conversions and displays the results
     """
     choice = int(input('''(1) Hertz to ALL
 (2) Kilohertz to ALL
@@ -1281,11 +1281,14 @@ Which Sound Frequency conversion would you like to pick: '''))
 
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-        time.sleep(2)
+        sleep(2)
         frequency_converter()
 
 
 def file_converter():
+    """
+Handles all file conversions
+    """
     choice = int(input('''(1) Word Document to PDF
 (2) MP4 Video to MP3 Audio
 
@@ -1324,6 +1327,9 @@ Which File convertion would you like to pick: '''))
 
 
 def binary_converter():
+    """
+Handles all binary conversions
+    """
     choice = int(input("""(1) Binary to Decimal
 (2) Decimal to Binary
 (3) Binary to Sound
@@ -1362,12 +1368,15 @@ Which Binary conversion would you like to use: """))
             else:
                 print(colors.red + "User input error found... Please only use 0 or 1 as an input choice...\n",
                       colors.reset)
-                time.sleep(2)
+                sleep(2)
     else:
         print(colors.red + 'User input error found...\n', colors.reset)
 
 
 def start():
+    """
+Main hub UI for all of the converters used in the project
+    """
     while True:
         print(colors.green + "All Converters", colors.reset)
         choice = int(input('''

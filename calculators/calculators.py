@@ -5,8 +5,10 @@ from modules import colors
 from modules.errors import Exit
 
 
-# Entire operation
 def basic_calc():
+    """
+This is the basic arithmetic calculator that handles simply arithmetic equations and outputs the result
+    """
     history = []
     print("Use '--help' for help")
     while True:
@@ -34,6 +36,9 @@ def basic_calc():
 
 
 def find_slope1(y2, y1, x2, x1):
+    """
+Handles the formula used for rise over run format to find slope
+    """
     y2 = float(y2)
     y1 = float(y1)
     x2 = float(x2)
@@ -44,6 +49,9 @@ def find_slope1(y2, y1, x2, x1):
 
 
 def find_slope2(m, x, b):
+    """
+Handles the formula used for y=mx+b format to find slope
+    """
     m = float(m)
     x = float(x)
     b = float(b)
@@ -53,6 +61,9 @@ def find_slope2(m, x, b):
 
 
 def find_pythagorean(formula, a="", b="", c=""):
+    """
+Handles the formula used for pythagorean theorem
+    """
     if formula == 'a':
         side_b = int(b)
         side_c = int(c)
@@ -76,6 +87,9 @@ def find_pythagorean(formula, a="", b="", c=""):
 
 
 def find_distance(x1, y1, x2, y2):
+    """
+Handles the formula used for finding the distance between two graphed points
+    """
     x1 = float(x1)
     y1 = float(y1)
     x2 = float(x2)
@@ -86,6 +100,9 @@ def find_distance(x1, y1, x2, y2):
 
 
 def find_midpoint(x1, y1, x2, y2):
+    """
+Handles the formula used for finding the midpoint between two graphed points
+    """
     x1 = float(x1)
     y1 = float(y1)
     x2 = float(x2)
@@ -98,6 +115,9 @@ def find_midpoint(x1, y1, x2, y2):
 
 
 def algebra():
+    """
+Entire operation and hub for all algebra related calculators
+    """
     while True:
         choice = int(input('''
 (1) Find Slope (Rise Over Run)
@@ -189,6 +209,9 @@ What calculation would you like to perform: '''))
 
 
 def payroll():
+    """
+Used under the financial calculator, this function determines how much money you will make in a given set of time
+    """
     weekly = float(repeat_input('How much money do you make weekly: ',
                                 'Salary must be above 0',
                                 'float',
@@ -210,6 +233,10 @@ def payroll():
 
 
 def tipping():
+    """
+Used under the financial calculator, this function determines how much money to tip given a set total bill and amount
+of people
+    """
     total_bill = float(repeat_input('How much is your total bill: ',
                                     'Bill must be above 0',
                                     'float',
@@ -235,6 +262,9 @@ def tipping():
 
 
 def interest():
+    """
+Used under the financial calculator, this function determines how much money is gained or lost from an interest rate
+    """
     principal = repeat_input('How much money do you currently have in the bank: ',
                              'Amount of money must be a valid number',
                              'int')
@@ -260,6 +290,9 @@ def interest():
 
 
 def financial():
+    """
+Main hub for all financial calculator options
+    """
     while True:
         choice = int(input("""(1) Payroll Calculator
 (2) Restaurant Tip Calculator
@@ -282,6 +315,9 @@ Which calculation would you like to perform: """))
 
 
 def bmi():
+    """
+Handles Body Mass Index values to determine whether someone is healthy or not with their weight amount
+    """
     print(colors.yellow + '''
 Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women. 
 Underweight = <18.5
@@ -305,6 +341,9 @@ Obesity = BMI of 30 or greater.\n''', colors.reset)
 
 
 def geometry():
+    """
+Main hub for all geometry related calculator options
+    """
     while True:
         choice = int(input('''(1) Find Area
 (2) Find Circumference
@@ -387,6 +426,9 @@ Which Shape would you like to solve the volume for: '''))
 
 
 def stocks():
+    """
+Handles all stock evaluations to help predict a gain/loss amount
+    """
     user_shares = float(repeat_input('Number of Shares: ', 'Must be positive', 'float', lambda i: float(i) > 0))
     user_purchase_price = float(repeat_input('Purchase Price ($): ', 'Must be positive', 'float',
                                              lambda i: float(i) > 0))
@@ -406,6 +448,9 @@ def stocks():
 
 
 def results(user_shares, user_sell_commission, user_buy_commission, user_sell_price, user_purchase_price):
+    """
+Handles the main formula used to find gain/loss in the stocks function
+    """
     user_gain_loss = ((user_sell_price * user_shares) - user_sell_commission) - (
             (user_purchase_price * user_shares) + user_buy_commission)
 
@@ -414,6 +459,9 @@ def results(user_shares, user_sell_commission, user_buy_commission, user_sell_pr
 
 
 def random_number():
+    """
+Basic function that returns a random integer between two sets of boundary integers, used in the randomization function
+    """
     start_number = int(repeat_input('Pick a starting number: ', 'Must be a number', 'int'))
     end_number = int(repeat_input('Pick a ending number: ', 'Must be a number', 'int'))
     print()
@@ -422,6 +470,9 @@ def random_number():
 
 
 def heads_or_tails():
+    """
+Small game of heads or tails used in the randomization function
+    """
     choice = repeat_input('Pick heads or tails: ',
                           'Invalid choice',
                           custom_validation=lambda i: i in ['heads', 'h', 't', 'tails', 'tail', 'head']
@@ -433,6 +484,9 @@ def heads_or_tails():
 
 
 def randomization():
+    """
+Main hub for all randomization calculators/games
+    """
     while True:
         choice = int(input("""(1) Random Number Generator
 (2) Heads or Tails 
@@ -452,8 +506,10 @@ Which calculation would you like to perform: """))
 
 
 def bitwise():
-    # Turns the result from bin into something nice
-    nbin = lambda x: bin(x)[2:] if x >= 0 else '-' + bin(x)[3:]
+    """
+Turns the result from bin into something nice
+    """
+    bin_number = lambda x: bin_number(x)[2:] if x >= 0 else '-' + bin_number(x)[3:]
     binary_operators = {'&', '|', '^', '<<', '>>'}
     unary_operators = {'~'}
 
@@ -468,15 +524,18 @@ def bitwise():
         answer = eval(str(operand_1) + operator + str(operand_2))
 
         print(f'{operand_1} {operator} {operand_2} = {answer}')
-        print(f'{nbin(operand_1)} {operator} {nbin(operand_2)} = {nbin(answer)}')
+        print(f'{bin_number(operand_1)} {operator} {bin_number(operand_2)} = {bin_number(answer)}')
     else:
         answer = eval(operator + str(operand_1))
 
         print(f'{operator}{operand_1} = {answer}')
-        print(f'{operator}{nbin(operand_1)} = {nbin(answer)}')
+        print(f'{operator}{bin_number(operand_1)} = {bin_number(answer)}')
 
 
 def start():
+    """
+Main hub UI that displays all of the calculators in the project
+    """
     while True:
         print(colors.green + "All Calculators", colors.reset)
         choice = int(input('''

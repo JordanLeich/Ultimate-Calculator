@@ -4,6 +4,9 @@ from modules import colors
 
 
 def start():
+    """
+Allows the user to be able to view either the latest or oldest release of this project via GitHub
+    """
     while True:
         choice = int(input('''(1) Latest Stable Release
 (2) Oldest Release
