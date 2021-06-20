@@ -15,6 +15,9 @@ import json
 
 
 def currency_converter():
+    """
+Handles all currency conversions by using an api key since currencies change their rates frequently
+    """
     with open("../key.json", 'r') as json_file:
         data = json.load(json_file)
         api_key = data["key"]

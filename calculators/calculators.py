@@ -388,7 +388,8 @@ Which Shape would you like to solve the volume for: '''))
 
 def stocks():
     user_shares = float(repeat_input('Number of Shares: ', 'Must be positive', 'float', lambda i: float(i) > 0))
-    user_purchase_price = float(repeat_input('Purchase Price ($): ', 'Must be positive', 'float', lambda i: float(i) > 0))
+    user_purchase_price = float(repeat_input('Purchase Price ($): ', 'Must be positive', 'float',
+                                             lambda i: float(i) > 0))
     user_sell_price = float(repeat_input('Sell Price ($): ', 'Must be positive', 'float', lambda i: float(i) > 0))
     user_buy_commission = float(repeat_input('Buy Commission (if none, put 0): ',
                                              'Must be positive',
