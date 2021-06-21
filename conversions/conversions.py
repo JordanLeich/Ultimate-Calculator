@@ -1,8 +1,8 @@
 try:
     import winsound
-
     windows = True
 except ImportError:
+    import winsound
     linux = True
 
 from docx2pdf import convert
@@ -106,7 +106,6 @@ Select a currency conversion: """))
               mad_to_c, "in Canadian Dollar.")
         print(colors.green, user_mad, "in Moroccan MAD equals",
               mad_to_yen, "in Japanese Yen.\n", colors.reset)
-
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
 
@@ -114,41 +113,33 @@ Select a currency conversion: """))
 # All Crypto-Currency Formulas
 def bitcoin_to_all(data):
     data = float(data)
-
     ethereum = data * 13.72
     dogecoin = data * 95317.32
     shiba_inu = data * 4.03
-
     return ethereum, dogecoin, shiba_inu
 
 
 def ethereum_to_all(data):
     data = float(data)
-
     bitcoin = data * 0.072
     dogecoin = data * 6686.2
     shiba_inu = data * 292.12
-
     return bitcoin, dogecoin, shiba_inu
 
 
 def dogecoin_to_all(data):
     data = float(data)
-
     bitcoin = data * 0.00001089
     ethereum = data * 0.000150
     shiba_inu = data * 43745
-
     return bitcoin, ethereum, shiba_inu
 
 
 def shiba_inu_to_all(data):
     data = float(data)
-
     bitcoin = data * 0.00000001
     ethereum = data * 0.0000000012
     dogecoin = data * 0.000023
-
     return bitcoin, ethereum, dogecoin
 
 
@@ -167,7 +158,6 @@ Select a crypto conversion:    """))
     if user_choice == 1:
         bitcoin = repeat_input("Bitcoin Amount: ", "Invalid Number...\n", "float")
         print()
-
         ethereum, dogecoin, shiba_inu = bitcoin_to_all(bitcoin)
         print(f'{colors.green}{bitcoin} in Bitcoin equals {ethereum} in Ethereum.')
         print(f'{bitcoin} in Bitcoin equals {dogecoin} in DogeCoin.')
@@ -176,7 +166,6 @@ Select a crypto conversion:    """))
     elif user_choice == 2:
         ethereum = repeat_input("Ethereum Amount: ", "Invalid Number...\n", "float")
         print()
-
         bitcoin, dogecoin, shiba_inu = ethereum_to_all(ethereum)
         print(f'{colors.green}{ethereum} in Ethereum equals {bitcoin} in Bitcoin.')
         print(f'{ethereum} in Ethereum equals {dogecoin} in DogeCoin.')
@@ -185,7 +174,6 @@ Select a crypto conversion:    """))
     elif user_choice == 3:
         dogecoin = repeat_input("DogeCoin Amount: ", "Invalid Number...\n", "float")
         print()
-
         bitcoin, ethereum, shiba_inu = bitcoin_to_all(dogecoin)
         print(f'{colors.green}{dogecoin} in DogeCoin equals {bitcoin} in Bitcoin.')
         print(f'{dogecoin} in DogeCoin equals {ethereum} in Ethereum.')
@@ -194,7 +182,6 @@ Select a crypto conversion:    """))
     elif user_choice == 4:
         shiba_inu = float(input("SHIBA INU Amount: "))
         print()
-
         bitcoin, ethereum, dogecoin = shiba_inu_to_all(shiba_inu)
         print(f'{colors.green}{shiba_inu} in DogeCoin equals {bitcoin} in Bitcoin.')
         print(f'{shiba_inu} in DogeCoin equals {ethereum} in Ethereum.')
@@ -292,6 +279,9 @@ Which Binary conversion would you like to use: """))
 
 
 def unit_converter():
+    """
+Handles all unit conversions with sorted criteria of units to convert from and to
+    """
     # This lists all types of units as keys
     # To dictionaries with each unit abbreviation as keys
     # To 2 or 3 item tuples of the full name of the unit AND
@@ -393,14 +383,14 @@ def unit_converter():
     }
 
     unit_type = repeat_input('What type of unit do you want to convert?\n    ' +
-                             '\n    '.join(f'({ind}) {unit_name.title()}' for ind, unit_name in enumerate(units, start=1)) +
+                             '\n    '.join(f'({ind}) {unit_name.title()}' for ind, unit_name in
+                                           enumerate(units, start=1)) +
                              '\nSelect a number: ',
                              'Select a valid number',
                              'int',
                              lambda i: 0 < int(i) <= len(units)
                              )
     conversion_table = units[list(units)[int(unit_type) - 1]]
-
     unit_names = list(f'{name.title()} ({abbr})' for abbr, (name, *_) in conversion_table.items())
     input_unit = repeat_input('Which unit are you converting from?\n    ' +
                               f'\n    '.join(unit_names) +
@@ -437,7 +427,7 @@ def unit_converter():
     else:
         for unit, (_, *output_values) in conversion_table.items():
             if unit == input_unit:
-                    continue
+                continue
 
             if len(output_values) == 1:
                 output_ratio, = output_values
@@ -464,19 +454,16 @@ Main hub UI for all of the converters used in the project
 
 Which conversion would you like to use: '''))
         print()
-
         if choice == 1:
             unit_converter()
         elif choice == 2:
             print("""To Use The Currency Conversion an API Key is Required
 Visit www.currencyconverterapi.com And Follow The Steps To Get an API Key.\n""")
             key = input("API Key: ")
-
             if validate_key(key):
                 currency_converter()
             else:
                 print("Invalid Key")
-
         elif choice == 3:
             crypto_converter()
         elif choice == 4:
