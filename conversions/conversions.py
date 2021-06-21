@@ -1373,6 +1373,108 @@ Which Binary conversion would you like to use: """))
         print(colors.red + 'User input error found...\n', colors.reset)
 
 
+def unit_converter():
+    # This lists all types of units as keys
+    # To dictionaries with each unit abbreviation as keys
+    # To 2 or 3 item tuples of the full name of the unit AND
+    # the ratio between it and the first item in the tuple (x : 1) AND
+    # OPTIONALLY an amount to add afterwards (only needed for temperatures currently)
+    #
+    # All strings should be lowercase, and are formatted correctly in code
+    # All unit names should be plural
+    # The first unit should be the smallest one, such that all conversion ratios are >= 1
+    # In order to minimise floating point errors
+    # TODO: Have singular unit names and convert as necessary in code (Not as easy as adding 's' e.g. foot -> feet)
+    #
+    # Adding to this dictionary is all that is necessary to add units and types of units
+    # Adhering to the formatting is highly suggested to keep it readable
+    units = {
+        'mass': {
+            'g': ('grams', 1),
+            'kg': ('kilograms', 1000),
+            'lb': ('pounds', 453.5924),
+            'oz': ('ounces', 28.349526),
+        },
+        'length': {
+            'cm': ('centimeters', 1),
+            'm': ('meters', 100),
+            'km': ('kilometers', 100000),
+            'mi': ('miles', 160934.4),
+            'ft': ('feet', 30.48),
+            'in': ('inches', 2.54),
+        },
+        'temperature': {
+            'f': ('fahrenheit', 1, 0),
+            'c': ('celsius', 1.8, 32),
+            'k': ('kelvin', 1.8, -459.667),
+            'r': ('rankine', 1, -459.667)
+        },
+        'volume': {
+            'ml': ('milliliters', 1),
+            'l': ('liters', 1000),
+            'gal': ('gallons', 3785.4),
+            'qt': ('quarts', 946.35),
+            'pt': ('pints', 473.175),
+            'fl oz': ('fluid ounces', 29.57344),
+        },
+        'speed': {
+            'kph': ('kilometers per hour', 1),
+            'mph': ('miles per hour', 1.609344),
+            'fps': ('feet per second', 1.09728),
+            'mps': ('meters per second', 3.6),
+            'kn': ('knots', 1.852001),
+        },
+        'storage': {
+            'bit': ('bits', 1),
+            'nb': ('nibbles', 4),
+            'b': ('bytes', 8),
+            'kb': ('kilobytes', 8000),
+            'mb': ('megabytes', 8000000),
+            'gb': ('gigabytes', 8000000000),
+            'kib': ('kibibytes', 8192),
+            'meb': ('mebibytes', 8388608),
+            'gib': ('gibibytes', 8589935000),
+        },
+        'time': {
+            's': ('seconds', 1),
+            'min': ('minutes', 60),
+            'h': ('hours', 3600),
+            'd': ('days', 86400),
+            'w': ('weeks', 604800),
+            'fn': ('fornights', 1209600),
+            'mon': ('months', 2629800),
+            'y': ('years', 31557600),
+        },
+        'pressure': {
+            'pa': ('pascals', 1),
+            'kpa': ('kilopascals', 1000),
+            'bar': ('bars', 100000),
+            'atm': ('atmospheres', 101325),
+            'psi': ('pounds per square inch', 14.69595),
+        },
+        'angle': {
+            'arcsec': ('arcseconds', 1),
+            'deg': ('degrees', 3600),
+            'rad': ('radians', 206264.8),
+            'grad': ('gradians', 3240),
+            'arcmin': ('arcminutes', 60),
+        },
+        'energy': {
+            'j': ('joules', 1),
+            'kj': ('kilojoules', 1000),
+            'wh': ('watt hours', 3600),
+            'kwh': ('kilowatt hours', 3600000),
+            'cal': ('calories', 4.184),
+            'kcal': ('kilocalories', 4184),
+        },
+        'fuel economy': {
+            'mpg': ('miles per gallon', 1),
+            'mpgi': ('miles per gallon imperial', 1.2),
+            'kpl': ('kilometers per liter', 2.82428),
+        },
+    }
+
+
 def start():
     """
 Main hub UI for all of the converters used in the project
