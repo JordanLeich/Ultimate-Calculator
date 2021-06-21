@@ -1474,6 +1474,61 @@ def unit_converter():
         },
     }
 
+    unit_type = repeat_input('What type of unit do you want to convert?\n    ' +
+                             '\n    '.join(f'({ind}) {unit_name.title()}' for ind, unit_name in enumerate(units, start=1)) +
+                             '\nSelect a number: ',
+                             'Select a valid number',
+                             'int',
+                             lambda i: 0 < int(i) <= len(units)
+                             )
+    conversion_table = units[list(units)[int(unit_type) - 1]]
+
+    unit_names = list(f'{name.title()} ({abbr})' for abbr, (name, *_) in conversion_table.items())
+    input_unit = repeat_input('Which unit are you converting from?\n    ' +
+                              f'\n    '.join(unit_names) +
+                              '\nSelect an abbreviation: ',
+                              'Select a valid abbreviation',
+                              custom_validation=lambda i: i.lower() in conversion_table
+                              ).lower()
+    input_amount = float(repeat_input('What value are you converting? ',
+                                      'Input a valid number',
+                                      'float'
+                                      ))
+    output_unit = repeat_input('Which unit are you converting to?\n    ' +
+                               f'\n    '.join(unit_names + ['All Units (all)']) +
+                               '\nSelect an abbreviation: ',
+                               'Select a valid abbreviation',
+                               custom_validation=lambda i: i.lower() in conversion_table or i.lower() == 'all'
+                               ).lower()
+    print()
+
+    if len(conversion_table[input_unit]) == 2:
+        _, input_ratio = conversion_table[input_unit]
+        input_offset = 0
+    else:
+        _, input_ratio, input_offset = conversion_table[input_unit]
+    true_amount = input_amount * input_ratio + input_offset
+
+    if output_unit != 'all':
+        if len(conversion_table[output_unit]) == 2:
+            _, output_ratio = conversion_table[output_unit]
+            output_offset = 0
+        else:
+            _, output_ratio, output_offset = conversion_table[output_unit]
+        print(f'{(true_amount - output_offset) / output_ratio:.3f} {output_unit}')
+    else:
+        for unit, (_, *output_values) in conversion_table.items():
+            if unit == input_unit:
+                    continue
+
+            if len(output_values) == 1:
+                output_ratio, = output_values
+                output_offset = 0
+            else:
+                output_ratio, output_offset = output_values
+            print(f'{(true_amount - output_offset) / output_ratio:.3f} {unit}')
+    print()
+
 
 def start():
     """
@@ -1536,6 +1591,8 @@ Visit www.currencyconverterapi.com And Follow The Steps To Get an API Key.\n""")
             break
         elif choice == 18:
             raise Exit
+        elif choice == 19:
+            unit_converter()
         else:
             print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
 
