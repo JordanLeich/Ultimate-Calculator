@@ -443,7 +443,7 @@ def start():
 Main hub UI for all of the converters used in the project
     """
     while True:
-        print(colors.green + "All Converters", colors.reset)
+        print(colors.green + "All Converters\n", colors.reset)
         choice = int(input('''(1) Units
 (2) Currency
 (3) Crypto

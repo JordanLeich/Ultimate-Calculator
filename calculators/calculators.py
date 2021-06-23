@@ -247,6 +247,7 @@ of people
                                      'int',
                                      lambda i: float(i) > 0
                                      ))
+    print()
 
     five_percent = total_bill * 0.05 / people_number
     ten_percent = total_bill * 0.10 / people_number
