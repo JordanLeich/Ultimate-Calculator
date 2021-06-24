@@ -232,49 +232,23 @@ Which File convertion would you like to pick: '''))
 
 def binary_converter():
     """
-Handles all binary conversions
+Converts binary to sound
     """
-    choice = int(input("""(1) Binary to Decimal
-(2) Decimal to Binary
-(3) Binary to Sound
-
-Which Binary conversion would you like to use: """))
+    binary = input("Binary input: ")
     print()
-    binary = ""
-    if choice == 1:
-        number = int(input("Enter your whole decimal number (integer): "))
-        print()
-        while number > 1:
-            binary = str(number % 2) + binary
-            number //= 2
-        binary = str(number % 2) + binary
-        print(colors.green, 'Result:', binary, '\n', colors.reset)
-    elif choice == 2:
-        total = 0
-        number = (input("Enter your whole binary number: "))
-        print()
-        for i in range(1, (number.__len__()) + 1):
-            if number[-i] == str(1):
-                total = total + (2 ** (i - 1))
-        print(colors.green, 'Result:', total, '\n', colors.reset)
-    elif choice == 3:
-        binary = input("Binary input: ")
-        print()
-        for i in binary:
-            if i == "0":
-                if windows:
-                    winsound.Beep(2000, 100)
-                print(colors.green + 'Sound played!\n', colors.reset)
-            elif i == "1":
-                if windows:
-                    winsound.Beep(4000, 100)
-                print(colors.green + 'Sound played!\n', colors.reset)
-            else:
-                print(colors.red + "User input error found... Please only use 0 or 1 as an input choice...\n",
-                      colors.reset)
-                sleep(2)
-    else:
-        print(colors.red + 'User input error found...\n', colors.reset)
+    for i in binary:
+        if i == "0":
+            if windows:
+                winsound.Beep(2000, 100)
+            print(colors.green + 'Sound played!\n', colors.reset)
+        elif i == "1":
+            if windows:
+                winsound.Beep(4000, 100)
+            print(colors.green + 'Sound played!\n', colors.reset)
+        else:
+            print(colors.red + "User input error found... Please only use 0 or 1 as an input choice...\n",
+                  colors.reset)
+            sleep(2)
 
 
 def unit_converter():
@@ -437,6 +411,87 @@ Handles all unit conversions with sorted criteria of units to convert from and t
     print()
 
 
+def convert_to_base_10(number: str, base: int, alphabet: str) -> int:
+
+    try:
+        integer_part, decimal_part = number.split('.')
+    except ValueError:
+        # No decimal place - integer
+        integer_part = number
+        decimal_part = ''
+
+    base_place_values = [1]
+    for _ in range(max(len(integer_part), len(decimal_part))):
+        base_place_values.append(base_place_values[-1] * base)
+
+    base_ten_number = sum(alphabet.index(digit) * base_place_values[len(integer_part) - index]
+                          for index, digit in enumerate(integer_part, start=1))
+
+    base_ten_number += sum(map(lambda i: 1 / i, filter(lambda i: i != 0,
+                                                       (int(digit) * base_place_values[index]
+                                                        for index, digit in enumerate(decimal_part, start=1))
+                                                       )))
+
+    return base_ten_number
+
+
+def convert_from_base_10(number: int, target_base: int, alphabet: str) -> str:
+    output_number = []
+
+    while number > 0:
+        output_number.append(alphabet[number % target_base])
+        number //= target_base
+
+    return ''.join(reversed(output_number))
+
+
+def base_converter():
+    """
+Converts between bases
+    """
+    alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    input_base = 10
+    output_base = 10
+
+    print('''Options:
+(1) Specify input base
+(2) Specify output base
+(3) Swap input and output bases
+(4) Define alphabet (must be done for bases > 62)
+(5) Convert number
+(6) Exit\n''')
+
+    while True:
+        option = int(input('Pick an option: '))
+
+        if option == 1:
+            input_base = int(repeat_input('What base are you converting from? ',
+                                          'Base must be greater than 0',
+                                          'int',
+                                          lambda i: int(i) > 0))
+        elif option == 2:
+            output_base = int(repeat_input('What base are you converting to? ',
+                                           'Base must be greater than 0',
+                                           'int',
+                                           lambda i: int(i) > 0))
+        elif option == 3:
+            input_base, output_base = output_base, input_base
+        elif option == 4:
+            alphabet = input('Alphabet: ')
+        elif option == 5:
+            number = input('What number are you converting? ')
+            try:
+                base_10 = convert_to_base_10(number, input_base, alphabet)
+                print(convert_from_base_10(base_10, output_base, alphabet))
+            except (IndexError, ValueError):
+                # Character encountered that isn't in the alphabet provided
+                print('Character found not in alphabet. Define a new alphabet and try again')
+        elif option == 6:
+            break
+        else:
+            print('Invalid option')
+
+
 def start():
     """
 Main hub UI for all of the converters used in the project
@@ -447,9 +502,10 @@ Main hub UI for all of the converters used in the project
 (2) Currency
 (3) Crypto
 (4) Files
-(5) Binary
-(6) Restart
-(7) Quit
+(5) Binary to Sound
+(6) Base Converter
+(7) Restart
+(8) Quit
 
 Which conversion would you like to use: '''))
         print()
@@ -470,8 +526,10 @@ Visit www.currencyconverterapi.com And Follow The Steps To Get an API Key.\n""")
         elif choice == 5:
             binary_converter()
         elif choice == 6:
-            break
+            base_converter()
         elif choice == 7:
+            break
+        elif choice == 8:
             raise Exit
         else:
             print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
