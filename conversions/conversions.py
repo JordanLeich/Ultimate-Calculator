@@ -2,7 +2,6 @@ try:
     import winsound
     windows = True
 except ImportError:
-    import winsound
     linux = True
 
 from docx2pdf import convert
