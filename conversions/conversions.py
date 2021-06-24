@@ -446,6 +446,9 @@ def convert_from_base_10(number: int, target_base: int, alphabet: str) -> str:
 
 
 def base_converter():
+    """
+Converts between bases
+    """
     alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     input_base = 10
     output_base = 10
