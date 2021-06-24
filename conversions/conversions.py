@@ -232,49 +232,23 @@ Which File convertion would you like to pick: '''))
 
 def binary_converter():
     """
-Handles all binary conversions
+Converts binary to sound
     """
-    choice = int(input("""(1) Binary to Decimal
-(2) Decimal to Binary
-(3) Binary to Sound
-
-Which Binary conversion would you like to use: """))
+    binary = input("Binary input: ")
     print()
-    binary = ""
-    if choice == 1:
-        number = int(input("Enter your whole decimal number (integer): "))
-        print()
-        while number > 1:
-            binary = str(number % 2) + binary
-            number //= 2
-        binary = str(number % 2) + binary
-        print(colors.green, 'Result:', binary, '\n', colors.reset)
-    elif choice == 2:
-        total = 0
-        number = (input("Enter your whole binary number: "))
-        print()
-        for i in range(1, (number.__len__()) + 1):
-            if number[-i] == str(1):
-                total = total + (2 ** (i - 1))
-        print(colors.green, 'Result:', total, '\n', colors.reset)
-    elif choice == 3:
-        binary = input("Binary input: ")
-        print()
-        for i in binary:
-            if i == "0":
-                if windows:
-                    winsound.Beep(2000, 100)
-                print(colors.green + 'Sound played!\n', colors.reset)
-            elif i == "1":
-                if windows:
-                    winsound.Beep(4000, 100)
-                print(colors.green + 'Sound played!\n', colors.reset)
-            else:
-                print(colors.red + "User input error found... Please only use 0 or 1 as an input choice...\n",
-                      colors.reset)
-                sleep(2)
-    else:
-        print(colors.red + 'User input error found...\n', colors.reset)
+    for i in binary:
+        if i == "0":
+            if windows:
+                winsound.Beep(2000, 100)
+            print(colors.green + 'Sound played!\n', colors.reset)
+        elif i == "1":
+            if windows:
+                winsound.Beep(4000, 100)
+            print(colors.green + 'Sound played!\n', colors.reset)
+        else:
+            print(colors.red + "User input error found... Please only use 0 or 1 as an input choice...\n",
+                  colors.reset)
+            sleep(2)
 
 
 def unit_converter():
@@ -525,7 +499,7 @@ Main hub UI for all of the converters used in the project
 (2) Currency
 (3) Crypto
 (4) Files
-(5) Binary
+(5) Binary to Sound
 (6) Base Converter
 (7) Restart
 (8) Quit
