@@ -7,8 +7,7 @@ except ImportError:
 
 from docx2pdf import convert
 from moviepy.editor import *
-from modules import colors
-from modules.currency_api import get_currency, validate_key
+from modules import colors, currency_api
 from modules.tools import repeat_input
 from modules.errors import Exit
 from time import sleep
@@ -19,95 +18,44 @@ def currency_converter():
     """
 Handles all currency conversions by using an api key since currencies change their rates frequently
     """
-    with open("../key.json", 'r') as json_file:
-        data = json.load(json_file)
-        api_key = data["key"]
-    user_choice = int(
-        input("""(1) US Dollar to ALL
-(2) Euro to ALL
-(3) Canadian Dollar to ALL
-(4) Japanese Yen to ALL
-(5) Moroccan MAD to ALL
-
-Select a currency conversion: """))
-    print()
-    if user_choice == 1:
-        user_dollar = float(input("Dollar Amount: "))
-        print()
-        d_to_e = float(user_dollar * get_currency("USD_EUR", api_key))
-        d_to_j = float(user_dollar * get_currency("USD_JPY", api_key))
-        d_to_c = float(user_dollar * get_currency("USD_CAD", api_key))
-        d_to_mad = float(user_dollar * get_currency("USD_MAD", api_key))
-        print(colors.green, user_dollar, "in US Dollar equals",
-              d_to_e, "in Euros.")
-        print(colors.green, user_dollar, "in US Dollar equals",
-              d_to_j, "in Japanese Yen.")
-        print(colors.green, user_dollar, "in US Dollar equals",
-              d_to_c, "in Canadian Dollar.")
-        print(colors.green, user_dollar, "in US Dollar equals",
-              d_to_mad, "in Moroccan MAD.\n", colors.reset)
-    elif user_choice == 2:
-        user_euro = float(input("Euro Amount: "))
-        print()
-        e_to_d = float(user_euro * get_currency("EUR_USD", api_key))
-        e_to_j = float(user_euro * get_currency("EUR_JPY", api_key))
-        e_to_c = float(user_euro * get_currency("EUR_CAD", api_key))
-        e_to_mad = float(user_euro * get_currency("EUR_MAD", api_key))
-        print(colors.green, user_euro, "in Euro equals",
-              e_to_d, "in US Dollars.")
-        print(colors.green, user_euro, "in Euro equals",
-              e_to_j, "in Japanese Yen.")
-        print(colors.green, user_euro, "in Euro equals",
-              e_to_c, "in Canadian Dollar.")
-        print(colors.green, user_euro, "in Euro equals",
-              e_to_mad, "in Moroccan MAD.\n", colors.reset)
-    elif user_choice == 3:
-        user_canadian = float(input("Canadian Dollar Amount: "))
-        print()
-        c_to_d = float(user_canadian * get_currency("CAD_USD", api_key))
-        c_to_j = float(user_canadian * get_currency("CAD_JPY", api_key))
-        c_to_e = float(user_canadian * get_currency("CAD_EUR", api_key))
-        c_to_mad = float(user_canadian * get_currency("CAD_MAD", api_key))
-        print(colors.green, user_canadian, "in Canadian Dollar equals",
-              c_to_d, "in US Dollars.")
-        print(colors.green, user_canadian, "in Canadian Dollar equals",
-              c_to_j, "in Japanese Yen.")
-        print(colors.green, user_canadian, "in Canadian Dollar equals",
-              c_to_e, "in Euro.")
-        print(colors.green, user_canadian, "in Canadian Dollar equals",
-              c_to_mad, "in Moroccan MAD.\n", colors.reset)
-    elif user_choice == 4:
-        user_yen = float(input("Japanese Yen Amount: "))
-        print()
-        y_to_d = float(user_yen * get_currency("JPY_USD", api_key))
-        y_to_e = float(user_yen * get_currency("JPY_EUR", api_key))
-        y_to_c = float(user_yen * get_currency("JPY_CAD", api_key))
-        y_to_mad = float(user_yen * get_currency("JPY_MAD", api_key))
-        print(colors.green, user_yen, "in Japanese Yen equals",
-              y_to_d, "in US Dollars.")
-        print(colors.green, user_yen, "in Japanese Yen equals",
-              y_to_e, "in Euros.")
-        print(colors.green, user_yen, "in Japanese Yen equals",
-              y_to_c, "in Canadian Dollar.")
-        print(colors.green, user_yen, "in Japanese Yen equals",
-              y_to_mad, "in Moroccan MAD.\n")
-    elif user_choice == 5:
-        user_mad = float(input("Moroccan MAD Amount: "))
-        print()
-        mad_to_d = float(user_mad * get_currency("MAD_USD", api_key))
-        mad_to_e = float(user_mad * get_currency("MAD_EUR", api_key))
-        mad_to_c = float(user_mad * get_currency("MAD_CAD", api_key))
-        mad_to_yen = float(user_mad * get_currency("MAD_JPY", api_key))
-        print(colors.green, user_mad, "in Moroccan MAD equals",
-              mad_to_d, "in US Dollars.")
-        print(colors.green, user_mad, "in Moroccan MAD equals",
-              mad_to_e, "in Euros.")
-        print(colors.green, user_mad, "in Moroccan MAD equals",
-              mad_to_c, "in Canadian Dollar.")
-        print(colors.green, user_mad, "in Moroccan MAD equals",
-              mad_to_yen, "in Japanese Yen.\n", colors.reset)
-    else:
-        print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+    api_key = currency_api.get_api_key()
+    currency_1 = None
+    currency_2 = None
+    currencies = {currency['id']: currency['currencyName'] for currency in currency_api.get_currencies(api_key)}
+    while True:
+        print('''Options:
+    (1) Select currency to convert from
+    (2) Select currency to convert to
+    (3) List available currencies
+    (4) Get exchange rate
+    (5) Convert amount
+    (6) Exit\n''')
+        choice = int(input('Choice: '))
+        if choice == 1:
+            currency_1 = repeat_input('Which currency are you converting from? Input the currency code: ',
+                                      'Not a currency code',
+                                      custom_validation=lambda i: i in currencies)
+        elif choice == 2:
+            currency_2 = repeat_input('Which currency are you converting to? Input the currency code: ',
+                                      'Not a currency code',
+                                      custom_validation=lambda i: i in currencies)
+        elif choice == 3:
+            print('Available currencies: ')
+            for abbreviation, name in currencies.items():
+                print(f'{name: <30} ({abbreviation})')
+        elif choice == 4:
+            if currency_1 is None or currency_2 is None:
+                print('You have not selected a currency to convert to or from')
+            else:
+                print(f'The exchange rate is {currency_api.get_currency(currency_1, currency_2, api_key)}')
+        elif choice == 5:
+            amount = float(repeat_input('How much are you converting? ', 'Not a valid number', 'float'))
+            rate = currency_api.get_currency(currency_1, currency_2, api_key)
+            print(f'{amount} {currency_1} = {amount * rate} {currency_2}')
+        elif choice == 6:
+            break
+        else:
+            print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
 
 
 # All Crypto-Currency Formulas
@@ -513,13 +461,7 @@ Which conversion would you like to use: '''))
         if choice == 1:
             unit_converter()
         elif choice == 2:
-            print("""To Use The Currency Conversion an API Key is Required
-Visit www.currencyconverterapi.com And Follow The Steps To Get an API Key.\n""")
-            key = input("API Key: ")
-            if validate_key(key):
-                currency_converter()
-            else:
-                print("Invalid Key")
+            currency_converter()
         elif choice == 3:
             crypto_converter()
         elif choice == 4:

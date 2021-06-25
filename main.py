@@ -8,7 +8,6 @@
 import calculators.calculators
 import conversions.conversions
 from modules import contribution, colors, release
-from modules.currency_api import create_key_json
 from modules.errors import Exit
 from gui import *
 
@@ -56,5 +55,4 @@ Which option would you like to use: '''))
 
 
 if __name__ == '__main__':
-    create_key_json()
     start()
