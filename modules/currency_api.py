@@ -42,6 +42,7 @@ Visit www.currencyconverterapi.com and follow the steps to get an API key.""")
             break
         else:
             print('Not a valid key')
+    print()
     return key
 
 
@@ -72,7 +73,7 @@ def get_currency(currency_1, currency_2, api_key):
     """
     Gets the exchange rate between two currencies
     """
-    currency_pair = currency_1 + '-' + currency_2
+    currency_pair = currency_1 + '_' + currency_2
     url = "https://free.currconv.com/api/v7/convert?q={}&compact=ultra&apiKey={}".format(currency_pair, api_key)
     data = requests.get(url)
     return data.json()[currency_pair]
