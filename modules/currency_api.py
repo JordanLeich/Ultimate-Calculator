@@ -14,9 +14,9 @@ def get_api_key():
     Loads from key.json if possible
     Prompting the user otherwise
     """
-    if os.path.exists('../key.json'):
+    if os.path.exists('key.json'):
         try:
-            with open('../key.json', 'r') as key_file:
+            with open('key.json', 'r') as key_file:
                 key = json.load(key_file)
             key = key['key']
         except (IndexError, json.decoder.JSONDecodeError):
@@ -58,6 +58,7 @@ def _save_key(key):
     data = {'key': key}
     with open("key.json", "w") as outfile:
         json.dump(data, outfile)
+        outfile.flush()
 
 
 def get_currencies(api_key):
