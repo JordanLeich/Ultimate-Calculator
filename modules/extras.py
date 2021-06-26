@@ -50,6 +50,9 @@ Which release would you like to view: '''))
 
 
 def donate():
+    """
+Allows the user to be able to donate via PayPal or Cash App methods
+    """
     while True:
         print(colors.yellow + 'Since this project is completely free to use and open source, users have the option to '
                               'send a donation of their choice but this action is not required.\n', colors.reset)
@@ -84,6 +87,9 @@ Which donation option would you like to use: '''))
 
 
 def start():
+    """
+Main hub UI for the user to view additional information or extra parts of this project
+    """
     while True:
         choice = int(input('''(1) Project Releases
 (2) Credits
