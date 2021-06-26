@@ -7,7 +7,7 @@
 # Imports
 import calculators.calculators
 import conversions.conversions
-from modules import contribution, colors, release
+from modules import extras, colors
 from modules.errors import Exit
 from gui import *
 
@@ -23,9 +23,8 @@ this project.
 (1) All Calculators
 (2) All Converters
 (3) GUI Version
-(4) Releases
-(5) Credits
-(6) Exit
+(4) Extras
+(5) Exit
 
 Which option would you like to use: '''))
         print()
@@ -44,10 +43,8 @@ Which option would you like to use: '''))
             print(colors.green + 'GUI Application is now running!\n', colors.reset)
             start_gui()
         elif choice == 4:
-            release.start()
+            extras.start()
         elif choice == 5:
-            contribution.start()
-        elif choice == 6:
             break
         else:
             print(colors.red + "Invalid Choice...\n", colors.reset)
