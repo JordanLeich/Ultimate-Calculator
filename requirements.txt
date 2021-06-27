@@ -1,6 +1,4 @@
 colored==1.4.2
 PyQt5==5.15.4
 requests==2.25.1
-docx2pdf~=0.1.7
-moviepy~=1.0.3
-winsound (windows users only)
+winsound (windows users only, pip install winsound)

@@ -1,0 +1,1615 @@
+('C:\\Users\\Jordan Leich\\Downloads\\Python '
+ 'Programs\\Ultimate-Calculator\\build\\main\\PYZ-00.pyz',
+ [('os',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\os.py',
+   'PYMODULE'),
+  ('subprocess',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\subprocess.py',
+   'PYMODULE'),
+  ('selectors',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\selectors.py',
+   'PYMODULE'),
+  ('contextlib',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\contextlib.py',
+   'PYMODULE'),
+  ('threading',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\threading.py',
+   'PYMODULE'),
+  ('_threading_local',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\_threading_local.py',
+   'PYMODULE'),
+  ('signal',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\signal.py',
+   'PYMODULE'),
+  ('_strptime',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\_strptime.py',
+   'PYMODULE'),
+  ('datetime',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\datetime.py',
+   'PYMODULE'),
+  ('calendar',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\calendar.py',
+   'PYMODULE'),
+  ('argparse',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\argparse.py',
+   'PYMODULE'),
+  ('textwrap',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\textwrap.py',
+   'PYMODULE'),
+  ('shutil',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\shutil.py',
+   'PYMODULE'),
+  ('zipfile',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\zipfile.py',
+   'PYMODULE'),
+  ('py_compile',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\py_compile.py',
+   'PYMODULE'),
+  ('importlib.machinery',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\machinery.py',
+   'PYMODULE'),
+  ('importlib',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\__init__.py',
+   'PYMODULE'),
+  ('importlib._common',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\_common.py',
+   'PYMODULE'),
+  ('tempfile',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\tempfile.py',
+   'PYMODULE'),
+  ('random',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\random.py',
+   'PYMODULE'),
+  ('statistics',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\statistics.py',
+   'PYMODULE'),
+  ('decimal',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\decimal.py',
+   'PYMODULE'),
+  ('_pydecimal',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\_pydecimal.py',
+   'PYMODULE'),
+  ('contextvars',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\contextvars.py',
+   'PYMODULE'),
+  ('fractions',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\fractions.py',
+   'PYMODULE'),
+  ('numbers',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\numbers.py',
+   'PYMODULE'),
+  ('hashlib',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\hashlib.py',
+   'PYMODULE'),
+  ('logging',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\logging\\__init__.py',
+   'PYMODULE'),
+  ('pickle',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\pickle.py',
+   'PYMODULE'),
+  ('pprint',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\pprint.py',
+   'PYMODULE'),
+  ('doctest',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\doctest.py',
+   'PYMODULE'),
+  ('unittest',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\__init__.py',
+   'PYMODULE'),
+  ('unittest.async_case',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\async_case.py',
+   'PYMODULE'),
+  ('asyncio',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\__init__.py',
+   'PYMODULE'),
+  ('asyncio.unix_events',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\unix_events.py',
+   'PYMODULE'),
+  ('asyncio.log',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\log.py',
+   'PYMODULE'),
+  ('socket',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\socket.py',
+   'PYMODULE'),
+  ('asyncio.windows_events',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\windows_events.py',
+   'PYMODULE'),
+  ('asyncio.windows_utils',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\windows_utils.py',
+   'PYMODULE'),
+  ('asyncio.selector_events',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\selector_events.py',
+   'PYMODULE'),
+  ('ssl',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\ssl.py',
+   'PYMODULE'),
+  ('base64',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\base64.py',
+   'PYMODULE'),
+  ('getopt',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\getopt.py',
+   'PYMODULE'),
+  ('asyncio.proactor_events',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\proactor_events.py',
+   'PYMODULE'),
+  ('asyncio.base_subprocess',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\base_subprocess.py',
+   'PYMODULE'),
+  ('asyncio.threads',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\threads.py',
+   'PYMODULE'),
+  ('asyncio.subprocess',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\subprocess.py',
+   'PYMODULE'),
+  ('asyncio.streams',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\streams.py',
+   'PYMODULE'),
+  ('asyncio.queues',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\queues.py',
+   'PYMODULE'),
+  ('asyncio.runners',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\runners.py',
+   'PYMODULE'),
+  ('asyncio.events',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\events.py',
+   'PYMODULE'),
+  ('asyncio.base_events',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\base_events.py',
+   'PYMODULE'),
+  ('concurrent.futures',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\concurrent\\futures\\__init__.py',
+   'PYMODULE'),
+  ('concurrent.futures.thread',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\concurrent\\futures\\thread.py',
+   'PYMODULE'),
+  ('queue',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\queue.py',
+   'PYMODULE'),
+  ('concurrent.futures.process',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\concurrent\\futures\\process.py',
+   'PYMODULE'),
+  ('multiprocessing.queues',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\queues.py',
+   'PYMODULE'),
+  ('multiprocessing.synchronize',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\synchronize.py',
+   'PYMODULE'),
+  ('multiprocessing.heap',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\heap.py',
+   'PYMODULE'),
+  ('multiprocessing.resource_tracker',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\resource_tracker.py',
+   'PYMODULE'),
+  ('multiprocessing.spawn',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\spawn.py',
+   'PYMODULE'),
+  ('runpy',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\runpy.py',
+   'PYMODULE'),
+  ('pkgutil',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\pkgutil.py',
+   'PYMODULE'),
+  ('zipimport',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\zipimport.py',
+   'PYMODULE'),
+  ('importlib.abc',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\abc.py',
+   'PYMODULE'),
+  ('typing',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\typing.py',
+   'PYMODULE'),
+  ('multiprocessing.process',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\process.py',
+   'PYMODULE'),
+  ('multiprocessing.util',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\util.py',
+   'PYMODULE'),
+  ('multiprocessing.forkserver',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\forkserver.py',
+   'PYMODULE'),
+  ('multiprocessing.context',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\context.py',
+   'PYMODULE'),
+  ('multiprocessing.popen_spawn_win32',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\popen_spawn_win32.py',
+   'PYMODULE'),
+  ('multiprocessing.popen_forkserver',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\popen_forkserver.py',
+   'PYMODULE'),
+  ('multiprocessing.popen_spawn_posix',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\popen_spawn_posix.py',
+   'PYMODULE'),
+  ('multiprocessing.popen_fork',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\popen_fork.py',
+   'PYMODULE'),
+  ('multiprocessing.sharedctypes',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\sharedctypes.py',
+   'PYMODULE'),
+  ('ctypes',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\ctypes\\__init__.py',
+   'PYMODULE'),
+  ('ctypes._endian',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\ctypes\\_endian.py',
+   'PYMODULE'),
+  ('multiprocessing.pool',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\pool.py',
+   'PYMODULE'),
+  ('multiprocessing.dummy',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\dummy\\__init__.py',
+   'PYMODULE'),
+  ('multiprocessing.dummy.connection',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\dummy\\connection.py',
+   'PYMODULE'),
+  ('multiprocessing.managers',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\managers.py',
+   'PYMODULE'),
+  ('multiprocessing.shared_memory',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\shared_memory.py',
+   'PYMODULE'),
+  ('secrets',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\secrets.py',
+   'PYMODULE'),
+  ('hmac',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\hmac.py',
+   'PYMODULE'),
+  ('multiprocessing.reduction',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\reduction.py',
+   'PYMODULE'),
+  ('multiprocessing.resource_sharer',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\resource_sharer.py',
+   'PYMODULE'),
+  ('multiprocessing.connection',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\connection.py',
+   'PYMODULE'),
+  ('xmlrpc.client',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xmlrpc\\client.py',
+   'PYMODULE'),
+  ('xmlrpc',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xmlrpc\\__init__.py',
+   'PYMODULE'),
+  ('gzip',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\gzip.py',
+   'PYMODULE'),
+  ('_compression',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\_compression.py',
+   'PYMODULE'),
+  ('xml.parsers.expat',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\parsers\\expat.py',
+   'PYMODULE'),
+  ('xml.parsers',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\parsers\\__init__.py',
+   'PYMODULE'),
+  ('xml',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\__init__.py',
+   'PYMODULE'),
+  ('xml.sax.expatreader',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\sax\\expatreader.py',
+   'PYMODULE'),
+  ('xml.sax.saxutils',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\sax\\saxutils.py',
+   'PYMODULE'),
+  ('urllib.request',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\urllib\\request.py',
+   'PYMODULE'),
+  ('getpass',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\getpass.py',
+   'PYMODULE'),
+  ('nturl2path',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\nturl2path.py',
+   'PYMODULE'),
+  ('ftplib',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\ftplib.py',
+   'PYMODULE'),
+  ('netrc',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\netrc.py',
+   'PYMODULE'),
+  ('shlex',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\shlex.py',
+   'PYMODULE'),
+  ('mimetypes',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\mimetypes.py',
+   'PYMODULE'),
+  ('email.utils',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\utils.py',
+   'PYMODULE'),
+  ('email.charset',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\charset.py',
+   'PYMODULE'),
+  ('email.encoders',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\encoders.py',
+   'PYMODULE'),
+  ('quopri',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\quopri.py',
+   'PYMODULE'),
+  ('email.errors',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\errors.py',
+   'PYMODULE'),
+  ('email.quoprimime',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\quoprimime.py',
+   'PYMODULE'),
+  ('email.base64mime',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\base64mime.py',
+   'PYMODULE'),
+  ('email._parseaddr',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\_parseaddr.py',
+   'PYMODULE'),
+  ('http.cookiejar',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\http\\cookiejar.py',
+   'PYMODULE'),
+  ('http',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\http\\__init__.py',
+   'PYMODULE'),
+  ('urllib',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\urllib\\__init__.py',
+   'PYMODULE'),
+  ('urllib.response',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\urllib\\response.py',
+   'PYMODULE'),
+  ('urllib.error',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\urllib\\error.py',
+   'PYMODULE'),
+  ('email',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\__init__.py',
+   'PYMODULE'),
+  ('email.parser',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\parser.py',
+   'PYMODULE'),
+  ('email._policybase',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\_policybase.py',
+   'PYMODULE'),
+  ('email.feedparser',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\feedparser.py',
+   'PYMODULE'),
+  ('email.message',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\message.py',
+   'PYMODULE'),
+  ('email.policy',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\policy.py',
+   'PYMODULE'),
+  ('email.contentmanager',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\contentmanager.py',
+   'PYMODULE'),
+  ('email.headerregistry',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\headerregistry.py',
+   'PYMODULE'),
+  ('email.iterators',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\iterators.py',
+   'PYMODULE'),
+  ('email.generator',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\generator.py',
+   'PYMODULE'),
+  ('email._encoded_words',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\_encoded_words.py',
+   'PYMODULE'),
+  ('uu',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\uu.py',
+   'PYMODULE'),
+  ('optparse',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\optparse.py',
+   'PYMODULE'),
+  ('email._header_value_parser',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\_header_value_parser.py',
+   'PYMODULE'),
+  ('email.header',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\email\\header.py',
+   'PYMODULE'),
+  ('xml.sax',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\sax\\__init__.py',
+   'PYMODULE'),
+  ('xml.sax.handler',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\sax\\handler.py',
+   'PYMODULE'),
+  ('xml.sax._exceptions',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\sax\\_exceptions.py',
+   'PYMODULE'),
+  ('xml.sax.xmlreader',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\sax\\xmlreader.py',
+   'PYMODULE'),
+  ('urllib.parse',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\urllib\\parse.py',
+   'PYMODULE'),
+  ('http.client',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\http\\client.py',
+   'PYMODULE'),
+  ('multiprocessing',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\__init__.py',
+   'PYMODULE'),
+  ('concurrent.futures._base',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\concurrent\\futures\\_base.py',
+   'PYMODULE'),
+  ('concurrent',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\concurrent\\__init__.py',
+   'PYMODULE'),
+  ('asyncio.trsock',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\trsock.py',
+   'PYMODULE'),
+  ('asyncio.staggered',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\staggered.py',
+   'PYMODULE'),
+  ('asyncio.tasks',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\tasks.py',
+   'PYMODULE'),
+  ('asyncio.base_tasks',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\base_tasks.py',
+   'PYMODULE'),
+  ('asyncio.locks',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\locks.py',
+   'PYMODULE'),
+  ('asyncio.sslproto',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\sslproto.py',
+   'PYMODULE'),
+  ('asyncio.transports',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\transports.py',
+   'PYMODULE'),
+  ('asyncio.protocols',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\protocols.py',
+   'PYMODULE'),
+  ('asyncio.futures',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\futures.py',
+   'PYMODULE'),
+  ('asyncio.exceptions',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\exceptions.py',
+   'PYMODULE'),
+  ('asyncio.coroutines',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\coroutines.py',
+   'PYMODULE'),
+  ('asyncio.base_futures',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\base_futures.py',
+   'PYMODULE'),
+  ('asyncio.format_helpers',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\format_helpers.py',
+   'PYMODULE'),
+  ('asyncio.constants',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\asyncio\\constants.py',
+   'PYMODULE'),
+  ('unittest.signals',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\signals.py',
+   'PYMODULE'),
+  ('unittest.main',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\main.py',
+   'PYMODULE'),
+  ('unittest.runner',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\runner.py',
+   'PYMODULE'),
+  ('unittest.loader',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\loader.py',
+   'PYMODULE'),
+  ('unittest.suite',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\suite.py',
+   'PYMODULE'),
+  ('unittest.case',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\case.py',
+   'PYMODULE'),
+  ('unittest._log',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\_log.py',
+   'PYMODULE'),
+  ('unittest.result',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\result.py',
+   'PYMODULE'),
+  ('unittest.util',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\unittest\\util.py',
+   'PYMODULE'),
+  ('pdb',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\pdb.py',
+   'PYMODULE'),
+  ('pydoc',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\pydoc.py',
+   'PYMODULE'),
+  ('webbrowser',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\webbrowser.py',
+   'PYMODULE'),
+  ('http.server',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\http\\server.py',
+   'PYMODULE'),
+  ('socketserver',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\socketserver.py',
+   'PYMODULE'),
+  ('html',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\html\\__init__.py',
+   'PYMODULE'),
+  ('html.entities',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\html\\entities.py',
+   'PYMODULE'),
+  ('pydoc_data.topics',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\pydoc_data\\topics.py',
+   'PYMODULE'),
+  ('pydoc_data',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\pydoc_data\\__init__.py',
+   'PYMODULE'),
+  ('tty',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\tty.py',
+   'PYMODULE'),
+  ('sysconfig',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\sysconfig.py',
+   'PYMODULE'),
+  ('_aix_support',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\_aix_support.py',
+   'PYMODULE'),
+  ('_bootsubprocess',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\_bootsubprocess.py',
+   'PYMODULE'),
+  ('_osx_support',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\_osx_support.py',
+   'PYMODULE'),
+  ('distutils.log',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\log.py',
+   'PYMODULE'),
+  ('distutils',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\__init__.py',
+   'PYMODULE'),
+  ('distutils.ccompiler',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\ccompiler.py',
+   'PYMODULE'),
+  ('distutils.fancy_getopt',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\fancy_getopt.py',
+   'PYMODULE'),
+  ('distutils.debug',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\debug.py',
+   'PYMODULE'),
+  ('distutils.util',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\util.py',
+   'PYMODULE'),
+  ('distutils.filelist',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\filelist.py',
+   'PYMODULE'),
+  ('distutils.dep_util',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\dep_util.py',
+   'PYMODULE'),
+  ('distutils.dir_util',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\dir_util.py',
+   'PYMODULE'),
+  ('distutils.file_util',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\file_util.py',
+   'PYMODULE'),
+  ('distutils.spawn',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\spawn.py',
+   'PYMODULE'),
+  ('distutils.errors',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\errors.py',
+   'PYMODULE'),
+  ('distutils.sysconfig',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\sysconfig.py',
+   'PYMODULE'),
+  ('distutils.text_file',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\distutils\\text_file.py',
+   'PYMODULE'),
+  ('platform',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\platform.py',
+   'PYMODULE'),
+  ('plistlib',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\plistlib.py',
+   'PYMODULE'),
+  ('tokenize',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\tokenize.py',
+   'PYMODULE'),
+  ('token',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\token.py',
+   'PYMODULE'),
+  ('glob',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\glob.py',
+   'PYMODULE'),
+  ('code',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\code.py',
+   'PYMODULE'),
+  ('codeop',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\codeop.py',
+   'PYMODULE'),
+  ('dis',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\dis.py',
+   'PYMODULE'),
+  ('opcode',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\opcode.py',
+   'PYMODULE'),
+  ('bdb',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\bdb.py',
+   'PYMODULE'),
+  ('cmd',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\cmd.py',
+   'PYMODULE'),
+  ('inspect',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\inspect.py',
+   'PYMODULE'),
+  ('ast',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\ast.py',
+   'PYMODULE'),
+  ('difflib',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\difflib.py',
+   'PYMODULE'),
+  ('__future__',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\__future__.py',
+   'PYMODULE'),
+  ('_compat_pickle',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\_compat_pickle.py',
+   'PYMODULE'),
+  ('string',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\string.py',
+   'PYMODULE'),
+  ('bisect',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\bisect.py',
+   'PYMODULE'),
+  ('pathlib',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\pathlib.py',
+   'PYMODULE'),
+  ('importlib._bootstrap',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\_bootstrap.py',
+   'PYMODULE'),
+  ('importlib._bootstrap_external',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\_bootstrap_external.py',
+   'PYMODULE'),
+  ('importlib.metadata',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\metadata.py',
+   'PYMODULE'),
+  ('configparser',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\configparser.py',
+   'PYMODULE'),
+  ('csv',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\csv.py',
+   'PYMODULE'),
+  ('struct',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\struct.py',
+   'PYMODULE'),
+  ('importlib.util',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\util.py',
+   'PYMODULE'),
+  ('tarfile',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\tarfile.py',
+   'PYMODULE'),
+  ('lzma',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\lzma.py',
+   'PYMODULE'),
+  ('bz2',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\bz2.py',
+   'PYMODULE'),
+  ('fnmatch',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\fnmatch.py',
+   'PYMODULE'),
+  ('copy',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\copy.py',
+   'PYMODULE'),
+  ('gettext',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\gettext.py',
+   'PYMODULE'),
+  ('ntpath',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\ntpath.py',
+   'PYMODULE'),
+  ('genericpath',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\genericpath.py',
+   'PYMODULE'),
+  ('posixpath',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\posixpath.py',
+   'PYMODULE'),
+  ('stat',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\stat.py',
+   'PYMODULE'),
+  ('stringprep',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\stringprep.py',
+   'PYMODULE'),
+  ('tracemalloc',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\tracemalloc.py',
+   'PYMODULE'),
+  ('_py_abc',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\_py_abc.py',
+   'PYMODULE'),
+  ('gui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\gui.py',
+   'PYMODULE'),
+  ('uis.arith_calculator_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\arith_calculator_ui.py',
+   'PYMODULE'),
+  ('uis', '-', 'PYMODULE'),
+  ('PyQt5.Qt5', '-', 'PYMODULE'),
+  ('PyQt5.uic',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\__init__.py',
+   'PYMODULE'),
+  ('PyQt5.uic.objcreator',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\objcreator.py',
+   'PYMODULE'),
+  ('PyQt5.uic.exceptions',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\exceptions.py',
+   'PYMODULE'),
+  ('PyQt5.uic.Loader.loader',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\Loader\\loader.py',
+   'PYMODULE'),
+  ('PyQt5.uic.Loader',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\Loader\\__init__.py',
+   'PYMODULE'),
+  ('PyQt5.uic.Loader.qobjectcreator',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\Loader\\qobjectcreator.py',
+   'PYMODULE'),
+  ('PyQt5.uic.uiparser',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\uiparser.py',
+   'PYMODULE'),
+  ('PyQt5.uic.properties',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\properties.py',
+   'PYMODULE'),
+  ('PyQt5.uic.port_v3.ascii_upper',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\port_v3\\ascii_upper.py',
+   'PYMODULE'),
+  ('PyQt5.uic.port_v3',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\port_v3\\__init__.py',
+   'PYMODULE'),
+  ('PyQt5.uic.icon_cache',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\icon_cache.py',
+   'PYMODULE'),
+  ('xml.etree.ElementTree',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\etree\\ElementTree.py',
+   'PYMODULE'),
+  ('xml.etree.cElementTree',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\etree\\cElementTree.py',
+   'PYMODULE'),
+  ('xml.etree.ElementInclude',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\etree\\ElementInclude.py',
+   'PYMODULE'),
+  ('xml.etree.ElementPath',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\etree\\ElementPath.py',
+   'PYMODULE'),
+  ('xml.etree',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\xml\\etree\\__init__.py',
+   'PYMODULE'),
+  ('PyQt5.uic.port_v2.string_io',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\port_v2\\string_io.py',
+   'PYMODULE'),
+  ('PyQt5.uic.port_v2',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\port_v2\\__init__.py',
+   'PYMODULE'),
+  ('PyQt5.uic.port_v3.string_io',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\port_v3\\string_io.py',
+   'PYMODULE'),
+  ('PyQt5.uic.Compiler.compiler',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\Compiler\\compiler.py',
+   'PYMODULE'),
+  ('PyQt5.uic.Compiler.qobjectcreator',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\Compiler\\qobjectcreator.py',
+   'PYMODULE'),
+  ('PyQt5.uic.port_v2.as_string',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\port_v2\\as_string.py',
+   'PYMODULE'),
+  ('PyQt5.uic.port_v3.as_string',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\port_v3\\as_string.py',
+   'PYMODULE'),
+  ('PyQt5.uic.Compiler.qtproxies',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\Compiler\\qtproxies.py',
+   'PYMODULE'),
+  ('PyQt5.uic.port_v2.proxy_base',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\port_v2\\proxy_base.py',
+   'PYMODULE'),
+  ('PyQt5.uic.Compiler.proxy_metaclass',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\Compiler\\proxy_metaclass.py',
+   'PYMODULE'),
+  ('PyQt5.uic.port_v3.proxy_base',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\port_v3\\proxy_base.py',
+   'PYMODULE'),
+  ('PyQt5.uic.Compiler.misc',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\Compiler\\misc.py',
+   'PYMODULE'),
+  ('PyQt5.uic.Compiler.indenter',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\Compiler\\indenter.py',
+   'PYMODULE'),
+  ('PyQt5.uic.Compiler',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\uic\\Compiler\\__init__.py',
+   'PYMODULE'),
+  ('uis.stock_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\stock_ui.py',
+   'PYMODULE'),
+  ('uis.algebra_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\algebra_ui.py',
+   'PYMODULE'),
+  ('uis.pythagore_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\pythagore_ui.py',
+   'PYMODULE'),
+  ('uis.slope2_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\slope2_ui.py',
+   'PYMODULE'),
+  ('uis.slope1_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\slope1_ui.py',
+   'PYMODULE'),
+  ('uis.time_convert_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\time_convert_ui.py',
+   'PYMODULE'),
+  ('uis.converters_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\converters_ui.py',
+   'PYMODULE'),
+  ('uis.crypto_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\crypto_ui.py',
+   'PYMODULE'),
+  ('uis.mass_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\mass_ui.py',
+   'PYMODULE'),
+  ('uis.temp_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\temp_ui.py',
+   'PYMODULE'),
+  ('uis.volume_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\volume_ui.py',
+   'PYMODULE'),
+  ('uis.length_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\length_ui.py',
+   'PYMODULE'),
+  ('uis.currency_ui',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\uis\\currency_ui.py',
+   'PYMODULE'),
+  ('modules.currency_api',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\modules\\currency_api.py',
+   'PYMODULE'),
+  ('json',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\json\\__init__.py',
+   'PYMODULE'),
+  ('json.encoder',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\json\\encoder.py',
+   'PYMODULE'),
+  ('json.decoder',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\json\\decoder.py',
+   'PYMODULE'),
+  ('json.scanner',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\json\\scanner.py',
+   'PYMODULE'),
+  ('requests',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\__init__.py',
+   'PYMODULE'),
+  ('requests.status_codes',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\status_codes.py',
+   'PYMODULE'),
+  ('requests.structures',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\structures.py',
+   'PYMODULE'),
+  ('requests.compat',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\compat.py',
+   'PYMODULE'),
+  ('http.cookies',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\http\\cookies.py',
+   'PYMODULE'),
+  ('simplejson',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\simplejson\\__init__.py',
+   'PYMODULE'),
+  ('simplejson.scanner',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\simplejson\\scanner.py',
+   'PYMODULE'),
+  ('simplejson.ordered_dict',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\simplejson\\ordered_dict.py',
+   'PYMODULE'),
+  ('simplejson.encoder',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\simplejson\\encoder.py',
+   'PYMODULE'),
+  ('simplejson.compat',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\simplejson\\compat.py',
+   'PYMODULE'),
+  ('imp',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\imp.py',
+   'PYMODULE'),
+  ('simplejson.decoder',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\simplejson\\decoder.py',
+   'PYMODULE'),
+  ('simplejson.raw_json',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\simplejson\\raw_json.py',
+   'PYMODULE'),
+  ('simplejson.errors',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\simplejson\\errors.py',
+   'PYMODULE'),
+  ('requests.api',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\api.py',
+   'PYMODULE'),
+  ('requests.sessions',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\sessions.py',
+   'PYMODULE'),
+  ('requests.adapters',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\adapters.py',
+   'PYMODULE'),
+  ('urllib3.contrib.socks',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\contrib\\socks.py',
+   'PYMODULE'),
+  ('urllib3.util.url',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\util\\url.py',
+   'PYMODULE'),
+  ('idna',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\idna\\__init__.py',
+   'PYMODULE'),
+  ('idna.core',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\idna\\core.py',
+   'PYMODULE'),
+  ('idna.uts46data',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\idna\\uts46data.py',
+   'PYMODULE'),
+  ('idna.intranges',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\idna\\intranges.py',
+   'PYMODULE'),
+  ('idna.idnadata',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\idna\\idnadata.py',
+   'PYMODULE'),
+  ('idna.package_data',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\idna\\package_data.py',
+   'PYMODULE'),
+  ('urllib3.packages.six',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\packages\\six.py',
+   'PYMODULE'),
+  ('urllib3.packages',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\packages\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.packages.ssl_match_hostname',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\packages\\ssl_match_hostname\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.packages.ssl_match_hostname._implementation',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\packages\\ssl_match_hostname\\_implementation.py',
+   'PYMODULE'),
+  ('ipaddress',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\ipaddress.py',
+   'PYMODULE'),
+  ('urllib3.connectionpool',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\connectionpool.py',
+   'PYMODULE'),
+  ('urllib3.util.timeout',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\util\\timeout.py',
+   'PYMODULE'),
+  ('urllib3.util.response',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\util\\response.py',
+   'PYMODULE'),
+  ('urllib3.util.request',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\util\\request.py',
+   'PYMODULE'),
+  ('urllib3.util.queue',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\util\\queue.py',
+   'PYMODULE'),
+  ('urllib3.util.proxy',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\util\\proxy.py',
+   'PYMODULE'),
+  ('urllib3.util.ssl_',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\util\\ssl_.py',
+   'PYMODULE'),
+  ('urllib3.util.ssltransport',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\util\\ssltransport.py',
+   'PYMODULE'),
+  ('urllib3.util.connection',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\util\\connection.py',
+   'PYMODULE'),
+  ('urllib3.util.wait',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\util\\wait.py',
+   'PYMODULE'),
+  ('urllib3.contrib._appengine_environ',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\contrib\\_appengine_environ.py',
+   'PYMODULE'),
+  ('urllib3.request',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\request.py',
+   'PYMODULE'),
+  ('urllib3.filepost',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\filepost.py',
+   'PYMODULE'),
+  ('urllib3.fields',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\fields.py',
+   'PYMODULE'),
+  ('urllib3.connection',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\connection.py',
+   'PYMODULE'),
+  ('urllib3._version',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\_version.py',
+   'PYMODULE'),
+  ('urllib3._collections',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\_collections.py',
+   'PYMODULE'),
+  ('urllib3.util.retry',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\util\\retry.py',
+   'PYMODULE'),
+  ('urllib3.util',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\util\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.response',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\response.py',
+   'PYMODULE'),
+  ('urllib3.poolmanager',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\poolmanager.py',
+   'PYMODULE'),
+  ('requests._internal_utils',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\_internal_utils.py',
+   'PYMODULE'),
+  ('requests.hooks',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\hooks.py',
+   'PYMODULE'),
+  ('requests.cookies',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\cookies.py',
+   'PYMODULE'),
+  ('requests.auth',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\auth.py',
+   'PYMODULE'),
+  ('requests.models',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\models.py',
+   'PYMODULE'),
+  ('requests.packages',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\packages.py',
+   'PYMODULE'),
+  ('requests.utils',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\utils.py',
+   'PYMODULE'),
+  ('requests.certs',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\certs.py',
+   'PYMODULE'),
+  ('certifi',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\certifi\\__init__.py',
+   'PYMODULE'),
+  ('certifi.core',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\certifi\\core.py',
+   'PYMODULE'),
+  ('importlib.resources',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\importlib\\resources.py',
+   'PYMODULE'),
+  ('requests.__version__',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\__version__.py',
+   'PYMODULE'),
+  ('urllib3.exceptions',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\exceptions.py',
+   'PYMODULE'),
+  ('urllib3.contrib.pyopenssl',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\contrib\\pyopenssl.py',
+   'PYMODULE'),
+  ('urllib3.packages.backports.makefile',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\packages\\backports\\makefile.py',
+   'PYMODULE'),
+  ('urllib3.packages.backports',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\packages\\backports\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.contrib',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\contrib\\__init__.py',
+   'PYMODULE'),
+  ('requests.exceptions',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\requests\\exceptions.py',
+   'PYMODULE'),
+  ('chardet',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\__init__.py',
+   'PYMODULE'),
+  ('chardet.version',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\version.py',
+   'PYMODULE'),
+  ('chardet.universaldetector',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\universaldetector.py',
+   'PYMODULE'),
+  ('chardet.sbcsgroupprober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\sbcsgroupprober.py',
+   'PYMODULE'),
+  ('chardet.langturkishmodel',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\langturkishmodel.py',
+   'PYMODULE'),
+  ('chardet.hebrewprober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\hebrewprober.py',
+   'PYMODULE'),
+  ('chardet.charsetprober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\charsetprober.py',
+   'PYMODULE'),
+  ('chardet.langhebrewmodel',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\langhebrewmodel.py',
+   'PYMODULE'),
+  ('chardet.langthaimodel',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\langthaimodel.py',
+   'PYMODULE'),
+  ('chardet.langbulgarianmodel',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\langbulgarianmodel.py',
+   'PYMODULE'),
+  ('chardet.langgreekmodel',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\langgreekmodel.py',
+   'PYMODULE'),
+  ('chardet.langcyrillicmodel',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\langcyrillicmodel.py',
+   'PYMODULE'),
+  ('chardet.sbcharsetprober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\sbcharsetprober.py',
+   'PYMODULE'),
+  ('chardet.mbcsgroupprober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\mbcsgroupprober.py',
+   'PYMODULE'),
+  ('chardet.euctwprober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\euctwprober.py',
+   'PYMODULE'),
+  ('chardet.mbcssm',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\mbcssm.py',
+   'PYMODULE'),
+  ('chardet.chardistribution',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\chardistribution.py',
+   'PYMODULE'),
+  ('chardet.jisfreq',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\jisfreq.py',
+   'PYMODULE'),
+  ('chardet.big5freq',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\big5freq.py',
+   'PYMODULE'),
+  ('chardet.gb2312freq',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\gb2312freq.py',
+   'PYMODULE'),
+  ('chardet.euckrfreq',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\euckrfreq.py',
+   'PYMODULE'),
+  ('chardet.euctwfreq',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\euctwfreq.py',
+   'PYMODULE'),
+  ('chardet.codingstatemachine',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\codingstatemachine.py',
+   'PYMODULE'),
+  ('chardet.mbcharsetprober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\mbcharsetprober.py',
+   'PYMODULE'),
+  ('chardet.big5prober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\big5prober.py',
+   'PYMODULE'),
+  ('chardet.cp949prober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\cp949prober.py',
+   'PYMODULE'),
+  ('chardet.euckrprober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\euckrprober.py',
+   'PYMODULE'),
+  ('chardet.gb2312prober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\gb2312prober.py',
+   'PYMODULE'),
+  ('chardet.eucjpprober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\eucjpprober.py',
+   'PYMODULE'),
+  ('chardet.jpcntx',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\jpcntx.py',
+   'PYMODULE'),
+  ('chardet.sjisprober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\sjisprober.py',
+   'PYMODULE'),
+  ('chardet.utf8prober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\utf8prober.py',
+   'PYMODULE'),
+  ('chardet.latin1prober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\latin1prober.py',
+   'PYMODULE'),
+  ('chardet.escprober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\escprober.py',
+   'PYMODULE'),
+  ('chardet.escsm',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\escsm.py',
+   'PYMODULE'),
+  ('chardet.enums',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\enums.py',
+   'PYMODULE'),
+  ('chardet.charsetgroupprober',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\charsetgroupprober.py',
+   'PYMODULE'),
+  ('chardet.compat',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\chardet\\compat.py',
+   'PYMODULE'),
+  ('urllib3',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\urllib3\\__init__.py',
+   'PYMODULE'),
+  ('PyQt5',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyQt5\\__init__.py',
+   'PYMODULE'),
+  ('modules.errors',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\modules\\errors.py',
+   'PYMODULE'),
+  ('modules.colors',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\modules\\colors.py',
+   'PYMODULE'),
+  ('colored',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\colored\\__init__.py',
+   'PYMODULE'),
+  ('colored.style',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\colored\\style.py',
+   'PYMODULE'),
+  ('colored.back',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\colored\\back.py',
+   'PYMODULE'),
+  ('colored.colors',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\colored\\colors.py',
+   'PYMODULE'),
+  ('colored.fore',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\colored\\fore.py',
+   'PYMODULE'),
+  ('colored.colored',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\colored\\colored.py',
+   'PYMODULE'),
+  ('colored.hex',
+   'c:\\users\\jordan '
+   'leich\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\colored\\hex.py',
+   'PYMODULE'),
+  ('modules.extras',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\modules\\extras.py',
+   'PYMODULE'),
+  ('modules', '-', 'PYMODULE'),
+  ('conversions.conversions',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\conversions\\conversions.py',
+   'PYMODULE'),
+  ('conversions', '-', 'PYMODULE'),
+  ('modules.tools',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\modules\\tools.py',
+   'PYMODULE'),
+  ('calculators.calculators',
+   'C:\\Users\\Jordan Leich\\Downloads\\Python '
+   'Programs\\Ultimate-Calculator\\calculators\\calculators.py',
+   'PYMODULE'),
+  ('calculators', '-', 'PYMODULE')])

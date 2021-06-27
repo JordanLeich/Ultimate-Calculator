@@ -1,12 +1,13 @@
+import time
+
 try:
     import winsound
+
     windows = True
 except ImportError:
     # Do not import winsound here as it will cause an error for linux and MacOs users.
     linux = True
 
-from docx2pdf import convert
-from moviepy.editor import *
 from modules import colors, currency_api
 from modules.tools import repeat_input
 from modules.errors import Exit
@@ -136,47 +137,6 @@ Select a crypto conversion:    """))
         print(f'{shiba_inu} in DogeCoin equals {dogecoin} in DogeCoin. {colors.reset}\n')
     else:
         print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-
-
-def file_converter():
-    """
-Handles all file conversions
-    """
-    choice = int(input('''(1) Word Document to PDF
-(2) MP4 Video to MP3 Audio
-
-Which File convertion would you like to pick: '''))
-    print()
-    if choice == 1:
-        path = str(input('Enter the file path from which the Word Document is located: '))
-        print()
-        convert(path)
-        print(colors.green, 'Word to PDF conversion completed! The .pdf file should be found in the same directory '
-                            'from where the Word Document was located.\n', colors.reset)
-    elif choice == 2:
-        # These are raw strings so the backslashes aren't interpreted as escape sequences
-        mp4_file_path = str(input(r'Enter the file path from which the MP4 Video is located ('
-                                  r'C:\Folder\YourName\Desktop\example.mp4): '))
-        mp3_file_path = str(input(r'Output MP3 Audio to where (example - C:\Folder\YourName\Desktop\example.mp3): '))
-        video_clip = VideoFileClip(mp4_file_path)
-        audio_clip = video_clip.audio
-        audio_clip.write_audiofile(mp3_file_path)
-        audio_clip.close()
-        video_clip.close()
-        print()
-        print(colors.green + "Conversion completed!\n", colors.reset)
-        choice = repeat_input('Want to open the .mp3 file to give it a listen (yes / no): ',
-                              'User input error found',
-                              'yes_no'
-                              ).lower()
-
-        if choice == 'y' or choice == 'yes':
-            os.startfile(mp3_file_path)
-            print(colors.green + 'Audio should now be opened and playing!\n', colors.reset)
-        elif choice == 'n' or choice == 'no':
-            print(colors.yellow + 'Audio playback skipped...\n', colors.reset)
-    else:
-        print(colors.red + "User input error found...\n", colors.reset)
 
 
 def binary_converter():
@@ -361,7 +321,6 @@ Handles all unit conversions with sorted criteria of units to convert from and t
 
 
 def convert_to_base_10(number: str, base: int, alphabet: str) -> int:
-
     try:
         integer_part, decimal_part = number.split('.')
     except ValueError:
@@ -450,11 +409,10 @@ Main hub UI for all of the converters used in the project
         choice = int(input('''(1) Units
 (2) Currency
 (3) Crypto
-(4) Files
-(5) Binary to Sound
-(6) Base Converter
-(7) Restart
-(8) Quit
+(4) Binary to Sound
+(5) Base Converter
+(6) Restart
+(7) Quit
 
 Which conversion would you like to use: '''))
         print()
@@ -465,14 +423,12 @@ Which conversion would you like to use: '''))
         elif choice == 3:
             crypto_converter()
         elif choice == 4:
-            file_converter()
-        elif choice == 5:
             binary_converter()
-        elif choice == 6:
+        elif choice == 5:
             base_converter()
-        elif choice == 7:
+        elif choice == 6:
             break
-        elif choice == 8:
+        elif choice == 7:
             raise Exit
         else:
             print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
