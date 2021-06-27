@@ -9,5 +9,4 @@ __pycache__
 venv
 .env
 .venv
-.ipynb_checkpoints
 key.json
