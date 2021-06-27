@@ -11,8 +11,12 @@
 # Description 💻
 This is an incredibly powerful calculator that is capable of many useful day-to-day functions. Such functions include solving basic arithmetic, algebraic, chemistry conversions, and much more. This project also features a fully operational GUI application for those who are not down with the normal text-based version.
 
-# How To Use ⚡
-- If you do not have python installed on your system, you can download the [main.exe file](https://github.com/JordanLeich/Ultimate-Calculator/blob/main/main.exe) and the file will run without any python installation!
+# Instructions ⚡
+### Option #1
+If you do not have python installed on your Windows system, you can download the [main.exe file](https://github.com/JordanLeich/Ultimate-Calculator/blob/main/main.exe) and the file will run without any python installation!
+
+### Option #2
+Only use this option if you already have python installed on your system!
 
   *Step 1*:
     Make sure you have pip installed on your OS, you can do it by writing the following command on your terminal.<br/><br/>
