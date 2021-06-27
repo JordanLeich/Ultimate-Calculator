@@ -1,6 +1,7 @@
 main.spec
 dist
 build
+build/main/
 build/main
 .idea
 __pycache__
