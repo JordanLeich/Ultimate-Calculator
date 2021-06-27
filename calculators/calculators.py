@@ -1,5 +1,7 @@
 import math
 import random
+import time
+
 from modules.tools import repeat_input
 from modules import colors
 from modules.errors import Exit
@@ -35,7 +37,7 @@ This is the basic arithmetic calculator that handles simply arithmetic equations
                 continue
 
 
-def find_slope1(y2, y1, x2, x1):
+def rise_over_run_slope(y2, y1, x2, x1):
     """
 Handles the formula used for rise over run format to find slope
     """
@@ -48,7 +50,7 @@ Handles the formula used for rise over run format to find slope
     return slope
 
 
-def find_slope2(m, x, b):
+def slope_intercept_form(m, x, b):
     """
 Handles the formula used for y=mx+b format to find slope
     """
@@ -58,6 +60,41 @@ Handles the formula used for y=mx+b format to find slope
     y = m * x + b
 
     return y
+
+
+def square_root(number):
+    """
+function to find square root of number
+    """
+    return math.sqrt(number)
+
+
+def square(number):
+    """
+function to find square of number
+    """
+    return int(number ** 2)
+
+
+def sin(number):
+    """
+function to find sin value of number
+    """
+    return math.sin(number)
+
+
+def cos(number):
+    """
+function to find cos value of number
+    """
+    return math.cos(number)
+
+
+def tan(number):
+    """
+function to find tan value of number
+    """
+    return math.tan(number)
 
 
 def find_pythagorean(formula, a="", b="", c=""):
@@ -125,8 +162,10 @@ Entire operation and hub for all algebra related calculators
 (3) Find Pythagorean Theorem
 (4) Find The Distance Between Two Points
 (5) Find The Midpoint of a Line
-(6) Return to list of calculators
-(7) Quit
+(6) Find Cos, Sin, or Tan value of a number
+(7) Square or Square Root a number
+(8) Return to list of calculators
+(9) Quit
 
 What calculation would you like to perform: '''))
         print()
@@ -138,7 +177,7 @@ What calculation would you like to perform: '''))
             x2 = repeat_input("What is your X2 value: ", float_error, "float")
             x1 = repeat_input("What is your X1 value: ", float_error, "float")
             print()
-            result = find_slope1(y2, y1, x2, x1)
+            result = rise_over_run_slope(y2, y1, x2, x1)
             print(colors.green + 'Slope:', result, '\n', colors.reset)
 
         elif choice == 2:
@@ -146,7 +185,7 @@ What calculation would you like to perform: '''))
             x = repeat_input('What is your X value: ', "Invalid Number...\n", "float")
             b = repeat_input('What is your B value: ', "Invalid Number...\n", "float")
             print()
-            result = find_slope2(m, x, b)
+            result = slope_intercept_form(m, x, b)
             print(colors.green + 'Result:', result, '\n', colors.reset)
 
         elif choice == 3:
@@ -199,13 +238,66 @@ What calculation would you like to perform: '''))
             print("The midpoint's y value is:", y_m_point, '\n', colors.reset)
 
         elif choice == 6:
-            break
+            choice = int(input('''(1) Find Sin value
+(2) Find Cos value
+(3) Find Tan value
+(4) Return to list of calculators
+(5) Quit
+
+Which option would you like to pick: '''))
+            print()
+
+            if choice == 1:
+                number = float(input('Enter a number you would like to find the Sin value for: '))
+                print()
+                print(colors.green, sin(number), colors.reset)
+            elif choice == 2:
+                number = float(input('Enter a number you would like to find the Cos value for: '))
+                print()
+                print(colors.green, cos(number), colors.reset)
+            elif choice == 3:
+                number = float(input('Enter a number you would like to find the Tan value for: '))
+                print()
+                print(colors.green, tan(number), colors.reset)
+            elif choice == 4:
+                return
+            elif choice == 5:
+                raise Exit
+            else:
+                print(colors.red + 'User input error found...\n', colors.reset)
+                time.sleep(2)
 
         elif choice == 7:
-            raise Exit
+            choice = int(input('''(1) Square a number
+(2) Square Root a number
+(3) Return to list of calculators
+(4) Exit 
 
+Which option would you like to pick: '''))
+            print()
+
+            if choice == 1:
+                number = float(input('Enter a number you would like to find the square of: '))
+                print()
+                print(colors.green, square(number), colors.reset)
+            elif choice == 2:
+                number = float(input('Enter a number you would like to find the square root of: '))
+                print()
+                print(colors.green, square_root(number), colors.reset)
+            elif choice == 3:
+                return
+            elif choice == 4:
+                raise Exit
+            else:
+                print(colors.red + 'User input error found...\n', colors.reset)
+                time.sleep(2)
+        elif choice == 8:
+            break
+        elif choice == 9:
+            raise Exit
         else:
-            print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
+            print(colors.red + 'User input error found...\n', colors.reset)
+            time.sleep(2)
 
 
 def payroll():

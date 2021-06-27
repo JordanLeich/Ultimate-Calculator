@@ -1,5 +1,3 @@
-import time
-
 try:
     import winsound
 
@@ -12,7 +10,6 @@ from modules import colors, currency_api
 from modules.tools import repeat_input
 from modules.errors import Exit
 from time import sleep
-import json
 
 
 def currency_converter():
