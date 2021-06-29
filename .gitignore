@@ -9,3 +9,4 @@ __pycache__
 venv
 .env
 .venv
+key.json

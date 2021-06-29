@@ -9,7 +9,7 @@ except ImportError:
 from modules import colors, currency_api
 from modules.tools import repeat_input
 from modules.errors import Exit
-from time import sleep
+import time
 
 
 def currency_converter():
@@ -21,14 +21,17 @@ Handles all currency conversions by using an api key since currencies change the
     currency_2 = None
     currencies = {currency['id']: currency['currencyName'] for currency in currency_api.get_currencies(api_key)}
     while True:
-        print('''Options:
-    (1) Select currency to convert from
-    (2) Select currency to convert to
-    (3) List available currencies
-    (4) Get exchange rate
-    (5) Convert amount
-    (6) Exit\n''')
-        choice = int(input('Choice: '))
+        choice = int(input('''(1) Select currency to convert from
+(2) Select currency to convert to
+(3) List available currencies
+(4) Get exchange rate
+(5) Convert amount
+(6) Return to list of converters
+(7) Exit
+
+Which Currency option would you like to use: '''))
+        print()
+
         if choice == 1:
             currency_1 = repeat_input('Which currency are you converting from? Input the currency code: ',
                                       'Not a currency code',
@@ -52,8 +55,11 @@ Handles all currency conversions by using an api key since currencies change the
             print(f'{amount} {currency_1} = {amount * rate} {currency_2}')
         elif choice == 6:
             break
+        elif choice == 7:
+            raise Exit
         else:
             print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+            time.sleep(2)
 
 
 # All Crypto-Currency Formulas
@@ -93,47 +99,52 @@ def crypto_converter():
     """
 Handles all crypto conversions and displays the results
     """
-    user_choice = int(
-        input("""(1) Bitcoin to ALL
+    while True:
+        choice = int(
+            input("""(1) Bitcoin to ALL
 (2) Ethereum to ALL
 (3) DogeCoin  to ALL
 (4) SHIBA INU to ALL
-
-Select a crypto conversion:    """))
-    print()
-    if user_choice == 1:
-        bitcoin = repeat_input("Bitcoin Amount: ", "Invalid Number...\n", "float")
+(5) Return to list of converters
+(6) Exit
+    
+Select a crypto conversion: """))
         print()
-        ethereum, dogecoin, shiba_inu = bitcoin_to_all(bitcoin)
-        print(f'{colors.green}{bitcoin} in Bitcoin equals {ethereum} in Ethereum.')
-        print(f'{bitcoin} in Bitcoin equals {dogecoin} in DogeCoin.')
-        print(f'{bitcoin} in Bitcoin equals {shiba_inu} in SHIBA INU. {colors.reset}\n')
-
-    elif user_choice == 2:
-        ethereum = repeat_input("Ethereum Amount: ", "Invalid Number...\n", "float")
-        print()
-        bitcoin, dogecoin, shiba_inu = ethereum_to_all(ethereum)
-        print(f'{colors.green}{ethereum} in Ethereum equals {bitcoin} in Bitcoin.')
-        print(f'{ethereum} in Ethereum equals {dogecoin} in DogeCoin.')
-        print(f'{ethereum} in Ethereum equals {shiba_inu} in SHIBA INU. {colors.reset}\n')
-
-    elif user_choice == 3:
-        dogecoin = repeat_input("DogeCoin Amount: ", "Invalid Number...\n", "float")
-        print()
-        bitcoin, ethereum, shiba_inu = bitcoin_to_all(dogecoin)
-        print(f'{colors.green}{dogecoin} in DogeCoin equals {bitcoin} in Bitcoin.')
-        print(f'{dogecoin} in DogeCoin equals {ethereum} in Ethereum.')
-        print(f'{dogecoin} in DogeCoin equals {shiba_inu} in SHIBA INU. {colors.reset}\n')
-
-    elif user_choice == 4:
-        shiba_inu = float(input("SHIBA INU Amount: "))
-        print()
-        bitcoin, ethereum, dogecoin = shiba_inu_to_all(shiba_inu)
-        print(f'{colors.green}{shiba_inu} in DogeCoin equals {bitcoin} in Bitcoin.')
-        print(f'{shiba_inu} in DogeCoin equals {ethereum} in Ethereum.')
-        print(f'{shiba_inu} in DogeCoin equals {dogecoin} in DogeCoin. {colors.reset}\n')
-    else:
-        print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+        if choice == 1:
+            bitcoin = repeat_input("Bitcoin Amount: ", "Invalid Number...\n", "float")
+            print()
+            ethereum, dogecoin, shiba_inu = bitcoin_to_all(bitcoin)
+            print(f'{colors.green}{bitcoin} in Bitcoin equals {ethereum} in Ethereum.')
+            print(f'{bitcoin} in Bitcoin equals {dogecoin} in DogeCoin.')
+            print(f'{bitcoin} in Bitcoin equals {shiba_inu} in SHIBA INU. {colors.reset}\n')
+        elif choice == 2:
+            ethereum = repeat_input("Ethereum Amount: ", "Invalid Number...\n", "float")
+            print()
+            bitcoin, dogecoin, shiba_inu = ethereum_to_all(ethereum)
+            print(f'{colors.green}{ethereum} in Ethereum equals {bitcoin} in Bitcoin.')
+            print(f'{ethereum} in Ethereum equals {dogecoin} in DogeCoin.')
+            print(f'{ethereum} in Ethereum equals {shiba_inu} in SHIBA INU. {colors.reset}\n')
+        elif choice == 3:
+            dogecoin = repeat_input("DogeCoin Amount: ", "Invalid Number...\n", "float")
+            print()
+            bitcoin, ethereum, shiba_inu = bitcoin_to_all(dogecoin)
+            print(f'{colors.green}{dogecoin} in DogeCoin equals {bitcoin} in Bitcoin.')
+            print(f'{dogecoin} in DogeCoin equals {ethereum} in Ethereum.')
+            print(f'{dogecoin} in DogeCoin equals {shiba_inu} in SHIBA INU. {colors.reset}\n')
+        elif choice == 4:
+            shiba_inu = float(input("SHIBA INU Amount: "))
+            print()
+            bitcoin, ethereum, dogecoin = shiba_inu_to_all(shiba_inu)
+            print(f'{colors.green}{shiba_inu} in DogeCoin equals {bitcoin} in Bitcoin.')
+            print(f'{shiba_inu} in DogeCoin equals {ethereum} in Ethereum.')
+            print(f'{shiba_inu} in DogeCoin equals {dogecoin} in DogeCoin. {colors.reset}\n')
+        elif choice == 5:
+            break
+        elif choice == 6:
+            raise Exit
+        else:
+            print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
+            time.sleep(2)
 
 
 def binary_converter():
@@ -154,7 +165,7 @@ Converts binary to sound
         else:
             print(colors.red + "User input error found... Please only use 0 or 1 as an input choice...\n",
                   colors.reset)
-            sleep(2)
+            time.sleep(2)
 
 
 def unit_converter():
@@ -341,6 +352,9 @@ def convert_to_base_10(number: str, base: int, alphabet: str) -> int:
 
 
 def convert_from_base_10(number: int, target_base: int, alphabet: str) -> str:
+    """
+Used as a formula to convert from bases of 10
+    """
     output_number = []
 
     while number > 0:
@@ -352,49 +366,53 @@ def convert_from_base_10(number: int, target_base: int, alphabet: str) -> str:
 
 def base_converter():
     """
-Converts between bases
+Converts between bases and numbers
     """
     alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     input_base = 10
     output_base = 10
-
-    print('''Options:
-(1) Specify input base
+    while True:
+        choice = int(input('''(1) Specify input base
 (2) Specify output base
 (3) Swap input and output bases
 (4) Define alphabet (must be done for bases > 62)
 (5) Convert number
-(6) Exit\n''')
+(6) Return to list of converters
+(7) Exit
+    
+Select a Base Converter choice: '''))
+        print()
 
-    while True:
-        option = int(input('Pick an option: '))
-
-        if option == 1:
+        if choice == 1:
             input_base = int(repeat_input('What base are you converting from? ',
                                           'Base must be greater than 0',
                                           'int',
                                           lambda i: int(i) > 0))
-        elif option == 2:
+        elif choice == 2:
             output_base = int(repeat_input('What base are you converting to? ',
                                            'Base must be greater than 0',
                                            'int',
                                            lambda i: int(i) > 0))
-        elif option == 3:
+        elif choice == 3:
             input_base, output_base = output_base, input_base
-        elif option == 4:
+        elif choice == 4:
             alphabet = input('Alphabet: ')
-        elif option == 5:
+        elif choice == 5:
             number = input('What number are you converting? ')
             try:
                 base_10 = convert_to_base_10(number, input_base, alphabet)
                 print(convert_from_base_10(base_10, output_base, alphabet))
             except (IndexError, ValueError):
                 # Character encountered that isn't in the alphabet provided
-                print('Character found not in alphabet. Define a new alphabet and try again')
-        elif option == 6:
+                print(colors.red + 'Character found not in the alphabet. Define a new alphabet and try again...\n',
+                      colors.reset)
+        elif choice == 6:
             break
+        elif choice == 7:
+            raise Exit
         else:
-            print('Invalid option')
+            print(colors.red + 'Invalid choice...\n', colors.reset)
+            time.sleep(2)
 
 
 def start():

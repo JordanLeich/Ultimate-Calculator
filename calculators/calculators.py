@@ -12,19 +12,19 @@ def basic_calc():
 This is the basic arithmetic calculator that handles simply arithmetic equations and outputs the result
     """
     history = []
-    print("Use '--help' for help")
+    print(colors.yellow + "Use '--help' for help\n", colors.reset)
     while True:
         calculation = input("Your Calculation: ")
-        if calculation == "--help":
+        if calculation == "--help" or calculation == '--h' or calculation == 'h' or calculation == 'help':
             print("""
 --help: list of commands
 --history: past calculations
 --exit: return to list of calculators
             """)
-        elif calculation == "--history":
+        elif calculation == "--history" or calculation == 'history':
             for i in history:
                 print(i)
-        elif calculation == "--exit":
+        elif calculation == "--exit" or calculation == 'e' or calculation == 'exit':
             break
         else:
             try:
@@ -391,6 +391,7 @@ Main hub for all financial calculator options
 (2) Restaurant Tip Calculator
 (3) Compound Interest Calculator
 (4) Return to list of calculators
+(5) Exit
 
 Which calculation would you like to perform: """))
         print()
@@ -403,8 +404,11 @@ Which calculation would you like to perform: """))
             interest()
         elif choice == 4:
             break
+        elif choice == 5:
+            raise Exit
         else:
             print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
+            time.sleep(2)
 
 
 def bmi():
@@ -443,6 +447,7 @@ Main hub for all geometry related calculator options
 (3) Find Perimeter
 (4) Find Volume
 (5) Return to list of calculations
+(6) Exit
 
 Which Geometry calculator would you like to use: '''))
         print()
@@ -510,10 +515,10 @@ Which Shape would you like to solve the volume for: '''))
                 print(colors.green, "Volume:", volume, colors.reset, '\n')
             else:
                 print(colors.red + "User input error found...\n", colors.reset)
-
         elif choice == 5:
             break
-
+        elif choice == 6:
+            raise Exit
         else:
             print(colors.red + "User input error found...\n", colors.reset)
 
@@ -583,7 +588,8 @@ Main hub for all randomization calculators/games
     while True:
         choice = int(input("""(1) Random Number Generator
 (2) Heads or Tails 
-(3) Exit
+(3) Return to list of calculators
+(4) Exit
 
 Which calculation would you like to perform: """))
         print()
@@ -594,8 +600,11 @@ Which calculation would you like to perform: """))
             heads_or_tails()
         elif choice == 3:
             break
+        elif choice == 4:
+            raise Exit
         else:
-            print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
+            print(colors.red + "User input error found...\n", colors.reset)
+            time.sleep(2)
 
 
 def bitwise():
@@ -607,7 +616,7 @@ Turns the result from bin into something nice
     unary_operators = {'~'}
 
     operand_1 = int(repeat_input('First number: ', 'Must be an integer', 'int'))
-    operator = repeat_input('Operator: ',
+    operator = repeat_input('Operator (&, |, ^, <<, or >>): ',
                             'Must be a bitwise operator',
                             custom_validation=lambda i: i in binary_operators | unary_operators
                             )
