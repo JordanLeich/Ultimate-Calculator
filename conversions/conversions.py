@@ -281,7 +281,11 @@ Handles all unit conversions with sorted criteria of units to convert from and t
                              lambda i: 0 < int(i) <= len(units)
                              )
     conversion_table = units[list(units)[int(unit_type) - 1]]
-    unit_names = list(f'{name.title()} ({abbr})' for abbr, (name, *_) in conversion_table.items())
+    unit_names = [
+        f'{name.title()} ({abbr})'
+        for abbr, (name, *_) in conversion_table.items()
+    ]
+
     input_unit = repeat_input('Which unit are you converting from?\n    ' +
                               f'\n    '.join(unit_names) +
                               '\nSelect an abbreviation: ',

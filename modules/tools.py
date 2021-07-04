@@ -31,15 +31,12 @@ def validate_operator(data):
         "add", "subtract", "multiply", "times",
         "power", "divide", "division", "equals"]
 
-    if data in operator_options:
-        return True
-
-    return False
+    return data in operator_options
 
 
 def validate_yes_no(data):
     accepted = ["yes", "y", "no", "n"]
-    return True if data.lower() in accepted else False
+    return data.lower() in accepted
 
 
 # To remove the ugly while True and to make user input validation easier

@@ -20,17 +20,20 @@ def get_api_key():
                 key = json.load(key_file)
             key = key['key']
         except (IndexError, json.decoder.JSONDecodeError):
-            print('key.json is corrupted')
-            key = _create_new_api_key()
-            _save_key(key)
+            key = key_error_handling('key.json is corrupted')
         if not _validate_key(key):
-            print('Invalid key found')
-            key = _create_new_api_key()
-            _save_key(key)
+            key = key_error_handling('Invalid key found')
     else:
         key = _create_new_api_key()
         _save_key(key)
     return key
+
+
+def key_error_handling(arg0):
+    print(arg0)
+    result = _create_new_api_key()
+    _save_key(result)
+    return result
 
 
 def _create_new_api_key():
@@ -49,9 +52,7 @@ Visit www.currencyconverterapi.com and follow the steps to get an API key.""")
 def _validate_key(key):
     url = f'https://free.currconv.com/api/v7/currencies?apiKey={key}'
     data = requests.get(url)
-    if data.status_code == 200:
-        return True
-    return False
+    return data.status_code == 200
 
 
 def _save_key(key):
@@ -78,4 +79,3 @@ def get_currency(currency_1, currency_2, api_key):
     url = "https://free.currconv.com/api/v7/convert?q={}&compact=ultra&apiKey={}".format(currency_pair, api_key)
     data = requests.get(url)
     return data.json()[currency_pair]
-

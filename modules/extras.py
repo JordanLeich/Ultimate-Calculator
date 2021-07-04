@@ -27,17 +27,13 @@ Which release would you like to view: '''))
         print()
 
         if choice == 1:
-            print(colors.green + "Opening the latest stable release...\n", colors.reset)
-            time.sleep(1)
-            webbrowser.open_new(
-                "https://github.com/JordanLeich/Ultimate-Calculator/releases")
-            time.sleep(1)
+            release_opener("Opening the latest stable release...\n",
+                           "https://github.com/JordanLeich/Ultimate-Calculator/releases")
+
         elif choice == 2:
-            print(colors.green + "Opening the oldest release...\n", colors.reset)
-            time.sleep(1)
-            webbrowser.open_new(
-                "https://github.com/JordanLeich/Ultimate-Calculator/releases/tag/v1.0")
-            time.sleep(1)
+            release_opener("Opening the oldest release...\n",
+                           "https://github.com/JordanLeich/Ultimate-Calculator/releases/tag/v1.0")
+
         elif choice == 3:
             return
         elif choice == 4:
@@ -47,6 +43,13 @@ Which release would you like to view: '''))
             time.sleep(2)
     print("Reached end of the program... Ending program...\n")
     exit()
+
+
+def release_opener(arg0, arg1):
+    print(colors.green + arg0, colors.reset)
+    time.sleep(1)
+    webbrowser.open_new(arg1)
+    time.sleep(1)
 
 
 def donate():
@@ -66,15 +69,12 @@ Which donation option would you like to use: '''))
         print()
 
         if donate_choice == 1:
-            print(colors.green + "Opening PayPal Donation page...\n", colors.reset)
-            webbrowser.open_new(
-                "https://www.paypal.com/donate/?business=8FGHU8Z4EJPME&no_recurring=0&currency_code=USD")
-            time.sleep(2)
+            donation_opener("Opening PayPal Donation page...\n",
+                            "https://www.paypal.com/donate/?business=8FGHU8Z4EJPME&no_recurring=0&currency_code=USD")
+
         elif donate_choice == 2:
-            print(colors.green + "Opening Cash App Donation page...\n", colors.reset)
-            webbrowser.open_new(
-                "https://cash.app/$JordanLeich")
-            time.sleep(2)
+            donation_opener("Opening Cash App Donation page...\n", "https://cash.app/$JordanLeich")
+
         elif donate_choice == 3:
             return
         elif donate_choice == 4:
@@ -84,6 +84,12 @@ Which donation option would you like to use: '''))
             time.sleep(2)
     print("Reached end of the program... Ending program...\n")
     exit()
+
+
+def donation_opener(arg0, arg1):
+    print(colors.green + arg0, colors.reset)
+    webbrowser.open_new(arg1)
+    time.sleep(2)
 
 
 def start():

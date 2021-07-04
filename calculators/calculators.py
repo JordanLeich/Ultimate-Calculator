@@ -15,16 +15,16 @@ This is the basic arithmetic calculator that handles simply arithmetic equations
     print(colors.yellow + "Use '--help' for help\n", colors.reset)
     while True:
         calculation = input("Your Calculation: ")
-        if calculation == "--help" or calculation == '--h' or calculation == 'h' or calculation == 'help':
+        if calculation in ["--help", '--h', 'h', 'help']:
             print("""
 --help: list of commands
 --history: past calculations
 --exit: return to list of calculators
             """)
-        elif calculation == "--history" or calculation == 'history':
+        elif calculation in ["--history", 'history']:
             for i in history:
                 print(i)
-        elif calculation == "--exit" or calculation == 'e' or calculation == 'exit':
+        elif calculation in ["--exit", 'e', 'exit']:
             break
         else:
             try:
@@ -45,9 +45,7 @@ Handles the formula used for rise over run format to find slope
     y1 = float(y1)
     x2 = float(x2)
     x1 = float(x1)
-    slope = (y2 - y1) / (x2 - x1)
-
-    return slope
+    return (y2 - y1) / (x2 - x1)
 
 
 def slope_intercept_form(m, x, b):
@@ -57,9 +55,7 @@ Handles the formula used for y=mx+b format to find slope
     m = float(m)
     x = float(x)
     b = float(b)
-    y = m * x + b
-
-    return y
+    return m * x + b
 
 
 def square_root(number):
@@ -104,21 +100,21 @@ Handles the formula used for pythagorean theorem
     if formula == 'a':
         side_b = int(b)
         side_c = int(c)
-        side_a = math.sqrt((side_c * side_c) - (side_b * side_b))
+        side_a = math.sqrt(side_c**2 - side_b**2)
 
         return side_a
 
     elif formula == 'b':
         side_a = int(a)
         side_c = int(c)
-        side_b = math.sqrt(side_c * side_c - side_a * side_a)
+        side_b = math.sqrt(side_c**2 - side_a**2)
 
         return side_b
 
     elif formula == 'c':
         side_a = int(a)
         side_b = int(b)
-        side_c = math.sqrt(side_a * side_a + side_b * side_b)
+        side_c = math.sqrt(side_a**2 + side_b**2)
 
         return side_c
 
@@ -132,8 +128,7 @@ Handles the formula used for finding the distance between two graphed points
     x2 = float(x2)
     y2 = float(y2)
 
-    distance = math.sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2))
-    return distance
+    return math.sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2))
 
 
 def find_midpoint(x1, y1, x2, y2):
@@ -151,7 +146,7 @@ Handles the formula used for finding the midpoint between two graphed points
     return x_m_point, y_m_point
 
 
-def algebra():
+def algebra():  # sourcery no-metrics
     """
 Entire operation and hub for all algebra related calculators
     """
@@ -425,7 +420,7 @@ Obesity = BMI of 30 or greater.\n''', colors.reset)
     kg = int(repeat_input("Weight (Kilograms): ", "Invalid Weight...\n", "float", lambda i: int(i) > 0))
     print()
 
-    formula = kg / (cm * cm) * 10000
+    formula = kg / cm**2 * 10000
     if formula <= 18.5:
         scale = 'Underweight'
     elif 18.6 <= formula <= 24.9:
@@ -498,7 +493,7 @@ Which Shape would you like to solve the volume for: '''))
             if choice == 1:
                 side = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: float(i) >= 0))
                 print()
-                volume = side * side * side
+                volume = side**2 * side
                 print(colors.green, "Volume:", volume, colors.reset, '\n')
             elif choice == 2:
                 length = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: float(i) >= 0))
