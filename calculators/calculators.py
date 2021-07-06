@@ -100,21 +100,21 @@ Handles the formula used for pythagorean theorem
     if formula == 'a':
         side_b = int(b)
         side_c = int(c)
-        side_a = math.sqrt(side_c**2 - side_b**2)
+        side_a = math.sqrt(side_c ** 2 - side_b ** 2)
 
         return side_a
 
     elif formula == 'b':
         side_a = int(a)
         side_c = int(c)
-        side_b = math.sqrt(side_c**2 - side_a**2)
+        side_b = math.sqrt(side_c ** 2 - side_a ** 2)
 
         return side_b
 
     elif formula == 'c':
         side_a = int(a)
         side_b = int(b)
-        side_c = math.sqrt(side_a**2 + side_b**2)
+        side_c = math.sqrt(side_a ** 2 + side_b ** 2)
 
         return side_c
 
@@ -406,21 +406,67 @@ Which calculation would you like to perform: """))
             time.sleep(2)
 
 
+def life_expectancy():
+    # sourcery skip: collection-into-set, extract-duplicate-method
+    gender = str(input('Male or Female: '))
+    print()
+
+    if gender.lower() in ['male', 'm']:
+        average_male = 76.3
+        smoke = str(input('Do you smoke anything (yes / no): '))
+        print()
+        if smoke in ['y', 'yes']:
+            average_male -= 15
+        drink = str(input('Do you drink alcohol (yes / no): '))
+        print()
+        if drink in ['y', 'yes']:
+            average_male -= 5
+        print(colors.green, 'Your average life expectancy is about:', average_male, 'years old.\n', colors.reset)
+    elif gender.lower() in ['female', 'f']:
+        average_female = 81.1
+        smoke = str(input('Do you smoke anything (yes / no): '))
+        print()
+        if smoke in ['y', 'yes']:
+            average_female -= 15
+        drink = str(input('Do you drink alcohol (yes / no): '))
+        print()
+        if drink in ['y', 'yes']:
+            average_female -= 5
+        print(colors.green, 'Your average life expectancy is about:', average_female, 'years old.\n', colors.reset)
+    else:
+        print(colors.red + 'User input error found...\n', colors.reset)
+        time.sleep(2)
+
+
+def health():
+    """
+Handles all calculators regarding health such as bmi and life expectancy
+    """
+    choice = int(input('''(1) BMI (Body Mass Index)
+(2) Life Expectancy
+
+Which Health calculator would you like to use? '''))
+    print()
+    if choice == 1:
+        bmi()
+    elif choice == 2:
+        life_expectancy()
+    else:
+        print(colors.red + 'User input error found...\n', colors.reset)
+
+
 def bmi():
-    """
-Handles Body Mass Index values to determine whether someone is healthy or not with their weight amount
-    """
     print(colors.yellow + '''
-Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women. 
-Underweight = <18.5
-Normal weight = 18.5–24.9
-Overweight = 25–29.9
-Obesity = BMI of 30 or greater.\n''', colors.reset)
+    Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women. 
+    Underweight = <18.5
+    Normal weight = 18.5–24.9
+    Overweight = 25–29.9
+    Obesity = BMI of 30 or greater.\n''', colors.reset)
     cm = int(repeat_input("Height (Centimeters): ", "Invalid Height...\n", "float", lambda i: int(i) > 0))
     kg = int(repeat_input("Weight (Kilograms): ", "Invalid Weight...\n", "float", lambda i: int(i) > 0))
     print()
 
-    formula = kg / cm**2 * 10000
+    formula = kg / cm ** 2 * 10000
     if formula <= 18.5:
         scale = 'Underweight'
     elif 18.6 <= formula <= 24.9:
@@ -493,7 +539,7 @@ Which Shape would you like to solve the volume for: '''))
             if choice == 1:
                 side = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: float(i) >= 0))
                 print()
-                volume = side**2 * side
+                volume = side ** 2 * side
                 print(colors.green, "Volume:", volume, colors.reset, '\n')
             elif choice == 2:
                 length = float(repeat_input('Length: ', 'Length must be positive', 'float', lambda i: float(i) >= 0))
@@ -640,7 +686,7 @@ Main hub UI that displays all of the calculators in the project
 (2) Algebra              |       (7) Stocks
 (3) Geometry             |       (8) Bitwise Operations
 (4) Financial            |       (9) Return to main menu
-(5) Body Mass Index      |       (10) Quit
+(5) Health               |       (10) Quit
 
 Which calculator would you like to use: '''))
         print()
@@ -654,7 +700,7 @@ Which calculator would you like to use: '''))
         elif choice == 4:
             financial()
         elif choice == 5:
-            bmi()
+            health()
         elif choice == 6:
             randomization()
         elif choice == 7:
