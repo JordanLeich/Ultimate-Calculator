@@ -9,11 +9,11 @@
   </a>
 
 # Description 💻
-This is an incredibly powerful calculator that is capable of many useful day-to-day functions. Such functions include solving basic arithmetic, algebraic, chemistry conversions, and much more. This project also features a fully operational GUI application for those who are not down with the normal text-based version.
+This is an incredibly powerful calculator and converter that is capable of many useful day-to-day functions that typical calculators cannot perform. Such functions include solving basic arithmetic, algebraic problems, chemistry unit conversions, and much more. This project also features a fully operational GUI application for those who are not down with the normal text-based version.
 
 # Instructions ⚡
 ### Option #1
-If you do not have python installed on your Windows system, you can download the [main.exe file](https://github.com/JordanLeich/Ultimate-Calculator/blob/main/main.exe) and the file will run without any python installation!
+If you do not have python installed on your Windows system, you can download the main.exe [file](https://github.com/JordanLeich/Ultimate-Calculator/blob/main/main.exe) and the file will run without any python installations or dependencies!
 
 ### Option #2
 Only use this option if you already have python installed on your system!
@@ -64,7 +64,6 @@ Only use this option if you already have python installed on your system!
 
 # Contributing 👍
 - Check out the [Contribution Page](https://github.com/JordanLeich/Ultimate-Calculator/blob/main/CONTRIBUTING.md) for all guidelines and rules.
-
 
 # Bug Reporting 🐞
 - Check out the [Issues Page](https://github.com/JordanLeich/Ultimate-Calculator/issues/7)
