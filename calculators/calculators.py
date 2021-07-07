@@ -377,6 +377,28 @@ Used under the financial calculator, this function determines how much money is 
     print(colors.green, 'Your Balance After Compound Interest:', B, '\n', colors.reset)
 
 
+def discount():
+    list_price = float(input('List price: '))
+    print()
+    sale_price = float(input('Sale price: '))
+    print()
+    discount_percent = sale_price / list_price * 100
+    discount_amount = list_price - sale_price
+    print(colors.green, 'Discount percent:', str(discount_percent) + '% Off. Discount amount:', discount_amount,
+          'Dollars.\n', colors.reset)
+
+
+def sale_price_calculator():
+    list_price = float(input('List price: '))
+    print()
+    discount_percent = float(input('Discount percent: '))
+    print()
+    sale_price = discount_percent / list_price * 100
+    discount_amount = list_price - sale_price
+    print(colors.green, 'Sale price:', str(sale_price) + '% Off. Discount amount:', discount_amount,
+          'Dollars.\n', colors.reset)
+
+
 def financial():
     """
 Main hub for all financial calculator options
@@ -385,8 +407,10 @@ Main hub for all financial calculator options
         choice = int(input("""(1) Payroll Calculator
 (2) Restaurant Tip Calculator
 (3) Compound Interest Calculator
-(4) Return to list of calculators
-(5) Exit
+(4) Discount Calculator
+(5) Sale Price Calculator
+(6) Return to list of calculators
+(7) Exit
 
 Which calculation would you like to perform: """))
         print()
@@ -398,8 +422,12 @@ Which calculation would you like to perform: """))
         elif choice == 3:
             interest()
         elif choice == 4:
-            break
+            discount()
         elif choice == 5:
+            sale_price_calculator()
+        elif choice == 6:
+            break
+        elif choice == 7:
             raise Exit
         else:
             print(colors.red + "User input error found... Restarting user input choice...\n", colors.reset)
@@ -436,6 +464,21 @@ def life_expectancy():
     else:
         print(colors.red + 'User input error found...\n', colors.reset)
         time.sleep(2)
+
+
+def percentage():
+    """
+Used to find a percentage when given 2 numbers. For example, what is a 1 out of 5 chance, this will give you a 20
+percent chance
+    """
+    print(colors.yellow + 'Used to find a percentage when given 2 numbers. For example, what is a 1 out of 5 chance, '
+                          'this will give you a 20 percent chance.\n', colors.reset)
+    first_number = float(input('First number: '))
+    print()
+    second_number = float(input('Second number: '))
+    print()
+    percentage_result = first_number / second_number * 100
+    print(colors.green, str(percentage_result) + '% Percent\n', colors.reset)
 
 
 def health():
@@ -682,11 +725,11 @@ Main hub UI that displays all of the calculators in the project
     while True:
         print(colors.green + "All Calculators", colors.reset)
         choice = int(input('''
-(1) Basic Calculator     |       (6) Randomization
+(1) Basic Calculator     |       (6) Randomization       |       (11) Exit
 (2) Algebra              |       (7) Stocks
 (3) Geometry             |       (8) Bitwise Operations
-(4) Financial            |       (9) Return to main menu
-(5) Health               |       (10) Quit
+(4) Financial            |       (9) Percentage
+(5) Health               |       (10) Main Menu
 
 Which calculator would you like to use: '''))
         print()
@@ -708,8 +751,10 @@ Which calculator would you like to use: '''))
         elif choice == 8:
             bitwise()
         elif choice == 9:
-            return
+            percentage()
         elif choice == 10:
+            return
+        elif choice == 11:
             raise Exit
         else:
             print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
