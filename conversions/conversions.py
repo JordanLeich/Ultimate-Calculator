@@ -172,28 +172,14 @@ def unit_converter():
     """
 Handles all unit conversions with sorted criteria of units to convert from and to
     """
-    # This lists all types of units as keys
-    # To dictionaries with each unit abbreviation as keys
-    # To 2 or 3 item tuples of the full name of the unit AND
-    # the ratio between it and the first item in the tuple (x : 1) AND
-    # OPTIONALLY an amount to add afterwards (only needed for temperatures currently)
-    #
-    # All strings should be lowercase, and are formatted correctly in code
-    # All unit names should be plural
-    # The first unit should be the smallest one, such that all conversion ratios are >= 1
-    # In order to minimise floating point errors
-    # TODO: Have singular unit names and convert as necessary in code (Not as easy as adding 's' e.g. foot -> feet)
-    #
-    # Adding to this dictionary is all that is necessary to add units and types of units
-    # Adhering to the formatting is highly suggested to keep it readable
     units = {
-        'mass': {
+        'Mass': {
             'g': ('grams', 1),
             'kg': ('kilograms', 1000),
             'lb': ('pounds', 453.5924),
             'oz': ('ounces', 28.349526),
         },
-        'length': {
+        'Length': {
             'cm': ('centimeters', 1),
             'm': ('meters', 100),
             'km': ('kilometers', 100000),
@@ -201,13 +187,13 @@ Handles all unit conversions with sorted criteria of units to convert from and t
             'ft': ('feet', 30.48),
             'in': ('inches', 2.54),
         },
-        'temperature': {
+        'Temperature': {
             'f': ('fahrenheit', 1, 0),
             'c': ('celsius', 1.8, 32),
             'k': ('kelvin', 1.8, -459.667),
             'r': ('rankine', 1, -459.667)
         },
-        'volume': {
+        'Volume': {
             'ml': ('milliliters', 1),
             'l': ('liters', 1000),
             'gal': ('gallons', 3785.4),
@@ -215,14 +201,14 @@ Handles all unit conversions with sorted criteria of units to convert from and t
             'pt': ('pints', 473.175),
             'fl oz': ('fluid ounces', 29.57344),
         },
-        'speed': {
+        'Speed': {
             'kph': ('kilometers per hour', 1),
             'mph': ('miles per hour', 1.609344),
             'fps': ('feet per second', 1.09728),
             'mps': ('meters per second', 3.6),
             'kn': ('knots', 1.852001),
         },
-        'storage': {
+        'Storage': {
             'bit': ('bits', 1),
             'nb': ('nibbles', 4),
             'b': ('bytes', 8),
@@ -233,7 +219,7 @@ Handles all unit conversions with sorted criteria of units to convert from and t
             'meb': ('mebibytes', 8388608),
             'gib': ('gibibytes', 8589935000),
         },
-        'time': {
+        'Time': {
             's': ('seconds', 1),
             'min': ('minutes', 60),
             'h': ('hours', 3600),
@@ -243,21 +229,21 @@ Handles all unit conversions with sorted criteria of units to convert from and t
             'mon': ('months', 2629800),
             'y': ('years', 31557600),
         },
-        'pressure': {
+        'Pressure': {
             'pa': ('pascals', 1),
             'kpa': ('kilopascals', 1000),
             'bar': ('bars', 100000),
             'atm': ('atmospheres', 101325),
             'psi': ('pounds per square inch', 14.69595),
         },
-        'angle': {
+        'Angle': {
             'arcsec': ('arcseconds', 1),
             'deg': ('degrees', 3600),
             'rad': ('radians', 206264.8),
             'grad': ('gradians', 3240),
             'arcmin': ('arcminutes', 60),
         },
-        'energy': {
+        'Energy': {
             'j': ('joules', 1),
             'kj': ('kilojoules', 1000),
             'wh': ('watt hours', 3600),
@@ -265,39 +251,42 @@ Handles all unit conversions with sorted criteria of units to convert from and t
             'cal': ('calories', 4.184),
             'kcal': ('kilocalories', 4184),
         },
-        'fuel economy': {
+        'Fuel Economy\n': {
             'mpg': ('miles per gallon', 1),
             'mpgi': ('miles per gallon imperial', 1.2),
             'kpl': ('kilometers per liter', 2.82428),
         },
     }
 
-    unit_type = repeat_input('What type of unit do you want to convert?\n    ' +
-                             '\n    '.join(f'({ind}) {unit_name.title()}' for ind, unit_name in
-                                           enumerate(units, start=1)) +
+    unit_type = repeat_input('What unit do you want to convert from.\n' +
+                             '\n'.join(f'({ind}) {unit_name.title()}' for ind, unit_name in
+                                       enumerate(units, start=1)) +
                              '\nSelect a number: ',
-                             'Select a valid number',
+                             '\nSelect a valid number!',
                              'int',
                              lambda i: 0 < int(i) <= len(units)
                              )
+    print()
     conversion_table = units[list(units)[int(unit_type) - 1]]
     unit_names = [
         f'{name.title()} ({abbr})'
         for abbr, (name, *_) in conversion_table.items()
     ]
 
-    input_unit = repeat_input('Which unit are you converting from?\n    ' +
-                              f'\n    '.join(unit_names) +
+    input_unit = repeat_input('Which unit are you converting from.\n' +
+                              f'\n'.join(unit_names) +
                               '\nSelect an abbreviation: ',
-                              'Select a valid abbreviation',
+                              '\nSelect a valid abbreviation!',
                               custom_validation=lambda i: i.lower() in conversion_table
                               ).lower()
-    input_amount = float(repeat_input('What value are you converting? ',
-                                      'Input a valid number',
+    print()
+    input_amount = float(repeat_input('What value are you converting: ',
+                                      '\nInput a valid number!',
                                       'float'
                                       ))
-    output_unit = repeat_input('Which unit are you converting to?\n    ' +
-                               f'\n    '.join(unit_names + ['All Units (all)']) +
+    print()
+    output_unit = repeat_input('Which unit are you converting to.' +
+                               f'\n'.join(unit_names + ['All Units (all)']) +
                                '\nSelect an abbreviation: ',
                                'Select a valid abbreviation',
                                custom_validation=lambda i: i.lower() in conversion_table or i.lower() == 'all'
