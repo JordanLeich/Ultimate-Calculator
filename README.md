@@ -13,7 +13,7 @@ This is an incredibly powerful calculator and converter that is capable of many 
 
 # Instructions ⚡
 ### Option #1
-If you do not have python installed on your Windows system, you can download the main.exe [file](https://github.com/JordanLeich/Ultimate-Calculator/blob/main/main.exe) and the file will run without any python installations or dependencies!
+If you do not have python installed on your Windows system, you can download the main.exe [file](https://github.com/JordanLeich/Ultimate-Calculator/blob/main/main.exe) and the file will run without any python installations or dependencies! Make sure to run the main.exe file as administrator as this will prevent any issues with permissions and such!
 
 ### Option #2
 Only use this option if you already have python installed on your system!
