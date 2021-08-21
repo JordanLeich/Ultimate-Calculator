@@ -1,10 +1,11 @@
 try:
     import winsound
-
     windows = True
+    linux = False
 except ImportError:
     # Do not import winsound here as it will cause an error for linux and MacOs users.
     linux = True
+    windows = False
 
 from modules import colors, currency_api
 from modules.tools import repeat_input
@@ -258,7 +259,7 @@ Handles all unit conversions with sorted criteria of units to convert from and t
         },
     }
 
-    unit_type = repeat_input('What unit do you want to convert from.\n' +
+    unit_type = repeat_input('What unit do you want to convert from.\n\n' +
                              '\n'.join(f'({ind}) {unit_name.title()}' for ind, unit_name in
                                        enumerate(units, start=1)) +
                              '\nSelect a number: ',
@@ -273,9 +274,9 @@ Handles all unit conversions with sorted criteria of units to convert from and t
         for abbr, (name, *_) in conversion_table.items()
     ]
 
-    input_unit = repeat_input('Which unit are you converting from.\n' +
+    input_unit = repeat_input('Which unit are you converting from.\n\n' +
                               f'\n'.join(unit_names) +
-                              '\nSelect an abbreviation: ',
+                              '\n\nSelect an abbreviation: ',
                               '\nSelect a valid abbreviation!',
                               custom_validation=lambda i: i.lower() in conversion_table
                               ).lower()
@@ -285,9 +286,9 @@ Handles all unit conversions with sorted criteria of units to convert from and t
                                       'float'
                                       ))
     print()
-    output_unit = repeat_input('Which unit are you converting to.' +
+    output_unit = repeat_input('Which unit are you converting to. ' +
                                f'\n'.join(unit_names + ['All Units (all)']) +
-                               '\nSelect an abbreviation: ',
+                               '\n\nSelect an abbreviation: ',
                                'Select a valid abbreviation',
                                custom_validation=lambda i: i.lower() in conversion_table or i.lower() == 'all'
                                ).lower()

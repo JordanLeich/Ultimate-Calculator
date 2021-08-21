@@ -15,6 +15,7 @@ This is the basic arithmetic calculator that handles simply arithmetic equations
     print(colors.yellow + "Use '--help' for help\n", colors.reset)
     while True:
         calculation = input("Your Calculation: ")
+        print()
         if calculation in ["--help", '--h', 'h', 'help']:
             print("""
 --help: list of commands
@@ -29,7 +30,7 @@ This is the basic arithmetic calculator that handles simply arithmetic equations
         else:
             try:
                 answer = eval(calculation)
-                print(answer)
+                print(answer, '\n')
                 history.append(f"{calculation} = {answer}")
 
             except SyntaxError:
@@ -173,7 +174,7 @@ What calculation would you like to perform: '''))
             x1 = repeat_input("What is your X1 value: ", float_error, "float")
             print()
             result = rise_over_run_slope(y2, y1, x2, x1)
-            print(colors.green + 'Slope:', result, '\n', colors.reset)
+            print(colors.green + 'Slope:', result, colors.reset)
 
         elif choice == 2:
             m = repeat_input('What is your M value: ', "Invalid Number...\n", "float")
@@ -181,7 +182,7 @@ What calculation would you like to perform: '''))
             b = repeat_input('What is your B value: ', "Invalid Number...\n", "float")
             print()
             result = slope_intercept_form(m, x, b)
-            print(colors.green + 'Result:', result, '\n', colors.reset)
+            print(colors.green + 'Result:', result, colors.reset)
 
         elif choice == 3:
             formula = repeat_input('Which side (a, b, c) do you wish to calculate: ',
@@ -194,21 +195,21 @@ What calculation would you like to perform: '''))
                 c = repeat_input('Input the length of side c: ', "Invalid Number...\n", 'float')
                 print()
                 result = find_pythagorean(formula, b=b, c=c)
-                print(colors.green + 'The length of side a is:', result, '\n', colors.reset)
+                print(colors.green + 'The length of side a is:', result, colors.reset)
 
             elif formula == 'b':
                 a = repeat_input('Input the length of side a: ', "Invalid Number...\n", 'float')
                 c = repeat_input('Input the length of side c: ', "Invalid Number...\n", 'float')
                 print()
                 result = find_pythagorean(formula, a=a, c=c)
-                print(colors.green + 'The length of side b is:', result, '\n', colors.reset)
+                print(colors.green + 'The length of side b is:', result, colors.reset)
 
             elif formula == 'c':
                 a = repeat_input('Input the length of side a: ', "Invalid Number...\n", 'float')
                 b = repeat_input('Input the length of side b: ', "Invalid Number...\n", 'float')
                 print()
                 result = find_pythagorean(formula, a=a, b=b)
-                print(colors.green + 'The length of side c is:', result, '\n', colors.reset)
+                print(colors.green + 'The length of side c is:', result, colors.reset)
 
         elif choice == 4:
             x1 = repeat_input('x1 Value: ', "Invalid Number...\n", "float")
@@ -217,7 +218,7 @@ What calculation would you like to perform: '''))
             y2 = repeat_input('y2 Value: ', "Invalid Number...\n", "float")
             print()
             distance = find_distance(x1, y1, x2, y2)
-            print(colors.green + "The distance between the two points is", distance, '\n', colors.reset)
+            print(colors.green + "The distance between the two points is", distance, colors.reset)
 
         elif choice == 5:
             x1 = repeat_input('The value of x1: ', "Invalid Number...\n", "float")
@@ -230,7 +231,7 @@ What calculation would you like to perform: '''))
             y_m_point = midpoint[1]
 
             print(colors.green + "The midpoint's x value is:", x_m_point)
-            print("The midpoint's y value is:", y_m_point, '\n', colors.reset)
+            print("The midpoint's y value is:", y_m_point, colors.reset)
 
         elif choice == 6:
             choice = int(input('''(1) Find Sin value

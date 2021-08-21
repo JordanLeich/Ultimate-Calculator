@@ -1,6 +1,6 @@
+from PyQt5.QtGui import QIntValidator
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QWidget, QApplication
-from PyQt5.Qt import QIntValidator
 
 
 class Arithmetic(QWidget):

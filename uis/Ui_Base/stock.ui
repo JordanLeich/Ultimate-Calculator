@@ -126,7 +126,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Buy Comission</string>
+     <string>Buy Commission</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -139,7 +139,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Sell Comission</string>
+     <string>Sell Commission</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
