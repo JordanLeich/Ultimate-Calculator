@@ -531,7 +531,7 @@ Main hub for all geometry related calculator options
 (2) Find Circumference
 (3) Find Perimeter
 (4) Find Volume
-(5) Return to list of calculations
+(5) Return to list of calculators
 (6) Exit
 
 Which Geometry calculator would you like to use: '''))

@@ -63,7 +63,7 @@ Only use this option if you already have python installed on your system!
 - Check out the [Issues Page](https://github.com/JordanLeich/Ultimate-Calculator/issues/1)
 
 # Contributing 👍
-1. If you decide on contributing to the project, please do not bother opening a pull request that reformats and changes the look of the code just because you do not like how it looks or you type python code differently than me. I have already had numerous contributors reformat/optimize the code for this project. 
+1. If you decide on contributing to the project, please do not bother opening a pull request that reformats and changes the look of the code just because you do not like how it looks, or you type python code differently than me. I have already had numerous contributors reformat/optimize the code for this project. 
 1. Check out the [Contribution Page](https://github.com/JordanLeich/Ultimate-Calculator/blob/main/CONTRIBUTING.md) for all guidelines and rules.
 
 # Bug Reporting 🐞

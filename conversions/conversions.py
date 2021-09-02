@@ -1,5 +1,6 @@
 try:
-    import winsound
+    from winsound import Beep
+
     windows = True
     linux = False
 except ImportError:
@@ -157,11 +158,11 @@ Converts binary to sound
     for i in binary:
         if i == "0":
             if windows:
-                winsound.Beep(2000, 100)
+                Beep(2000, 100)
             print(colors.green + 'Sound played!\n', colors.reset)
         elif i == "1":
             if windows:
-                winsound.Beep(4000, 100)
+                Beep(4000, 100)
             print(colors.green + 'Sound played!\n', colors.reset)
         else:
             print(colors.red + "User input error found... Please only use 0 or 1 as an input choice...\n",
@@ -307,7 +308,7 @@ Handles all unit conversions with sorted criteria of units to convert from and t
             output_offset = 0
         else:
             _, output_ratio, output_offset = conversion_table[output_unit]
-        print(f'{(true_amount - output_offset) / output_ratio:.3f} {output_unit}')
+        print(colors.green, f'{(true_amount - output_offset) / output_ratio:.3f} {output_unit}', colors.reset)
     else:
         for unit, (_, *output_values) in conversion_table.items():
             if unit == input_unit:
@@ -318,7 +319,7 @@ Handles all unit conversions with sorted criteria of units to convert from and t
                 output_offset = 0
             else:
                 output_ratio, output_offset = output_values
-            print(f'{(true_amount - output_offset) / output_ratio:.3f} {unit}')
+            print(colors.green, f'{(true_amount - output_offset) / output_ratio:.3f} {unit}', colors.reset)
     print()
 
 
@@ -420,7 +421,7 @@ Main hub UI for all of the converters used in the project
 (3) Crypto
 (4) Binary to Sound
 (5) Base Converter
-(6) Restart
+(6) Return to Main Menu
 (7) Quit
 
 Which conversion would you like to use: '''))
