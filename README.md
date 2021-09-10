@@ -1,12 +1,24 @@
-<a style="text-decoration:none" href="https://github.com/JordanLeich/Ultimate-Calculator/releases">
-    <img src="https://img.shields.io/github/release/JordanLeich/Ultimate-Calculator.svg?style=flat-square" alt="Releases" />
-  </a>
-<a style="text-decoration:none" href="https://github.com/JordanLeich/Ultimate-Calculator/contributors/">
-    <img src="https://img.shields.io/github/contributors/JordanLeich/Ultimate-Calculator?style=flat-square" alt="Contributors" />
-  </a>
-  <a style="text-decoration:none" href="https://github.com/JordanLeich/Ultimate-Calculator/stargazers">
-    <img src="https://img.shields.io/github/stars/JordanLeich/Ultimate-Calculator.svg?style=flat-square" alt="Stars" />
-  </a>
+<h1 align="center">
+    Ultimate Calculator 🔢
+</h1>
+<hr>
+<p align="center">
+    <img src="https://img.shields.io/github/license/jordanleich/ultimate-calculator">
+    <img src="https://img.shields.io/github/contributors/jordanleich/ultimate-calculator">
+    <img src="https://img.shields.io/badge/-Outstanding-brightgreen">    
+    <img src="https://img.shields.io/github/languages/code-size/JordanLeich/Ultimate-Calculator">    
+    <img src="https://img.shields.io/github/repo-size/JordanLeich/Ultimate-Calculator"> 
+    <img src="https://img.shields.io/tokei/lines/github/JordanLeich/Ultimate-Calculator?label=lines%20of%20code">
+    <img src="https://img.shields.io/github/stars/jordanleich/ultimate-calculator?style=socialhttps://img.shields.io/tokei/lines/github/JordanLeich/Ultimate-Calculator?label=lines%20of%20code"> 
+    <img src="https://img.shields.io/github/stars/jordanleich?label=user%20stars&style=social"> 
+    <img src="https://img.shields.io/github/v/release/jordanleich/ultimate-calculator?include_prereleases"> 
+    <img src="https://img.shields.io/github/last-commit/jordanleich/ultimate-calculator">    
+</p>
+
+<p align="center">
+    <img src="images/gif.gif" alt="wallpaper">
+</p>
+
 
 # Description 💻
 This is an incredibly powerful calculator and converter that is capable of many useful day-to-day functions that typical calculators cannot perform. Such functions include solving basic arithmetic, algebraic problems, chemistry unit conversions, and much more. This project also features a fully operational GUI application for those who are not down with the normal text-based version.
@@ -68,5 +80,3 @@ Only use this option if you already have python installed on your system!
 
 # Bug Reporting 🐞
 - Check out the [Issues Page](https://github.com/JordanLeich/Ultimate-Calculator/issues/7)
-
-![Calculator](images/gif.gif "Calculator")
