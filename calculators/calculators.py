@@ -719,6 +719,76 @@ Turns the result from bin into something nice
         print(f'{operator}{bin_number(operand_1)} = {bin_number(answer)}')
 
 
+def gaming():
+    """
+Main calculator used for everything gaming related
+    """
+    while True:
+        choice = int(input('''(1) KD (Kill Death) ratio
+(2) KDA (Kill Death Assist) ratio
+(3) Win/Loss ratio
+(4) Return to list of calculators
+(5) Exit
+    
+Which option would you like to pick: '''))
+        print()
+
+        if choice == 1:
+            kills = int(input('Total kills: '))
+            print()
+            deaths = int(input('Total deaths: '))
+            print()
+            kd = kills / deaths
+            if kd == 1.0:
+                print(colors.yellow + 'Your KD ratio is ' + str(kd), 'This ratio is average in gaming.\n', colors.reset)
+            elif kd < 1.0:
+                print(colors.red + 'Your KD ratio is ' + str(kd), 'This ratio is below average in gaming.\n', colors.reset)
+            elif kd > 1.0:
+                print(colors.green + 'Your KD ratio is ' + str(kd), 'This ratio is above average in gaming.\n', colors.reset)
+            else:
+                print(colors.red + 'User input error found...\n', colors.reset)
+                time.sleep(2)
+        elif choice == 2:
+            kills = int(input('Total kills: '))
+            print()
+            deaths = int(input('Total deaths: '))
+            print()
+            assists = int(input('Total assists: '))
+            print()
+            kda = (kills + assists) / deaths
+            if kda == 1.0:
+                print(colors.yellow + 'Your KDA ratio is ' + str(kda), 'This ratio is average in gaming.\n', colors.reset)
+            elif kda < 1.0:
+                print(colors.red + 'Your KDA ratio is ' + str(kda), 'This ratio is below average in gaming.\n', colors.reset)
+            elif kda > 1.0:
+                print(colors.green + 'Your KDA ratio is ' + str(kda), 'This ratio is above average in gaming.\n', colors.reset)
+            else:
+                print(colors.red + 'User input error found...\n', colors.reset)
+                time.sleep(2)
+        elif choice == 3:
+            wins = int(input('Total wins: '))
+            print()
+            loses = int(input('Total loses: '))
+            print()
+            win_loss_ratio = wins / loses
+            if win_loss_ratio == 1.0:
+                print(colors.yellow + 'Your Win/Loss ratio is ' + str(win_loss_ratio), 'This ratio is average in gaming.\n', colors.reset)
+            elif win_loss_ratio < 1.0:
+                print(colors.red + 'Your Win/Loss ratio is ' + str(win_loss_ratio), 'This ratio is below average in gaming.\n', colors.reset)
+            elif win_loss_ratio > 1.0:
+                print(colors.green + 'Your Win/Loss ratio is ' + str(win_loss_ratio), 'This ratio is above average in gaming.\n', colors.reset)
+            else:
+                print(colors.red + 'User input error found...\n', colors.reset)
+                time.sleep(2)
+        elif choice == 4:
+            break
+        elif choice == 5:
+            raise Exit
+        else:
+            print(colors.red + 'User input error found...\n', colors.reset)
+            time.sleep(2)
+
+
 def start():
     """
 Main hub UI that displays all of the calculators in the project
@@ -726,11 +796,11 @@ Main hub UI that displays all of the calculators in the project
     while True:
         print(colors.green + "All Calculators", colors.reset)
         choice = int(input('''
-(1) Basic Calculator     |       (6) Randomization       |       (11) Exit
-(2) Algebra              |       (7) Stocks
+(1) Basic Calculator     |       (6) Randomization       |       (11) Main Menu
+(2) Algebra              |       (7) Stocks              |       (12) Exit
 (3) Geometry             |       (8) Bitwise Operations
 (4) Financial            |       (9) Percentage
-(5) Health               |       (10) Main Menu
+(5) Health               |       (10) Gaming
 
 Which calculator would you like to use: '''))
         print()
@@ -754,8 +824,10 @@ Which calculator would you like to use: '''))
         elif choice == 9:
             percentage()
         elif choice == 10:
-            return
+            gaming()
         elif choice == 11:
+            return
+        elif choice == 12:
             raise Exit
         else:
             print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)

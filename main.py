@@ -18,7 +18,7 @@ This is the first user input choice an end-user would receive, this is a main ui
 this project.
     """
     while True:
-        print(colors.green + 'All Calculators and Converters', colors.reset)
+        print(colors.green + '---Ultimate Calculator---', colors.reset)
         choice = int(input('''
 (1) All Calculators
 (2) All Converters
