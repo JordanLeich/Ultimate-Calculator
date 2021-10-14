@@ -742,9 +742,11 @@ Which option would you like to pick: '''))
             if kd == 1.0:
                 print(colors.yellow + 'Your KD ratio is ' + str(kd), 'This ratio is average in gaming.\n', colors.reset)
             elif kd < 1.0:
-                print(colors.red + 'Your KD ratio is ' + str(kd), 'This ratio is below average in gaming.\n', colors.reset)
+                print(colors.red + 'Your KD ratio is ' + str(kd), 'This ratio is below average in gaming.\n',
+                      colors.reset)
             elif kd > 1.0:
-                print(colors.green + 'Your KD ratio is ' + str(kd), 'This ratio is above average in gaming.\n', colors.reset)
+                print(colors.green + 'Your KD ratio is ' + str(kd), 'This ratio is above average in gaming.\n',
+                      colors.reset)
             else:
                 print(colors.red + 'User input error found...\n', colors.reset)
                 time.sleep(2)
@@ -757,11 +759,14 @@ Which option would you like to pick: '''))
             print()
             kda = (kills + assists) / deaths
             if kda == 1.0:
-                print(colors.yellow + 'Your KDA ratio is ' + str(kda), 'This ratio is average in gaming.\n', colors.reset)
+                print(colors.yellow + 'Your KDA ratio is ' + str(kda), 'This ratio is average in gaming.\n',
+                      colors.reset)
             elif kda < 1.0:
-                print(colors.red + 'Your KDA ratio is ' + str(kda), 'This ratio is below average in gaming.\n', colors.reset)
+                print(colors.red + 'Your KDA ratio is ' + str(kda), 'This ratio is below average in gaming.\n',
+                      colors.reset)
             elif kda > 1.0:
-                print(colors.green + 'Your KDA ratio is ' + str(kda), 'This ratio is above average in gaming.\n', colors.reset)
+                print(colors.green + 'Your KDA ratio is ' + str(kda), 'This ratio is above average in gaming.\n',
+                      colors.reset)
             else:
                 print(colors.red + 'User input error found...\n', colors.reset)
                 time.sleep(2)
@@ -772,11 +777,14 @@ Which option would you like to pick: '''))
             print()
             win_loss_ratio = wins / loses
             if win_loss_ratio == 1.0:
-                print(colors.yellow + 'Your Win/Loss ratio is ' + str(win_loss_ratio), 'This ratio is average in gaming.\n', colors.reset)
+                print(colors.yellow + 'Your Win/Loss ratio is ' + str(win_loss_ratio),
+                      'This ratio is average in gaming.\n', colors.reset)
             elif win_loss_ratio < 1.0:
-                print(colors.red + 'Your Win/Loss ratio is ' + str(win_loss_ratio), 'This ratio is below average in gaming.\n', colors.reset)
+                print(colors.red + 'Your Win/Loss ratio is ' + str(win_loss_ratio),
+                      'This ratio is below average in gaming.\n', colors.reset)
             elif win_loss_ratio > 1.0:
-                print(colors.green + 'Your Win/Loss ratio is ' + str(win_loss_ratio), 'This ratio is above average in gaming.\n', colors.reset)
+                print(colors.green + 'Your Win/Loss ratio is ' + str(win_loss_ratio),
+                      'This ratio is above average in gaming.\n', colors.reset)
             else:
                 print(colors.red + 'User input error found...\n', colors.reset)
                 time.sleep(2)
@@ -789,6 +797,33 @@ Which option would you like to pick: '''))
             time.sleep(2)
 
 
+def time_calculator():
+    download_speed = float
+    file_size = int(input('''(1) Megabytes
+
+Select which file size type the download is: '''))
+    print()
+
+    if file_size == 1:
+        file_size = float(input('How many total megabytes is your download: '))
+        print()
+        print(
+            colors.yellow + 'If you are unsure what your average download/upload speeds are, please go to https://www.speedtest.net/ to find out more.\n',
+            colors.reset)
+        time.sleep(1)
+        download_speed = float(input('How many megabytes per second on average is your download speed: '))
+        print()
+    else:
+        print(colors.red + 'User input error found...\n', colors.reset)
+        time.sleep(2)
+    download_time_in_seconds = file_size / (download_speed / 8)
+    print(colors.green + str(download_time_in_seconds), 'Seconds.')
+    download_time_in_minutes = download_time_in_seconds / 60
+    print(str(download_time_in_minutes), 'Minutes.')
+    download_time_in_hours = download_time_in_minutes / 60
+    print(str(download_time_in_hours), 'Hours.\n', colors.reset)
+
+
 def start():
     """
 Main hub UI that displays all of the calculators in the project
@@ -796,9 +831,9 @@ Main hub UI that displays all of the calculators in the project
     while True:
         print(colors.green + "All Calculators", colors.reset)
         choice = int(input('''
-(1) Basic Calculator     |       (6) Randomization       |       (11) Main Menu
-(2) Algebra              |       (7) Stocks              |       (12) Exit
-(3) Geometry             |       (8) Bitwise Operations
+(1) Basic Calculator     |       (6) Randomization       |       (11) Time
+(2) Algebra              |       (7) Stocks              |       (12) Main Menu
+(3) Geometry             |       (8) Bitwise Operations  |       (13) Exit
 (4) Financial            |       (9) Percentage
 (5) Health               |       (10) Gaming
 
@@ -826,8 +861,10 @@ Which calculator would you like to use: '''))
         elif choice == 10:
             gaming()
         elif choice == 11:
-            return
+            time_calculator()
         elif choice == 12:
+            return
+        elif choice == 13:
             raise Exit
         else:
             print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
