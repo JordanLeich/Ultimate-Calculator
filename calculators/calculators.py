@@ -797,8 +797,20 @@ Which option would you like to pick: '''))
             time.sleep(2)
 
 
-def time_calculator():
+def download_time():
+    """
+Used to calculate the download time for a file size being downloaded.
+    """
     download_speed = float
+    print(colors.yellow + '---Important notes about this calculator---\n')
+    time.sleep(1)
+    print(
+        'Please keep in mind that the download time calculator will give you only an estimate of how long it will take to download something. Given that most peoples download speeds cannot be given a single value but rather an average, no estimate of download time can be 100 percent accurate. To provide the best accuracy with timing, we ask to give an average of your overall download speed.\n')
+    time.sleep(1)
+    print(
+        'If your download size is in Gigabytes, just convert that value to Megabytes. Every 1000 Mb equals a Gb, for example, if you have a download size of 23 Gb, then your download size would 23000 in Mb.\n',
+        colors.reset)
+    time.sleep(1)
     file_size = int(input('''(1) Megabytes
 
 Select which file size type the download is: '''))
@@ -831,7 +843,7 @@ Main hub UI that displays all of the calculators in the project
     while True:
         print(colors.green + "All Calculators", colors.reset)
         choice = int(input('''
-(1) Basic Calculator     |       (6) Randomization       |       (11) Time
+(1) Basic Calculator     |       (6) Randomization       |       (11) Download Time
 (2) Algebra              |       (7) Stocks              |       (12) Main Menu
 (3) Geometry             |       (8) Bitwise Operations  |       (13) Exit
 (4) Financial            |       (9) Percentage
@@ -861,7 +873,7 @@ Which calculator would you like to use: '''))
         elif choice == 10:
             gaming()
         elif choice == 11:
-            time_calculator()
+            download_time()
         elif choice == 12:
             return
         elif choice == 13:
