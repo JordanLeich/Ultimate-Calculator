@@ -410,6 +410,54 @@ Select a Base Converter choice: '''))
             time.sleep(2)
 
 
+def intToRoman(number):
+    """
+    The function gets number and convert the number to Roman numerals. The function returns a string of Roman numerals.
+    """
+    DecimalsMap = [1000000, 900000, 500000, 400000, 100000, 90000, 50000, 40000, 10000, 9000, 5000, 4000, 1000, 900,
+                   500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+    RomanNumeralsMap = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'MV', 'M', 'CM', 'D', 'CD', 'C',
+                        'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
+    arr = ['_', '__', '_', '__', '_', '__', '_', '__', '_', '__', '_', ' _', '', '', '', '', '', '', '', '', '', '',
+           '', '', '']
+    temp = number
+    romanNum = ''
+    bigNumber = ''
+    i = 0
+    while number > 0:
+        if (number - DecimalsMap[i]) >= 0:
+            romanNum += RomanNumeralsMap[i]
+            number -= DecimalsMap[i]
+        else:
+            i += 1
+    i = 0
+    while temp > 0:
+        if (temp - DecimalsMap[i]) >= 0:
+            bigNumber += arr[i]
+            temp = temp - DecimalsMap[i]
+        else:
+            i += 1
+    print(colors.green + str(romanNum), colors.reset, '\n')
+
+
+def romanToInt(number):
+    """
+    The function gets string of Roman numerals and convert to int number. The function returns an int number.
+    """
+    dictRomanNumerals = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    lenStringNum = len(number)
+    integerNum = 0
+    for i in range(lenStringNum):
+        if i + 1 < lenStringNum:
+            if dictRomanNumerals[number[i + 1]] > dictRomanNumerals[number[i]]:
+                integerNum -= dictRomanNumerals[number[i]]
+            else:
+                integerNum += dictRomanNumerals[number[i]]
+        else:
+            integerNum += dictRomanNumerals[number[i]]
+    print(colors.green + str(integerNum), colors.reset, '\n')
+
+
 def start():
     """
 Main hub UI for all of the converters used in the project
@@ -421,8 +469,9 @@ Main hub UI for all of the converters used in the project
 (3) Crypto
 (4) Binary to Sound
 (5) Base Converter
-(6) Return to Main Menu
-(7) Quit
+(6) Roman Numerals Converter
+(7) Return to Main Menu
+(8) Quit
 
 Which conversion would you like to use: '''))
         print()
@@ -437,8 +486,25 @@ Which conversion would you like to use: '''))
         elif choice == 5:
             base_converter()
         elif choice == 6:
+            choice = int(input('''(1) Int to Roman Numeral
+(2) Roman Numeral to Int
+
+Which converter would you like to use: '''))
+            print()
+            if choice == 1:
+                number = int(input('Enter an integer: '))
+                print()
+                intToRoman(number)
+            elif choice == 2:
+                number = str(input('Enter a roman numeral: '))
+                print()
+                romanToInt(number)
+            else:
+                print(colors.red + 'Error found...\n', time.sleep(2))
+                return
+        elif 7 == choice:
             break
-        elif choice == 7:
+        elif choice == 8:
             raise Exit
         else:
             print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
