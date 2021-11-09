@@ -22,7 +22,7 @@ this project.
         choice = int(input('''
 (1) All Calculators
 (2) All Converters
-(3) GUI Version
+(3) GUI Version (Do not use with main.exe)
 (4) Extras
 (5) Exit
 

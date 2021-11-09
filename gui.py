@@ -6,6 +6,7 @@ from uis.algebra_ui import AlgebraWindow
 from uis.stock_ui import StockWindow
 from uis.arith_calculator_ui import Arithmetic
 import webbrowser
+from sys import exit
 
 
 class MainWindow(QMainWindow):

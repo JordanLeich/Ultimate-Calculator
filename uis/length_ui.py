@@ -3,7 +3,7 @@ from PyQt5.uic import loadUi
 
 
 class LengthWindow(QMainWindow):
-    def __init__(self, path=""):
+    def __init__(self, path="Ui_Base/length.ui"):
         super(LengthWindow, self).__init__()
 
         self.path = f"{path}Ui_Base/length.ui"

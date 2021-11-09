@@ -14,56 +14,6 @@ from modules.errors import Exit
 import time
 
 
-def currency_converter():
-    """
-Handles all currency conversions by using an api key since currencies change their rates frequently
-    """
-    api_key = currency_api.get_api_key()
-    currency_1 = None
-    currency_2 = None
-    currencies = {currency['id']: currency['currencyName'] for currency in currency_api.get_currencies(api_key)}
-    while True:
-        choice = int(input('''(1) Select currency to convert from
-(2) Select currency to convert to
-(3) List available currencies
-(4) Get exchange rate
-(5) Convert amount
-(6) Return to list of converters
-(7) Exit
-
-Which Currency option would you like to use: '''))
-        print()
-
-        if choice == 1:
-            currency_1 = repeat_input('Which currency are you converting from? Input the currency code: ',
-                                      'Not a currency code',
-                                      custom_validation=lambda i: i in currencies)
-        elif choice == 2:
-            currency_2 = repeat_input('Which currency are you converting to? Input the currency code: ',
-                                      'Not a currency code',
-                                      custom_validation=lambda i: i in currencies)
-        elif choice == 3:
-            print('Available currencies: ')
-            for abbreviation, name in currencies.items():
-                print(f'{name: <30} ({abbreviation})')
-        elif choice == 4:
-            if currency_1 is None or currency_2 is None:
-                print('You have not selected a currency to convert to or from')
-            else:
-                print(f'The exchange rate is {currency_api.get_currency(currency_1, currency_2, api_key)}')
-        elif choice == 5:
-            amount = float(repeat_input('How much are you converting? ', 'Not a valid number', 'float'))
-            rate = currency_api.get_currency(currency_1, currency_2, api_key)
-            print(f'{amount} {currency_1} = {amount * rate} {currency_2}')
-        elif choice == 6:
-            break
-        elif choice == 7:
-            raise Exit
-        else:
-            print(colors.red + "Invalid input... Restarting input choice...\n" + colors.reset)
-            time.sleep(2)
-
-
 # All Crypto-Currency Formulas
 def bitcoin_to_all(data):
     data = float(data)
@@ -465,27 +415,24 @@ Main hub UI for all of the converters used in the project
     while True:
         print(colors.green + "All Converters\n", colors.reset)
         choice = int(input('''(1) Units
-(2) Currency
-(3) Crypto
-(4) Binary to Sound
-(5) Base Converter
-(6) Roman Numerals Converter
-(7) Return to Main Menu
-(8) Quit
+(2) Crypto
+(3) Binary to Sound
+(4) Base Converter
+(5) Roman Numerals Converter
+(6) Return to Main Menu
+(7) Quit
 
 Which conversion would you like to use: '''))
         print()
         if choice == 1:
             unit_converter()
         elif choice == 2:
-            currency_converter()
-        elif choice == 3:
             crypto_converter()
-        elif choice == 4:
+        elif choice == 3:
             binary_converter()
-        elif choice == 5:
+        elif choice == 4:
             base_converter()
-        elif choice == 6:
+        elif choice == 5:
             choice = int(input('''(1) Int to Roman Numeral
 (2) Roman Numeral to Int
 
@@ -502,9 +449,9 @@ Which converter would you like to use: '''))
             else:
                 print(colors.red + 'Error found...\n', time.sleep(2))
                 return
-        elif 7 == choice:
+        elif choice == 6:
             break
-        elif choice == 8:
+        elif choice == 7:
             raise Exit
         else:
             print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)

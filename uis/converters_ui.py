@@ -1,6 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QPushButton
 from PyQt5 import QtCore, QtWidgets
-from uis.currency_ui import CurrencyWindow
 from uis.length_ui import LengthWindow
 from uis.volume_ui import VolumeWindow
 from uis.temp_ui import TemperatureWindow
@@ -15,7 +14,6 @@ class ConvertersWindow(QMainWindow):
         self.resize(672, 509)
         self.path = path
 
-        self.currency = CurrencyWindow(self.path)
         self.length = LengthWindow(self.path)
         self.volume = VolumeWindow(self.path)
         self.temperature = TemperatureWindow(self.path)
@@ -56,11 +54,6 @@ class ConvertersWindow(QMainWindow):
         self.vol_btn.setGeometry(QtCore.QRect(420, 210, 151, 61))
         self.vol_btn.setText("Volume Converter")
         self.vol_btn.clicked.connect(self.volume.show)
-
-        self.curr_btn = QPushButton(self)
-        self.curr_btn.setGeometry(QtCore.QRect(90, 310, 151, 61))
-        self.curr_btn.setText("Currency Converter")
-        self.curr_btn.clicked.connect(self.currency.show)
 
         self.cry_btn = QPushButton(self)
         self.cry_btn.setGeometry(QtCore.QRect(420, 310, 151, 61))
