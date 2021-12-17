@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/badge/-Outstanding-brightgreen">    
     <img src="https://img.shields.io/github/languages/code-size/JordanLeich/Ultimate-Calculator">    
     <img src="https://img.shields.io/github/repo-size/JordanLeich/Ultimate-Calculator"> 
-    <img src="https://img.shields.io/tokei/lines/github/JordanLeich/Ultimate-Calculator?label=lines%20of%20code">
+    <img src="https://img.shields.io/tokei/lines/github/JordanLeich/Ultimate-Calculator">
     <img src="https://img.shields.io/github/stars/jordanleich/ultimate-calculator?style=socialhttps://img.shields.io/tokei/lines/github/JordanLeich/Ultimate-Calculator?label=lines%20of%20code"> 
     <img src="https://img.shields.io/github/stars/jordanleich?label=user%20stars&style=social"> 
     <img src="https://img.shields.io/github/v/release/jordanleich/ultimate-calculator?include_prereleases"> 
