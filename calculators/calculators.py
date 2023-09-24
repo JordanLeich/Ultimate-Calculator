@@ -835,6 +835,69 @@ Select which file size type the download is: '''))
     download_time_in_hours = download_time_in_minutes / 60
     print(str(download_time_in_hours), 'Hours.\n', colors.reset)
 
+import random
+
+# Function to simulate a coin flip
+def coin_flip():
+    return random.choice(["Heads", "Tails"])
+
+def probability_calculator():
+    # Option to calculate probability or simulate coin flips
+    choice = int(input("Calculate the probability of something (1) or simulate the probability of coin flips (2): "))
+
+    if choice == 1:
+        # Get user input for total outcomes and successful outcomes
+        while True:
+            try:
+                total_outcomes = int(input("Enter the total number of possible outcomes: "))
+                successful_outcomes = int(input("Enter the number of successful outcomes: "))
+                if total_outcomes > 0 and successful_outcomes >= 0 and successful_outcomes <= total_outcomes:
+                    break
+                else:
+                    print("Please enter valid input.")
+            except ValueError:
+                print("Invalid input. Please enter integers.")
+
+        # Calculate the probability
+        probability = successful_outcomes / total_outcomes
+
+        # Print the result
+        print(f"The probability of success is: {probability:.2f}\n")
+
+    elif choice == 2:
+        # Get the number of coin flips as an integer
+        while True:
+            try:
+                num_flips = int(input("Number of coin flips (higher numbers result in longer waiting times): "))
+                if num_flips > 0:
+                    break
+                else:
+                    print("Please enter a positive integer.")
+            except ValueError:
+                print("Invalid input. Please enter a positive integer.")
+
+        heads_count = 0
+        tails_count = 0
+
+        for _ in range(num_flips):
+            result = coin_flip()
+            if result == "Heads":
+                heads_count += 1
+            else:
+                tails_count += 1
+
+        # Calculate the probabilities
+        probability_heads = heads_count / num_flips
+        probability_tails = tails_count / num_flips
+
+        # Print the results
+        print(f"Number of Heads: {heads_count}")
+        print(f"Number of Tails: {tails_count}")
+        print(f"Probability of Heads: {probability_heads:.2f}")
+        print(f"Probability of Tails: {probability_tails:.2f}\n")
+
+    else:
+        print("Invalid choice. Please select 1 or 2.\n")
 
 def start():
     """
@@ -844,9 +907,9 @@ Main hub UI that displays all of the calculators in the project
         print(colors.green + "All Calculators", colors.reset)
         choice = int(input('''
 (1) Basic Calculator     |       (6) Randomization       |       (11) Download Time
-(2) Algebra              |       (7) Stocks              |       (12) Main Menu
-(3) Geometry             |       (8) Bitwise Operations  |       (13) Exit
-(4) Financial            |       (9) Percentage
+(2) Algebra              |       (7) Stocks              |       (12) Probability
+(3) Geometry             |       (8) Bitwise Operations  |       (13) Main Menu
+(4) Financial            |       (9) Percentage          |       (14) Exit
 (5) Health               |       (10) Gaming
 
 Which calculator would you like to use: '''))
@@ -875,8 +938,10 @@ Which calculator would you like to use: '''))
         elif choice == 11:
             download_time()
         elif choice == 12:
-            return
+            probability_calculator()
         elif choice == 13:
+            return
+        elif choice == 14:
             raise Exit
         else:
             print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
