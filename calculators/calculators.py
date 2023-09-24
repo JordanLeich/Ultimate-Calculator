@@ -841,7 +841,7 @@ import random
 def coin_flip():
     return random.choice(["Heads", "Tails"])
 
-def probability_calculator():
+def probability():
     # Option to calculate probability or simulate coin flips
     choice = int(input("Calculate the probability of something (1) or simulate the probability of coin flips (2): "))
 
@@ -899,6 +899,28 @@ def probability_calculator():
     else:
         print("Invalid choice. Please select 1 or 2.\n")
 
+def calculate_gpa(grades, credits):
+    total_credits = sum(credits)
+    weighted_grade_points = sum(grade * credit for grade, credit in zip(grades, credits))
+    gpa = weighted_grade_points / total_credits
+    return gpa
+
+def gpa():
+    num_courses = int(input("Enter the number of courses: "))
+    
+    grades = []
+    credits = []
+    
+    for i in range(num_courses):
+        course_grade = float(input(f"Enter the grade for course {i + 1} (0-4.0): "))
+        course_credit = float(input(f"Enter the credit hours for course {i + 1}: "))
+        
+        grades.append(course_grade)
+        credits.append(course_credit)
+    
+    gpa = calculate_gpa(grades, credits)
+    print(f"Your GPA is: {gpa:.2f}\n")
+
 def start():
     """
 Main hub UI that displays all of the calculators in the project
@@ -908,9 +930,9 @@ Main hub UI that displays all of the calculators in the project
         choice = int(input('''
 (1) Basic Calculator     |       (6) Randomization       |       (11) Download Time
 (2) Algebra              |       (7) Stocks              |       (12) Probability
-(3) Geometry             |       (8) Bitwise Operations  |       (13) Main Menu
-(4) Financial            |       (9) Percentage          |       (14) Exit
-(5) Health               |       (10) Gaming
+(3) Geometry             |       (8) Bitwise Operations  |       (13) GPA
+(4) Financial            |       (9) Percentage          |       (14) Main Menu
+(5) Health               |       (10) Gaming             |       (15) Exit
 
 Which calculator would you like to use: '''))
         print()
@@ -938,10 +960,12 @@ Which calculator would you like to use: '''))
         elif choice == 11:
             download_time()
         elif choice == 12:
-            probability_calculator()
+            probability()
         elif choice == 13:
-            return
+            gpa()    
         elif choice == 14:
+            return
+        elif choice == 15:
             raise Exit
         else:
             print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
