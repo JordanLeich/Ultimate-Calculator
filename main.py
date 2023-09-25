@@ -41,7 +41,7 @@ def main_menu():
             extras.start()
         elif choice == '5':
             print('Exiting the Ultimate Calculator...')
-            break
+            quit()
         else:
             print(colors.red + "Invalid Choice. Please select a valid option.\n", colors.reset)
 

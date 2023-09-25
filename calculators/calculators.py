@@ -923,9 +923,25 @@ Select which file size type the download is: '''))
 def coin_flip():
     return random.choice(["Heads", "Tails"])
 
+def conditional_probability():
+    # Define the total sample space size (total number of possible outcomes)
+    total_sample_space = float(input("Enter the size of the sample space: "))
+    # Get the count of event A (e.g., the number of successful outcomes)
+    event_a = float(input("Enter the count of event A: "))
+    # Get the count of event B (e.g., the number of successful outcomes)
+    event_b = float(input("Enter the count of event B: "))
+    # Calculate the conditional probability and display the result
+    # Calculate P(A ∩ B), the probability of both events A and B occurring
+    p_a_and_b = event_a / total_sample_space
+    # Calculate P(B), the probability of event B occurring
+    p_b = event_b / total_sample_space
+    # Calculate P(A|B), the conditional probability of A given B
+    p_a_given_b = p_a_and_b / p_b
+    print(p_a_given_b, "\n")
+
 def probability():
     # Option to calculate probability or simulate coin flips
-    choice = int(input("Calculate the probability of something (1) or simulate the probability of coin flips (2) or odds of winning the lottery (3): "))
+    choice = int(input("Calculate the probability of something (1) or simulate the probability of coin flips (2) or odds of winning the lottery (3) or find a conditional probability (4): "))
 
     if choice == 1:
         # Get user input for total outcomes and successful outcomes
@@ -980,6 +996,9 @@ def probability():
 
     elif choice == 3:
         lottery()
+    
+    elif choice == 4:
+        conditional_probability()
 
     else:
         print("Invalid choice. Please select 1 or 2.\n")
@@ -1070,8 +1089,8 @@ def start():
         print("")
 
         if choice.lower() == 'exit':
-            print("Exiting the program.")
-            break
+            print("Exiting the Ultimate Calculator...")
+            quit()
 
         try:
             choice = int(choice)
