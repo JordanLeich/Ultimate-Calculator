@@ -1,8 +1,7 @@
 import math
 import random
 import time
-import sympy as sp
-import re
+import networkx as nx
 import matplotlib.pyplot as plt
 import numpy as np
 from modules.tools import repeat_input
@@ -720,6 +719,14 @@ Small game of heads or tails used in the randomization function
     print('You have picked:', choice)
     print('The coin flip landed on:', random.choice(coin_flip), '\n')
 
+def random_graph():
+    # Create a random Erdős-Rényi graph with 20 nodes and a probability of edge creation p=0.3
+    G = nx.erdos_renyi_graph(20, 0.3)
+
+    # Draw the graph
+    nx.draw(G, with_labels=True, node_color='skyblue', node_size=500)
+    plt.title("Random Erdős-Rényi Graph")
+    plt.show()
 
 def randomization():
     """
@@ -727,9 +734,10 @@ Main hub for all randomization calculators/games
     """
     while True:
         choice = int(input("""(1) Random Number Generator
-(2) Heads or Tails                     
-(3) Return to list of calculators
-(4) Exit
+(2) Heads or Tails
+(3) Generate a random Erdős-Rényi graph
+(4) Return to list of calculators
+(5) Exit
 
 Which calculation would you like to perform: """))
         print()
@@ -739,8 +747,10 @@ Which calculation would you like to perform: """))
         elif choice == 2:
             heads_or_tails()
         elif choice == 3:
-            break
+            random_graph()
         elif choice == 4:
+            break
+        elif choice == 5:
             raise Exit
         else:
             print(colors.red + "User input error found...\n", colors.reset)
