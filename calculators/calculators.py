@@ -719,13 +719,28 @@ Small game of heads or tails used in the randomization function
     print('You have picked:', choice)
     print('The coin flip landed on:', random.choice(coin_flip), '\n')
 
-def random_graph():
+def random_erdos_graph():
     # Create a random Erdős-Rényi graph with 20 nodes and a probability of edge creation p=0.3
     G = nx.erdos_renyi_graph(20, 0.3)
 
     # Draw the graph
     nx.draw(G, with_labels=True, node_color='skyblue', node_size=500)
     plt.title("Random Erdős-Rényi Graph")
+    plt.show()
+
+def random__graph():
+    # Create an empty graph
+    G = nx.Graph()
+
+    # Add nodes to the graph (you can specify the number of nodes)
+    G.add_nodes_from([1, 2, 3, 4, 5])
+
+    # Add random edges between nodes
+    G.add_edges_from([(1, 2), (2, 3), (3, 4), (4, 5), (5, 1)])
+
+    # Draw the graph
+    nx.draw(G, with_labels=True, node_color='skyblue', node_size=500, font_size=12, font_color='black', font_weight='bold')
+    plt.title("Random Graph")
     plt.show()
 
 def randomization():
@@ -736,8 +751,9 @@ Main hub for all randomization calculators/games
         choice = int(input("""(1) Random Number Generator
 (2) Heads or Tails
 (3) Generate a random Erdős-Rényi graph
-(4) Return to list of calculators
-(5) Exit
+(4) Generate a random graph
+(5) Return to list of calculators
+(6) Exit
 
 Which calculation would you like to perform: """))
         print()
@@ -747,10 +763,12 @@ Which calculation would you like to perform: """))
         elif choice == 2:
             heads_or_tails()
         elif choice == 3:
-            random_graph()
+            random_erdos_graph()
         elif choice == 4:
-            break
+            random__graph()
         elif choice == 5:
+            break
+        elif choice == 6:
             raise Exit
         else:
             print(colors.red + "User input error found...\n", colors.reset)
