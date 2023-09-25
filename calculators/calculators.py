@@ -1,15 +1,17 @@
 import math
 import random
 import time
-
+import sympy as sp
+import re
+import matplotlib.pyplot as plt
+import numpy as np
 from modules.tools import repeat_input
 from modules import colors
 from modules.errors import Exit
 
-
 def basic_calc():
     """
-This is the basic arithmetic calculator that handles simply arithmetic equations and outputs the result
+    This is the basic arithmetic calculator that handles simple arithmetic equations and outputs the result.
     """
     history = []
     print(colors.yellow + "Use '--help' for help\n", colors.reset)
@@ -20,7 +22,7 @@ This is the basic arithmetic calculator that handles simply arithmetic equations
             print("""
 --help: list of commands
 --history: past calculations
---exit: return to list of calculators
+--exit: return to the list of calculators
             """)
         elif calculation in ["--history", 'history']:
             for i in history:
@@ -34,118 +36,169 @@ This is the basic arithmetic calculator that handles simply arithmetic equations
                 history.append(f"{calculation} = {answer}")
 
             except SyntaxError:
-                print("Calculation Error")
+                print("Calculation Error\n")
                 continue
-
 
 def rise_over_run_slope(y2, y1, x2, x1):
     """
-Handles the formula used for rise over run format to find slope
+    Handles the formula used for rise over run format to find slope
     """
-    y2 = float(y2)
-    y1 = float(y1)
-    x2 = float(x2)
-    x1 = float(x1)
-    return (y2 - y1) / (x2 - x1)
-
+    try:
+        y2 = float(y2)
+        y1 = float(y1)
+        x2 = float(x2)
+        x1 = float(x1)
+        return (y2 - y1) / (x2 - x1)
+    except ValueError:
+        return "Invalid input. Please enter numeric values for coordinates."
 
 def slope_intercept_form(m, x, b):
     """
-Handles the formula used for y=mx+b format to find slope
+    Handles the formula used for y=mx+b format to find slope
     """
-    m = float(m)
-    x = float(x)
-    b = float(b)
-    return m * x + b
-
+    try:
+        m = float(m)
+        x = float(x)
+        b = float(b)
+        return m * x + b
+    except ValueError:
+        return "Invalid input. Please enter numeric values for m, x, and b."
 
 def square_root(number):
     """
-function to find square root of number
+    Function to find the square root of a number
     """
-    return math.sqrt(number)
-
+    try:
+        number = float(number)
+        if number < 0:
+            return "Invalid input. Square root is undefined for negative numbers."
+        return math.sqrt(number)
+    except ValueError:
+        return "Invalid input. Please enter a numeric value."
 
 def square(number):
     """
-function to find square of number
+    Function to find the square of a number
     """
-    return int(number ** 2)
-
+    try:
+        number = float(number)
+        return number ** 2
+    except ValueError:
+        return "Invalid input. Please enter a numeric value."
 
 def sin(number):
     """
-function to find sin value of number
+    Function to find the sine value of a number
     """
-    return math.sin(number)
-
+    try:
+        number = float(number)
+        return math.sin(number)
+    except ValueError:
+        return "Invalid input. Please enter a numeric value."
 
 def cos(number):
     """
-function to find cos value of number
+    Function to find the cosine value of a number
     """
-    return math.cos(number)
-
+    try:
+        number = float(number)
+        return math.cos(number)
+    except ValueError:
+        return "Invalid input. Please enter a numeric value."
 
 def tan(number):
     """
-function to find tan value of number
+    Function to find the tangent value of a number
     """
-    return math.tan(number)
-
+    try:
+        number = float(number)
+        return math.tan(number)
+    except ValueError:
+        return "Invalid input. Please enter a numeric value."
 
 def find_pythagorean(formula, a="", b="", c=""):
     """
-Handles the formula used for pythagorean theorem
+    Handles the formula used for the Pythagorean theorem
     """
-    if formula == 'a':
-        side_b = int(b)
-        side_c = int(c)
-        side_a = math.sqrt(side_c ** 2 - side_b ** 2)
+    try:
+        if formula == 'a':
+            side_b = float(b)
+            side_c = float(c)
+            side_a = math.sqrt(side_c ** 2 - side_b ** 2)
+            return side_a
 
-        return side_a
+        elif formula == 'b':
+            side_a = float(a)
+            side_c = float(c)
+            side_b = math.sqrt(side_c ** 2 - side_a ** 2)
+            return side_b
 
-    elif formula == 'b':
-        side_a = int(a)
-        side_c = int(c)
-        side_b = math.sqrt(side_c ** 2 - side_a ** 2)
-
-        return side_b
-
-    elif formula == 'c':
-        side_a = int(a)
-        side_b = int(b)
-        side_c = math.sqrt(side_a ** 2 + side_b ** 2)
-
-        return side_c
-
+        elif formula == 'c':
+            side_a = float(a)
+            side_b = float(b)
+            side_c = math.sqrt(side_a ** 2 + side_b ** 2)
+            return side_c
+        else:
+            return "Invalid input. Please enter 'a', 'b', or 'c' for the Pythagorean theorem formula."
+    except ValueError:
+        return "Invalid input. Please enter numeric values for the sides."
 
 def find_distance(x1, y1, x2, y2):
     """
-Handles the formula used for finding the distance between two graphed points
+    Handles the formula used for finding the distance between two graphed points
     """
-    x1 = float(x1)
-    y1 = float(y1)
-    x2 = float(x2)
-    y2 = float(y2)
-
-    return math.sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2))
-
+    try:
+        x1 = float(x1)
+        y1 = float(y1)
+        x2 = float(x2)
+        y2 = float(y2)
+        return math.sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2))
+    except ValueError:
+        return "Invalid input. Please enter numeric values for coordinates."
 
 def find_midpoint(x1, y1, x2, y2):
     """
-Handles the formula used for finding the midpoint between two graphed points
+    Handles the formula used for finding the midpoint between two graphed points
     """
-    x1 = float(x1)
-    y1 = float(y1)
-    x2 = float(x2)
-    y2 = float(y2)
+    try:
+        x1 = float(x1)
+        y1 = float(y1)
+        x2 = float(x2)
+        y2 = float(y2)
 
-    x_m_point = (x1 + x2) / 2
-    y_m_point = (y1 + y2) / 2
+        x_m_point = (x1 + x2) / 2
+        y_m_point = (y1 + y2) / 2
 
-    return x_m_point, y_m_point
+        return x_m_point, y_m_point
+    except ValueError:
+        return "Invalid input. Please enter numeric values for coordinates."
 
+def graphing():
+    # Get user input for m and b
+    try:
+        m = float(input("Enter the value of m: "))
+        b = float(input("Enter the value of b: "))
+    except ValueError:
+        print("Invalid input. Please enter numeric values for m and b.")
+        exit(1)
+
+    # Generate x values
+    x = np.linspace(-10, 10, 400)  # You can adjust the range of x-values as needed
+
+    # Calculate y values based on the linear equation y = mx + b
+    y = m * x + b
+
+    # Create the plot
+    plt.figure(figsize=(8, 6))
+    plt.plot(x, y, label=f'y = {m}x + {b}')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.title('Linear Equation Plot')
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+    plt.legend()
+    plt.show()
 
 def algebra():  # sourcery no-metrics
     """
@@ -160,8 +213,9 @@ Entire operation and hub for all algebra related calculators
 (5) Find The Midpoint of a Line
 (6) Find Cos, Sin, or Tan value of a number
 (7) Square or Square Root a number
-(8) Return to list of calculators
-(9) Quit
+(8) Create a graph (y=mx+b)                           
+(9) Return to list of calculators
+(10) Quit
 
 What calculation would you like to perform: '''))
         print()
@@ -288,13 +342,14 @@ Which option would you like to pick: '''))
                 print(colors.red + 'User input error found...\n', colors.reset)
                 time.sleep(2)
         elif choice == 8:
-            break
+            graphing()
         elif choice == 9:
+            break
+        elif choice == 10:
             raise Exit
         else:
             print(colors.red + 'User input error found...\n', colors.reset)
             time.sleep(2)
-
 
 def payroll():
     """
@@ -672,7 +727,7 @@ Main hub for all randomization calculators/games
     """
     while True:
         choice = int(input("""(1) Random Number Generator
-(2) Heads or Tails 
+(2) Heads or Tails                     
 (3) Return to list of calculators
 (4) Exit
 
@@ -828,6 +883,7 @@ Select which file size type the download is: '''))
     else:
         print(colors.red + 'User input error found...\n', colors.reset)
         time.sleep(2)
+    print("Here's how long it will take for your download to complete...")
     download_time_in_seconds = file_size / (download_speed / 8)
     print(colors.green + str(download_time_in_seconds), 'Seconds.')
     download_time_in_minutes = download_time_in_seconds / 60
@@ -835,15 +891,13 @@ Select which file size type the download is: '''))
     download_time_in_hours = download_time_in_minutes / 60
     print(str(download_time_in_hours), 'Hours.\n', colors.reset)
 
-import random
-
 # Function to simulate a coin flip
 def coin_flip():
     return random.choice(["Heads", "Tails"])
 
 def probability():
     # Option to calculate probability or simulate coin flips
-    choice = int(input("Calculate the probability of something (1) or simulate the probability of coin flips (2): "))
+    choice = int(input("Calculate the probability of something (1) or simulate the probability of coin flips (2) or odds of winning the lottery (3): "))
 
     if choice == 1:
         # Get user input for total outcomes and successful outcomes
@@ -896,6 +950,9 @@ def probability():
         print(f"Probability of Heads: {probability_heads:.2f}")
         print(f"Probability of Tails: {probability_tails:.2f}\n")
 
+    elif choice == 3:
+        lottery()
+
     else:
         print("Invalid choice. Please select 1 or 2.\n")
 
@@ -921,55 +978,83 @@ def gpa():
     gpa = calculate_gpa(grades, credits)
     print(f"Your GPA is: {gpa:.2f}\n")
 
+def lottery():
+    # Define the parameters of the lottery game
+    num_tickets = 1000000  # Number of tickets purchased
+    winning_numbers = [random.randint(1, 20) for _ in range(5)]
+
+    # Initialize a counter to keep track of the number of wins
+    num_wins = 0
+
+    # Simulate the lottery draws
+    for _ in range(1):
+        for _ in range(num_tickets):
+            ticket = [random.randint(1, 20) for _ in range(5)]
+            
+            # Check if the ticket matches the winning numbers
+            if ticket == winning_numbers:
+                num_wins += 1
+
+    # Calculate the probability of winning
+    probability = num_wins / num_tickets
+
+    print(f"Winning Numbers: {winning_numbers}")
+    print(f"Number of Wins: {num_wins}")
+    print(f"Number of Tickets Purchased: {num_tickets}")
+    print(f"Probability of Winning: {probability:.6f}\n")
+
 def start():
-    """
-Main hub UI that displays all of the calculators in the project
-    """
+    calculator_functions = {
+    1: basic_calc,
+    2: algebra,
+    3: geometry,
+    4: financial,
+    5: health,
+    6: randomization,
+    7: stocks,
+    8: bitwise,
+    9: percentage,
+    10: gaming,
+    11: download_time,
+    12: probability,
+    13: gpa
+}
+    
     while True:
         print(colors.green + "All Calculators", colors.reset)
-        choice = int(input('''
-(1) Basic Calculator     |       (6) Randomization       |       (11) Download Time
-(2) Algebra              |       (7) Stocks              |       (12) Probability
-(3) Geometry             |       (8) Bitwise Operations  |       (13) GPA
-(4) Financial            |       (9) Percentage          |       (14) Main Menu
-(5) Health               |       (10) Gaming             |       (15) Exit
+        print('''
+(1) Basic Calculator
+(2) Algebra
+(3) Geometry
+(4) Financial
+(5) Health
+(6) Randomization
+(7) Stocks
+(8) Bitwise Operations
+(9) Percentage
+(10) Gaming
+(11) Download Time
+(12) Probability
+(13) GPA
+(14) Main Menu
+        ''')
+        choice = input("Which calculator would you like to use (or 'exit' to quit): ")
+        print("")
 
-Which calculator would you like to use: '''))
-        print()
+        if choice.lower() == 'exit':
+            print("Exiting the program.")
+            break
 
-        if choice == 1:
-            basic_calc()
-        elif choice == 2:
-            algebra()
-        elif choice == 3:
-            geometry()
-        elif choice == 4:
-            financial()
-        elif choice == 5:
-            health()
-        elif choice == 6:
-            randomization()
-        elif choice == 7:
-            stocks()
-        elif choice == 8:
-            bitwise()
-        elif choice == 9:
-            percentage()
-        elif choice == 10:
-            gaming()
-        elif choice == 11:
-            download_time()
-        elif choice == 12:
-            probability()
-        elif choice == 13:
-            gpa()    
-        elif choice == 14:
-            return
-        elif choice == 15:
-            raise Exit
-        else:
-            print(colors.red + 'User input error found... Restarting user input choice...\n', colors.reset)
-
+        try:
+            choice = int(choice)
+            if choice in calculator_functions:
+                calculator_functions[choice]()  # Call the selected calculator function
+            elif choice == 14:
+                return
+            else:
+                print(colors.red + 'Invalid choice. Please select a valid calculator or "exit".\n', colors.reset)
+        except ValueError:
+            print(colors.red + 'Invalid input. Please enter a valid integer choice or "exit".\n', colors.reset)
 
 if __name__ == '__main__':
     start()
