@@ -1080,12 +1080,6 @@ def probability():
     else:
         print("Invalid choice. Please select 1 or 2.\n")
 
-def calculate_gpa(grades, credits):
-    total_credits = sum(credits)
-    weighted_grade_points = sum(grade * credit for grade, credit in zip(grades, credits))
-    gpa = weighted_grade_points / total_credits
-    return gpa
-
 def gpa():
     num_courses = int(input("Enter the number of courses: "))
     
@@ -1099,8 +1093,126 @@ def gpa():
         grades.append(course_grade)
         credits.append(course_credit)
     
-    gpa = calculate_gpa(grades, credits)
+    total_credits = sum(credits)
+    weighted_grade_points = sum(grade * credit for grade, credit in zip(grades, credits))
+    gpa = weighted_grade_points / total_credits
     print(f"Your GPA is: {gpa:.2f}\n")
+
+def financial_aid():
+    # Get user input for family income, household size, and cost of attendance
+    family_income = float(input("Enter family income: "))
+    household_size = int(input("Enter household size: "))
+    cost_of_attendance = float(input("Enter cost of attendance: "))
+
+    # Perform eligibility calculation (example criteria)
+    if family_income < 50000 and household_size <= 4 and cost_of_attendance > 0:
+        eligible = True
+    else:
+        eligible = False
+
+    if eligible:
+        print("You are eligible for financial aid.\n")
+    else:
+        print("You are not eligible for financial aid.\n")
+
+def Student_Teacher_Ratio():
+    # Get user input for the number of students and the number of teachers
+    num_students = int(input("Enter the number of students: "))
+    num_teachers = int(input("Enter the number of teachers: "))
+
+    # Calculate student-to-teacher ratio
+    student_teacher_ratio = num_students / num_teachers
+
+    print(f"Student-to-Teacher Ratio: {student_teacher_ratio}\n")
+
+def Graduation_Rate():
+    # Get user input for the number of students who graduated and the total number of students at the beginning
+    graduated_students = int(input("Enter the number of students who graduated: "))
+    initial_students = int(input("Enter the number of students at the beginning: "))
+
+    # Calculate graduation rate
+    graduation_rate = (graduated_students / initial_students) * 100
+
+    print(f"Graduation Rate: {graduation_rate}%\n")
+
+def Dropout_Rate():
+    # Get user input for the number of students who dropped out and the total number of students at the beginning
+    dropout_students = int(input("Enter the number of students who dropped out: "))
+    initial_students = int(input("Enter the number of students at the beginning: "))
+
+    # Calculate dropout rate
+    dropout_rate = (dropout_students / initial_students) * 100
+
+    print(f"Dropout Rate: {dropout_rate}%\n")
+
+def Retention_Rate():
+    # Get user input for the number of students at the beginning and end of a period
+    initial_students = int(input("Enter the number of students at the beginning: "))
+    final_students = int(input("Enter the number of students at the end: "))
+
+    # Calculate retention rate
+    retention_rate = (final_students / initial_students) * 100
+
+    print(f"Retention Rate: {retention_rate}%\n")
+
+def Attendance_Rate():
+    # Get user input for the number of classes attended and the total number of classes
+    classes_attended = int(input("Enter the number of classes attended: "))
+    total_classes = int(input("Enter the total number of classes: "))
+
+    # Calculate attendance rate
+    attendance_rate = (classes_attended / total_classes) * 100
+
+    print(f"Attendance Rate: {attendance_rate}%\n")
+
+def Percentage_Scores():
+    # Get user input for marks obtained and total marks
+    marks_obtained = float(input("Enter marks obtained: "))
+    total_marks = float(input("Enter total marks: "))
+
+    # Calculate the percentage
+    percentage = (marks_obtained / total_marks) * 100
+
+    print(f"Percentage: {percentage}%\n")
+
+education_functions = {
+        1: gpa,
+        2: Percentage_Scores,
+        3: Attendance_Rate,
+        4: Retention_Rate,
+        5: Dropout_Rate,
+        6: Graduation_Rate,
+        7: Student_Teacher_Ratio,
+        8: financial_aid
+}
+
+def education():
+    choice = input("""(1) GPA (Grade Point Average)
+(2) Percentage Scores
+(3) Attendance Rate
+(4) Retention Rate
+(5) Dropout Rate
+(6) Graduation Rate
+(7) Student-to-Teacher Ratio
+(8) Financial Aid Eligibility
+(9) Return
+Choose an education calculator: """)
+    print("")
+
+    if choice.lower() == 'exit':
+        print("Exiting the Ultimate Calculator...")
+        quit()
+
+    try:
+        choice = int(choice)
+        if choice in education_functions:
+            education_functions[choice]()  # Call the selected education function
+        elif choice == 9:
+            return
+        else:
+            print(colors.red + 'Invalid choice. Please select a valid calculator or "exit".\n', colors.reset)
+    except ValueError:
+        print(colors.red + 'Invalid input. Please enter a valid integer choice or "exit".\n', colors.reset)
 
 def lottery():
     # Define the parameters of the lottery game
@@ -1141,7 +1253,7 @@ def start():
     10: gaming,
     11: download_time,
     12: probability,
-    13: gpa,
+    13: education,
     14: stats
 }
     
@@ -1160,7 +1272,7 @@ def start():
 (10) Gaming
 (11) Download Time
 (12) Probability
-(13) GPA
+(13) Education
 (14) Statistics
 (15) Main Menu
         ''')
