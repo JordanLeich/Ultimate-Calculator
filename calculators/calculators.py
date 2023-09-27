@@ -1,4 +1,5 @@
 import math
+import statistics
 import random
 import time
 import networkx as nx
@@ -7,6 +8,82 @@ import numpy as np
 from modules.tools import repeat_input
 from modules import colors
 from modules.errors import Exit
+from scipy.stats import skew, kurtosis
+
+# Calculate and print statistics
+def stats():
+    input_string = input("Enter a list of numbers separated by spaces: ")
+    num_list = [float(x) for x in input_string.split()]
+    # Calculate mean
+    mean = statistics.mean(num_list)
+    
+    # Calculate median
+    median = statistics.median(num_list)
+    
+    # Calculate mode (may return multiple modes if they exist)
+    try:
+        mode = statistics.mode(num_list)
+    except statistics.StatisticsError:
+        mode = "No unique mode found"
+    
+    # Calculate range
+    num_list.sort()
+    min_val = num_list[0]
+    max_val = num_list[-1]
+    data_range = max_val - min_val
+    
+    # Calculate quartiles (Q1 and Q3)
+    q1 = statistics.median(num_list[:len(num_list)//2])
+    q3 = statistics.median(num_list[(len(num_list)+1)//2:])
+    
+    # Calculate interquartile range (IQR)
+    iqr = q3 - q1
+    
+    # Calculate minimum and maximum
+    minimum = min(num_list)
+    maximum = max(num_list)
+    
+    # Calculate standard deviation
+    stdev = statistics.stdev(num_list)
+    
+    # Calculate variance
+    variance = statistics.variance(num_list)
+    
+    # Calculate coefficient of variation (CV)
+    cv = (stdev / mean) * 100
+    
+    # Calculate skewness and kurtosis
+    skewness = skew(num_list)
+    kurt = kurtosis(num_list)
+    
+    # Plot Histogram
+    plt.hist(num_list, bins=10, edgecolor='k')
+    plt.xlabel('Value')
+    plt.ylabel('Frequency')
+    plt.title('Histogram')
+    plt.show()
+    
+    # Plot Box Plot
+    plt.boxplot(num_list)
+    plt.ylabel('Value')
+    plt.title('Box Plot')
+    plt.show()
+    
+    # Print the results
+    print("Mean:", mean)
+    print("Median:", median)
+    print("Mode:", mode)
+    print("Range:", data_range)
+    print("Q1:", q1)
+    print("Q3:", q3)
+    print("IQR:", iqr)
+    print("Minimum:", minimum)
+    print("Maximum:", maximum)
+    print("Standard Deviation:", stdev)
+    print("Variance:", variance)
+    print("Coefficient of Variation (CV):", cv)
+    print("Skewness:", skewness)
+    print("Kurtosis:", kurt, "\n")
 
 def basic_calc():
     """
@@ -1064,7 +1141,8 @@ def start():
     10: gaming,
     11: download_time,
     12: probability,
-    13: gpa
+    13: gpa,
+    14: stats
 }
     
     while True:
@@ -1083,7 +1161,8 @@ def start():
 (11) Download Time
 (12) Probability
 (13) GPA
-(14) Main Menu
+(14) Statistics
+(15) Main Menu
         ''')
         choice = input("Which calculator would you like to use (or 'exit' to quit): ")
         print("")
@@ -1096,7 +1175,7 @@ def start():
             choice = int(choice)
             if choice in calculator_functions:
                 calculator_functions[choice]()  # Call the selected calculator function
-            elif choice == 14:
+            elif choice == 15:
                 return
             else:
                 print(colors.red + 'Invalid choice. Please select a valid calculator or "exit".\n', colors.reset)
