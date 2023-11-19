@@ -16,7 +16,7 @@ import re
 def generate_fibonacci_sequence(n, memo={}):
     if n <= 0:
         return []
-    
+
     fibonacci_sequence = [0, 1]
 
     while len(fibonacci_sequence) < n:
@@ -31,7 +31,9 @@ def other_math():
     print()
     if choice in ["y", "yes"]:
         try:
-            num_terms = int(input("Enter the number of Fibonacci sequence terms to generate: "))
+            num_terms = int(
+                input("Enter the number of Fibonacci sequence terms to generate: ")
+            )
         except ValueError:
             print("Invalid input. Please enter a positive integer.")
             return
@@ -1326,6 +1328,7 @@ def download_time():
     """
     Used to calculate the download time for a file size being downloaded.
     """
+    import time
     download_speed = float
     print(colors.yellow + "---Important notes about this calculator---\n")
     time.sleep(1)
@@ -1580,6 +1583,29 @@ def Percentage_Scores():
     print(f"Percentage: {percentage}%\n")
 
 
+def time_simulator():
+    seconds = int(input("Enter the number of seconds to simulate: "))
+
+    babies_born = 4 * seconds
+    lightning_strikes = 100 * seconds
+    people_passed_away = 2 * seconds
+    earth_distance_traveled = 19 * seconds
+    universe_supernova_explosions = 1000 * seconds
+    new_stars_born = 3000 * seconds
+    universe_expansion = 75 * seconds
+    pizza_slices_eaten = 350 * seconds
+
+    print(f"In {seconds} seconds:")
+    print(f"{babies_born} babies were born.")
+    print(f"Earth was struck by lightning {lightning_strikes} times.")
+    print(f"{people_passed_away} people passed away.")
+    print(f"Earth traveled {earth_distance_traveled} miles through space.")
+    print(f"{universe_supernova_explosions} stars exploded into supernova.")
+    print(f"{new_stars_born} new stars were born.")
+    print(f"The universe expanded by {universe_expansion} km.")
+    print(f"{pizza_slices_eaten} slices of pizza were eaten.\n")
+
+
 education_functions = {
     1: gpa,
     2: Percentage_Scores,
@@ -1589,6 +1615,11 @@ education_functions = {
     6: Graduation_Rate,
     7: Student_Teacher_Ratio,
     8: financial_aid,
+}
+
+time_functions = {
+    1: download_time,
+    2: time_simulator,
 }
 
 
@@ -1657,6 +1688,39 @@ def lottery():
     print(f"Probability of Winning: {probability:.6f}\n")
 
 
+def time():
+    choice = input(
+        """(1) Download time
+(2) time simulator
+(3) Return
+Choose a time calculator: """
+    )
+    print("")
+
+    if choice.lower() == "exit":
+        print("Exiting the Ultimate Calculator...")
+        quit()
+
+    try:
+        choice = int(choice)
+        if choice in time_functions:
+            time_functions[choice]()
+        elif choice == 3:
+            return
+        else:
+            print(
+                colors.red
+                + 'Invalid choice. Please select a valid calculator or "exit".\n',
+                colors.reset,
+            )
+    except ValueError:
+        print(
+            colors.red
+            + 'Invalid input. Please enter a valid integer choice or "exit".\n',
+            colors.reset,
+        )
+
+
 def start():
     calculator_functions = {
         1: basic_calc,
@@ -1669,7 +1733,7 @@ def start():
         8: bitwise,
         9: percentage,
         10: gaming,
-        11: download_time,
+        11: time,
         12: probability,
         13: education,
         14: stats,
@@ -1690,7 +1754,7 @@ def start():
 (8) Bitwise Operations
 (9) Percentage
 (10) Gaming
-(11) Download Time
+(11) Time
 (12) Probability
 (13) Education
 (14) Statistics
