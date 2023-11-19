@@ -13,6 +13,44 @@ from collections import Counter
 import re
 
 
+def generate_fibonacci_sequence(n, memo={}):
+    if n <= 0:
+        return []
+
+    if n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+
+    if n not in memo:
+        memo[n] = generate_fibonacci_sequence(n - 1, memo)[-1] + generate_fibonacci_sequence(n - 2, memo)[-1]
+
+    return generate_fibonacci_sequence(n - 1, memo) + [memo[n]]
+
+def other_math():
+    choice = str(input("Find the Fibonacci Sequence? (yes / no): "))
+    print()
+    if choice in ["y", "yes"]:
+        try:
+            num_terms = int(input("Enter the number of Fibonacci sequence terms to generate: "))
+        except ValueError:
+            print("Invalid input. Please enter a positive integer.")
+            return
+
+        if num_terms <= 0:
+            print("Please enter a positive integer.")
+            return
+
+        fibonacci_sequence = generate_fibonacci_sequence(num_terms)
+        # Print the Fibonacci sequence
+        print("Fibonacci Sequence:")
+        print(fibonacci_sequence, "\n")
+    elif choice in ["n", "no"]:
+        return
+    else:
+        print("Error...")
+
+
 def stats():
     try:
         input_string = input("Enter a list of numbers separated by spaces: ")
@@ -1398,7 +1436,7 @@ def probability():
             try:
                 num_flips = int(
                     input(
-                        "Number of coin flips (higher numbers result in longer waiting times): "
+                        "Number of coin flips (higher numbers result in longer waiting times or possible computer crashes): "
                     )
                 )
                 if num_flips > 0:
@@ -1636,6 +1674,7 @@ def start():
         12: probability,
         13: education,
         14: stats,
+        15: other_math,
     }
 
     while True:
@@ -1656,7 +1695,8 @@ def start():
 (12) Probability
 (13) Education
 (14) Statistics
-(15) Main Menu
+(15) Other Mathematics
+(16) Main Menu
         """
         )
         choice = input("Which calculator would you like to use (or 'exit' to quit): ")
@@ -1669,7 +1709,7 @@ def start():
             choice = int(choice)
             if choice in calculator_functions:
                 calculator_functions[choice]()
-            elif choice == 15:
+            elif choice == 16:
                 return
             else:
                 print(
