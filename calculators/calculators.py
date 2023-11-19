@@ -16,16 +16,15 @@ import re
 def generate_fibonacci_sequence(n, memo={}):
     if n <= 0:
         return []
+    
+    fibonacci_sequence = [0, 1]
 
-    if n == 1:
-        return [0]
-    elif n == 2:
-        return [0, 1]
+    while len(fibonacci_sequence) < n:
+        next_term = fibonacci_sequence[-1] + fibonacci_sequence[-2]
+        fibonacci_sequence.append(next_term)
 
-    if n not in memo:
-        memo[n] = generate_fibonacci_sequence(n - 1, memo)[-1] + generate_fibonacci_sequence(n - 2, memo)[-1]
+    return fibonacci_sequence[:n]
 
-    return generate_fibonacci_sequence(n - 1, memo) + [memo[n]]
 
 def other_math():
     choice = str(input("Find the Fibonacci Sequence? (yes / no): "))
@@ -42,9 +41,9 @@ def other_math():
             return
 
         fibonacci_sequence = generate_fibonacci_sequence(num_terms)
-        # Print the Fibonacci sequence
         print("Fibonacci Sequence:")
         print(fibonacci_sequence, "\n")
+
     elif choice in ["n", "no"]:
         return
     else:
